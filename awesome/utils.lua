@@ -141,7 +141,7 @@ m.DISK_USAGE_W_TIMEOUT = 32    -- Disk usage widget update timeout, in seconds
 
 -- Temperature widget
 m.TEMP_W_TIMEOUT = 8           -- Temperature widget update timeout, in seconds
-m.TEMP_W_MAX_TEMP = 80         -- Temperature widget max
+m.TEMP_W_MAX_TEMP = 80         -- Temperature widget max temperature
 --}}}
 
 -- Constants
