@@ -1,0 +1,1 @@
+dofile("/home/wrongway4you/.config/awesome/main")
