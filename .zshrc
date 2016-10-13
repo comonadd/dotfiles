@@ -17,6 +17,10 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 source ~/Scripts/motd.sh
 
+# Change directory aliases
+alias cdG="cd ~/Git/dotfiles"
+
+
 # Short-cut aliases
 alias ll="ls -l"
 alias la="ls -la"
