@@ -1,0 +1,22 @@
+mpd_host = "127.0.0.1"
+mpd_port = "6622"
+mpd_music_dir = "~/.mpd/music"
+
+mpd_connection_timeout = "5"
+mpd_crossfade_time = "0"
+
+song_list_format = "{$8%n▕ $9}{$2%a - $9}{$4%t$9}|{$5%f$9}$R{$5▕ %b$9}{$8▕ %l$9}"
+song_columns_list_format = "(25)[cyan]{a} (30)[red]{b} (40)[red]{t} (7f)[yellow]{l}"
+now_playing_prefix = "$4=> $b"
+display_remaining_time = yes
+
+
+# various settings
+autocenter_mode = "yes"
+header_visibility = "yes"
+progressbar_look = "::"
+statusbar_visibility = "no"
+
+# color definitions
+#main_window_color = "black"
+#main_window_highlight_color = "white"
