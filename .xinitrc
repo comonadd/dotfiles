@@ -1,4 +1,4 @@
 urxvtd -o -f -q
-xrdb ~/.Xresources
+[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
 exec awesome

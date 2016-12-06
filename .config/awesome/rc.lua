@@ -153,7 +153,7 @@ globalkeys = awful.util.table.join(
     awful.key({"Mod4", "Control"}, "-",
         function ()
             sound_manager.set_sound_level_relative(-config.SOUND_LEVEL_STEP)
-        end,
+        end),
     awful.key({"Mod4"}, "p", cli_w.show),
     awful.key({"Mod4"}, "r", awesome.restart),
     awful.key({"Mod4"}, "k", awesome.quit),

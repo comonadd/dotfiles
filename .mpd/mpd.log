@@ -63,3 +63,21 @@ Dec 06 18:32 : client: [12] closed
 Dec 06 18:32 : client: [13] opened from 127.0.0.1:38866
 Dec 06 18:32 : client: [13] closed
 Dec 06 18:32 : client: [14] opened from 127.0.0.1:38868
+Dec 06 14:55 : client: [14] closed
+Dec 06 14:55 : client: [15] opened from 127.0.0.1:39086
+Dec 06 14:58 : client: [15] closed
+Dec 06 14:58 : client: [16] opened from 127.0.0.1:39092
+Dec 06 14:59 : player: played "monstercat_podcast_131.m4a"
+Dec 06 15:00 : client: [16] closed
+Dec 06 15:00 : client: [17] opened from 127.0.0.1:39096
+Dec 06 15:00 : client: [17] closed
+Dec 06 15:00 : client: [18] opened from 127.0.0.1:39098
+Dec 06 15:01 : client: [18] closed
+Dec 06 15:01 : client: [19] opened from 127.0.0.1:39100
+Dec 06 15:04 : ffmpeg/mov,mp4,m4a,3gp,3g2,mj2: stream 0, timescale not set
+Dec 06 15:04 : ffmpeg/mjpeg: Changeing bps to 8
+Dec 06 15:04 : ffmpeg/mjpeg: Changeing bps to 8
+Dec 06 16:08 : client: [19] closed
+Dec 06 16:08 : client: [20] opened from 127.0.0.1:39226
+Dec 06 16:25 : client: [20] closed
+Dec 06 16:25 : client: [21] opened from 127.0.0.1:39380
