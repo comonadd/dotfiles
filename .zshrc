@@ -1,34 +1,28 @@
-# Exporting env variables
-export PS1='\[\033[01;32m\]\u@\h \[\033[01;34m\]\W \$ \[\033[00m\]'
-export ZSH=~/.oh-my-zsh
-export LANG=en_US.UTF-8
+# Environment variables
+export ZSH=/home/wrongway4you/.oh-my-zsh
 export UPDATE_ZSH_DAYS=16
+export LANG=en_US.UTF-8
+export EDITOR=vim
 
-# Configuring ZSH
-ZSH_THEME="dieter"
+# ZSh options
+ZSH_THEME="af-magic"
+CASE_SENSITIVE="false"
+HYPHEN_INSENSITIVE="true"
 DISABLE_AUTO_UPDATE="true"
+DISABLE_LS_COLORS="false"
 DISABLE_AUTO_TITLE="true"
 ENABLE_CORRECTION="false"
-COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="false"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
+HIST_STAMPS="mm/dd/yyyy"
 plugins=(git)
 
-# Initializing
 source $ZSH/oh-my-zsh.sh
-source ~/Scripts/motd.sh
 
-# Change directory aliases
-alias cdG="cd ~/Git/dotfiles"
+# Aliases
+alias eX="$EDITOR ~/.Xresources"
+alias eA="$EDITOR ~/.config/awesome/rc.lua"
+alias eV="$EDITOR ~/.vimrc"
+alias eZ="$EDITOR ~/.zshrc"
 
-
-# Short-cut aliases
-alias ll="ls -l"
-alias la="ls -la"
-
-# "Update" aliases
 alias uX="xrdb ~/.Xresources"
-
-# "Edit" aliases
-alias eA="cd ~/Git/dotfiles/.config/awesome && vim rc.lua"
-alias eZ="cd ~/Git/dotfiles && vim .zshrc"
-alias eV="cd ~/Git/dotfiles && vim .vimrc"

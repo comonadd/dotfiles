@@ -12,6 +12,7 @@ local m = {
     nil, nil, nil, nil,
     nil, nil
 }
+
 local io = {
     open = io.open,
     popen = io.popen
@@ -27,6 +28,7 @@ local background_timers = {}
 
 
 -- Functions
+-- Helpers
 m.rfind = function (s, c)
     local i, j
     local k = 0
@@ -36,6 +38,42 @@ m.rfind = function (s, c)
     until j == nil
     return i
 end
+
+m.trim = function (s)
+    return s:match'^()%s*$' and '' or s:match'^%s*(.*%S)'
+end
+
+m.split_by_newline = function (s)
+    local t = {}
+    local function helper(line) t[#t+1] = line return "" end
+    helper((s:gsub("(.-)\r?\n", helper)))
+    return t
+end
+
+m.split_by_space = function (s)
+    local words = {}
+    for word in s:gmatch("%w+") do words[#words+1] = word end
+    return words
+end
+
+m.contains = function (v, t)
+    for _, v_ in pairs(t) do
+        if v_ == v then return true end
+    end
+    return false
+end
+
+m.keys = function (tab)
+    local n = 0
+    local keys = {}
+
+    for k, _ in pairs(tab) do
+        keys[n] = k
+        n = n + 1
+    end
+    return keys
+end
+-- }}
 
 m.get_uname = function ()
     local h = io.popen("uname -s")
@@ -53,36 +91,6 @@ m.get_uname = function ()
     return r
 end
 
-m.trim = function (s)
-    return s:match'^()%s*$' and '' or s:match'^%s*(.*%S)'
-end
-m.split_by_newline = function (s)
-    local t = {}
-    local function helper(line) t[#t+1] = line return "" end
-    helper((s:gsub("(.-)\r?\n", helper)))
-    return t
-end
-m.split_by_space = function (s)
-    local words = {}
-    for word in s:gmatch("%w+") do words[#words+1] = word end
-    return words
-end
-m.contains = function (v, t)
-    for _, v_ in pairs(t) do
-        if v_ == v then return true end
-    end
-    return false
-end
-m.keys = function (tab)
-    local n = 0
-    local keys = {}
-
-    for k, _ in pairs(tab) do
-        keys[n] = k
-        n = n + 1
-    end
-    return keys
-end
 m.run_cmd = function (cmd, funtocall)
     local r = io.popen("mktemp")
     local logfile = r:read("*line")
@@ -110,85 +118,6 @@ m.run_cmd = function (cmd, funtocall)
     end)
     background_timers[cmd].t:start()
 end
-m.get_sys_sound_level = function ()
-    local h = io.popen("amixer get 'Master'")
-    local data = h:read("*a")
-    h:close()
-    for _, line in pairs(m.split_by_newline(data)) do
-        if line:sub(0, 6) == "  Mono" then
-            line = m.split_by_space(line)
-            return tonumber(line[4])
-        end
-    end
-end
-m.set_sys_sound_level = function ()
-    os.execute("amixer sset 'Master' " .. v .. "%")
-end
---}}}
-
--- Widget boxes settings
--- Top wibox
-m.WIBOX_TOP_H = 20
-
--- Bottom wibox
-m.WIBOX_BOTTOM_H = 20
---}}}
-
--- Widgets settings
--- MPD info widget
-m.MPD_INFO_W_TIMEOUT = 1       -- MPD widget update timeout, in seconds
-
--- Memory usage widget
-m.MEM_USAGE_W_TIMEOUT = 8      -- Memory usage widget update timout, in seconds
-
--- USB usage widget
-m.USB_USAGE_W_TIMEOUT = 16     -- USB usage widget update timeout, in seconds
-
--- CPU usage widget
-m.CPU_USAGE_W_TIMEOUT = 1      -- CPU usage widget update timeout, in seconds
-
--- Network usage widget
-m.NET_USAGE_W_TIMEOUT = 1      -- Network usage widget update timeout, in seconds
-
--- Disk usage widget
-m.DISK_USAGE_W_TIMEOUT = 32    -- Disk usage widget update timeout, in seconds
-
--- Temperature widget
-m.TEMP_W_TIMEOUT = 8           -- Temperature widget update timeout, in seconds
-m.TEMP_W_MAX_TEMP = 80         -- Temperature widget max temperature
-
--- Portage info widget
-m.PORTAGE_INFO_W_TIMEOUT = 32  -- Portage info widget update timeout, in seconds
---}}}
-
--- Constants
-m.USERNAME = "wrongway4you"
-m.UNAME = m.get_uname()
-m.THEME_PATH = "~/.themes/user/theme.lua"
-m.EDITOR = "vim"
-m.BROWSER = "qutebrowser"
-m.TERMINAL = "urxvtc"
-m.SCREENSHOT_TOOL = "gnome-screenshot"
-m.VK_URL = "https://vk.com/"
-m.GOOGLE_SEARCH_URL = "https://www.google.com.ua/search?q="
-m.WIKIPEDIA_WIKI_URL = "https://en.wikipedia.org/wiki/"
-m.SOUND_LEVEL = m.get_sys_sound_level()
-m.SOUND_LEVEL = 0
-
-m.NETWORK_INTERFACE = "eth0"
-m.DEFAULT_SOUND_LEVEL = 80
-m.LAYOUTS = {
-    awful.layout.suit.tile,
-    awful.layout.suit.fair,
-    awful.layout.suit.max.fullscreen
-}
-m.ALIASES = {
-    term = m.TERMINAL,
-    uX = "xrdb ~/.Xresources",
-    eA = m.EDITOR .. " ~/.config/awesome/*.lua",
-    eT = m.EDITOR .. " " .. m.THEME_PATH
-}
-m.ALIASES_NAMES = m.keys(m.ALIASES)
---}}}
+-- }
 
 return m

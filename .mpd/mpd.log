@@ -1,0 +1,65 @@
+Dec 05 23:30 : errno: Failed to open /home/wrongway4you/.mpd/mpd.state: No such file or directory
+Dec 05 23:30 : errno: Failed to stat /home/wrongway4you/.mpd/music: No such file or directory
+Dec 05 23:30 : client: [0] opened from 127.0.0.1:40668
+Dec 05 23:32 : client: [1] opened from 127.0.0.1:40710
+Dec 05 23:33 : client: [0] closed
+Dec 05 23:35 : client: [1] closed
+Dec 05 23:36 : client: [2] opened from 127.0.0.1:40718
+Dec 05 23:39 : client: [2] closed
+Dec 05 23:39 : client: [3] opened from 127.0.0.1:40720
+Dec 05 23:42 : client: [3] closed
+Dec 05 23:42 : client: [4] opened from 127.0.0.1:40804
+Dec 05 23:44 : client: [4] closed
+Dec 05 23:44 : client: [5] opened from 127.0.0.1:40806
+Dec 05 23:44 : client: [6] opened from 127.0.0.1:40808
+Dec 05 23:44 : errno: Failed to stat /home/wrongway4you/.mpd/music: No such file or directory
+Dec 05 23:45 : client: [6] closed
+Dec 05 23:45 : client: [7] opened from 127.0.0.1:40810
+Dec 05 23:45 : client: [7] closed
+Dec 05 23:45 : client: [0] opened from 127.0.0.1:40814
+Dec 05 23:46 : client: [0] opened from 127.0.0.1:40816
+Dec 05 23:46 : client: [1] opened from 127.0.0.1:40818
+Dec 05 23:46 : ffmpeg/mov,mp4,m4a,3gp,3g2,mj2: stream 0, timescale not set
+Dec 05 23:46 : ffmpeg/mjpeg: Changeing bps to 8
+Dec 05 23:46 : ffmpeg/mjpeg: Changeing bps to 8
+Dec 05 23:46 : update: added /monstercat_podcast_131.m4a
+Dec 05 23:46 : ffmpeg/mov,mp4,m4a,3gp,3g2,mj2: stream 0, timescale not set
+Dec 05 23:46 : ffmpeg/mjpeg: Changeing bps to 8
+Dec 05 23:46 : ffmpeg/mjpeg: Changeing bps to 8
+Dec 06 00:32 : client: [1] closed
+Dec 06 00:32 : player: played "monstercat_podcast_131.m4a"
+Dec 06 17:54 : client: [0] opened from 127.0.0.1:38682
+Dec 06 17:54 : ffmpeg/mov,mp4,m4a,3gp,3g2,mj2: stream 0, timescale not set
+Dec 06 17:54 : ffmpeg/mjpeg: Changeing bps to 8
+Dec 06 17:54 : ffmpeg/mjpeg: Changeing bps to 8
+Dec 06 17:56 : client: [1] opened from 127.0.0.1:38742
+Dec 06 17:56 : player: played "monstercat_podcast_131.m4a"
+Dec 06 17:56 : ffmpeg/mov,mp4,m4a,3gp,3g2,mj2: stream 0, timescale not set
+Dec 06 17:56 : ffmpeg/mjpeg: Changeing bps to 8
+Dec 06 17:56 : ffmpeg/mjpeg: Changeing bps to 8
+Dec 06 18:13 : client: [0] closed
+Dec 06 18:18 : client: [2] opened from 127.0.0.1:38826
+Dec 06 18:25 : client: [2] closed
+Dec 06 18:25 : client: [3] opened from 127.0.0.1:38836
+Dec 06 18:26 : client: [3] closed
+Dec 06 18:26 : client: [4] opened from 127.0.0.1:38838
+Dec 06 18:28 : client: [4] closed
+Dec 06 18:28 : client: [5] opened from 127.0.0.1:38844
+Dec 06 18:28 : client: [5] closed
+Dec 06 18:28 : client: [6] opened from 127.0.0.1:38846
+Dec 06 18:29 : client: [6] closed
+Dec 06 18:29 : client: [7] opened from 127.0.0.1:38848
+Dec 06 18:31 : client: [7] closed
+Dec 06 18:31 : client: [8] opened from 127.0.0.1:38850
+Dec 06 18:31 : client: [8] closed
+Dec 06 18:31 : client: [9] opened from 127.0.0.1:38852
+Dec 06 18:31 : client: [9] closed
+Dec 06 18:31 : client: [10] opened from 127.0.0.1:38856
+Dec 06 18:31 : client: [10] closed
+Dec 06 18:31 : client: [11] opened from 127.0.0.1:38858
+Dec 06 18:32 : client: [11] closed
+Dec 06 18:32 : client: [12] opened from 127.0.0.1:38864
+Dec 06 18:32 : client: [12] closed
+Dec 06 18:32 : client: [13] opened from 127.0.0.1:38866
+Dec 06 18:32 : client: [13] closed
+Dec 06 18:32 : client: [14] opened from 127.0.0.1:38868
