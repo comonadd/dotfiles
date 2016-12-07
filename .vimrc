@@ -6,6 +6,8 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
     Plugin 'VundleVim/Vundle.vim'
     Plugin 'scrooloose/nerdtree'
+    Plugin 'terryma/vim-multiple-cursors'
+    Plugin 'scrooloose/nerdcommenter'
 call vundle#end()
 filetype plugin indent on
 " Vundle Initialization END
@@ -33,6 +35,12 @@ set backspace=indent,eol,start
 
 " Keys mapping BEG
 "" Navigation BEG
+nnoremap <C-Up> {
+nnoremap <C-Down> }
+vnoremap <C-Up> {
+vnoremap <C-Down> }
+inoremap <C-Up> <Esc>{a
+inoremap <C-Down> <Esc>}a
 "" Navigation END
 
 "" Editing BEG
@@ -44,6 +52,10 @@ nnoremap <C-v> "*p
 inoremap <C-x> <Esc>"*dda
 nnoremap <C-x> "*dd
 vnoremap <C-x> "*d
+
+nmap <C-_> <Leader>ci
+imap <C-_> <Esc><Leader>cia
+vmap <C-_> <Leader>ci
 "" Editing END
 " Keys mapping END
 

@@ -1,0 +1,50 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/wrongway4you/" . "Projects/")
+ ("/home/" . "wrongway4you/")
+ ("/home/wrongway4you/Projects/" . "shell/")
+ ("/home/wrongway4you/.config/" . "awesome/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/wrongway4you/"
+ "/home/wrongway4you/Projects/shell/"
+ "/home/wrongway4you/Temp/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ ".emacs"
+ "main.c"
+ "urxvtclip"
+ "Makefile"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/wrongway4you/" (22598 56503 195997 779000) ".vimrc" ".xauthzaXcGz" ".zsh_history" ".config/" "../" ".serverauth.3663" ".xinitrc" ".links/" ".gitconfig" ".emacs.d/" ".emacs" ".serverauth.31823" ".dbus/" "Documents/" ".mpd/" "Desktop/" ".gnupg/" ".zshrc.pre-oh-my-zsh" ".viminfo" ".pki/" ".thunderbird/" "Music/" "Projects/" ".gnome/" "Downloads/" "Archives/" ".bash_profile" "Temp/" "Git/" ".wget-hsts" ".fonts.conf" ".bash_logout" ".zshrc" ".zcompdump-Gentoo-5.2" ".mozilla/" ".lyrics/" ".vim/" ".oh-my-zsh/" ".bashrc" ".mono/" ".themes/" ".zsh-update" ".serverauth.9411" ".recently-used" ".ssh/" ".cache/" "Scripts/" ".Xauthority" "./" ".ncmpcpp/" ".urxvt/" ".local/" ".Xresources")
+
+ ("/home/wrongway4you/Projects/shell/" (22598 56413 547997 800000) "main.c" "util.h" "main" "token.h" "../" "Makefile" ".#main.c" "util.c" "./")
+
+ ("/home/wrongway4you/Git/dotfiles/" (22598 56289 427997 829000) ".git/" ".vimrc" ".config/" "../" ".xinitrc" ".emacs" ".mpd/" ".#.emacs" ".bash_profile" ".fonts.conf" ".bash_logout" ".zshrc" ".vim/" ".oh-my-zsh/" ".bashrc" ".themes/" "./" ".ncmpcpp/" ".Xresources" ".npmrc")
+
+ ("/home/wrongway4you/Git/" (22597 36278 663249 66000) "../" "dotfiles/" "./")
+
+ ("/home/wrongway4you/Projects/cryptolist.com/" (22585 21291 0 0) ".git/" "requirements.txt" ".gitignore" "sftp-config.json" "../" ".idea/" "migrations/" "tmp/" "g-conf.py" "config.py" "views.py" "templates/" "static/" "app.py" "Procfile" "core.py" "runtime.txt" "models.py" "./" "runserver.py" "manage.py")
+
+ ("/home/wrongway4you/Temp/" (22598 47165 344999 962000) "../" "urxvtclip" "JjlLYd5A" "./")
+
+ ("/home/wrongway4you/Projects/" (22597 54270 613996 270000) "emerald_requests/" "lemonblog.com/" "../" "greenlemon.com/" "emerald_args/" "emerald_templater/" "wallpaper-adder/" "./" "emerald_web/" "shell/" "emerald_browser/" "cryptolist.com/")
+
+ ("/home/" (22596 36216 925908 685000) "../" ".keep" "svetlana/" "wrongway4you/" "./")
+
+ ("/home/wrongway4you/.config/awesome/" (22598 42792 898999 834000) "portage_info_w.lua" "separator_w.lua" "uptime_w.lua" "../" "cli_w.lua" "mem_usage_w.lua" "username_w.lua" "kbl_w.lua" "net_usage_w.lua" "mpd_info_w.lua" "sound_manager.lua" "usb_usage_w.lua" "config.lua" "temp_w.lua" "datetime_w.lua" "kernel_info_w.lua" "cpu_usage_w.lua" "./" "utils.lua" "disk_usage_w.lua" "rc.lua")
+
+ ("/home/wrongway4you/.config/" (22597 38804 134999 885000) "../" "awesome/" "gtk-2.0/" "google-chrome/" ".mono/" "./" "menus/" "gconf/")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t

@@ -73,8 +73,8 @@ wibox_top = awful.wibox({
     position = "top",
     screen = 1,
     height = config.theme.WIBOX_TOP_H,
-    bg = config.theme.WIBOX_TOP_BG,
-    fg = config.theme.WIBOX_TOP_FG
+    bg = config.theme.bg_normal,
+    fg = config.theme.fg_normal
 })
 wibox_tl_l = wibox.layout.fixed.horizontal()
 wibox_tr_l = wibox.layout.fixed.horizontal()
@@ -108,8 +108,8 @@ wibox_bot = awful.wibox({
     position = "bottom",
     screen = 1,
     height = config.theme.WIBOX_BOT_H,
-    bg = config.theme.WIBOX_BOT_BG,
-    fg = config.theme.WIBOX_BOT_FG
+    bg = config.theme.bg_normal,
+    fg = config.theme.fg_normal
 })
 wibox_bot_l = wibox.layout.align.horizontal()
 wibox_bl_l = wibox.layout.fixed.horizontal()
