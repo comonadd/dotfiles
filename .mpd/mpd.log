@@ -142,3 +142,98 @@ Dec 07 16:30 : client: [5] closed
 Dec 07 16:30 : client: [6] opened from 127.0.0.1:58936
 Dec 07 16:44 : client: [6] closed
 Dec 07 16:44 : client: [7] opened from 127.0.0.1:59100
+Dec 07 20:12 : client: [7] closed
+Dec 07 20:12 : client: [8] opened from 127.0.0.1:33796
+Dec 07 20:13 : ffmpeg/mov,mp4,m4a,3gp,3g2,mj2: stream 0, timescale not set
+Dec 07 20:13 : ffmpeg/mjpeg: Changeing bps to 8
+Dec 07 20:13 : ffmpeg/mjpeg: Changeing bps to 8
+Dec 07 20:13 : player: played "monstercat_podcast_111.m4a"
+Dec 07 20:13 : client: [8] closed
+Dec 07 20:13 : client: [9] opened from 127.0.0.1:33800
+Dec 07 20:14 : client: [9] closed
+Dec 07 20:14 : client: [10] opened from 127.0.0.1:33802
+Dec 07 20:15 : client: [10] closed
+Dec 07 20:15 : client: [11] opened from 127.0.0.1:33804
+Dec 07 20:21 : client: [11] closed
+Dec 07 20:21 : client: [12] opened from 127.0.0.1:33806
+Dec 07 20:23 : client: [12] closed
+Dec 07 20:23 : client: [13] opened from 127.0.0.1:33808
+Dec 07 20:23 : client: [13] closed
+Dec 07 20:24 : client: [14] opened from 127.0.0.1:33812
+Dec 07 20:26 : client: [14] closed
+Dec 07 20:26 : client: [15] opened from 127.0.0.1:33814
+Dec 07 20:27 : client: [16] opened from 127.0.0.1:33816
+Dec 07 20:27 : ffmpeg/mov,mp4,m4a,3gp,3g2,mj2: stream 0, timescale not set
+Dec 07 20:27 : ffmpeg/mjpeg: Changeing bps to 8
+Dec 07 20:27 : ffmpeg/mjpeg: Changeing bps to 8
+Dec 07 20:27 : update: added /monstercat_podcast_100.m4a
+Dec 07 20:27 : player: played "monstercat_podcast_111.m4a"
+Dec 07 20:27 : ffmpeg/mov,mp4,m4a,3gp,3g2,mj2: stream 0, timescale not set
+Dec 07 20:27 : ffmpeg/mjpeg: Changeing bps to 8
+Dec 07 20:27 : ffmpeg/mjpeg: Changeing bps to 8
+Dec 07 21:05 : client: [17] opened from 127.0.0.1:34278
+Dec 07 21:06 : client: [15] closed
+Dec 07 21:31 : client: [16] closed
+Dec 08 16:19 : ffmpeg/mov,mp4,m4a,3gp,3g2,mj2: stream 0, timescale not set
+Dec 08 16:19 : ffmpeg/mjpeg: Changeing bps to 8
+Dec 08 16:19 : ffmpeg/mjpeg: Changeing bps to 8
+Dec 08 16:19 : client: [0] opened from 127.0.0.1:44184
+Dec 08 16:19 : client: [1] opened from 127.0.0.1:44186
+Dec 08 19:58 : player: played "monstercat_podcast_100.m4a"
+Dec 08 19:58 : ffmpeg/mov,mp4,m4a,3gp,3g2,mj2: stream 0, timescale not set
+Dec 08 19:58 : ffmpeg/mjpeg: Changeing bps to 8
+Dec 08 19:58 : ffmpeg/mjpeg: Changeing bps to 8
+Dec 08 21:32 : client: [1] closed
+Dec 09 00:23 : player: played "monstercat_podcast_100.m4a"
+Dec 09 14:11 : client: [0] opened from 127.0.0.1:41074
+Dec 09 14:11 : ffmpeg/mov,mp4,m4a,3gp,3g2,mj2: stream 0, timescale not set
+Dec 09 14:11 : ffmpeg/mjpeg: Changeing bps to 8
+Dec 09 14:11 : ffmpeg/mjpeg: Changeing bps to 8
+Dec 09 14:11 : client: [1] opened from 127.0.0.1:41076
+Dec 09 14:13 : player: played "monstercat_podcast_100.m4a"
+Dec 09 14:13 : ffmpeg/mov,mp4,m4a,3gp,3g2,mj2: stream 0, timescale not set
+Dec 09 14:13 : ffmpeg/mjpeg: Changeing bps to 8
+Dec 09 14:13 : ffmpeg/mjpeg: Changeing bps to 8
+Dec 09 15:38 : ffmpeg/mov,mp4,m4a,3gp,3g2,mj2: stream 0, timescale not set
+Dec 09 15:38 : ffmpeg/mjpeg: Changeing bps to 8
+Dec 09 15:38 : ffmpeg/mjpeg: Changeing bps to 8
+Dec 09 15:38 : update: added /monstercat_podcast_101.m4a
+Dec 09 15:38 : update: added /17- Imagine Dragons - Shots.mp3
+Dec 09 15:38 : update: added /Imagine_Dragons_-_I_Bet_My_Life.mp3
+Dec 09 15:40 : update: added /tumblr_m8vat9arSn1rd45n3o1.mp3
+Dec 09 15:40 : player: played "monstercat_podcast_100.m4a"
+Dec 09 15:44 : player: played "17- Imagine Dragons - Shots.mp3"
+Dec 09 15:44 : player: played "17- Imagine Dragons - Shots.mp3"
+Dec 09 15:47 : ffmpeg/mov,mp4,m4a,3gp,3g2,mj2: stream 0, timescale not set
+Dec 09 15:47 : ffmpeg/mjpeg: Changeing bps to 8
+Dec 09 15:47 : ffmpeg/mjpeg: Changeing bps to 8
+Dec 09 15:48 : player: played "Imagine_Dragons_-_I_Bet_My_Life.mp3"
+Dec 09 19:17 : client: [2] opened from 127.0.0.1:43588
+Dec 09 19:18 : client: [0] closed
+Dec 09 19:53 : ffmpeg/mov,mp4,m4a,3gp,3g2,mj2: stream 0, timescale not set
+Dec 09 19:53 : ffmpeg/mjpeg: Changeing bps to 8
+Dec 09 19:53 : ffmpeg/mjpeg: Changeing bps to 8
+Dec 09 19:54 : player: played "monstercat_podcast_100.m4a"
+Dec 09 21:39 : client: [1] closed
+Dec 09 21:39 : client: [2] closed
+Dec 10 13:49 : client: [0] opened from 127.0.0.1:60400
+Dec 10 13:49 : ffmpeg/mov,mp4,m4a,3gp,3g2,mj2: stream 0, timescale not set
+Dec 10 13:49 : ffmpeg/mjpeg: Changeing bps to 8
+Dec 10 13:49 : ffmpeg/mjpeg: Changeing bps to 8
+Dec 10 13:49 : client: [1] opened from 127.0.0.1:60402
+Dec 10 14:08 : ffmpeg/mov,mp4,m4a,3gp,3g2,mj2: stream 0, timescale not set
+Dec 10 14:08 : ffmpeg/mjpeg: Changeing bps to 8
+Dec 10 14:08 : ffmpeg/mjpeg: Changeing bps to 8
+Dec 10 14:08 : player: played "monstercat_podcast_101.m4a"
+Dec 10 14:27 : player: played "monstercat_podcast_111.m4a"
+Dec 10 14:27 : ffmpeg/mov,mp4,m4a,3gp,3g2,mj2: stream 0, timescale not set
+Dec 10 14:27 : ffmpeg/mjpeg: Changeing bps to 8
+Dec 10 14:27 : ffmpeg/mjpeg: Changeing bps to 8
+Dec 10 14:56 : ffmpeg/mov,mp4,m4a,3gp,3g2,mj2: stream 0, timescale not set
+Dec 10 14:56 : ffmpeg/mjpeg: Changeing bps to 8
+Dec 10 14:56 : ffmpeg/mjpeg: Changeing bps to 8
+Dec 10 14:56 : update: added /monstercat_podcast_114.m4a
+Dec 10 14:56 : player: played "monstercat_podcast_121.m4a"
+Dec 10 14:56 : ffmpeg/mov,mp4,m4a,3gp,3g2,mj2: stream 0, timescale not set
+Dec 10 14:56 : ffmpeg/mjpeg: Changeing bps to 8
+Dec 10 14:56 : ffmpeg/mjpeg: Changeing bps to 8

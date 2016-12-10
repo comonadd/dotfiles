@@ -2,6 +2,7 @@
 
 ;; ----- ido-last-directory-list -----
 (
+ ("/home/wrongway4you/Projects/shell/" . "include/")
  ("/home/wrongway4you/" . "Projects/")
  ("/home/" . "wrongway4you/")
  ("/home/wrongway4you/Projects/" . "shell/")
@@ -10,34 +11,49 @@
 
 ;; ----- ido-work-directory-list -----
 (
- "/home/wrongway4you/"
+ "/home/wrongway4you/Projects/shell/src/"
  "/home/wrongway4you/Projects/shell/"
+ "/home/wrongway4you/Projects/shell/include/"
+ "/home/wrongway4you/Projects/shell/docs/"
+ "/home/wrongway4you/"
  "/home/wrongway4you/Temp/"
 )
 
 ;; ----- ido-work-file-list -----
 (
- ".emacs"
+ "util.h"
+ "shell.h"
+ "shell.c"
+ "token.h"
+ "configure.ac"
+ "Makefile.am"
+ "util.c"
  "main.c"
- "urxvtclip"
- "Makefile"
+ "description.txt"
+ "token.c"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
- ("/home/wrongway4you/" (22598 56503 195997 779000) ".vimrc" ".xauthzaXcGz" ".zsh_history" ".config/" "../" ".serverauth.3663" ".xinitrc" ".links/" ".gitconfig" ".emacs.d/" ".emacs" ".serverauth.31823" ".dbus/" "Documents/" ".mpd/" "Desktop/" ".gnupg/" ".zshrc.pre-oh-my-zsh" ".viminfo" ".pki/" ".thunderbird/" "Music/" "Projects/" ".gnome/" "Downloads/" "Archives/" ".bash_profile" "Temp/" "Git/" ".wget-hsts" ".fonts.conf" ".bash_logout" ".zshrc" ".zcompdump-Gentoo-5.2" ".mozilla/" ".lyrics/" ".vim/" ".oh-my-zsh/" ".bashrc" ".mono/" ".themes/" ".zsh-update" ".serverauth.9411" ".recently-used" ".ssh/" ".cache/" "Scripts/" ".Xauthority" "./" ".ncmpcpp/" ".urxvt/" ".local/" ".Xresources")
+ ("/home/wrongway4you/Projects/shell/src/" (22602 63880 407528 674000) ".deps/" "Makefile.am" "main.c" "util.h" "Makefile.in" "token.c" "token.h" "../" "Makefile" "main.o" "util.c" "./" "shell.c" "shell.h")
 
- ("/home/wrongway4you/Projects/shell/" (22598 56413 547997 800000) "main.c" "util.h" "main" "token.h" "../" "Makefile" ".#main.c" "util.c" "./")
+ ("/home/wrongway4you/Projects/shell/" (22602 63606 105553 951000) "Makefile.am" "autom4te.cache/" "config.log" "Makefile.in" "config.status" "aclocal.m4" "configure" "../" "Makefile" "AUTHORS" "tests/" "tmp/" "src/" "bin/" "README" "ChangeLog" "LICENSE" "INSTALL" "NEWS" "m4/" "docs/" "COPYING" "configure.ac" "./")
+
+ ("/home/wrongway4you/" (22602 49168 231884 406000) ".vimrc" ".xauthzaXcGz" ".zsh_history" "Learning/" ".config/" ".serverauth.10341" "../" ".xinitrc" ".links/" ".gitconfig" ".emacs.d/" ".serverauth.31823" ".serverauth.3871" "Screenshots/" ".dbus/" "Documents/" ".mpd/" "Desktop/" ".gnupg/" ".zshrc.pre-oh-my-zsh" ".viminfo" ".pki/" ".thunderbird/" "Music/" "Projects/" ".gnome/" "Downloads/" "Archives/" ".bash_profile" "Temp/" "Pictures/" "Git/" ".wget-hsts" ".fonts.conf" ".bash_logout" ".zshrc" ".zcompdump-Gentoo-5.2" ".mozilla/" ".lyrics/" ".vim/" ".oh-my-zsh/" ".bashrc" ".mono/" ".themes/" ".zsh-update" ".serverauth.9411" ".recently-used" ".ssh/" ".cache/" "Scripts/" ".Xauthority" "./" ".ncmpcpp/" ".urxvt/" ".local/" ".Xresources")
+
+ ("/home/wrongway4you/Projects/shell/include/" (22602 48099 982982 846000) "util.h" "token.h" "../" "./" "shell.h" ".#token.h")
+
+ ("/home/wrongway4you/Projects/shell/docs/" (22602 43485 420408 79000) "../" "description.txt" "./")
+
+ ("/home/wrongway4you/Temp/" (22598 58352 741997 347000) "something.cpp" "../" "urxvtclip" "JjlLYd5A" "./")
+
+ ("/home/wrongway4you/Projects/" (22600 18602 737366 198000) "emerald_requests/" "lemonblog.com/" "../" "greenlemon.com/" "emerald_args/" "emerald_templater/" "./" "emerald_web/" "shell/" "emerald_browser/" "cryptolist.com/")
 
  ("/home/wrongway4you/Git/dotfiles/" (22598 56289 427997 829000) ".git/" ".vimrc" ".config/" "../" ".xinitrc" ".emacs" ".mpd/" ".#.emacs" ".bash_profile" ".fonts.conf" ".bash_logout" ".zshrc" ".vim/" ".oh-my-zsh/" ".bashrc" ".themes/" "./" ".ncmpcpp/" ".Xresources" ".npmrc")
 
  ("/home/wrongway4you/Git/" (22597 36278 663249 66000) "../" "dotfiles/" "./")
 
  ("/home/wrongway4you/Projects/cryptolist.com/" (22585 21291 0 0) ".git/" "requirements.txt" ".gitignore" "sftp-config.json" "../" ".idea/" "migrations/" "tmp/" "g-conf.py" "config.py" "views.py" "templates/" "static/" "app.py" "Procfile" "core.py" "runtime.txt" "models.py" "./" "runserver.py" "manage.py")
-
- ("/home/wrongway4you/Temp/" (22598 47165 344999 962000) "../" "urxvtclip" "JjlLYd5A" "./")
-
- ("/home/wrongway4you/Projects/" (22597 54270 613996 270000) "emerald_requests/" "lemonblog.com/" "../" "greenlemon.com/" "emerald_args/" "emerald_templater/" "wallpaper-adder/" "./" "emerald_web/" "shell/" "emerald_browser/" "cryptolist.com/")
 
  ("/home/" (22596 36216 925908 685000) "../" ".keep" "svetlana/" "wrongway4you/" "./")
 

@@ -1,31 +1,23 @@
-local m = {
-    nil, nil, nil, nil,
-    nil, nil, nil, nil,
-    nil, nil, nil, nil,
-    nil, nil, nil, nil,
-    nil, nil, nil, nil,
-    nil, nil, nil, nil,
-    nil, nil, nil, nil,
-    nil, nil, nil, nil,
-    nil, nil, nil, nil,
-    nil, nil, nil, nil,
-    nil, nil, nil, nil,
-    nil, nil
-}
+-- config.lua
+-- Description:
+--  This file contains all the
+--  utility things
+
+local m = {}
 
 local io = {
     open = io.open,
     popen = io.popen
 }
-local os = {
-    execute = os.execute
-}
-local awful = require("awful")
-local awful = {
-    layout = awful.layout
-}
-local background_timers = {}
 
+-- Constants
+SPACE_CHAR = " "
+-- }
+
+
+-- Variables
+local background_timers = {}
+-- }
 
 -- Functions
 -- Helpers
@@ -77,15 +69,15 @@ end
 
 m.get_uname = function ()
     local h = io.popen("uname -s")
-    local r = h:read("*a"):gsub("\n", "") .. " "
+    local r = h:read("*a"):gsub("\n", "") .. SPACE_CHAR
     h:close()
 
     h = io.popen("uname -n")
-    r = r .. h:read("*a"):gsub("\n", "") .. " "
+    r = r .. h:read("*a"):gsub("\n", "") .. SPACE_CHAR
     h:close()
 
     h = io.popen("uname -r")
-    r = r .. h:read("*a"):gsub("\n", "") .. " "
+    r = r .. h:read("*a"):gsub("\n", "") .. SPACE_CHAR
     h:close()
 
     return r

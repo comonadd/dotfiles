@@ -8,6 +8,7 @@ call vundle#begin()
     Plugin 'scrooloose/nerdtree'
     Plugin 'terryma/vim-multiple-cursors'
     Plugin 'scrooloose/nerdcommenter'
+    Plugin 'drmingdrmer/vim-indent-lua'
 call vundle#end()
 filetype plugin indent on
 " Vundle Initialization END
@@ -57,6 +58,12 @@ nmap <C-_> <Leader>ci
 imap <C-_> <Esc><Leader>cia
 vmap <C-_> <Leader>ci
 "" Editing END
+
+"" Automatization BEG
+nmap <F7> gg=G
+imap <F7> <Esc>gg=Ga
+vmap <F7> gg=G
+"" Automatization END
 " Keys mapping END
 
 " Main stuff BEG

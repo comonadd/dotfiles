@@ -1,3 +1,9 @@
+-- config.lua
+-- Description:
+--  This file contains all the
+--  variables that can be changed
+--  for the user's purpose
+
 local m = {}
 
 local awful = require("awful")
@@ -18,6 +24,7 @@ m.GOOGLE_SEARCH_URL = "https://www.google.com.ua/search?q="
 m.WIKIPEDIA_WIKI_URL = "https://en.wikipedia.org/wiki/"
 m.DEFAULT_SOUND_LEVEL = 80
 m.THEME_PATH = "~/.themes/user/theme.lua"
+m.TAGS = {" ➊ ", " ➋ ", " ➌ ", " ➍ ", " ➎ ", " ➏ ", " ➐ ", " ➑ "}
 m.LAYOUTS = {
     awful.layout.suit.tile,
     awful.layout.suit.fair,

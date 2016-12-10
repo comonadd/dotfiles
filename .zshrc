@@ -18,8 +18,12 @@ HIST_STAMPS="mm/dd/yyyy"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
+stty -ixon
 
 # Aliases
+alias cdA="cd ~/.config/awesome"
+alias cdV="cd ~/.vim"
+
 alias eX="$EDITOR ~/.Xresources"
 alias eA="$EDITOR ~/.config/awesome/rc.lua"
 alias eV="$EDITOR ~/.vimrc"

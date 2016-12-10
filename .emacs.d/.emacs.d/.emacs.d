@@ -1,0 +1,1 @@
+/home/wrongway4you/Git/dotfiles/.emacs.d

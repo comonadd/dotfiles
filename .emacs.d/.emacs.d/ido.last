@@ -1,0 +1,54 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/wrongway4you/" . "Projects/")
+ ("/home/" . "wrongway4you/")
+ ("/home/wrongway4you/Projects/" . "shell/")
+ ("/home/wrongway4you/.config/" . "awesome/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/wrongway4you/Projects/shell/"
+ "/home/wrongway4you/"
+ "/home/wrongway4you/Temp/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "main.c"
+ "Makefile"
+ "token.h"
+ ".emacs"
+ "util.h"
+ "something.cpp"
+ "something.c"
+ "urxvtclip"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/wrongway4you/Projects/shell/" (22601 28227 278597 93000) "main.c" "util.h" "token.h" "../" "Makefile" "bin/" "util.c" "./")
+
+ ("/home/wrongway4you/" (22601 28192 173600 327000) ".vimrc" ".xauthzaXcGz" ".zsh_history" "Learning/" ".config/" ".serverauth.10341" "../" ".xinitrc" ".links/" ".gitconfig" ".emacs.d/" ".emacs" ".serverauth.31823" "Screenshots/" ".dbus/" "Documents/" ".mpd/" "Desktop/" ".gnupg/" ".zshrc.pre-oh-my-zsh" ".viminfo" ".pki/" ".thunderbird/" "Music/" "Projects/" ".gnome/" "Downloads/" "Archives/" ".bash_profile" "Temp/" "Pictures/" "Git/" ".wget-hsts" ".fonts.conf" ".bash_logout" ".zshrc" ".zcompdump-Gentoo-5.2" ".mozilla/" ".lyrics/" ".vim/" ".oh-my-zsh/" ".bashrc" ".mono/" ".themes/" ".zsh-update" ".serverauth.9411" ".recently-used" ".ssh/" ".cache/" "Scripts/" ".serverauth.3817" ".Xauthority" "./" ".ncmpcpp/" ".urxvt/" ".local/" ".Xresources")
+
+ ("/home/wrongway4you/Projects/" (22600 18602 737366 198000) "emerald_requests/" "lemonblog.com/" "../" "greenlemon.com/" "emerald_args/" "emerald_templater/" "./" "emerald_web/" "shell/" "emerald_browser/" "cryptolist.com/")
+
+ ("/home/wrongway4you/Git/dotfiles/" (22598 59085 414997 176000) ".git/" ".vimrc" ".config/" "../" ".xinitrc" ".emacs.d/" ".emacs" ".mpd/" ".bash_profile" ".fonts.conf" ".bash_logout" ".zshrc" ".vim/" ".oh-my-zsh/" ".bashrc" ".themes/" "./" ".ncmpcpp/" ".Xresources" ".npmrc")
+
+ ("/home/wrongway4you/Temp/" (22598 58352 741997 347000) "something.cpp" "../" "urxvtclip" "JjlLYd5A" "./")
+
+ ("/home/wrongway4you/Git/" (22597 36278 663249 66000) "../" "dotfiles/" "./")
+
+ ("/home/wrongway4you/Projects/cryptolist.com/" (22585 21291 0 0) ".git/" "requirements.txt" ".gitignore" "sftp-config.json" "../" ".idea/" "migrations/" "tmp/" "g-conf.py" "config.py" "views.py" "templates/" "static/" "app.py" "Procfile" "core.py" "runtime.txt" "models.py" "./" "runserver.py" "manage.py")
+
+ ("/home/" (22596 36216 925908 685000) "../" ".keep" "svetlana/" "wrongway4you/" "./")
+
+ ("/home/wrongway4you/.config/awesome/" (22598 42792 898999 834000) "portage_info_w.lua" "separator_w.lua" "uptime_w.lua" "../" "cli_w.lua" "mem_usage_w.lua" "username_w.lua" "kbl_w.lua" "net_usage_w.lua" "mpd_info_w.lua" "sound_manager.lua" "usb_usage_w.lua" "config.lua" "temp_w.lua" "datetime_w.lua" "kernel_info_w.lua" "cpu_usage_w.lua" "./" "utils.lua" "disk_usage_w.lua" "rc.lua")
+
+ ("/home/wrongway4you/.config/" (22597 38804 134999 885000) "../" "awesome/" "gtk-2.0/" "google-chrome/" ".mono/" "./" "menus/" "gconf/")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
