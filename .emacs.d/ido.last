@@ -2,56 +2,98 @@
 
 ;; ----- ido-last-directory-list -----
 (
- ("/home/wrongway4you/Projects/shell/" . "include/")
- ("/home/wrongway4you/" . "Projects/")
+ ("/home/wrongway4you/.emacs.d/" . "settings/")
+ ("/home/wrongway4you/Learning/algorithms_and_ds/" . "selection_sort/")
+ ("/home/wrongway4you/Learning/" . "algorithms_and_ds/")
+ ("/home/wrongway4you/Projects/shell/" . "tests/")
+ ("/home/wrongway4you/" . ".emacs.d/")
  ("/home/" . "wrongway4you/")
- ("/home/wrongway4you/Projects/" . "shell/")
+ ("/home/wrongway4you/Projects/" . "gsh/")
  ("/home/wrongway4you/.config/" . "awesome/")
 )
 
 ;; ----- ido-work-directory-list -----
 (
- "/home/wrongway4you/Projects/shell/src/"
- "/home/wrongway4you/Projects/shell/"
- "/home/wrongway4you/Projects/shell/include/"
- "/home/wrongway4you/Projects/shell/docs/"
- "/home/wrongway4you/"
+ "/home/wrongway4you/.emacs.d/settings/"
+ "/home/wrongway4you/Projects/gsh/src/"
+ "/home/wrongway4you/Git/dotfiles/.emacs.d/settings/"
+ "/home/wrongway4you/Git/dotfiles/.emacs.d/"
  "/home/wrongway4you/Temp/"
+ "/home/wrongway4you/Learning/algorithms_and_ds/list/"
+ "/home/wrongway4you/Learning/algorithms_and_ds/selection_sort/"
+ "/home/wrongway4you/Projects/shell/docs/"
+ "/home/wrongway4you/Projects/shell/src/"
+ "/home/wrongway4you/Projects/shell/tests/"
+ "/home/wrongway4you/Projects/shell/"
+ "/home/wrongway4you/Learning/data_structures/list/"
+ "/home/wrongway4you/Learning/data_structures/"
+ "/home/wrongway4you/Projects/shell/include/"
+ "/home/wrongway4you/"
 )
 
 ;; ----- ido-work-file-list -----
 (
- "util.h"
- "shell.h"
- "shell.c"
- "token.h"
- "configure.ac"
- "Makefile.am"
- "util.c"
+ "keybindings.el"
+ "tokenizer.c"
+ "init.el"
+ "packages.el"
+ "something.py"
+ "main.py"
+ "something.c"
+ "whatever.c"
+ ".#something.c"
  "main.c"
- "description.txt"
- "token.c"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
- ("/home/wrongway4you/Projects/shell/src/" (22602 63880 407528 674000) ".deps/" "Makefile.am" "main.c" "util.h" "Makefile.in" "token.c" "token.h" "../" "Makefile" "main.o" "util.c" "./" "shell.c" "shell.h")
+ ("/home/wrongway4you/.emacs.d/settings/" (22606 57850 57249 967000) "../" "util.el" "packages.el" "./" "keybindings.el" "hooks.el")
 
- ("/home/wrongway4you/Projects/shell/" (22602 63606 105553 951000) "Makefile.am" "autom4te.cache/" "config.log" "Makefile.in" "config.status" "aclocal.m4" "configure" "../" "Makefile" "AUTHORS" "tests/" "tmp/" "src/" "bin/" "README" "ChangeLog" "LICENSE" "INSTALL" "NEWS" "m4/" "docs/" "COPYING" "configure.ac" "./")
+ ("/home/wrongway4you/.emacs.d/" (22606 57852 974249 698000) "auto-save-list/" "../" "init.el" "ido.last" "elpa/" "./" "settings/")
 
- ("/home/wrongway4you/" (22602 49168 231884 406000) ".vimrc" ".xauthzaXcGz" ".zsh_history" "Learning/" ".config/" ".serverauth.10341" "../" ".xinitrc" ".links/" ".gitconfig" ".emacs.d/" ".serverauth.31823" ".serverauth.3871" "Screenshots/" ".dbus/" "Documents/" ".mpd/" "Desktop/" ".gnupg/" ".zshrc.pre-oh-my-zsh" ".viminfo" ".pki/" ".thunderbird/" "Music/" "Projects/" ".gnome/" "Downloads/" "Archives/" ".bash_profile" "Temp/" "Pictures/" "Git/" ".wget-hsts" ".fonts.conf" ".bash_logout" ".zshrc" ".zcompdump-Gentoo-5.2" ".mozilla/" ".lyrics/" ".vim/" ".oh-my-zsh/" ".bashrc" ".mono/" ".themes/" ".zsh-update" ".serverauth.9411" ".recently-used" ".ssh/" ".cache/" "Scripts/" ".Xauthority" "./" ".ncmpcpp/" ".urxvt/" ".local/" ".Xresources")
+ ("/home/wrongway4you/Git/dotfiles/.emacs.d/" (22606 57178 684311 834000) "auto-save-list/" "../" "init.el" "ido.last" "elpa/" "./" "settings/")
+
+ ("/home/wrongway4you/Git/dotfiles/.emacs.d/settings/" (22606 57679 645265 671000) "../" "util.el" "packages.el" "./" "keybindings.el" "hooks.el")
+
+ ("/home/wrongway4you/" (22606 57546 796277 913000) ".vimrc" ".serverauth.3795" ".xauthzaXcGz" ".zsh_history" "Learning/" ".config/" ".serverauth.10341" ".python_history" "../" ".links/" ".gitconfig" ".emacs.d/" ".xsession" ".serverauth.31823" "Screenshots/" ".dbus/" ".bash_history" "Documents/" ".mpd/" "Desktop/" ".gnupg/" ".zshrc.pre-oh-my-zsh" ".viminfo" ".pki/" ".thunderbird/" "Music/" "Projects/" ".gnome/" "Downloads/" "Archives/" ".bash_profile" "Temp/" "Pictures/" "Git/" ".wget-hsts" ".fonts.conf" ".bash_logout" ".zshrc" ".zcompdump-Gentoo-5.2" ".mozilla/" ".lyrics/" ".vim/" ".oh-my-zsh/" ".bashrc" ".mono/" ".themes/" ".zsh-update" ".serverauth.9411" ".recently-used" ".serverauth.3793" "VirtualMachines/" ".ssh/" ".cache/" "Scripts/" ".Xauthority" "./" ".ncmpcpp/" ".urxvt/" ".local/" ".awesome-errors" ".Xresources")
+
+ ("/home/wrongway4you/Temp/" (22606 57250 80305 255000) "../" "something.py" "./")
+
+ ("/home/wrongway4you/Learning/algorithms_and_ds/selection_sort/" (22606 55250 474489 520000) "main.c" "main" "../" "Makefile" "./")
+
+ ("/home/wrongway4you/Learning/algorithms_and_ds/list/" (22606 56019 768418 629000) "main.c" "main" "../" "Makefile" "./")
+
+ ("/home/wrongway4you/Git/" (22600 4059 217706 388000) "emerald_requests/" "../" "dotfiles/" "./")
+
+ ("/home/wrongway4you/Git/dotfiles/" (22606 39530 480938 122000) ".git/" ".vimrc" ".config/" "../" ".emacs.d/" ".xsession" "Screenshots/" ".mpd/" ".bash_profile" ".fonts.conf" ".bash_logout" ".zshrc" ".vim/" ".oh-my-zsh/" ".bashrc" ".themes/" "README.md" "./" ".ncmpcpp/" ".Xresources")
+
+ ("/home/wrongway4you/Learning/algorithms_and_ds/" (22605 28257 779467 629000) "selection_sort/" "math/" "../" "list/" "./")
+
+ ("/home/wrongway4you/Learning/" (22606 42724 879643 757000) "compilers_and_programming_languages/" "../" "algorithms_and_ds/" "./")
+
+ ("/home/wrongway4you/Projects/gsh/src/" (22606 52587 993734 868000) "ast.c" "main.c" "util.h" "token.c" "tokenizer.c" "token.h" "../" "tokenizer.h" "util.c" "ast.h" "./" "shell.c" "shell.h")
+
+ ("/home/wrongway4you/Projects/gsh/tests/" (22605 19368 231351 459000) ".deps/" "main.c" "../" "test_util.c" "test_util.h" "tests.h" "./")
+
+ ("/home/wrongway4you/Projects/gsh/" (22606 46418 547303 385000) "../" "Makefile" "AUTHORS" "tests/" "tmp/" "src/" "bin/" "README" "LICENSE" "INSTALL" "NEWS" "docs/" "COPYING" "./" "resources/")
+
+ ("/home/wrongway4you/Projects/" (22606 46332 747311 291000) "emerald_requests/" "../" "gsh/" "emerald_args/" "emerald_templater/" "./" "emerald_web/" "emerald_browser/")
+
+ ("/home/wrongway4you/Projects/shell/src/" (22605 31983 401516 316000) "ast.c" "main.c" "util.h" "token.c" "token.h" "../" "util.c" "ast.h" "./" "shell.c" "shell.h")
+
+ ("/home/wrongway4you/Projects/shell/docs/" (22605 31933 276515 661000) "../" "description.txt" "./")
+
+ ("/home/wrongway4you/Projects/shell/" (22605 19766 679356 666000) "../" "Makefile" "AUTHORS" "tests/" "tmp/" "src/" "bin/" "README" "LICENSE" "INSTALL" "NEWS" "docs/" "COPYING" "./" "resources/")
+
+ ("/home/wrongway4you/Projects/shell/tests/" (22605 19368 231351 459000) ".deps/" "main.c" "../" "test_util.c" "test_util.h" "tests.h" "./")
+
+ ("/home/wrongway4you/Learning/data_structures/list/" (22604 1903 381997 234000) "main.c" "../" "./")
+
+ ("/home/wrongway4you/Learning/data_structures/" (22604 1856 680997 245000) "../" "list" "./")
+
+ ("/home/wrongway4you/Learning/string/" (22600 15921 781613 249000) "main.c" "string.c" "main" "../" "Makefile" "string.h" "a.out" "./")
 
  ("/home/wrongway4you/Projects/shell/include/" (22602 48099 982982 846000) "util.h" "token.h" "../" "./" "shell.h" ".#token.h")
-
- ("/home/wrongway4you/Projects/shell/docs/" (22602 43485 420408 79000) "../" "description.txt" "./")
-
- ("/home/wrongway4you/Temp/" (22598 58352 741997 347000) "something.cpp" "../" "urxvtclip" "JjlLYd5A" "./")
-
- ("/home/wrongway4you/Projects/" (22600 18602 737366 198000) "emerald_requests/" "lemonblog.com/" "../" "greenlemon.com/" "emerald_args/" "emerald_templater/" "./" "emerald_web/" "shell/" "emerald_browser/" "cryptolist.com/")
-
- ("/home/wrongway4you/Git/dotfiles/" (22598 56289 427997 829000) ".git/" ".vimrc" ".config/" "../" ".xinitrc" ".emacs" ".mpd/" ".#.emacs" ".bash_profile" ".fonts.conf" ".bash_logout" ".zshrc" ".vim/" ".oh-my-zsh/" ".bashrc" ".themes/" "./" ".ncmpcpp/" ".Xresources" ".npmrc")
-
- ("/home/wrongway4you/Git/" (22597 36278 663249 66000) "../" "dotfiles/" "./")
 
  ("/home/wrongway4you/Projects/cryptolist.com/" (22585 21291 0 0) ".git/" "requirements.txt" ".gitignore" "sftp-config.json" "../" ".idea/" "migrations/" "tmp/" "g-conf.py" "config.py" "views.py" "templates/" "static/" "app.py" "Procfile" "core.py" "runtime.txt" "models.py" "./" "runserver.py" "manage.py")
 

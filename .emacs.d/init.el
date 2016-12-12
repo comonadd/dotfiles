@@ -91,6 +91,7 @@
 (setq ido-vitrual-buffers t)
 (setq ido-enable-flex-matching t)
 
+;; Something another
 (setq undo-limit 8192)
 (setq undo-strong-limit 8192)
 (setq shift-select-mode t)

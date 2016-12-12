@@ -12,8 +12,11 @@
 (global-set-key (kbd "C-\\") 'move-beginning-of-line)
 (global-set-key (kbd "C-g") 'goto-line)
 (global-set-key (kbd "<f6>") 'imenu)
+(global-set-key (kbd "C-n") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-s-n") 'mc/mark-next-like-this-word)
 
 ;; Editing
+(global-set-key (kbd "C-c C-c") nil)
 (global-set-key (kbd "C-c") 'kill-ring-save)
 (global-set-key (kbd "C-v") 'yank)
 (global-set-key (kbd "C-a") 'mark-whole-buffer)
@@ -35,5 +38,10 @@
 
 ;; BS plugin
 (global-set-key (kbd "<f2>") 'bs-show) ;; запуск buffer selection кнопкой F2
+
+; Map escape to cancel (like C-g)...
+(define-key isearch-mode-map [escape] 'isearch-abort)   ;; isearch
+(define-key isearch-mode-map "\e" 'isearch-abort)   ;; \e seems to work better for terminals
+(global-set-key [escape] 'keyboard-escape-quit)         ;; everywhere else
 
 (provide 'keybindings)
