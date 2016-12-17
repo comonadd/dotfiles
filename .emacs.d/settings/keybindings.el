@@ -12,12 +12,12 @@
 (global-set-key (kbd "C-\\") 'move-beginning-of-line)
 (global-set-key (kbd "C-g") 'goto-line)
 (global-set-key (kbd "<f6>") 'imenu)
-(global-set-key (kbd "C-n") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-s-n") 'mc/mark-next-like-this-word)
+
+(global-set-key (kbd "C-.") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-,") 'mc/mark-previous-like-this)
 
 ;; Editing
-(global-set-key (kbd "C-c C-c") nil)
-(global-set-key (kbd "C-c") 'kill-ring-save)
+(global-set-key (kbd "C-y") 'kill-ring-save)
 (global-set-key (kbd "C-v") 'yank)
 (global-set-key (kbd "C-a") 'mark-whole-buffer)
 (global-set-key (kbd "C-d") 'kill-line)

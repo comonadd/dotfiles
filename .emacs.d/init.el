@@ -15,7 +15,6 @@
 (global-hl-line-mode 1)
 (setq use-dialog-box nil)
 (setq redisplay-dont-pause t)
-(setq ring-bell-function 'ignore)
 
 ;; Disabling backup/autosave of files
 (setq make-backup-files nil)

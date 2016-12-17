@@ -82,7 +82,7 @@ unset XKB_IN_USE
 if [ -d /etc/X11/xinit/xinitrc.d ]; then
     for i in /etc/X11/xinit/xinitrc.d/* ; do
         if [ -x "$i" ]; then
-	    . "$i"
+        . "$i"
         fi
     done
 fi
