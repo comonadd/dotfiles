@@ -15,12 +15,13 @@
 
 ;; ----- ido-work-directory-list -----
 (
+ "/home/wrongway4you/Projects/gsh/src/"
+ "/home/wrongway4you/Projects/gsh/"
+ "/home/wrongway4you/Projects/gsh/docs/"
+ "/home/wrongway4you/Git/dotfiles/.emacs.d/settings/"
  "/home/wrongway4you/.emacs.d/settings/"
  "/home/wrongway4you/Projects/gsh/tests/"
- "/home/wrongway4you/Projects/gsh/src/"
  "/home/wrongway4you/Git/dotfiles/.emacs.d/"
- "/home/wrongway4you/Projects/gsh/"
- "/home/wrongway4you/Git/dotfiles/.emacs.d/settings/"
  "/home/wrongway4you/Temp/"
  "/home/wrongway4you/Learning/algorithms_and_ds/list/"
  "/home/wrongway4you/Learning/algorithms_and_ds/selection_sort/"
@@ -36,41 +37,45 @@
 
 ;; ----- ido-work-file-list -----
 (
- "keybindings.el"
- "test_tokenizer.c"
+ "parser.c"
+ "shell.c"
  "main.c"
- "init.el"
- "packages.el"
- "test_util.c"
- "xstr.c"
- "test_xstr.c"
- "hooks.el"
- "test_xvec.c"
+ "util.c"
+ "interpreter.h"
+ "TODO"
+ "code_style.txt"
+ "interpreter.c"
+ "ast.c"
+ "keybindings.el"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
- ("/home/wrongway4you/.emacs.d/settings/" (22612 54576 220077 209000) "../" "util.el" "packages.el" "./" "keybindings.el" "hooks.el")
+ ("/home/wrongway4you/Projects/gsh/src/" (22615 58624 965536 947000) "ast.c" "main.c" "util.h" "xvec.c" "token.c" "tokenizer.c" "token.h" "../" "xvec.h" "xmalloc.c" "interpreter.h" "parser.c" "xstr.c" "tokenizer.h" "xmalloc.h" "util.c" "parser.h" "ast.h" "xmap.h" "xstack.c" "./" "xmap.c" "shell.c" "shell.h" "xstack.h" "interpreter.c" "xstr.h")
 
- ("/home/wrongway4you/.emacs.d/" (22612 55346 550087 276000) ".mc-lists.el" "auto-save-list/" "../" "init.el" "ido.last" "elpa/" "./" "settings/")
+ ("/home/wrongway4you/Projects/gsh/docs/" (22615 58269 489569 704000) "code_style.txt" "../" "specs.txt" "description.txt" "grammar.txt" "./")
 
- ("/home/wrongway4you/" (22612 54914 627081 632000) ".vimrc" ".serverauth.3795" ".xauthzaXcGz" ".zsh_history" "Learning/" ".config/" ".serverauth.10341" ".python_history" "../" ".links/" ".gitconfig" "Installers/" ".emacs.d/" ".xsession" ".serverauth.31823" "Screenshots/" ".dbus/" ".bash_history" "Documents/" ".mpd/" "Desktop/" ".gnupg/" ".zshrc.pre-oh-my-zsh" ".viminfo" ".pki/" ".thunderbird/" "Music/" "Projects/" ".gnome/" "Downloads/" "Archives/" ".bash_profile" "Temp/" "Pictures/" "Git/" ".wget-hsts" ".fonts.conf" ".bash_logout" ".zshrc" ".zcompdump-Gentoo-5.2" ".mozilla/" ".lyrics/" ".vim/" ".oh-my-zsh/" ".bashrc" ".mono/" ".themes/" ".zsh-update" ".serverauth.9411" ".recently-used" "VirtualMachines/" ".ssh/" ".cache/" "Scripts/" ".Xauthority" "./" ".ncmpcpp/" ".urxvt/" ".local/" ".awesome-errors" ".Xresources")
+ ("/home/wrongway4you/Projects/gsh/" (22615 57017 419685 83000) ".git/" "TODO" ".gitignore" "../" "Makefile" "AUTHORS" "tests/" "tmp/" "src/" "bin/" "THINKING" "README" "examples/" "LICENSE" "INSTALL" "NEWS" "docs/" "COPYING" "./" "resources/")
 
- ("/home/wrongway4you/Projects/gsh/tests/" (22612 54926 290081 784000) "test_xstr.h" "main.c" "test_xstr.c" "../" "test_util.c" "test_xvec.h" "test_xvec.c" "test_util.h" "test_tokenizer.h" ".#test_tokenizer.c" "test_tokenizer.c" "tests.h" "./")
+ ("/home/wrongway4you/.emacs.d/" (22614 62629 899990 423000) ".mc-lists.el" "auto-save-list/" "../" "init.el" "ido.last" "elpa/" "./" "settings/")
 
- ("/home/wrongway4you/Projects/gsh/src/" (22612 54596 749077 478000) "ast.c" "main.c" "util.h" "xvec.c" "token.c" "tokenizer.c" "token.h" "../" "xvec.h" "parser.c" "xstr.c" "tokenizer.h" "util.c" "parser.h" "ast.h" "./" "shell.c" "shell.h" "xstr.h")
+ ("/home/wrongway4you/" (22615 56371 432744 611000) ".vimrc" ".serverauth.3795" ".xauthzaXcGz" ".zsh_history" "Learning/" ".config/" ".serverauth.10341" ".python_history" "../" ".links/" ".gitconfig" "Installers/" ".emacs.d/" ".xsession" ".serverauth.31823" "Screenshots/" ".dbus/" ".bash_history" "Documents/" ".mpd/" "Books/" "Desktop/" ".gnupg/" ".zshrc.pre-oh-my-zsh" ".viminfo" ".pki/" ".thunderbird/" "Music/" "Projects/" ".gnome/" "Downloads/" "Archives/" ".bash_profile" "Temp/" "Pictures/" "Git/" ".wget-hsts" ".fonts.conf" ".bash_logout" ".zshrc" ".zcompdump-Gentoo-5.2" ".mozilla/" ".lyrics/" ".vim/" ".oh-my-zsh/" ".bashrc" ".mono/" ".themes/" ".zsh-update" ".serverauth.9411" ".recently-used" "VirtualMachines/" ".ssh/" ".cache/" "Scripts/" ".Xauthority" "./" ".ncmpcpp/" ".urxvt/" ".local/" ".awesome-errors" ".Xresources")
 
- ("/home/wrongway4you/Git/dotfiles/.emacs.d/" (22612 54074 30070 647000) ".mc-lists.el" "auto-save-list/" "../" "init.el" "ido.last" "elpa/" "./" "settings/")
+ ("/home/wrongway4you/Git/dotfiles/.emacs.d/" (22614 50023 799993 369000) ".mc-lists.el" "auto-save-list/" "../" "init.el" "ido.last" "elpa/" "./" "settings/")
 
- ("/home/wrongway4you/Git/dotfiles/.emacs.d/settings/" (22612 54123 586071 294000) ".#keybindings.el" "../" "util.el" "packages.el" "./" "keybindings.el" "hooks.el")
+ ("/home/wrongway4you/Projects/gsh/tests/" (22614 43951 760994 788000) "test_xstr.h" "main.c" "test_xstr.c" "../" "test_xstack.c" "test_xstack.h" "test_util.c" "test_xvec.h" "test_xvec.c" "test_util.h" "test_xmap.h" "test_tokenizer.h" "test_tokenizer.c" "tests.h" "./" "test_xmap.c")
+
+ ("/home/wrongway4you/Temp/" (22614 26813 460998 794000) "../" "./")
+
+ ("/home/wrongway4you/Projects/" (22614 25619 679999 73000) "emerald_requests/" "../" "gsh/" "./" "emerald_web/")
+
+ ("/home/wrongway4you/Git/dotfiles/.emacs.d/settings/" (22612 55742 887092 456000) "../" "util.el" "packages.el" "./" "keybindings.el" "hooks.el")
+
+ ("/home/wrongway4you/.emacs.d/settings/" (22612 55742 887092 456000) "../" "util.el" "packages.el" "./" "keybindings.el" "hooks.el")
 
  ("/home/wrongway4you/Git/dotfiles/" (22611 53672 897970 982000) ".git/" ".vimrc" ".config/" "../" ".xinitrc" ".emacs.d/" ".xsession" "Screenshots/" ".mpd/" ".bash_profile" ".fonts.conf" ".bash_logout" ".zshrc" ".vim/" ".oh-my-zsh/" ".bashrc" ".themes/" "README.md" "./" ".ncmpcpp/" ".Xresources")
 
- ("/home/wrongway4you/Projects/gsh/" (22612 5789 311344 306000) "TODO" "../" "Makefile" "AUTHORS" "tests/" "tmp/" "src/" "bin/" "README" "examples/" "LICENSE" "INSTALL" "NEWS" "docs/" "COPYING" "./" "resources/")
-
  ("/home/wrongway4you/Projects/gsh/bin/" (22605 19755 346356 518000) "../" "gsh" "./")
-
- ("/home/wrongway4you/Temp/" (22606 57250 80305 255000) "../" "something.py" "./")
 
  ("/home/wrongway4you/Learning/algorithms_and_ds/selection_sort/" (22606 55250 474489 520000) "main.c" "main" "../" "Makefile" "./")
 
@@ -81,8 +86,6 @@
  ("/home/wrongway4you/Learning/algorithms_and_ds/" (22605 28257 779467 629000) "selection_sort/" "math/" "../" "list/" "./")
 
  ("/home/wrongway4you/Learning/" (22606 42724 879643 757000) "compilers_and_programming_languages/" "../" "algorithms_and_ds/" "./")
-
- ("/home/wrongway4you/Projects/" (22606 46332 747311 291000) "emerald_requests/" "../" "gsh/" "emerald_args/" "emerald_templater/" "./" "emerald_web/" "emerald_browser/")
 
  ("/home/wrongway4you/Projects/shell/src/" (22605 31983 401516 316000) "ast.c" "main.c" "util.h" "token.c" "token.h" "../" "util.c" "ast.h" "./" "shell.c" "shell.h")
 

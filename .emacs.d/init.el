@@ -70,6 +70,10 @@
 (setq search-highlight        t)
 (setq query-replace-highlight t)
 
+;; Folding
+;(load "folding" 'nomessage 'noerror)
+;(folding-mode-add-find-file-hook)
+
 ;; Imenu plugin
 (require 'imenu)
 (setq imenu-auto-rescan t)
