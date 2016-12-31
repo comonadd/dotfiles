@@ -1,10 +1,6 @@
 local m = {}
 
--- Constants
-local THEME_DIR = "~/.themes/user"
--- }
-
-m.wallpaper = THEME_DIR .. "/background.jpg"
+m.wallpaper = "background.jpg"
 
 -- Wibox top
 m.WIBOX_TOP_H = 20

@@ -32,7 +32,6 @@ local disk_usage_w = require("disk_usage_w")
 local kernel_info_w = require("kernel_info_w")
 local username_w = require("username_w")
 
-
 -- Variables
 local wibox_top = {}  -- Top panel
 local wibox_bot = {}  -- Bottom panel

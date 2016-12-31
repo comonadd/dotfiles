@@ -1,0 +1,15 @@
+--style=kr
+--indent=spaces=4
+--indent-labels
+--indent-switches
+--indent-preproc-define
+--indent-col1-comments
+--min-conditional-indent=0
+--pad-oper
+--align-pointer=type
+--align-reference=type
+--remove-brackets
+--close-templates
+--remove-comment-prefix
+--max-code-length=80
+--break-after-logical
