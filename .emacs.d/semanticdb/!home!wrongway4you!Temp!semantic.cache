@@ -1,0 +1,17 @@
+;; Object Temp/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "Temp/"
+  :tables
+  (list
+    (semanticdb-table "main.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("main" function (:type "int") nil [141 169]))          
+      :file "main.c"
+      :pointmax 170
+      :fsize 169
+      :lastmodtime '(22625 25419 643677 71000)
+      :unmatched-syntax '((symbol 136 . 139) (punctuation 135 . 136) (symbol 127 . 134) (punctuation 126 . 127) (symbol 136 . 139) (punctuation 135 . 136) (symbol 127 . 134) (punctuation 126 . 127))))
+  :file "!home!wrongway4you!Temp!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

@@ -3,15 +3,24 @@
 
 (setq mc/cmds-to-run-for-all
       '(
-        autopair-insert-opening
-        autopair-skip-close-maybe
-        c-electric-semi&comma
-        keyboard-escape-quit
-        ))
+	autopair-insert-opening
+	autopair-insert-or-skip-quote
+	autopair-skip-close-maybe
+	c-electric-pound
+	c-electric-semi&comma
+	find-corresponding-file
+	indent-for-tab-command
+	keyboard-escape-quit
+	kill-region
+	save-some-buffers
+	))
 
 (setq mc/cmds-to-run-once
       '(
-        c-electric-paren
-        c-electric-star
-        kill-this-buffer
-        ))
+	c-electric-colon
+	c-electric-paren
+	c-electric-star
+	kill-this-buffer
+	overwrite-mode
+	toggle-comment-region-or-line
+	))

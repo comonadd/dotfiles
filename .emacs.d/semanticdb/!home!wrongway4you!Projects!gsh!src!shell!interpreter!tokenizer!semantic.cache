@@ -1,0 +1,418 @@
+;; Object tokenizer/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "tokenizer/"
+  :tables
+  (list
+    (semanticdb-table "token.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("shell/interpreter/tokenizer/token.h" include nil nil [108 154])
+            ("stdio.h" include (:system-flag t) nil [156 174])
+            ("util/io.h" include nil nil [176 196])
+            ("util/macros.h" include nil nil [197 221])
+            ("util/xmalloc.h" include nil nil [222 247])
+            ("print_token" function
+               (:arguments 
+                  ( ("token" variable
+                       (:pointer 1
+                        :type ("Token" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [271 284]))                  
+                :type "void")
+                nil [249 332])
+            ("token_to_str" function
+               (:pointer 1
+                :arguments 
+                  ( ("token" variable
+                       (:pointer 1
+                        :type ("Token" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [361 374]))                  
+                :type ("XString" type (:type "class") nil nil))
+                nil [334 4640]))          
+      :file "token.c"
+      :pointmax 4641
+      :fsize 4640
+      :lastmodtime '(22620 4129 984649 906000)
+      :unmatched-syntax nil)
+    (semanticdb-table "tokenizer.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("shell/interpreter/tokenizer/tokenizer.h" include nil nil [241 291])
+            ("stdlib.h" include (:system-flag t) nil [293 312])
+            ("string.h" include (:system-flag t) nil [313 332])
+            ("gsh.h" include nil nil [334 350])
+            ("err.h" include nil nil [351 367])
+            ("util/xmalloc.h" include nil nil [368 393])
+            ("util/util.h" include nil nil [394 416])
+            ("util/macros.h" include nil nil [417 441])
+            ("shell/shell.h" include nil nil [442 466])
+            ("shell/interpreter/tokenizer/token.h" include nil nil [467 513])
+            ("tokenizer_reached_end" function
+               (:typemodifiers ("static")
+                :type "bool")
+                nil [602 747])
+            ("tokenizer_reach_end_if_go" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("count" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [894 907]))                  
+                :type "bool")
+                nil [856 1025])
+            ("tokenizer_incr_pos" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("count" variable (:type ("uint16" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1127 1140]))                  
+                :type "void")
+                nil [1096 1195])
+            ("tokenizer_get_ch" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("offset" variable (:type ("int64" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1442 1455]))                  
+                :type "char")
+                nil [1413 1714])
+            ("tokenizer_skip_ch" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("count" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1887 1900]))                  
+                :type "bool")
+                nil [1857 2083])
+            ("tokenizer_next" function
+               (:typemodifiers ("static")
+                :type "bool")
+                nil [2260 2383])
+            ("tokenize_" function
+               (:typemodifiers ("static")
+                :type "bool")
+                nil [2563 16907])
+            ("tokenizer_init" function (:type "void") nil [16909 17072])
+            ("tokenize" function
+               (:arguments 
+                  ( ("text" variable
+                       (:pointer 1
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [17093 17107])
+                    ("tokens" variable
+                       (:pointer 1
+                        :type ("XVector" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [17112 17128]))                  
+                :type "bool")
+                nil [17074 17297]))          
+      :file "tokenizer.c"
+      :pointmax 17298
+      :fsize 17297
+      :lastmodtime '(22620 5452 22528 80000)
+      :unmatched-syntax nil)
+    (semanticdb-table "tokenizer.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("TOKENIZER_H" variable (:constant-flag t) nil [140 151])
+            ("stdlib.h" include (:system-flag t) nil [153 172])
+            ("ds/xvec.h" include nil nil [174 194])
+            ("ds/xstr.h" include nil nil [195 215])
+            ("tokenizer_init" function
+               (:prototype-flag t
+                :type "void")
+                nil [217 239])
+            ("tokenize" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("text" variable
+                       (:pointer 1
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [260 274])
+                    ("tokens" variable
+                       (:pointer 1
+                        :type ("XVector" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [279 295]))                  
+                :type "bool")
+                nil [241 296]))          
+      :file "tokenizer.h"
+      :pointmax 320
+      :fsize 319
+      :lastmodtime '(22620 5498 313523 814000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("TOKENIZER_H")
+          )
+)
+    (semanticdb-table "token.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("TOKEN_H" variable (:constant-flag t) nil [132 139])
+            ("stdlib.h" include (:system-flag t) nil [141 160])
+            ("ds/xstr.h" include nil nil [162 182])
+            ("TokenType" type
+               (:typedef ("" type
+                     (:members 
+                        ( ("TOKEN_INVALID" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [203 217])
+                          ("TOKEN_NEWLINE" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [244 258])
+                          ("TOKEN_SEMI" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [281 292])
+                          ("TOKEN_COMMA" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [317 329])
+                          ("TOKEN_LBRACKET" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [353 368])
+                          ("TOKEN_RBRACKET" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [389 404])
+                          ("TOKEN_LPAREN" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [425 438])
+                          ("TOKEN_RPAREN" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [461 474])
+                          ("TOKEN_LBRACE" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [497 510])
+                          ("TOKEN_RBRACE" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [533 546])
+                          ("TOKEN_PLUS" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [601 612])
+                          ("TOKEN_MINUS" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [637 649])
+                          ("TOKEN_STAR" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [673 684])
+                          ("TOKEN_SLASH" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [709 721])
+                          ("TOKEN_MODULUS" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [745 759])
+                          ("TOKEN_INCR" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [781 792])
+                          ("TOKEN_DECR" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [818 829])
+                          ("TOKEN_POW" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [855 865])
+                          ("TOKEN_EQ" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [924 933])
+                          ("TOKEN_NEQ" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [961 971])
+                          ("TOKEN_LT" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [998 1007])
+                          ("TOKEN_GT" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [1034 1043])
+                          ("TOKEN_LTE" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [1070 1080])
+                          ("TOKEN_GTE" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [1107 1117])
+                          ("TOKEN_LOGICAL_AND" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [1173 1191])
+                          ("TOKEN_LOGICAL_NOT" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [1210 1228])
+                          ("TOKEN_LOGICAL_OR" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [1246 1263])
+                          ("TOKEN_BITWISE_AND" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [1312 1330])
+                          ("TOKEN_BITWISE_NOT" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [1348 1366])
+                          ("TOKEN_BITWISE_OR" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [1384 1401])
+                          ("TOKEN_BITWISE_XOR" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [1420 1438])
+                          ("TOKEN_BITWISE_LS" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [1456 1473])
+                          ("TOKEN_BITWISE_RS" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [1493 1510])
+                          ("TOKEN_ASSIGN" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [1558 1571])
+                          ("TOKEN_ASSIGN_PLUS" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [1594 1612])
+                          ("TOKEN_ASSIGN_MINUS" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [1631 1650])
+                          ("TOKEN_ASSIGN_STAR" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [1668 1686])
+                          ("TOKEN_ASSIGN_SLASH" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [1705 1724])
+                          ("TOKEN_ASSIGN_MODULUS" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [1742 1763])
+                          ("TOKEN_ASSIGN_BITWISE_AND" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [1779 1804])
+                          ("TOKEN_ASSIGN_BITWISE_OR" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [1816 1840])
+                          ("TOKEN_ASSIGN_BITWISE_XOR" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [1853 1878])
+                          ("TOKEN_ASSIGN_BITWISE_LS" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [1890 1914])
+                          ("TOKEN_ASSIGN_BITWISE_RS" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [1928 1952])
+                          ("TOKEN_KEYWORD_IF" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [1986 2003])
+                          ("TOKEN_KEYWORD_ELIF" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [2023 2042])
+                          ("TOKEN_KEYWORD_ELSE" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [2062 2081])
+                          ("TOKEN_KEYWORD_WHILE" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [2101 2121])
+                          ("TOKEN_KEYWORD_FOR" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [2141 2159])
+                          ("TOKEN_KEYWORD_FUNCTION" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [2179 2202])
+                          ("TOKEN_KEYWORD_IMPORT" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [2222 2243])
+                          ("TOKEN_STRLIT" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [2283 2296])
+                          ("TOKEN_NUMLIT" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [2301 2314])
+                          ("TOKEN_ID" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [2348 2358]))                        
+                      :type "enum")
+                      nil nil)
+                :type "typedef")
+                nil [184 2369])
+            ("KEYWORD_IF" variable (:constant-flag t) nil [2379 2389])
+            ("KEYWORD_ELIF" variable (:constant-flag t) nil [2403 2415])
+            ("KEYWORD_ELSE" variable (:constant-flag t) nil [2431 2443])
+            ("KEYWORD_WHILE" variable (:constant-flag t) nil [2459 2472])
+            ("KEYWORD_FOR" variable (:constant-flag t) nil [2489 2500])
+            ("KEYWORD_FUNCTION" variable (:constant-flag t) nil [2515 2531])
+            ("KEYWORD_IMPORT" variable (:constant-flag t) nil [2551 2565])
+            ("Token" type
+               (:typedef ("" type
+                     (:members 
+                        ( ("type" variable (:type ("TokenType" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2597 2612])
+                          ("val" variable (:type ("XString" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2617 2629]))                        
+                      :type "struct")
+                      nil nil)
+                :type "typedef")
+                nil [2576 2638])
+            ("print_token" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("token" variable
+                       (:pointer 1
+                        :type ("Token" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2662 2675]))                  
+                :type "void")
+                nil [2640 2676])
+            ("token_to_str" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("token" variable
+                       (:pointer 1
+                        :type ("Token" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2705 2718]))                  
+                :type ("XString" type (:type "class") nil nil))
+                nil [2678 2719]))          
+      :file "token.h"
+      :pointmax 2739
+      :fsize 2738
+      :lastmodtime '(22619 62799 793282 628000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("KEYWORD_FOR" . ((string "\"for\"" 2501 . 2506)))
+          ("KEYWORD_FUNCTION" . ((string "\"function\"" 2532 . 2542)))
+          ("TOKEN_H")
+          ("KEYWORD_WHILE" . ((string "\"while\"" 2473 . 2480)))
+          ("KEYWORD_IF" . ((string "\"if\"" 2390 . 2394)))
+          ("KEYWORD_ELIF" . ((string "\"elif\"" 2416 . 2422)))
+          ("KEYWORD_IMPORT" . ((string "\"import\"" 2566 . 2574)))
+          ("KEYWORD_ELSE" . ((string "\"else\"" 2444 . 2450)))
+          )
+))
+  :file "!home!wrongway4you!Projects!gsh!src!shell!interpreter!tokenizer!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

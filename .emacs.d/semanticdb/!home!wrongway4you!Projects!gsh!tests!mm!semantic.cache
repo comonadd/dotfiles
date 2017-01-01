@@ -1,0 +1,539 @@
+;; Object mm/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "mm/"
+  :tables
+  (list
+    (semanticdb-table "main.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("platform.h" include nil nil [126 147])
+            ("xvec.h" include nil nil [148 165])
+            ("xstr.h" include nil nil [166 183])
+            ("xstack.h" include nil nil [184 203])
+            ("xmap.h" include nil nil [204 221])
+            ("util.h" include nil nil [222 239])
+            ("tokenizer.h" include nil nil [240 262])
+            ("parser.h" include nil nil [263 282])
+            ("interpreter.h" include nil nil [283 307])
+            ("main" function (:type "int") nil [309 1243]))          
+      :file "main.c"
+      :pointmax 1244
+      :fsize 1243
+      :lastmodtime '(22627 60661 69020 204000)
+      :unmatched-syntax nil)
+    (semanticdb-table "platform.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("TEST_PLATFORM_H" variable (:constant-flag t) nil [162 177])
+            ("check.h" include (:system-flag t) nil [179 197])
+            ("platform_suite" function
+               (:prototype-flag t
+                :pointer 1
+                :type ("Suite" type (:type "class") nil nil))
+                nil [199 223]))          
+      :file "platform.h"
+      :pointmax 251
+      :fsize 250
+      :lastmodtime '(22627 54355 12601 310000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("TEST_PLATFORM_H")
+          )
+)
+    (semanticdb-table "platform.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("platform.h" include nil nil [130 151])
+            ("platform_suite" function
+               (:pointer 1
+                :type ("Suite" type (:type "class") nil nil))
+                nil [153 313]))          
+      :file "platform.c"
+      :pointmax 314
+      :fsize 313
+      :lastmodtime '(22627 53898 283643 397000)
+      :unmatched-syntax nil)
+    (semanticdb-table "xvec.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("TEST_XVEC_H" variable (:constant-flag t) nil [154 165])
+            ("check.h" include (:system-flag t) nil [167 185])
+            ("xvec_suite" function
+               (:prototype-flag t
+                :pointer 1
+                :type ("Suite" type (:type "class") nil nil))
+                nil [187 207]))          
+      :file "xvec.h"
+      :pointmax 231
+      :fsize 230
+      :lastmodtime '(22627 54367 76600 198000)
+      :unmatched-syntax '((punctuation 162 . 163) (symbol 157 . 162))
+      :lexical-table 
+        '(("TEST_XVEC_H")
+          )
+)
+    (semanticdb-table "xvec.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("xvec.h" include nil nil [126 143])
+            ("stdlib.h" include (:system-flag t) nil [145 164])
+            ("stdint.h" include (:system-flag t) nil [165 184])
+            ("stdio.h" include (:system-flag t) nil [185 203])
+            ("lib/xvec.h" include nil nil [205 226])
+            ("START_TEST" function
+               (:arguments 
+                  ( ("" variable (:type ("test_main" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [240 250]))                  
+                :type "int")
+                nil [228 709])
+            ("xvec_suite" function
+               (:pointer 1
+                :type ("Suite" type (:type "class") nil nil))
+                nil [720 912]))          
+      :file "xvec.c"
+      :pointmax 913
+      :fsize 912
+      :lastmodtime '(22627 60874 5000 582000)
+      :unmatched-syntax nil)
+    (semanticdb-table "xstr.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("TEST_XSTR_H" variable (:constant-flag t) nil [154 165])
+            ("check.h" include (:system-flag t) nil [167 185])
+            ("xstr_suite" function
+               (:prototype-flag t
+                :pointer 1
+                :type ("Suite" type (:type "class") nil nil))
+                nil [187 207]))          
+      :file "xstr.h"
+      :pointmax 231
+      :fsize 230
+      :lastmodtime '(22627 54380 476598 963000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("TEST_XSTR_H")
+          )
+)
+    (semanticdb-table "xstr.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("xstr.h" include nil nil [126 143])
+            ("stdlib.h" include (:system-flag t) nil [145 164])
+            ("stdio.h" include (:system-flag t) nil [165 183])
+            ("lib/xstr.h" include nil nil [185 206])
+            ("START_TEST" function
+               (:arguments 
+                  ( ("" variable (:type ("test_main" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [220 230]))                  
+                :type "int")
+                nil [208 644])
+            ("xstr_suite" function
+               (:pointer 1
+                :type ("Suite" type (:type "class") nil nil))
+                nil [655 847]))          
+      :file "xstr.c"
+      :pointmax 848
+      :fsize 847
+      :lastmodtime '(22627 60939 908994 509000)
+      :unmatched-syntax '((symbol 645 . 653)))
+    (semanticdb-table "xstack.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("TEST_XSTACK_H" variable (:constant-flag t) nil [158 171])
+            ("check.h" include (:system-flag t) nil [173 191])
+            ("xstack_suite" function
+               (:prototype-flag t
+                :pointer 1
+                :type ("Suite" type (:type "class") nil nil))
+                nil [193 215]))          
+      :file "xstack.h"
+      :pointmax 241
+      :fsize 240
+      :lastmodtime '(22627 54388 692598 206000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("TEST_XSTACK_H")
+          )
+)
+    (semanticdb-table "xstack.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("xstack.h" include nil nil [128 147])
+            ("stdlib.h" include (:system-flag t) nil [149 168])
+            ("stdint.h" include (:system-flag t) nil [169 188])
+            ("stdio.h" include (:system-flag t) nil [189 207])
+            ("lib/xstack.h" include nil nil [209 232])
+            ("START_TEST" function
+               (:arguments 
+                  ( ("" variable (:type ("test_main" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [246 256]))                  
+                :type "int")
+                nil [234 664])
+            ("xstack_suite" function
+               (:pointer 1
+                :type ("Suite" type (:type "class") nil nil))
+                nil [675 871]))          
+      :file "xstack.c"
+      :pointmax 872
+      :fsize 871
+      :lastmodtime '(22627 61294 316961 850000)
+      :unmatched-syntax '((symbol 665 . 673)))
+    (semanticdb-table "xmap.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("TEST_XMAP_H" variable (:constant-flag t) nil [154 165])
+            ("check.h" include (:system-flag t) nil [167 185])
+            ("xmap_suite" function
+               (:prototype-flag t
+                :pointer 1
+                :type ("Suite" type (:type "class") nil nil))
+                nil [187 207]))          
+      :file "xmap.h"
+      :pointmax 231
+      :fsize 230
+      :lastmodtime '(22627 54399 820597 180000)
+      :unmatched-syntax '((punctuation 162 . 163) (symbol 157 . 162))
+      :lexical-table 
+        '(("TEST_XMAP_H")
+          )
+)
+    (semanticdb-table "xmap.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("xmap.h" include nil nil [126 143])
+            ("xmap_suite" function
+               (:pointer 1
+                :type ("Suite" type (:type "class") nil nil))
+                nil [145 297]))          
+      :file "xmap.c"
+      :pointmax 298
+      :fsize 297
+      :lastmodtime '(22627 54830 132557 527000)
+      :unmatched-syntax nil)
+    (semanticdb-table "interpreter.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("interpreter.h" include nil nil [133 157])
+            ("check.h" include (:system-flag t) nil [159 177])
+            ("lib/xstr.h" include nil nil [179 200])
+            ("mm/memory.h" include nil nil [201 223])
+            ("shell/interprete.h" include nil nil [224 253])
+            ("check_interprete_for_memory_leaks" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("text" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [306 317]))                  
+                :type "void")
+                nil [255 625])
+            ("check_interprete_for_memory_leaks_on_bin_op" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("op" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [688 697]))                  
+                :type "void")
+                nil [627 896])
+            ("START_TEST" function
+               (:arguments 
+                  ( ("" variable (:type ("test_bin_ops" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [910 923]))                  
+                :type "int")
+                nil [898 1634])
+            ("START_TEST" function
+               (:arguments 
+                  ( ("" variable (:type ("test_comment" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1657 1670]))                  
+                :type ("END_TEST" type (:type "class") nil nil))
+                nil [1635 1789])
+            ("START_TEST" function
+               (:arguments 
+                  ( ("" variable (:type ("test_stmt_if" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1812 1825]))                  
+                :type ("END_TEST" type (:type "class") nil nil))
+                nil [1790 1957])
+            ("START_TEST" function
+               (:arguments 
+                  ( ("" variable (:type ("test_stmt_while" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1980 1996]))                  
+                :type ("END_TEST" type (:type "class") nil nil))
+                nil [1958 2130])
+            ("START_TEST" function
+               (:arguments 
+                  ( ("" variable (:type ("test_stmt_function" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2153 2172]))                  
+                :type ("END_TEST" type (:type "class") nil nil))
+                nil [2131 2325])
+            ("START_TEST" function
+               (:arguments 
+                  ( ("" variable (:type ("test_call" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2348 2358]))                  
+                :type ("END_TEST" type (:type "class") nil nil))
+                nil [2326 2536])
+            ("START_TEST" function
+               (:arguments 
+                  ( ("" variable (:type ("test_import" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2559 2571]))                  
+                :type ("END_TEST" type (:type "class") nil nil))
+                nil [2537 2636])
+            ("interpreter_suite" function
+               (:pointer 1
+                :type ("Suite" type (:type "class") nil nil))
+                nil [2647 3119]))          
+      :file "interpreter.c"
+      :pointmax 3120
+      :fsize 3119
+      :lastmodtime '(22627 61122 516977 682000)
+      :unmatched-syntax nil)
+    (semanticdb-table "interpreter.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("TEST_INTERPRETER_H" variable (:constant-flag t) nil [173 191])
+            ("check.h" include (:system-flag t) nil [193 211])
+            ("interpreter_suite" function
+               (:prototype-flag t
+                :pointer 1
+                :type ("Suite" type (:type "class") nil nil))
+                nil [213 240]))          
+      :file "interpreter.h"
+      :pointmax 271
+      :fsize 270
+      :lastmodtime '(22627 54068 438627 717000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("TEST_INTERPRETER_H")
+          )
+)
+    (semanticdb-table "parser.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("TEST_PARSER_H" variable (:constant-flag t) nil [163 176])
+            ("check.h" include (:system-flag t) nil [178 196])
+            ("parser_suite" function
+               (:prototype-flag t
+                :pointer 1
+                :type ("Suite" type (:type "class") nil nil))
+                nil [198 220]))          
+      :file "parser.h"
+      :pointmax 246
+      :fsize 245
+      :lastmodtime '(22627 54068 438627 717000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("TEST_PARSER_H")
+          )
+)
+    (semanticdb-table "util.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("TEST_UTIL_H" variable (:constant-flag t) nil [154 165])
+            ("check.h" include (:system-flag t) nil [167 185])
+            ("util_suite" function
+               (:prototype-flag t
+                :pointer 1
+                :type ("Suite" type (:type "class") nil nil))
+                nil [187 207]))          
+      :file "util.h"
+      :pointmax 231
+      :fsize 230
+      :lastmodtime '(22627 54475 564590 201000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("TEST_UTIL_H")
+          )
+)
+    (semanticdb-table "tokenizer.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("TEST_TOKENIZER_H" variable (:constant-flag t) nil [34 50])
+            ("TEST_TOKENIZER_H" variable (:constant-flag t) nil [34 50])
+            ("TEST_TOKENIZER_H" variable (:constant-flag t) nil [34 50])
+            ("check.h" include (:system-flag t) nil [52 70])
+            ("tokenizer_suite" function
+               (:prototype-flag t
+                :pointer 1
+                :type ("Suite" type (:type "class") nil nil))
+                nil [72 97]))          
+      :file "tokenizer.h"
+      :pointmax 126
+      :fsize 125
+      :lastmodtime '(22628 746 357502 201000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("TEST_TOKENIZER_H")
+          )
+)
+    (semanticdb-table "util.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("util.h" include nil nil [1 18])
+            ("check.h" include (:system-flag t) nil [20 38])
+            ("util_suite" function
+               (:pointer 1
+                :type ("Suite" type (:type "class") nil nil))
+                nil [40 192]))          
+      :file "util.c"
+      :pointmax 193
+      :fsize 192
+      :lastmodtime '(22627 60994 772989 453000)
+      :unmatched-syntax nil)
+    (semanticdb-table "tests.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("TESTS_H" variable (:constant-flag t) nil [25 32])
+            ("TESTS_H" variable (:constant-flag t) nil [25 32])
+            ("lib/xstr.h" include nil nil [34 55])
+            ("lib/xvec.h" include nil nil [56 77])
+            ("shell/parser/token.h" include nil nil [78 109])
+            ("shell/parser/ast.h" include nil nil [110 139])
+            ("ck_assert_xstr_eq" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("xstr1" variable
+                       (:pointer 1
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [169 191])
+                    ("xstr2" variable
+                       (:pointer 1
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [196 218]))                  
+                :type "void")
+                nil [141 219])
+            ("ck_assert_xvec_eq" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("xvec1" variable
+                       (:pointer 1
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [249 271])
+                    ("xvec2" variable
+                       (:pointer 1
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [276 298]))                  
+                :type "void")
+                nil [221 299])
+            ("ck_assert_token_eq" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("token" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("Token" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [330 356])
+                    ("expected_len_in_text" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [361 389])
+                    ("expected_type" variable (:type ("TokenType" type (:type "enum") nil nil)) (reparse-symbol arg-sub-list) [394 423])
+                    ("expected_val" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [428 453]))                  
+                :type "void")
+                nil [301 454])
+            ("ck_assert_ast_node_eq" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("ast1" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [488 509])
+                    ("ast2" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [514 535]))                  
+                :type "void")
+                nil [456 536])
+            ("ast_node_append" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("node" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [564 585])
+                    ("child" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [590 612]))                  
+                :type "void")
+                nil [538 613]))          
+      :file "tests.h"
+      :pointmax 633
+      :fsize 632
+      :lastmodtime '(22628 21 702568 978000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("TESTS_H")
+          )
+)
+    (semanticdb-table "tokenizer.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("tests/mm/tokenizer.h" include nil nil [1 32])
+            ("check.h" include (:system-flag t) nil [34 52])
+            ("tests/tests.h" include nil nil [54 78])
+            ("util/util.h" include nil nil [79 101])
+            ("shell/parser/token.h" include nil nil [102 133])
+            ("shell/parser/tokenize.h" include nil nil [134 168])
+            ("mm/memory.h" include nil nil [169 191])
+            ("check_for_mem_leaks_tokenizer_read_one_token" function
+               (:arguments 
+                  ( ("text" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [248 259])
+                    ("difference" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [264 282]))                  
+                :type "void")
+                nil [193 1035])
+            ("START_TEST" function
+               (:arguments 
+                  ( ("" variable (:type ("test_tokenizer_read_one_token" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1049 1079]))                  
+                :type "int")
+                nil [1037 4088])
+            ("tokenizer_suite" function
+               (:pointer 1
+                :type ("Suite" type (:type "class") nil nil))
+                nil [4099 4321]))          
+      :file "tokenizer.c"
+      :pointmax 4322
+      :fsize 4321
+      :lastmodtime '(22628 928 974485 372000)
+      :unmatched-syntax nil)
+    (semanticdb-table "parser.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("parser.h" include nil nil [133 152])
+            ("tests.h" include nil nil [154 172])
+            ("shell/parser/ast.h" include nil nil [174 203])
+            ("shell/parser/tokenize.h" include nil nil [204 238])
+            ("shell/parser/stmt.h" include nil nil [239 269])
+            ("shell/parser/parser.h" include nil nil [270 302])
+            ("parser_suite" function
+               (:pointer 1
+                :type ("Suite" type (:type "class") nil nil))
+                nil [304 460]))          
+      :file "parser.c"
+      :pointmax 461
+      :fsize 460
+      :lastmodtime '(22627 61158 588974 358000)
+      :unmatched-syntax nil))
+  :file "!home!wrongway4you!Projects!gsh!tests!mm!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

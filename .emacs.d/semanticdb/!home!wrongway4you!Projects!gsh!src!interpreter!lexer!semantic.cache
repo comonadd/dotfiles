@@ -1,0 +1,344 @@
+;; Object lexer/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "lexer/"
+  :tables
+  (list
+
+
+    (semanticdb-table "lexer.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("LEXER_H" variable (:constant-flag t) nil [151 158])
+            ("LexerState" type
+               (:members 
+                  ( ("toks" variable (:type ("XVector" type
+                         (:prototype t
+                          :type "struct")
+                          nil nil)) (reparse-symbol classsubparts) [184 204])
+                    ("ln" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol classsubparts) [209 219])
+                    ("pos_num" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol classsubparts) [224 239])
+                    ("tok" variable
+                       (:pointer 1
+                        :type ("Token" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [244 262])
+                    ("pos" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol classsubparts) [267 277]))                  
+                :type "struct")
+                nil [160 280])
+            ("lex" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [564 592]))                  
+                :type "bool")
+                nil [555 593]))          
+      :file "lexer.h"
+      :pointmax 613
+      :fsize 612
+      :lastmodtime '(22631 47289 955113 486000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("LEXER_H")
+          )
+)
+    (semanticdb-table "lexer.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("lexer.h" include nil nil [204 222])
+            ("types.h" include nil nil [224 242])
+            ("interpreter/interpreter.h" include nil nil [243 279])
+            ("util/macros.h" include nil nil [280 304])
+            ("ch_is_valid_for_identifier" function
+               (:arguments 
+                  ( ("ch" variable (:type "char") (reparse-symbol arg-sub-list) [544 552]))                  
+                :type "bool")
+                nil [512 1075])
+            ("lexer_ch_get" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1184 1212])
+                    ("offset" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1217 1231]))                  
+                :type "bool")
+                nil [1161 1270])
+            ("lexer_reach_end_if_go" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1439 1467])
+                    ("count" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1468 1481]))                  
+                :type "bool")
+                nil [1407 1542])
+            ("lexer_ch_eq" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1801 1829])
+                    ("offset" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1834 1848])
+                    ("ch" variable (:type "char") (reparse-symbol arg-sub-list) [1853 1861]))                  
+                :type "bool")
+                nil [1779 1906])
+            ("lexer_cc_eq" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2011 2039])
+                    ("ch" variable (:type "char") (reparse-symbol arg-sub-list) [2044 2052]))                  
+                :type "bool")
+                nil [1989 2086])
+            ("lexer_nc_eq" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2188 2216])
+                    ("ch" variable (:type "char") (reparse-symbol arg-sub-list) [2221 2229]))                  
+                :type "bool")
+                nil [2166 2269])
+            ("lexer_incr_pos" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2435 2463]))                  
+                :type "bool")
+                nil [2415 2507])
+            ("lexer_incr_pos_by" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2548 2576])
+                    ("count" variable (:type ("uint8" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2581 2593]))                  
+                :type "bool")
+                nil [2520 2651])
+            ("lexer_read_strlit" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2951 2979]))                  
+                :type "bool")
+                nil [2928 3640])
+            ("lexer_read_numlit" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3676 3704]))                  
+                :type "bool")
+                nil [3653 4462])
+            ("lexer_read_identifier" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4611 4639]))                  
+                :type "bool")
+                nil [4584 5696])
+            ("lexer_read_comment" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [5999 6027]))                  
+                :type "bool")
+                nil [5975 6761])
+            ("lexer_read_caret_ch" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreteState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [6866 6893]))                  
+                :type "void")
+                nil [6841 7135])
+            ("lexer_read_pipe_ch" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [7238 7266]))                  
+                :type "void")
+                nil [7214 7615])
+            ("lexer_read_amp_ch" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [7722 7750]))                  
+                :type "void")
+                nil [7699 8101])
+            ("lexer_read_gt_ch" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [8210 8238]))                  
+                :type "void")
+                nil [8188 8705])
+            ("lexer_read_lt_ch" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [8811 8839]))                  
+                :type "void")
+                nil [8789 9300])
+            ("lexer_read_exclam_ch" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [9417 9445]))                  
+                :type "void")
+                nil [9391 9672])
+            ("lexer_read_eq_ch" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [9775 9803]))                  
+                :type "void")
+                nil [9753 10024])
+            ("lexer_read_modulus_ch" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [10133 10161]))                  
+                :type "void")
+                nil [10106 10395])
+            ("lexer_read_slash_ch" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [10500 10528]))                  
+                :type "void")
+                nil [10475 10758])
+            ("lexer_read_star_ch" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [10861 10889]))                  
+                :type "void")
+                nil [10837 11351])
+            ("lexer_read_minus_ch" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [11456 11484]))                  
+                :type "void")
+                nil [11431 11929])
+            ("lexer_read_plus_ch" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [12032 12060]))                  
+                :type "void")
+                nil [12008 12501])
+            ("lex" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [12512 12540]))                  
+                :type "bool")
+                nil [12503 14542]))          
+      :file "lexer.c"
+      :pointmax 14543
+      :fsize 14542
+      :lastmodtime '(22631 52048 220675 11000)
+      :unmatched-syntax nil))
+  :file "!home!wrongway4you!Projects!gsh!src!interpreter!lexer!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

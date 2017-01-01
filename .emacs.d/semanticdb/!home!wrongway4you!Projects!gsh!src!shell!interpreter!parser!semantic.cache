@@ -1,0 +1,494 @@
+;; Object parser/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "parser/"
+  :tables
+  (list
+    (semanticdb-table "parser.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("PARSER_H" variable (:constant-flag t) nil [134 142])
+            ("stdint.h" include (:system-flag t) nil [144 163])
+            ("stdlib.h" include (:system-flag t) nil [164 183])
+            ("ds/xvec.h" include nil nil [185 205])
+            ("shell/interpreter/parser/ast.h" include nil nil [206 247])
+            ("parser_init" function
+               (:prototype-flag t
+                :type "void")
+                nil [249 268])
+            ("parse" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("tokens" variable
+                       (:pointer 1
+                        :type ("XVector" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [286 302])
+                    ("ast" variable
+                       (:pointer 1
+                        :type ("ASTNode" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [307 320]))                  
+                :type "bool")
+                nil [270 321]))          
+      :file "parser.h"
+      :pointmax 342
+      :fsize 341
+      :lastmodtime '(22620 5567 841517 407000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("PARSER_H")
+          )
+)
+    (semanticdb-table "parser.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("shell/interpreter/parser/parser.h" include nil nil [399 443])
+            ("stdio.h" include (:system-flag t) nil [445 463])
+            ("gsh.h" include nil nil [465 481])
+            ("err.h" include nil nil [482 498])
+            ("ds/xvec.h" include nil nil [499 519])
+            ("ds/xstr.h" include nil nil [520 540])
+            ("ds/xstack.h" include nil nil [541 563])
+            ("util/xmalloc.h" include nil nil [564 589])
+            ("util/io.h" include nil nil [590 610])
+            ("util/util.h" include nil nil [611 633])
+            ("util/macros.h" include nil nil [634 658])
+            ("shell/shell.h" include nil nil [659 683])
+            ("shell/interpreter/interpreter.h" include nil nil [684 726])
+            ("shell/interpreter/tokenizer/token.h" include nil nil [727 773])
+            ("shell/interpreter/parser/ast.h" include nil nil [774 815])
+            ("parser" variable
+               (:typemodifiers ("static")
+                :type ("" type
+                     (:members 
+                        ( ("tokens_pos" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol classsubparts) [837 855])
+                          ("tokens" variable
+                             (:pointer 1
+                              :type ("XVector" type (:type "class") nil nil))
+                              (reparse-symbol classsubparts) [860 876]))                        
+                      :type "struct")
+                      nil nil))
+                nil [817 886])
+            ("parse_expr_bool" function
+               (:prototype-flag t
+                :pointer 1
+                :typemodifiers ("static")
+                :type ("ASTNode" type (:type "class") nil nil))
+                nil [888 922])
+            ("parse_stmt_if" function
+               (:prototype-flag t
+                :pointer 1
+                :typemodifiers ("static")
+                :type ("ASTNode" type (:type "class") nil nil))
+                nil [924 956])
+            ("parse_stmt_while" function
+               (:prototype-flag t
+                :pointer 1
+                :typemodifiers ("static")
+                :type ("ASTNode" type (:type "class") nil nil))
+                nil [958 993])
+            ("parse_function_args" function
+               (:prototype-flag t
+                :pointer 1
+                :typemodifiers ("static")
+                :type ("ASTNode" type (:type "class") nil nil))
+                nil [995 1033])
+            ("parse_stmt_function" function
+               (:prototype-flag t
+                :pointer 1
+                :typemodifiers ("static")
+                :type ("ASTNode" type (:type "class") nil nil))
+                nil [1035 1073])
+            ("parse_expr" function
+               (:prototype-flag t
+                :pointer 1
+                :typemodifiers ("static")
+                :type ("ASTNode" type (:type "class") nil nil))
+                nil [1075 1104])
+            ("parse_stmt" function
+               (:prototype-flag t
+                :pointer 1
+                :typemodifiers ("static")
+                :type ("ASTNode" type (:type "class") nil nil))
+                nil [1106 1135])
+            ("parser_get_token" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("offset" variable (:type "long") (reparse-symbol arg-sub-list) [1310 1322]))                  
+                :type ("Token" type (:type "class") nil nil))
+                nil [1279 1563])
+            ("parser_next_token" function
+               (:typemodifiers ("static")
+                :type "bool")
+                nil [1626 1813])
+            ("parser_token_type_eq" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("offset" variable (:type "long") (reparse-symbol arg-sub-list) [2008 2020])
+                    ("type" variable (:type ("TokenType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2025 2040]))                  
+                :type "bool")
+                nil [1970 2187])
+            ("parse_expr_bool" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :type ("ASTNode" type (:type "class") nil nil))
+                nil [2225 3505])
+            ("parse_stmt_if" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :type ("ASTNode" type (:type "class") nil nil))
+                nil [3507 4100])
+            ("parse_stmt_while" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :type ("ASTNode" type (:type "class") nil nil))
+                nil [4102 4536])
+            ("parse_function_args" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :type ("ASTNode" type (:type "class") nil nil))
+                nil [4538 5465])
+            ("parse_stmt_function" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :type ("ASTNode" type (:type "class") nil nil))
+                nil [5467 6274])
+            ("parse_stmt_import" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :type ("ASTNode" type (:type "class") nil nil))
+                nil [6276 6707])
+            ("parse_expr" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :type ("ASTNode" type (:type "class") nil nil))
+                nil [6709 7070])
+            ("parse_stmt" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :type ("ASTNode" type (:type "class") nil nil))
+                nil [7072 7900])
+            ("parser_init" function (:type "void") nil [7902 8013])
+            ("parse" function
+               (:arguments 
+                  ( ("tokens" variable
+                       (:pointer 1
+                        :type ("XVector" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8031 8047])
+                    ("ast" variable
+                       (:pointer 1
+                        :type ("ASTNode" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8052 8065]))                  
+                :type "bool")
+                nil [8015 8678]))          
+      :file "parser.c"
+      :pointmax 8679
+      :fsize 8678
+      :lastmodtime '(22620 5553 538518 725000)
+      :unmatched-syntax nil)
+    (semanticdb-table "ast.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("AST_H" variable (:constant-flag t) nil [128 133])
+            ("stdint.h" include (:system-flag t) nil [135 154])
+            ("stdlib.h" include (:system-flag t) nil [155 174])
+            ("ds/xvec.h" include nil nil [176 196])
+            ("ds/xstr.h" include nil nil [197 217])
+            ("AstNodeType" type
+               (:typedef ("" type
+                     (:members 
+                        ( ("AST_NODE_PROGRAM" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [238 255])
+                          ("AST_NODE_ID" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [260 272])
+                          ("AST_NODE_IF" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [277 289])
+                          ("AST_NODE_BOOLEAN_EQ" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [294 314])
+                          ("AST_NODE_BOOLEAN_NEQ" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [319 340])
+                          ("AST_NODE_BOOLEAN_LT" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [345 365])
+                          ("AST_NODE_BOOLEAN_GT" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [370 390])
+                          ("AST_NODE_BOOLEAN_LTE" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [395 416])
+                          ("AST_NODE_BOOLEAN_GTE" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [421 442])
+                          ("AST_NODE_WHILE" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [447 462])
+                          ("AST_NODE_FUNCTION" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [467 485])
+                          ("AST_NODE_FUNCTION_ARG" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [490 512])
+                          ("AST_NODE_FUNCTION_ARGS" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [517 540])
+                          ("AST_NODE_IMPORT" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [545 561])
+                          ("AST_NODE_ASSIGN" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [566 583]))                        
+                      :type "enum")
+                      nil nil)
+                :type "typedef")
+                nil [219 596])
+            ("ASTNode" type
+               (:typedef ("" type
+                     (:members 
+                        ( ("type" variable (:type ("AstNodeType" type (:type "class") nil nil)) (reparse-symbol classsubparts) [619 636])
+                          ("val" variable (:type ("XString" type (:type "class") nil nil)) (reparse-symbol classsubparts) [641 653])
+                          ("childs" variable (:type ("XVector" type (:type "class") nil nil)) (reparse-symbol classsubparts) [658 673]))                        
+                      :type "struct")
+                      nil nil)
+                :type "typedef")
+                nil [598 684])
+            ("ast_node_if" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("node_cond" variable
+                       (:pointer 1
+                        :type ("ASTNode" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [834 853])
+                    ("node_then" variable
+                       (:pointer 1
+                        :type ("ASTNode" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [858 877])
+                    ("node_else" variable
+                       (:pointer 1
+                        :type ("ASTNode" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [882 901]))                  
+                :type ("ASTNode" type (:type "class") nil nil))
+                nil [808 902])
+            ("ast_node_import" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("name" variable
+                       (:pointer 1
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1004 1018]))                  
+                :type ("ASTNode" type (:type "class") nil nil))
+                nil [974 1019])
+            ("ast_node_while" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("cond" variable
+                       (:pointer 1
+                        :type ("ASTNode" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1145 1159])
+                    ("body" variable
+                       (:pointer 1
+                        :type ("ASTNode" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1164 1178]))                  
+                :type ("ASTNode" type (:type "class") nil nil))
+                nil [1116 1179])
+            ("ast_node_function_arg" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("name" variable
+                       (:pointer 1
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1293 1307]))                  
+                :type ("ASTNode" type (:type "class") nil nil))
+                nil [1257 1308])
+            ("ast_node_function_args" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("args_size" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1480 1497])
+                    ("args_array" variable
+                       (:pointer 1
+                        :type ("XVector" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1502 1522]))                  
+                :type ("ASTNode" type (:type "class") nil nil))
+                nil [1443 1523])
+            ("ast_node_function" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("name" variable
+                       (:pointer 1
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1720 1734])
+                    ("args" variable
+                       (:pointer 1
+                        :type ("ASTNode" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1739 1753])
+                    ("body" variable
+                       (:pointer 1
+                        :type ("ASTNode" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1758 1772]))                  
+                :type ("ASTNode" type (:type "class") nil nil))
+                nil [1688 1773])
+            ("ast_node_free" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("node" variable
+                       (:pointer 1
+                        :type ("ASTNode" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1799 1813]))                  
+                :type "void")
+                nil [1775 1814])
+            ("ast_node_print" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("node" variable
+                       (:pointer 1
+                        :type ("ASTNode" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1890 1904])
+                    ("indentation_level" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1909 1934]))                  
+                :type "void")
+                nil [1865 1935]))          
+      :file "ast.h"
+      :pointmax 1953
+      :fsize 1952
+      :lastmodtime '(22620 411 800992 538000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("AST_H")
+          )
+)
+    (semanticdb-table "ast.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("shell/interpreter/parser/ast.h" include nil nil [238 279])
+            ("stdlib.h" include (:system-flag t) nil [281 300])
+            ("stdint.h" include (:system-flag t) nil [301 320])
+            ("stdio.h" include (:system-flag t) nil [321 339])
+            ("gsh.h" include nil nil [341 357])
+            ("ds/xvec.h" include nil nil [358 378])
+            ("ds/xstr.h" include nil nil [379 399])
+            ("util/int.h" include nil nil [400 421])
+            ("util/util.h" include nil nil [422 444])
+            ("util/xmalloc.h" include nil nil [445 470])
+            ("ast_node_import" function
+               (:pointer 1
+                :arguments 
+                  ( ("name" variable
+                       (:pointer 1
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [502 516]))                  
+                :type ("ASTNode" type (:type "class") nil nil))
+                nil [472 667])
+            ("ast_node_if" function
+               (:pointer 1
+                :arguments 
+                  ( ("node_cond" variable
+                       (:pointer 1
+                        :type ("ASTNode" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [695 714])
+                    ("node_then" variable
+                       (:pointer 1
+                        :type ("ASTNode" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [719 738])
+                    ("node_else" variable
+                       (:pointer 1
+                        :type ("ASTNode" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [743 762]))                  
+                :type ("ASTNode" type (:type "class") nil nil))
+                nil [669 1040])
+            ("ast_node_while" function
+               (:pointer 1
+                :arguments 
+                  ( ("node_cond" variable
+                       (:pointer 1
+                        :type ("ASTNode" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1071 1090])
+                    ("node_body" variable
+                       (:pointer 1
+                        :type ("ASTNode" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1095 1114]))                  
+                :type ("ASTNode" type (:type "class") nil nil))
+                nil [1042 1312])
+            ("ast_node_function_arg" function
+               (:pointer 1
+                :arguments 
+                  ( ("name" variable
+                       (:pointer 1
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1350 1364]))                  
+                :type ("ASTNode" type (:type "class") nil nil))
+                nil [1314 1521])
+            ("ast_node_function_args" function
+               (:pointer 1
+                :arguments 
+                  ( ("args_size" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1560 1577])
+                    ("args_array" variable
+                       (:pointer 1
+                        :type ("XVector" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1582 1602]))                  
+                :type ("ASTNode" type (:type "class") nil nil))
+                nil [1523 1922])
+            ("ast_node_function" function
+               (:pointer 1
+                :arguments 
+                  ( ("name" variable
+                       (:pointer 1
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1956 1970])
+                    ("args" variable
+                       (:pointer 1
+                        :type ("ASTNode" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1975 1989])
+                    ("body" variable
+                       (:pointer 1
+                        :type ("ASTNode" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1994 2008]))                  
+                :type ("ASTNode" type (:type "class") nil nil))
+                nil [1924 2237])
+            ("ast_node_print" function
+               (:arguments 
+                  ( ("node" variable
+                       (:pointer 1
+                        :type ("ASTNode" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2264 2278])
+                    ("indentation_level" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2283 2308]))                  
+                :type "void")
+                nil [2239 4863])
+            ("ast_node_free" function
+               (:arguments 
+                  ( ("node" variable
+                       (:pointer 1
+                        :type ("ASTNode" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4889 4903]))                  
+                :type "void")
+                nil [4865 5163]))          
+      :file "ast.c"
+      :pointmax 5164
+      :fsize 5163
+      :lastmodtime '(22620 4221 56641 514000)
+      :unmatched-syntax nil))
+  :file "!home!wrongway4you!Projects!gsh!src!shell!interpreter!parser!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

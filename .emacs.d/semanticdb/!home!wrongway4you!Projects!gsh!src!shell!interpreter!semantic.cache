@@ -1,0 +1,113 @@
+;; Object interpreter/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "interpreter/"
+  :tables
+  (list
+    (semanticdb-table "interpreter.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("INTERPRETER_H" variable (:constant-flag t) nil [144 157])
+            ("ds/xstr.h" include nil nil [159 179])
+            ("interpreter" variable (:type ("" type
+                 (:members 
+                    ( ("curr_file" variable (:type ("" type
+                           (:members 
+                              ( ("name" variable (:type ("XString" type (:type "class") nil nil)) (reparse-symbol classsubparts) [273 286])
+                                ("line" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [295 307])
+                                ("col" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [316 327]))                              
+                            :type "struct")
+                            nil nil)) (reparse-symbol classsubparts) [252 344]))                    
+                  :type "struct")
+                  nil nil)) nil [239 359])
+            ("interpreter_curr_file_reset_pos" function
+               (:prototype-flag t
+                :type "void")
+                nil [361 400])
+            ("interpreter_curr_file_next_line" function
+               (:prototype-flag t
+                :type "void")
+                nil [443 482])
+            ("interpreter_curr_file_next_col" function
+               (:prototype-flag t
+                :type "void")
+                nil [484 522])
+            ("interpreter_curr_file_set_name" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("val" variable
+                       (:dereference 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [560 571]))                  
+                :type "void")
+                nil [524 572])
+            ("interpreter_load" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("text" variable (:type "char") (reparse-symbol arg-sub-list) [596 606]))                  
+                :type "void")
+                nil [574 607])
+            ("interpreter_load_file" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("filename" variable
+                       (:dereference 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [636 652]))                  
+                :type "void")
+                nil [609 653])
+            ("interpreter_exec" function
+               (:prototype-flag t
+                :type "bool")
+                nil [655 679]))          
+      :file "interpreter.h"
+      :pointmax 705
+      :fsize 704
+      :lastmodtime '(22620 5018 137568 63000)
+      :unmatched-syntax '((semantic-list 439 . 441) (symbol 407 . 439) (VOID 402 . 406) (punctuation 652 . 653) (semantic-list 635 . 652) (punctuation 606 . 607) (semantic-list 595 . 606) (semantic-list 439 . 441) (symbol 407 . 439) (VOID 402 . 406) (semantic-list 439 . 441) (symbol 407 . 439) (VOID 402 . 406))
+      :lexical-table 
+        '(("INTERPRETER_H")
+          )
+)
+    (semanticdb-table "interpreter.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("interpreter/interpreter.h" include nil nil [184 220])
+            ("ctype.h" include (:system-flag t) nil [222 240])
+            ("gsh.h" include nil nil [242 258])
+            ("err.h" include nil nil [259 275])
+            ("ds/xvec.h" include nil nil [276 296])
+            ("ds/xstr.h" include nil nil [297 317])
+            ("util/xmalloc.h" include nil nil [318 343])
+            ("interpreter/tokenizer/tokenizer.h" include nil nil [344 388])
+            ("interpreter/parser/parser.h" include nil nil [389 427])
+            ("interpreter_init" function (:type "void") nil [429 678])
+            ("interpreter_load" function
+               (:arguments 
+                  ( ("text" variable (:type "char") (reparse-symbol arg-sub-list) [702 712]))                  
+                :type "bool")
+                nil [680 716])
+            ("interpreter_load_file" function
+               (:arguments 
+                  ( ("filename" variable
+                       (:dereference 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [745 761]))                  
+                :type "bool")
+                nil [718 1510])
+            ("interpreter_clear" function (:type "void") nil [1512 1925])
+            ("interpreter_exec" function
+               (:arguments 
+                  ( ("text" variable
+                       (:pointer 1
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1954 1968]))                  
+                :type "bool")
+                nil [1927 2490]))          
+      :file "interpreter.c"
+      :pointmax 2491
+      :fsize 2490
+      :lastmodtime '(22620 6001 986477 401000)
+      :unmatched-syntax nil))
+  :file "!home!wrongway4you!Projects!gsh!src!shell!interpreter!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

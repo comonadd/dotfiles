@@ -1,0 +1,277 @@
+;; Object parser/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "parser/"
+  :tables
+  (list
+    (semanticdb-table "parser.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("interpreter/parser/parser.h" include nil nil [128 166])
+            ("stdarg.h" include (:system-flag t) nil [168 187])
+            ("stdio.h" include (:system-flag t) nil [188 206])
+            ("string.h" include (:system-flag t) nil [207 226])
+            ("err.h" include nil nil [228 244])
+            ("gsh.h" include nil nil [245 261])
+            ("util/macros.h" include nil nil [262 286])
+            ("util/io.h" include nil nil [287 307])
+            ("interpreter/lexer/token.h" include nil nil [308 344])
+            ("interpreter/parser/ast.h" include nil nil [345 380])
+            ("interpreter/parser/stmt.h" include nil nil [381 417])
+            ("parser_is_reached_end" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [527 555]))                  
+                :type "bool")
+                nil [500 611])
+            ("parser_skip" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [641 669])
+                    ("count" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [670 683]))                  
+                :type "bool")
+                nil [624 804])
+            ("parser_next" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [834 862]))                  
+                :type "bool")
+                nil [817 1102])
+            ("parser_get_tok" function
+               (:pointer 1
+                :arguments 
+                  ( ("offset" variable (:type ("int64" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1144 1157]))                  
+                :type ("Token" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [1115 1411])
+            ("parser_tok_eq" function
+               (:arguments 
+                  ( ("offset" variable (:type ("int64" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1448 1461])
+                    ("type" variable (:type ("TokenType" type (:type "enum") nil nil)) (reparse-symbol arg-sub-list) [1466 1486]))                  
+                :type "bool")
+                nil [1424 1614])
+            ("parser_ct_eq" function
+               (:arguments 
+                  ( ("type" variable (:type ("TokenType" type (:type "enum") nil nil)) (reparse-symbol arg-sub-list) [1645 1665]))                  
+                :type "bool")
+                nil [1627 1704])
+            ("parser_nt_eq" function
+               (:arguments 
+                  ( ("type" variable (:type ("TokenType" type (:type "enum") nil nil)) (reparse-symbol arg-sub-list) [1735 1755]))                  
+                :type "bool")
+                nil [1717 1794])
+            ("parser_pt_eq" function
+               (:arguments 
+                  ( ("type" variable (:type ("TokenType" type (:type "enum") nil nil)) (reparse-symbol arg-sub-list) [1825 1845]))                  
+                :type "bool")
+                nil [1807 1885])
+            ("postfix_toks_into_node" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("toks" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2146 2173]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [2095 6324])
+            ("parse_expr_compound" function
+               (:pointer 1
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [6337 9134])
+            ("parse_call_args" function
+               (:pointer 1
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [9262 10479])
+            ("parse_expr_id" function
+               (:pointer 1
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [10492 12120])
+            ("parse_expr" function
+               (:pointer 1
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [12133 13054])
+            ("parse_stmt_if" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [13149 14405])
+            ("parse_stmt_while" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [14509 15371])
+            ("parse_function_args" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [15484 16554])
+            ("parse_stmt_function" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [16567 17983])
+            ("parse_stmt_import" function
+               (:pointer 1
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [18090 18670])
+            ("parse_stmt" function
+               (:pointer 1
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [18710 18738]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [18683 19416])
+            ("parse" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [19570 19598]))                  
+                :type "bool")
+                nil [19559 20648])
+            ("node" variable
+               (:pointer 1
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [20209 20230])
+            ("true" variable (:type "int") nil [20515 20520])
+            ("interpreter_err_syntax" function
+               (:prototype-flag t
+                :type "int")
+                nil [20542 20567])
+            ("false" variable (:type "int") nil [20579 20585])
+            ("interpreter_err_ueof" function
+               (:prototype-flag t
+                :type "int")
+                nil [20605 20628])
+            ("false" variable (:type "int") nil [20640 20646]))          
+      :file "parser.c"
+      :pointmax 20649
+      :fsize 20648
+      :lastmodtime '(22630 49241 618986 668000)
+      :unmatched-syntax nil)
+
+    (semanticdb-table "parser.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("PARSER_H" variable (:constant-flag t) nil [153 161])
+            ("interpreter/parser/ast.h" include nil nil [163 198])
+            ("ParserState" type
+               (:members 
+                  ( ("ast" variable (:type ("ASTNode" type
+                         (:prototype t
+                          :type "struct")
+                          nil nil)) (reparse-symbol classsubparts) [225 244])
+                    ("pos" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol classsubparts) [249 260])
+                    ("nt" variable
+                       (:pointer 1
+                        :type ("Token" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [265 282])
+                    ("ct" variable
+                       (:pointer 1
+                        :type ("Token" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [287 304])
+                    ("pt" variable
+                       (:pointer 1
+                        :type ("Token" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [309 326]))                  
+                :type "struct")
+                nil [200 329])
+            ("parse" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [342 370]))                  
+                :type "bool")
+                nil [331 371]))          
+      :file "parser.h"
+      :pointmax 392
+      :fsize 391
+      :lastmodtime '(22631 47266 251115 671000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("PARSER_H")
+          )
+)
+)
+  :file "!home!wrongway4you!Projects!gsh!src!interpreter!parser!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

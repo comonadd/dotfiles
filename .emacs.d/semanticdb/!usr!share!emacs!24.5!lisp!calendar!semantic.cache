@@ -1,0 +1,76 @@
+;; Object calendar/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "calendar/"
+  :tables
+  (list
+    (semanticdb-table "appt.el"
+      :major-mode 'emacs-lisp-mode
+      :tags 
+        '( ("diary-lib" include nil nil [2710 2730])
+            ("appt" customgroup (:user-visible-flag t) nil [2733 2819])
+            ("appt-message-warning-time" variable (:default-value 12) nil [2821 3036])
+            ("appt-warning-time-regexp" variable (:default-value "warntime \\([0-9]+\\)") nil [3038 3535])
+            ("appt-audible" variable (:default-value t) nil [3537 3643])
+            ("appt-display-format" variable (:default-value (quote window)) nil [3666 4111])
+            ("appt-display-mode-line" variable (:default-value t) nil [4165 4464])
+            ("appt-display-duration" variable (:default-value 10) nil [4466 4665])
+            ("appt-display-diary" variable (:default-value t) nil [4667 4916])
+            ("appt-display-interval" variable (:default-value 3) nil [4918 5462])
+            ("appt-disp-window-function" variable (:default-value (quote appt-disp-window)) nil [5464 5886])
+            ("appt-delete-window-function" variable (:default-value (quote appt-delete-window)) nil [5888 6101])
+            ("appt-buffer-name" variable
+               (:constant-flag t
+                :default-value "*appt-buf*")
+                nil [6146 6223])
+            ("appt-time-msg-list" variable nil nil [6466 7187])
+            ("appt-max-time" variable
+               (:constant-flag t
+                :default-value (1- (* 24 60)))
+                nil [7189 7289])
+            ("appt-mode-string" variable nil nil [7291 7514])
+            ("put" code nil nil [7515 7562])
+            ("appt-prev-comp-time" variable nil nil [7585 7694])
+            ("appt-display-count" variable nil nil [7696 7794])
+            ("appt-timer" variable nil nil [7796 7938])
+            ("appt-display-message" function (:arguments ("string" "mins")) nil [7957 9822])
+            ("appt-mode-line" function (:arguments ("min-to-app" "abbrev")) nil [9824 10655])
+            ("appt-check" function
+               (:user-visible-flag t
+                :arguments ("force"))
+                nil [10657 17944])
+            ("appt-disp-window" function (:arguments ("min-to-app" "new-time" "appt-msg")) nil [17946 20477])
+            ("appt-delete-window" function nil nil [20479 20855])
+            ("appt-select-lowest-window" function nil nil [20857 21365])
+            ("appt-time-regexp" variable
+               (:constant-flag t
+                :default-value "[0-9]?[0-9]\\(h\\([0-9][0-9]\\)?\\|[:.][0-9][0-9]\\)\\(am\\|pm\\)?")
+                nil [21367 21465])
+            ("appt-add" function
+               (:user-visible-flag t
+                :arguments ("time" "msg" "warntime"))
+                nil [21482 22799])
+            ("appt-delete" function (:user-visible-flag t) nil [22801 23428])
+            ("number" variable nil nil [23431 23446])
+            ("original-date" variable nil nil [23447 23469])
+            ("diary-entries-list" variable nil nil [23470 23497])
+            ("appt-make-list" function nil nil [23499 29195])
+            ("appt-sort-list" function (:arguments ("appt-list")) nil [29198 29422])
+            ("appt-convert-time" function (:arguments ("time2conv")) nil [29425 30291])
+            ("appt-update-list" function nil nil [30293 30741])
+            ("appt-activate" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [30758 31937])
+            ("appt" package nil nil [31940 31955]))          
+      :file "appt.el"
+      :pointmax 31979
+      :fsize 31978
+      :lastmodtime '(21788 61018 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "diary-lib.el"
+      :file "diary-lib.el"
+      :fsize 119975
+      :lastmodtime '(21788 61018 0 0)))
+  :file "!usr!share!emacs!24.5!lisp!calendar!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

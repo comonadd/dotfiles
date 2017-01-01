@@ -1,0 +1,553 @@
+;; Object custom_malloc/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "custom_malloc/"
+  :tables
+  (list
+    (semanticdb-table "xmalloc.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("malloc.h" include nil nil [1 20])
+            ("stdlib.h" include (:system-flag t) nil [22 41])
+            ("stdbool.h" include (:system-flag t) nil [42 62])
+            ("unistd.h" include (:system-flag t) nil [63 82])
+            ("string.h" include (:system-flag t) nil [84 103])
+            ("DEV_ASSERT" variable (:constant-flag t) nil [113 123])
+            ("MEMORY_DEBUG" variable (:constant-flag t) nil [132 144])
+            ("MCB" type
+               (:typedef ("" type
+                     (:members 
+                        ( ("available" variable (:type "bool") (reparse-symbol classsubparts) [243 258])
+                          ("size" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [263 275]))                        
+                      :type "struct")
+                      nil nil)
+                :type "typedef")
+                nil [222 282])
+            ("last_valid_addr" variable
+               (:pointer 1
+                :typemodifiers ("static")
+                :type "void")
+                nil [340 369])
+            ("mem_start_addr" variable
+               (:pointer 1
+                :typemodifiers ("static")
+                :type "void")
+                nil [427 455])
+            ("xmalloc_init" function (:type "void") nil [457 549])
+            ("xmalloc" function
+               (:pointer 1
+                :arguments 
+                  ( ("n" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [565 574]))                  
+                :type "void")
+                nil [551 1505])
+            ("xrealloc" function
+               (:pointer 1
+                :arguments 
+                  ( ("old_loc" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [1522 1536])
+                    ("new_size" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1537 1553]))                  
+                :type "void")
+                nil [1507 2160])
+            ("xfree" function
+               (:arguments 
+                  ( ("loc" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [2173 2183]))                  
+                :type "void")
+                nil [2162 2258])
+            ("print_allocations" function (:type "void") nil [2280 3459]))          
+      :file "xmalloc.c"
+      :pointmax 3483
+      :fsize 3482
+      :lastmodtime '(22624 44080 138064 493000)
+      :unmatched-syntax '((number 145 . 146))
+      :lexical-table 
+        '(("MEMORY_DEBUG" . ((number "1" 145 . 146)))
+          ("DEV_ASSERT")
+          )
+)
+    (semanticdb-table "xmalloc.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("stdlib.h" include (:system-flag t) nil [1 20])
+            ("xmalloc_init" function
+               (:prototype-flag t
+                :type "void")
+                nil [137 157])
+            ("xmalloc" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("n" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [233 242]))                  
+                :type "void")
+                nil [219 243])
+            ("xrealloc" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("old_loc" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [404 418])
+                    ("new_size" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [419 435]))                  
+                :type "void")
+                nil [389 436])
+            ("xfree" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("loc" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [489 499]))                  
+                :type "void")
+                nil [478 500]))          
+      :file "xmalloc.h"
+      :pointmax 571
+      :fsize 570
+      :lastmodtime '(22624 42615 697045 355000)
+      :unmatched-syntax nil)
+    (semanticdb-table "Makefile"
+      :major-mode 'makefile-gmake-mode
+      :tags 
+        '( ("default" function (:arguments ("build")) nil [1 16])
+            ("build" function (:arguments ("xmalloc_test")) nil [17 37])
+            ("malloc_test" function (:arguments ("malloc_test.c")) nil [38 120])
+            ("xmalloc_test" function (:arguments ("xmalloc_test.c" "xmalloc.c" "xmalloc.h")) nil [121 243]))          
+      :file "Makefile"
+      :pointmax 243
+      :fsize 242
+      :lastmodtime '(22624 42199 521039 917000)
+      :unmatched-syntax nil)
+
+    (semanticdb-table "xstr.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("XSTR_H" variable (:constant-flag t) nil [130 136])
+            ("stdlib.h" include (:system-flag t) nil [138 157])
+            ("stdint.h" include (:system-flag t) nil [158 177])
+            ("stdbool.h" include (:system-flag t) nil [178 198])
+            ("uint8" type
+               (:typedef ("uint8_t" type (:type "class") nil nil)
+                :type "typedef")
+                nil [200 222])
+            ("STR_END_CH" variable (:constant-flag t) nil [231 241])
+            ("XString" type
+               (:typedef ("" type
+                     (:members 
+                        ( ("initialized" variable (:type "bool") (reparse-symbol classsubparts) [269 286])
+                          ("len" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [291 302])
+                          ("capacity" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [307 323])
+                          ("val" variable
+                             (:pointer 1
+                              :type "char")
+                              (reparse-symbol classsubparts) [328 338]))                        
+                      :type "struct")
+                      nil nil)
+                :type "typedef")
+                nil [248 349])
+            ("xstr_init" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [434 445])
+                    ("val" variable
+                       (:dereference 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [450 467]))                  
+                :type "void")
+                nil [414 468])
+            ("xstr_deinit" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [487 498]))                  
+                :type "void")
+                nil [470 499])
+            ("xstr_alloc" function
+               (:prototype-flag t
+                :pointer 1
+                :type ("XString" type (:type "class") nil nil))
+                nil [501 523])
+            ("xstr_eq" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("s0" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [599 617])
+                    ("s1" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [622 640]))                  
+                :type "bool")
+                nil [581 641])
+            ("xstr_append_char" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [707 718])
+                    ("c" variable
+                       (:constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [723 736]))                  
+                :type "void")
+                nil [680 737])
+            ("xstr_append" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("dst" variable
+                       (:pointer 1
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [804 817])
+                    ("src" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [822 841]))                  
+                :type "void")
+                nil [782 842])
+            ("xstr_append_str" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("dst" variable
+                       (:pointer 1
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [913 926])
+                    ("src" variable
+                       (:dereference 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [931 948]))                  
+                :type "void")
+                nil [887 949])
+            ("xstr_set_val" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1018 1029])
+                    ("val" variable
+                       (:dereference 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [1034 1051]))                  
+                :type "void")
+                nil [995 1052])
+            ("xstr_concat" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("src_0" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1140 1161])
+                    ("src_1" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1166 1187])
+                    ("dst" variable
+                       (:pointer 1
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1192 1205]))                  
+                :type "void")
+                nil [1118 1206])
+            ("xstr_concat_str" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("src_0" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1303 1324])
+                    ("src_1" variable
+                       (:dereference 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [1329 1348])
+                    ("dst" variable
+                       (:pointer 1
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1353 1366]))                  
+                :type "void")
+                nil [1277 1367])
+            ("xstr_at" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1518 1535])
+                    ("pos" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1540 1551]))                  
+                :type "int")
+                nil [1501 1552])
+            ("xstr_clear" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1594 1605]))                  
+                :type "void")
+                nil [1578 1606]))          
+      :file "xstr.h"
+      :pointmax 1625
+      :fsize 1624
+      :lastmodtime '(22624 59 88604 549000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("STR_END_CH" . ((string "'\\0'" 242 . 246)))
+          ("XSTR_H")
+          )
+)
+    (semanticdb-table "xstr.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("xstr.h" include nil nil [107 124])
+            ("ctype.h" include (:system-flag t) nil [126 144])
+            ("string.h" include (:system-flag t) nil [145 164])
+            ("xmalloc.h" include nil nil [166 186])
+            ("ALLOC_SIZE" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "64"
+                :type ("uint8" type (:type "class") nil nil))
+                nil [188 223])
+            ("xstr_alloc_more" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [313 324]))                  
+                :type "void")
+                nil [285 428])
+            ("xstr_init" function
+               (:arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [450 461])
+                    ("val" variable
+                       (:dereference 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [466 483]))                  
+                :type "void")
+                nil [430 727])
+            ("xstr_deinit" function
+               (:arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [746 757]))                  
+                :type "void")
+                nil [729 845])
+            ("xstr_alloc" function
+               (:pointer 1
+                :type ("XString" type (:type "class") nil nil))
+                nil [847 919])
+            ("xstr_eq" function
+               (:arguments 
+                  ( ("s0" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [939 957])
+                    ("s1" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [962 980]))                  
+                :type "bool")
+                nil [921 1054])
+            ("xstr_append_char" function
+               (:arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1083 1094])
+                    ("c" variable
+                       (:constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [1099 1112]))                  
+                :type "void")
+                nil [1056 1242])
+            ("xstr_append" function
+               (:arguments 
+                  ( ("dst" variable
+                       (:pointer 1
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1266 1279])
+                    ("src" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1284 1303]))                  
+                :type "void")
+                nil [1244 1525])
+            ("xstr_append_str" function
+               (:arguments 
+                  ( ("dst" variable
+                       (:pointer 1
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1553 1566])
+                    ("src" variable
+                       (:dereference 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [1571 1588]))                  
+                :type "void")
+                nil [1527 1814])
+            ("xstr_set_val" function
+               (:arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1839 1850])
+                    ("val" variable
+                       (:dereference 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [1855 1872]))                  
+                :type "void")
+                nil [1816 2053])
+            ("xstr_concat_str" function
+               (:arguments 
+                  ( ("src_0" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2081 2102])
+                    ("src_1" variable
+                       (:dereference 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [2107 2126])
+                    ("dst" variable
+                       (:pointer 1
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2131 2144]))                  
+                :type "void")
+                nil [2055 2486])
+            ("xstr_concat" function
+               (:arguments 
+                  ( ("src_0" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2510 2531])
+                    ("src_1" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2536 2557])
+                    ("dst" variable
+                       (:pointer 1
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2562 2575]))                  
+                :type "void")
+                nil [2488 2887])
+            ("xstr_at" function
+               (:arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2906 2923])
+                    ("pos" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2928 2939]))                  
+                :type "int")
+                nil [2889 3002])
+            ("xstr_clear" function
+               (:arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3020 3031]))                  
+                :type "void")
+                nil [3004 3079]))          
+      :file "xstr.c"
+      :pointmax 3080
+      :fsize 3079
+      :lastmodtime '(22624 832 696614 658000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("STR_END_CH" . ((string "'\\0'" 229 . 233)))
+          )
+)
+    (semanticdb-table "xmalloc_test.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("stdint.h" include (:system-flag t) nil [134 153])
+            ("stdio.h" include (:system-flag t) nil [154 172])
+            ("xmalloc.h" include nil nil [174 194])
+            ("Something" type
+               (:typedef ("" type
+                     (:members 
+                        ( ("a" variable (:type "int") (reparse-symbol classsubparts) [217 223])
+                          ("b" variable (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [228 239])
+                          ("c" variable (:type "char") (reparse-symbol classsubparts) [244 251]))                        
+                      :type "struct")
+                      nil nil)
+                :type "typedef")
+                nil [196 264])
+            ("main" function
+               (:arguments 
+                  ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [275 284])
+                    ("argv" variable
+                       (:pointer 1
+                        :dereference 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [285 298]))                  
+                :type "int")
+                nil [266 1005]))          
+      :file "xmalloc_test.c"
+      :pointmax 1006
+      :fsize 1005
+      :lastmodtime '(22624 43748 273060 156000)
+      :unmatched-syntax nil)
+
+    (semanticdb-table "malloc_test.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("stdlib.h" include (:system-flag t) nil [133 152])
+            ("stdint.h" include (:system-flag t) nil [153 172])
+            ("main" function
+               (:arguments 
+                  ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [183 192])
+                    ("argv" variable
+                       (:pointer 1
+                        :dereference 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [193 206]))                  
+                :type "int")
+                nil [174 383]))          
+      :file "malloc_test.c"
+      :pointmax 384
+      :fsize 383
+      :lastmodtime '(22624 40172 802013 431000)
+      :unmatched-syntax nil)
+    (semanticdb-table "malloc_test.h"
+      :major-mode 'c-mode
+      :tags nil
+      :file "malloc_test.h"
+      :pointmax 204
+      :fsize 203
+      :lastmodtime '(22624 43436 563056 82000)
+      :unmatched-syntax nil))
+  :file "!home!wrongway4you!Learning!custom_malloc!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

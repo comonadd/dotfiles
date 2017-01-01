@@ -1,0 +1,201 @@
+;; Object srecode/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "srecode/"
+  :tables
+  (list
+    (semanticdb-table "default.srt"
+      :major-mode 'srecode-template-mode
+      :tags 
+        '( ("mode" variable (:default-value ("default")) nil [846 865])
+            ("comment_start" variable (:default-value ("#")) nil [866 889])
+            ("COPYRIGHT" variable (:default-value ("This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see http://www.gnu.org/licenses/.")) nil [890 1516])
+            ("DOLLAR" variable (:default-value ("$")) nil [1517 1532])
+            ("file" context nil nil [1533 1546])
+            ("copyright" function (:code "{{COPYRIGHT:srecode-comment-prefix}}
+") nil [1547 1613])
+            ("filecomment" function
+               (:code "{{comment_start}} {{FILENAME}} --- {{^}}
+{{comment_prefix}}
+{{comment_prefix}} Copyright (C) {{YEAR}} {{?AUTHOR}}
+{{comment_prefix}}
+{{comment_prefix}} Author: {{AUTHOR}} <{{EMAIL}}>{{#RCS}}
+{{comment_prefix}} X-RCS: {{DOLLAR}}Id{{DOLLAR}}{{/RCS}}
+{{comment_prefix}}
+{{>:copyright}}
+{{comment_end}}
+"
+                :arguments (":file" ":user" ":time"))
+                nil [1614 1962]))          
+      :file "default.srt"
+      :pointmax 1970
+      :fsize 1969
+      :lastmodtime '(21710 25077 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "make.srt"
+      :major-mode 'srecode-template-mode
+      :tags 
+        '( ("mode" variable (:default-value ("makefile-mode")) nil [794 819])
+            ("escape_start" variable (:default-value ("{{")) nil [819 841])
+            ("escape_end" variable (:default-value ("}}")) nil [841 861])
+            ("comment_start" variable (:default-value ("#")) nil [861 883])
+            ("comment_prefix" variable (:default-value ("#")) nil [883 906])
+            ("TAB" variable (:default-value ("	")) nil [906 919])
+            ("file" context nil nil [920 933])
+            ("empty" function
+               (:code "{{>:filecomment}}
+
+all: {{^}}
+
+{{comment_start}} end
+"
+                :arguments (":file" ":user"))
+                nil [934 1024])
+            ("declaration" context nil nil [1025 1045])
+            ("rule" function
+               (:binding "r"
+                :code "{{?NAME}}:
+{{TAB}}{{^}}
+"
+                :arguments (":blank"))
+                nil [1178 1242])
+            ("inferencerule" function
+               (:binding "i"
+                :code "%.{{?SRCEXTENSION}}: %.{{?DESTEXTENSION}}
+{{TAB}}{{^}}
+"
+                :arguments (":blank"))
+                nil [1243 1347])
+            ("phonyrule" function
+               (:binding "p"
+                :code ".PHONY {{?NAME}}
+{{NAME}}:
+{{TAB}}{{^}}
+"
+                :arguments (":blank"))
+                nil [1348 1433])
+            ("variable" function
+               (:binding "v"
+                :code "{{?NAME}}:= {{^}}
+"
+                :documentation "Insert a variable declaration."
+                :arguments (":blank"))
+                nil [1435 1530])
+            ("include" function
+               (:code "include {{?NAME}}
+"
+                :arguments (":blank"))
+                nil [1531 1583]))          
+      :file "make.srt"
+      :pointmax 1591
+      :fsize 1590
+      :lastmodtime '(21710 25077 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "ede-make.srt"
+      :major-mode 'srecode-template-mode
+      :tags 
+        '( ("mode" variable (:default-value ("makefile-mode")) nil [847 872])
+            ("escape_start" variable (:default-value ("{{")) nil [872 894])
+            ("escape_end" variable (:default-value ("}}")) nil [894 914])
+            ("application" variable (:default-value ("ede")) nil [914 936])
+            ("file" context nil nil [937 950])
+            ("ede-empty" function
+               (:code "# Automatically Generated {{FILE}} by EDE.
+# For use with: {{MAKETYPE}}
+# Relative File Name: {{PROJECT_FILENAME}}
+#
+# DO NOT MODIFY THIS FILE OR YOUR CHANGES MAY BE LOST.
+# EDE is the Emacs Development Environment.
+# http://cedet.sourceforge.net/ede.shtml
+#
+
+"
+                :arguments (":file" ":project"))
+                nil [951 1255])
+            ("declaration" context nil nil [1256 1276])
+            ("ede-vars" function (:code "{{#VARIABLE}}
+{{NAME}}={{#VALUE}} {{VAL}}{{/VALUE}}{{/VARIABLE}}
+") nil [1277 1370])
+            ("arduino" context nil nil [1473 1489])
+            ("ede-empty" function
+               (:code "# Automatically Generated {{FILE}} by EDE.
+# For use with Make for an Arduino project.
+#
+# DO NOT MODIFY THIS FILE OR YOUR CHANGES MAY BE LOST.
+# EDE is the Emacs Development Environment.
+# http://cedet.sourceforge.net/ede.shtml
+
+ARDUINO_DIR  = {{ARDUINO_HOME}}
+
+TARGET       = {{TARGET}}
+ARDUINO_LIBS = {{ARDUINO_LIBS}}
+
+MCU          = {{MCU}}
+F_CPU        = {{F_CPU}}
+ARDUINO_PORT = {{PORT}}
+BOARD_TAG    = {{BOARD}}
+
+AVRDUDE_ARD_BAUDRATE = {{AVRDUDE_ARD_BAUDRATE}}
+AVRDUDE_ARD_PROGRAMMER = {{AVRDUDE_ARD_PROGRAMMER}}
+
+include {{ARDUINO_MK}}
+
+# End of Makefile
+"
+                :arguments (":file"))
+                nil [1490 2088]))          
+      :file "ede-make.srt"
+      :pointmax 2097
+      :fsize 2096
+      :lastmodtime '(21710 25077 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "ede-autoconf.srt"
+      :major-mode 'srecode-template-mode
+      :tags 
+        '( ("mode" variable (:default-value ("autoconf-mode")) nil [858 883])
+            ("escape_start" variable (:default-value ("{{")) nil [883 905])
+            ("escape_end" variable (:default-value ("}}")) nil [905 925])
+            ("comment_start" variable (:default-value ("#")) nil [925 947])
+            ("comment_prefix" variable (:default-value ("#")) nil [947 970])
+            ("application" variable (:default-value ("ede")) nil [970 992])
+            ("file" context nil nil [993 1006])
+            ("ede-empty" function
+               (:code "{{comment_prefix}} Automatically Generated/Maintained {{FILE}} by EDE.
+{{comment_prefix}}
+{{comment_prefix}} YOU MAY MODIFY THIS FILE
+{{comment_prefix}} Hand made changes in some sections will be preserved
+{{comment_prefix}} by EDE when this file is updated.
+{{comment_prefix}}
+{{comment_prefix}} EDE is the Emacs Development Environment.
+{{comment_prefix}} http://cedet.sourceforge.net/ede.shtml
+{{comment_prefix}}
+{{comment_prefix}} Process this file with autoconf to produce a configure script
+
+AC_INIT({{PROJECT_NAME}}, {{PROJECT_VERSION}})
+AM_INIT_AUTOMAKE([{{PROGRAM}}], 0)
+AM_CONFIG_HEADER(config.h)
+
+{{comment_prefix}} End the configure script.
+AC_OUTPUT(Makefile, [date > stamp-h] )
+"
+                :documentation "Start a new EDE generated configure.in/ac file."
+                :arguments (":project"))
+                nil [1007 1787]))          
+      :file "ede-autoconf.srt"
+      :pointmax 1796
+      :fsize 1795
+      :lastmodtime '(21710 25077 0 0)
+      :unmatched-syntax nil))
+  :file "!usr!share!emacs!24.5!etc!srecode!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

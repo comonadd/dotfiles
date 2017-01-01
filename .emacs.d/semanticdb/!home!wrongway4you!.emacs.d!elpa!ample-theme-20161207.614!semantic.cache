@@ -1,0 +1,47 @@
+;; Object ample-theme-20161207.614/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "ample-theme-20161207.614/"
+  :tables
+  (list
+    (semanticdb-table "ample-light-theme.el"
+      :major-mode 'emacs-lisp-mode
+      :tags 
+        '( ("deftheme" code nil nil [1760 1830])
+            ("let*" code nil nil [1873 47308])
+            ("when" code nil nil [47325 47463])
+            ("ample-light-theme" function (:user-visible-flag t) nil [47480 47586])
+            ("provide-theme" code nil nil [47589 47617]))          
+      :file "ample-light-theme.el"
+      :pointmax 47724
+      :fsize 47723
+      :lastmodtime '(22615 60338 485379 46000)
+      :unmatched-syntax nil)
+    (semanticdb-table "ample-flat-theme.el"
+      :major-mode 'emacs-lisp-mode
+      :tags 
+        '( ("deftheme" code nil nil [1775 1818])
+            ("let" code nil nil [1861 48216])
+            ("when" code nil nil [48233 48371])
+            ("ample-flat-theme" function (:user-visible-flag t) nil [48388 48491])
+            ("provide-theme" code nil nil [48494 48521]))          
+      :file "ample-flat-theme.el"
+      :pointmax 48627
+      :fsize 48626
+      :lastmodtime '(22615 60338 485379 46000)
+      :unmatched-syntax nil)
+    (semanticdb-table "ample-theme.el"
+      :major-mode 'emacs-lisp-mode
+      :tags 
+        '( ("deftheme" code nil nil [1725 1764])
+            ("let" code nil nil [1807 50974])
+            ("when" code nil nil [50991 51129])
+            ("ample-theme" function (:user-visible-flag t) nil [51146 51234])
+            ("provide-theme" code nil nil [51237 51259]))          
+      :file "ample-theme.el"
+      :pointmax 51360
+      :fsize 51359
+      :lastmodtime '(22615 60338 485379 46000)
+      :unmatched-syntax nil))
+  :file "!home!wrongway4you!.emacs.d!elpa!ample-theme-20161207.614!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

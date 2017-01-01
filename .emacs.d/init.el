@@ -1,20 +1,10 @@
-(require 'server)
-    (unless (server-running-p)
-        (server-start))
+;;; Init --- Main Emacs configuration file
+;;; Commentary:
+;;; Code:
 
 ;; Packages initialization
 (setq package-enable-at-startup nil)
 (package-initialize)
-
-;; Appereance stuff
-(tooltip-mode -1)
-(menu-bar-mode -1)
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
-(blink-cursor-mode -1)
-(global-hl-line-mode 1)
-(setq use-dialog-box nil)
-(setq redisplay-dont-pause t)
 
 ;; Disabling backup/autosave of files
 (setq make-backup-files nil)
@@ -23,7 +13,7 @@
 
 ;; Encoding
 (set-language-environment 'UTF-8)
-(setq default-buffer-file-coding-system 'utf-8)
+(setq buffer-file-coding-system 'utf-8)
 (setq-default coding-system-for-read 'utf-8)
 (setq file-name-coding-system 'utf-8)
 (set-selection-coding-system 'utf-8)
@@ -31,87 +21,47 @@
 (set-terminal-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
-;; Buffer Selection and ibuffer settings
-(require 'bs)
-(require 'ibuffer)
-(defalias 'list-buffers 'ibuffer) ;; отдельный список буферов при нажатии C-x C-b
-
-;; Fringe settings
-(set-fringe-mode 0)
-
-;; Syntax highlighting
-(require 'font-lock)
-(global-font-lock-mode t)
-(setq font-lock-maximum-decoration t)
-
-;; Indent settings
-(setq-default indent-tabs-mode nil) ;; отключить возможность ставить отступы TAB'ом
-(setq-default tab-width 4) ;; ширина табуляции - 4 пробельных символа
-(setq c-default-style "linux"
-      c-basic-offset 4)
-
-(setq-default standart-indent 4) ;; стандартная ширина отступа - 4 пробельных символа
-(setq-default lisp-body-indent 4) ;; сдвигать Lisp-выражения на 4 пробельных символа
-(global-set-key (kbd "RET") 'newline-and-indent) ;; при нажатии Enter перевести каретку и сделать отступ
-(setq lisp-indent-function  'common-lisp-indent-function)
-
 ;; Scrolling settings
-(setq scroll-step               1) ;; вверх-вниз по 1 строке
-(setq scroll-margin            10) ;; сдвигать буфер верх/вниз когда курсор в 10 шагах от верхней/нижней границы
+(setq scroll-step 1)
+(setq scroll-margin 10)
 (setq scroll-conservatively 10000)
 
 ;; Short messages
 (defalias 'yes-or-no-p 'y-or-n-p)
 
+;; GDB
+(setq gdb-many-windows t)
+
 ;; Clipboard settings
 (setq x-select-enable-clipboard t)
 
-;; Highlight search resaults
-(setq search-highlight        t)
-(setq query-replace-highlight t)
-
-;; Folding
-;(load "folding" 'nomessage 'noerror)
-;(folding-mode-add-find-file-hook)
-
-;; Imenu plugin
-(require 'imenu)
-(setq imenu-auto-rescan t)
-(setq imenu-use-popup-menu nil)
-
-;; Linum plugin
-(require 'linum)
-(line-number-mode t)
-(global-linum-mode t)
-(column-number-mode t)
-(setq linum-format " %d ")
-
-;; IDO plugin
-(require 'ido)
-(ido-mode t)
-(icomplete-mode t)
-(ido-everywhere t)
-(setq ido-vitrual-buffers t)
-(setq ido-enable-flex-matching t)
+;; EDE
+(global-ede-mode t)
 
 ;; Something another
-(setq undo-limit 8192)
-(setq undo-strong-limit 8192)
+(setq c-default-style "linux"
+      c-basic-offset 4)
+(c-set-offset 'comment-intro 0)
+(c-set-offset 'case-label '+)
+(setq undo-limit 9000000000)
+(setq undo-strong-limit 900000000000)
 (setq shift-select-mode t)
 (setq enable-local-variables nil)
-(setq cua-auto-tabify-rectangles nil)
-(setq cua-keep-region-after-copy t)
 (setq inhibit-splash-screen t)
-(setq ingibit-startup-message t)
 (show-paren-mode t)
-(setq show-paren-style 'expression)
+(setq hs-hide-comments nil)
 
-(split-window-horizontally)
-(add-to-list 'load-path (expand-file-name "settings" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (require 'util)
+(require 'appearance)
 (require 'packages)
 (require 'hooks)
 (require 'keybindings)
+(split-window-horizontally)
+
+
+
+
 
 ;; Auto-generated stuff
 (custom-set-variables
@@ -130,6 +80,7 @@
  '(custom-safe-themes
    (quote
     ("5b24babd20e58465e070a8d7850ec573fe30aca66c8383a62a5e7a3588db830b" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" default)))
+ '(ede-project-directories (quote ("/home/wrongway4you/Projects/gsh")))
  '(fci-rule-color "#eee8d5")
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
  '(highlight-symbol-colors

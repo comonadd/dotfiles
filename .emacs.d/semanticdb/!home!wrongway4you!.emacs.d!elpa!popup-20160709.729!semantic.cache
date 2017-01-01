@@ -1,0 +1,16 @@
+;; Object popup-20160709.729/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "popup-20160709.729/"
+  :tables
+  (list
+    (semanticdb-table "popup-autoloads.el"
+      :major-mode 'emacs-lisp-mode
+      :tags nil
+      :file "popup-autoloads.el"
+      :pointmax 283
+      :fsize 359
+      :lastmodtime '(22618 16940 226606 297000)
+      :unmatched-syntax nil))
+  :file "!home!wrongway4you!.emacs.d!elpa!popup-20160709.729!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

@@ -1,0 +1,16 @@
+;; Object gsh/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "gsh/"
+  :tables
+  (list
+    (semanticdb-table "Makefile"
+      :major-mode 'makefile-gmake-mode
+      :tags nil
+      :file "Makefile"
+      :pointmax 6797
+      :fsize 6796
+      :lastmodtime '(22629 64804 1998 347000)
+      :unmatched-syntax nil))
+  :file "!home!wrongway4you!Projects!gsh!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

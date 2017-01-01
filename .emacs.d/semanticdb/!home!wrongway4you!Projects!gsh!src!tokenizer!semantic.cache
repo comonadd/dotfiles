@@ -1,0 +1,103 @@
+;; Object tokenizer/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "tokenizer/"
+  :tables
+  (list
+    (semanticdb-table "tokenizer.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("tokenizer/tokenizer.h" include nil nil [241 273])
+            ("stdlib.h" include (:system-flag t) nil [275 294])
+            ("string.h" include (:system-flag t) nil [295 314])
+            ("util/xmalloc.h" include nil nil [316 341])
+            ("util/util.h" include nil nil [342 364])
+            ("tokenizer/token.h" include nil nil [365 393])
+            ("tokenizer" variable
+               (:typemodifiers ("static")
+                :type ("" type
+                     (:members 
+                        ( ("text_pos" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [478 494])
+                          ("text_ch" variable (:type "char") (reparse-symbol classsubparts) [499 512])
+                          ("text" variable
+                             (:pointer 1
+                              :type ("XString" type (:type "class") nil nil))
+                              (reparse-symbol classsubparts) [517 531])
+                          ("tokens" variable
+                             (:pointer 1
+                              :type ("XVector" type (:type "class") nil nil))
+                              (reparse-symbol classsubparts) [536 552]))                        
+                      :type "struct")
+                      nil nil))
+                nil [458 565])
+            ("tokenizer_get_ch" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("offset" variable (:type "long") (reparse-symbol arg-sub-list) [797 809]))                  
+                :type "char")
+                nil [763 810])
+            ("tokenizer_skip_ch" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("count" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1011 1024]))                  
+                :type "void")
+                nil [976 1025])
+            ("tokenizer_next" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :type "void")
+                nil [1273 1302])
+            ("tokenize_" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :type "void")
+                nil [1357 1381])
+            ("tokenizer_get_ch" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("offset" variable (:type "long") (reparse-symbol arg-sub-list) [1417 1429]))                  
+                :type "char")
+                nil [1383 1670])
+            ("tokenizer_skip_ch" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("count" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1706 1719]))                  
+                :type "int")
+                nil [1672 1954])
+            ("tokenizer_next" function
+               (:typemodifiers ("static")
+                :type "int")
+                nil [1956 2020])
+            ("tokenize_" function
+               (:typemodifiers ("static")
+                :type "int")
+                nil [2022 15999])
+            ("tokenize" function
+               (:arguments 
+                  ( ("text" variable
+                       (:pointer 1
+                        :type ("XString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16020 16034])
+                    ("tokens" variable
+                       (:pointer 1
+                        :type ("XVector" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16039 16055]))                  
+                :type "void")
+                nil [16001 16162]))          
+      :file "tokenizer.c"
+      :pointmax 16163
+      :fsize 16162
+      :lastmodtime '(22617 31857 791990 397000)
+      :unmatched-syntax nil)
+    (semanticdb-table "tokenizer.h"
+      :file "tokenizer.h"
+      :fsize 289
+      :lastmodtime '(22613 31273 477629 122000))
+    (semanticdb-table "token.h"
+      :file "token.h"
+      :fsize 2709
+      :lastmodtime '(22617 26637 282991 617000)))
+  :file "!home!wrongway4you!Projects!gsh!src!tokenizer!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

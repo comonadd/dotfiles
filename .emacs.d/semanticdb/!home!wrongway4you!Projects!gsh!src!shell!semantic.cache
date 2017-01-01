@@ -1,0 +1,118 @@
+;; Object shell/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "shell/"
+  :tables
+  (list
+    (semanticdb-table "shell.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("SHELL_H" variable (:constant-flag t) nil [132 139])
+            ("stdio.h" include (:system-flag t) nil [141 159])
+            ("stdlib.h" include (:system-flag t) nil [160 179])
+            ("stdint.h" include (:system-flag t) nil [180 199])
+            ("stdbool.h" include (:system-flag t) nil [200 220])
+            ("gsh.h" include nil nil [222 238])
+            ("err.h" include nil nil [239 255])
+            ("lib/xstr.h" include nil nil [256 277])
+            ("lib/xmap.h" include nil nil [278 299])
+            ("USER_CONF_DIR_PATH" variable (:constant-flag t) nil [309 327])
+            ("SYS_CONF_DIR_PATH" variable (:constant-flag t) nil [345 362])
+            ("DEFAULT_PROMPT" variable (:constant-flag t) nil [382 396])
+            ("DEFAULT_MOTD" variable (:constant-flag t) nil [411 423])
+            ("shell" variable (:type ("" type
+                 (:members 
+                    ( ("conf_dir" variable (:type ("XString" type
+                           (:prototype t
+                            :type "struct")
+                            nil nil)) (reparse-symbol classsubparts) [701 725])
+                      ("env" variable (:type ("XMap" type
+                           (:prototype t
+                            :type "struct")
+                            nil nil)) (reparse-symbol classsubparts) [730 746])
+                      ("config" variable (:type ("" type
+                           (:members 
+                              ( ("prompt" variable (:type ("XString" type
+                                     (:prototype t
+                                      :type "struct")
+                                      nil nil)) (reparse-symbol classsubparts) [761 783])
+                                ("motd" variable (:type ("XString" type
+                                     (:prototype t
+                                      :type "struct")
+                                      nil nil)) (reparse-symbol classsubparts) [785 805]))                              
+                            :type "struct")
+                            nil nil)) (reparse-symbol classsubparts) [751 819]))                    
+                  :type "struct")
+                  nil nil)) nil [688 828])
+            ("shell_run" function
+               (:prototype-flag t
+                :type "bool")
+                nil [1064 1081])
+            ("shell_init" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("env" variable
+                       (:pointer 1
+                        :dereference 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [1216 1228]))                  
+                :type "bool")
+                nil [1200 1229])
+            ("shell_exit" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("code" variable (:type "int") (reparse-symbol arg-sub-list) [1285 1294]))                  
+                :type "void")
+                nil [1269 1295]))          
+      :file "shell.h"
+      :pointmax 1315
+      :fsize 1314
+      :lastmodtime '(22627 19925 511774 0)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("SHELL_H")
+          ("DEFAULT_MOTD" . 
+              ((symbol "NAME" 428 . 432) (string "\" v\"" 433 . 437) (symbol "VERSION" 438 . 445) (string "\" (\"" 446 . 450) (symbol "EXTRA_VERSION" 451 . 464) (string "\")\\n\"" 465 . 470)))
+          ("USER_CONF_DIR_PATH" . ((string "\"~/.gsh\"" 326 . 334)))
+          ("SYS_CONF_DIR_PATH" . ((string "\"/etc/gsh\"" 361 . 371)))
+          ("DEFAULT_PROMPT" . ((string "\">> \"" 395 . 400)))
+          )
+)
+    (semanticdb-table "shell.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("shell.h" include nil nil [108 126])
+            ("sys/types.h" include (:system-flag t) nil [128 150])
+            ("string.h" include (:system-flag t) nil [151 170])
+            ("dirent.h" include (:system-flag t) nil [171 190])
+            ("types.h" include nil nil [192 210])
+            ("mm/memory.h" include nil nil [211 233])
+            ("lib/xstr.h" include nil nil [234 255])
+            ("lib/xmap.h" include nil nil [256 277])
+            ("util/util.h" include nil nil [278 300])
+            ("util/io.h" include nil nil [301 321])
+            ("util/macros.h" include nil nil [322 346])
+            ("interpreter/interpreter.h" include nil nil [347 383])
+            ("shell_init" function
+               (:arguments 
+                  ( ("env" variable
+                       (:pointer 1
+                        :dereference 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [1183 1195]))                  
+                :type "bool")
+                nil [1167 2146])
+            ("shell_exit" function
+               (:typemodifiers ("inline")
+                :arguments 
+                  ( ("code" variable (:type "int") (reparse-symbol arg-sub-list) [2171 2180]))                  
+                :type "void")
+                nil [2148 2200])
+            ("shell_run" function (:type "bool") nil [2202 2739]))          
+      :file "shell.c"
+      :pointmax 2740
+      :fsize 2739
+      :lastmodtime '(22629 13118 930995 106000)
+      :unmatched-syntax nil))
+  :file "!home!wrongway4you!Projects!gsh!src!shell!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

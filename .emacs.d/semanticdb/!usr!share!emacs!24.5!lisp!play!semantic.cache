@@ -1,0 +1,31 @@
+;; Object play/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "play/"
+  :tables
+  (list
+    (semanticdb-table "animate.el"
+      :major-mode 'emacs-lisp-mode
+      :tags 
+        '( ("animate-initialize" function (:arguments ("string" "vpos" "hpos")) nil [1600 2052])
+            ("animate-step" function (:arguments ("characters" "fraction")) nil [2305 2613])
+            ("animate-place-char" function (:arguments ("char" "vpos" "hpos")) nil [2690 2991])
+            ("animate-n-steps" variable
+               (:user-visible-flag t
+                :default-value 10)
+                nil [2993 3100])
+            ("animation-buffer-name" variable nil nil [3102 3252])
+            ("animate-string" function (:arguments ("string" "vpos" "hpos")) nil [3269 5024])
+            ("animate-sequence" function (:arguments ("list-of-strings" "space")) nil [5041 5863])
+            ("animate-birthday-present" function
+               (:user-visible-flag t
+                :arguments ("name"))
+                nil [5880 7182])
+            ("animate" package nil nil [7184 7202]))          
+      :file "animate.el"
+      :pointmax 7229
+      :fsize 7228
+      :lastmodtime '(21710 25077 0 0)
+      :unmatched-syntax nil))
+  :file "!usr!share!emacs!24.5!lisp!play!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

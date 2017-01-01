@@ -1,0 +1,180 @@
+;; Object inum/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "inum/"
+  :tables
+  (list
+    (semanticdb-table "main.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("stdint.h" include (:system-flag t) nil [126 145])
+            ("stdbool.h" include (:system-flag t) nil [146 166])
+            ("stdlib.h" include (:system-flag t) nil [167 186])
+            ("stdio.h" include (:system-flag t) nil [187 205])
+            ("string.h" include (:system-flag t) nil [206 225])
+            ("max" variable (:constant-flag t) nil [235 238])
+            ("XOR_SWAP" variable (:constant-flag t) nil [283 291])
+            ("BASE" variable (:constant-flag t) nil [388 392])
+            ("INUM_MAX_LEN" variable (:constant-flag t) nil [404 416])
+            ("INum" type
+               (:members 
+                  ( ("len" variable (:type ("uint8_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [439 451])
+                    ("val" variable
+                       (:dereference 1
+                        :type ("uint8_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [456 482])
+                    ("is_negative" variable (:type "bool") (reparse-symbol classsubparts) [487 504]))                  
+                :type "struct")
+                nil [421 507])
+            ("str_reverse_inplace" function
+               (:arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [534 542]))                  
+                :type "void")
+                nil [509 679])
+            ("inum_init" function
+               (:arguments 
+                  ( ("inum" variable
+                       (:pointer 1
+                        :type ("INum" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [701 719])
+                    ("val" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [724 734]))                  
+                :type "bool")
+                nil [681 1402])
+            ("inum_add" function
+               (:arguments 
+                  ( ("a" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("INum" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1423 1444])
+                    ("b" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("INum" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1449 1470])
+                    ("res" variable
+                       (:pointer 1
+                        :type ("INum" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1475 1492]))                  
+                :type "void")
+                nil [1404 1820])
+            ("inum_sub" function
+               (:arguments 
+                  ( ("inum1" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("INum" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1841 1866])
+                    ("inum2" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("INum" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1871 1896])
+                    ("res" variable
+                       (:pointer 1
+                        :type ("INum" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1901 1918]))                  
+                :type "void")
+                nil [1822 1985])
+            ("inum_to_str" function
+               (:pointer 1
+                :arguments 
+                  ( ("inum" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("INum" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2005 2029]))                  
+                :type "char")
+                nil [1987 2216])
+            ("inum_print" function
+               (:arguments 
+                  ( ("inum" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("INum" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2234 2258]))                  
+                :type "void")
+                nil [2218 2482])
+            ("main" function
+               (:arguments 
+                  ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [2493 2502])
+                    ("argv" variable
+                       (:pointer 2
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [2503 2515]))                  
+                :type "int")
+                nil [2484 2785]))          
+      :file "main.c"
+      :pointmax 2786
+      :fsize 2785
+      :lastmodtime '(22632 5529 620922 551000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("max" (spp-arg-list ("N1" "N2") 238 . 246) . ((semantic-list "((N1) > (N2) ? (N1) : (N2))" 247 . 274)))
+          ("INUM_MAX_LEN" . ((number "32" 417 . 419)))
+          ("BASE" . ((number "10" 393 . 395)))
+          ("XOR_SWAP" (spp-arg-list ("a" "b") 291 . 297) . 
+              ((DO "do" 298 . 300) (semantic-list "{						\\
+	a ^= b;					\\
+	b ^= a;					\\
+	a ^= b;					\\
+    }" 309 . 368) (WHILE "while" 369 . 374) (semantic-list "(0)" 375 . 378)))
+          )
+)
+    (semanticdb-table "Makefile"
+      :major-mode 'makefile-gmake-mode
+      :tags 
+        '( ("build" function nil nil [1 37]))          
+      :file "Makefile"
+      :pointmax 37
+      :fsize 36
+      :lastmodtime '(22631 57276 396193 232000)
+      :unmatched-syntax nil)
+    (semanticdb-table "main.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("MAIN_H" variable (:constant-flag t) nil [149 155]))          
+      :file "main.h"
+      :pointmax 176
+      :fsize 175
+      :lastmodtime '(22631 58832 546049 833000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("MAIN_H")
+          )
+))
+  :file "!home!wrongway4you!Temp!inum!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

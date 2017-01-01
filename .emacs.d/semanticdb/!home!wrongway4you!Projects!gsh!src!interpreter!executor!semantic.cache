@@ -1,0 +1,73 @@
+;; Object executor/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "executor/"
+  :tables
+  (list
+    (semanticdb-table "executor.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("EXECUTOR_H" variable (:constant-flag t) nil [157 167])
+            ("types.h" include nil nil [169 187])
+            ("interpreter/parser/ast.h" include nil nil [189 224])
+            ("execute" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("input_name" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [244 261])
+                    ("input_text" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [266 283])
+                    ("ast" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [288 308]))                  
+                :type "bool")
+                nil [226 309]))          
+      :file "executor.h"
+      :pointmax 332
+      :fsize 331
+      :lastmodtime '(22629 12649 627038 353000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("EXECUTOR_H")
+          )
+)
+    (semanticdb-table "executor.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("executor.h" include nil nil [130 151])
+            ("types.h" include nil nil [153 171])
+            ("interpreter/parser/ast.h" include nil nil [173 208])
+            ("execute" function
+               (:arguments 
+                  ( ("input_name" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [228 245])
+                    ("input_text" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [250 267])
+                    ("ast" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [272 292]))                  
+                :type "bool")
+                nil [210 313]))          
+      :file "executor.c"
+      :pointmax 314
+      :fsize 313
+      :lastmodtime '(22629 12651 203038 208000)
+      :unmatched-syntax nil))
+  :file "!home!wrongway4you!Projects!gsh!src!interpreter!executor!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

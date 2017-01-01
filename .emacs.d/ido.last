@@ -2,12 +2,18 @@
 
 ;; ----- ido-last-directory-list -----
 (
- ("/home/wrongway4you/Projects/gsh/" . "tests/")
- ("/home/wrongway4you/.emacs.d/" . "settings/")
+ ("/home/wrongway4you/Temp/" . "inum/")
+ ("/home/wrongway4you/Projects/gsh/src/platform/" . "linux/")
+ ("/home/wrongway4you/Projects/gsh/src/shell/" . "tokenizer/")
+ ("/home/wrongway4you/Projects/gsh/src/shell/interpreter/" . "parser/")
+ ("/home/wrongway4you/Projects/gsh/src/interpreter/" . "lexer/")
+ ("/home/wrongway4you/Projects/gsh/src/" . "interpreter/")
+ ("/home/wrongway4you/Projects/gsh/" . "src/")
+ ("/home/wrongway4you/.emacs.d/" . "lisp/")
  ("/home/wrongway4you/Learning/algorithms_and_ds/" . "selection_sort/")
- ("/home/wrongway4you/Learning/" . "algorithms_and_ds/")
+ ("/home/wrongway4you/Learning/" . "custom_malloc/")
  ("/home/wrongway4you/Projects/shell/" . "tests/")
- ("/home/wrongway4you/" . "Projects/")
+ ("/home/wrongway4you/" . "Temp/")
  ("/home/" . "wrongway4you/")
  ("/home/wrongway4you/Projects/" . "gsh/")
  ("/home/wrongway4you/.config/" . "awesome/")
@@ -15,14 +21,37 @@
 
 ;; ----- ido-work-directory-list -----
 (
- "/home/wrongway4you/Projects/gsh/src/"
+ "/home/wrongway4you/Temp/inum/"
+ "/home/wrongway4you/Temp/lua-5.3.3/src/"
+ "/home/wrongway4you/Projects/gsh/src/interpreter/parser/"
+ "/home/wrongway4you/Projects/gsh/src/interpreter/lexer/"
+ "/home/wrongway4you/Projects/gsh/src/interpreter/"
+ "/home/wrongway4you/Projects/gsh/src/mm/"
+ "/home/wrongway4you/Projects/gsh/src/util/"
+ "/home/wrongway4you/Projects/gsh/src/lib/"
+ "/home/wrongway4you/Projects/gsh/src/platform/linux/"
  "/home/wrongway4you/Projects/gsh/"
- "/home/wrongway4you/Projects/gsh/docs/"
- "/home/wrongway4you/Git/dotfiles/.emacs.d/settings/"
- "/home/wrongway4you/.emacs.d/settings/"
+ "/home/wrongway4you/Projects/gsh/src/shell/"
+ "/home/wrongway4you/Projects/gsh/src/"
+ "/home/wrongway4you/.emacs.d/lisp/"
+ "/home/wrongway4you/Projects/gsh/src/shell/parser/"
  "/home/wrongway4you/Projects/gsh/tests/"
- "/home/wrongway4you/Git/dotfiles/.emacs.d/"
+ "/home/wrongway4you/Projects/gsh/tests/mm/"
+ "/home/wrongway4you/Projects/gsh/src/ds/"
+ "/home/wrongway4you/Projects/gsh/src/shell/tokenizer/"
  "/home/wrongway4you/Temp/"
+ "/home/wrongway4you/Learning/custom_malloc/"
+ "/home/wrongway4you/Projects/gsh/docs/"
+ "/home/wrongway4you/.emacs.d/"
+ "/home/wrongway4you/Projects/gsh/src/shell/interpreter/parser/"
+ "/home/wrongway4you/Projects/gsh/src/shell/interpreter/tokenizer/"
+ "/home/wrongway4you/Projects/gsh/src/shell/interpreter/"
+ "/home/wrongway4you/Projects/gsh/src/interpreter/tokenizer/"
+ "/home/wrongway4you/Projects/gsh/src/parser/"
+ "/home/wrongway4you/Projects/gsh/src/tokenizer/"
+ "/home/wrongway4you/.emacs.d/settings/"
+ "/home/wrongway4you/Git/dotfiles/.emacs.d/settings/"
+ "/home/wrongway4you/Git/dotfiles/.emacs.d/"
  "/home/wrongway4you/Learning/algorithms_and_ds/list/"
  "/home/wrongway4you/Learning/algorithms_and_ds/selection_sort/"
  "/home/wrongway4you/Projects/shell/docs/"
@@ -37,45 +66,123 @@
 
 ;; ----- ido-work-file-list -----
 (
- "parser.c"
- "shell.c"
  "main.c"
- "util.c"
- "interpreter.h"
- "TODO"
- "code_style.txt"
- "interpreter.c"
- "ast.c"
- "keybindings.el"
+ "Makefile"
+ "lzio.c"
+ "llex.c"
+ "llex.h"
+ "lcode.c"
+ "lobject.h"
+ "expr.c"
+ "stmt.c"
+ "parser.h"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
- ("/home/wrongway4you/Projects/gsh/src/" (22615 58624 965536 947000) "ast.c" "main.c" "util.h" "xvec.c" "token.c" "tokenizer.c" "token.h" "../" "xvec.h" "xmalloc.c" "interpreter.h" "parser.c" "xstr.c" "tokenizer.h" "xmalloc.h" "util.c" "parser.h" "ast.h" "xmap.h" "xstack.c" "./" "xmap.c" "shell.c" "shell.h" "xstack.h" "interpreter.c" "xstr.h")
+ ("/home/wrongway4you/Temp/inum/" (22632 4836 593986 413000) "main.c" "main.h" "../" "Makefile" "a.out" "./")
 
- ("/home/wrongway4you/Projects/gsh/docs/" (22615 58269 489569 704000) "code_style.txt" "../" "specs.txt" "description.txt" "grammar.txt" "./")
+ ("/home/wrongway4you/Temp/" (22631 55144 645389 674000) "stmt.h" "../" "redis-unstable/" "stmt.c" "expr.c" "inum/" "./" "lua-5.3.3/" "expr.h")
 
- ("/home/wrongway4you/Projects/gsh/" (22615 57017 419685 83000) ".git/" "TODO" ".gitignore" "../" "Makefile" "AUTHORS" "tests/" "tmp/" "src/" "bin/" "THINKING" "README" "examples/" "LICENSE" "INSTALL" "NEWS" "docs/" "COPYING" "./" "resources/")
+ ("/home/wrongway4you/" (22631 55144 643389 674000) ".vimrc" ".xauthzaXcGz" ".zsh_history" "Learning/" ".config/" ".serverauth.10341" ".python_history" "../" ".serverauth.3796" ".links/" ".gitconfig" "Installers/" ".emacs.d/" ".xsession" ".serverauth.31823" "Screenshots/" ".dbus/" ".bash_history" "Documents/" ".mpd/" ".astylerc" "Books/" "Desktop/" ".gnupg/" ".zshrc.pre-oh-my-zsh" ".viminfo" ".apvlvinfo" ".pki/" ".thunderbird/" "Music/" "Projects/" ".gnome/" "Downloads/" "Archives/" ".serverauth.7702" ".bash_profile" "Temp/" "Pictures/" "Git/" ".wget-hsts" ".fonts.conf" ".bash_logout" ".zshrc" ".zcompdump-Gentoo-5.2" ".mozilla/" ".lyrics/" ".vim/" ".oh-my-zsh/" ".bashrc" ".mono/" ".themes/" ".zsh-update" ".serverauth.9411" ".recently-used" "VirtualMachines/" ".ssh/" ".cache/" "Scripts/" ".serverauth.4005" ".Xauthority" "./" ".ncmpcpp/" ".urxvt/" ".local/" ".awesome-errors" ".Xresources")
 
- ("/home/wrongway4you/.emacs.d/" (22614 62629 899990 423000) ".mc-lists.el" "auto-save-list/" "../" "init.el" "ido.last" "elpa/" "./" "settings/")
+ ("/home/wrongway4you/Temp/lua-5.3.3/src/" (22631 30616 165649 982000) "ldebug.c" "lctype.c" "liolib.c" "ldo.c" "lauxlib.c" "lvm.h" "lapi.c" "lzio.c" "lfunc.h" "lmem.h" "../" "Makefile" "lgc.c" "ltm.c" "lcorolib.c" "lopcodes.h" "lua.c" "lstrlib.c" "lmem.c" "lopcodes.c" "llex.c" "llex.h" "lgc.h" "ltm.h" "lua.hpp" "linit.c" "ltable.c" "lobject.h" "lvm.c" "lundump.c" "ltable.h" "loadlib.c" "lauxlib.h" "lstate.c" "lprefix.h" "lparser.h" "ldblib.c" "luac.c" "lbaselib.c" "lutf8lib.c" "lbitlib.c" "lzio.h" "lctype.h" "lualib.h" "ldebug.h" "luaconf.h" "lstring.h" "lstate.h" "lundump.h" "ltablib.c" "loslib.c" "ldo.h" "./" "lcode.c" "lapi.h" "ldump.c" "lfunc.c" "llimits.h" ".#lparser.c" "lcode.h" "lmathlib.c" "lobject.c" "lua.h" "lparser.c" "lstring.c")
 
- ("/home/wrongway4you/" (22615 56371 432744 611000) ".vimrc" ".serverauth.3795" ".xauthzaXcGz" ".zsh_history" "Learning/" ".config/" ".serverauth.10341" ".python_history" "../" ".links/" ".gitconfig" "Installers/" ".emacs.d/" ".xsession" ".serverauth.31823" "Screenshots/" ".dbus/" ".bash_history" "Documents/" ".mpd/" "Books/" "Desktop/" ".gnupg/" ".zshrc.pre-oh-my-zsh" ".viminfo" ".pki/" ".thunderbird/" "Music/" "Projects/" ".gnome/" "Downloads/" "Archives/" ".bash_profile" "Temp/" "Pictures/" "Git/" ".wget-hsts" ".fonts.conf" ".bash_logout" ".zshrc" ".zcompdump-Gentoo-5.2" ".mozilla/" ".lyrics/" ".vim/" ".oh-my-zsh/" ".bashrc" ".mono/" ".themes/" ".zsh-update" ".serverauth.9411" ".recently-used" "VirtualMachines/" ".ssh/" ".cache/" "Scripts/" ".Xauthority" "./" ".ncmpcpp/" ".urxvt/" ".local/" ".awesome-errors" ".Xresources")
+ ("/home/wrongway4you/.themes/" (22629 61866 736999 33000) "../" "default/" "new_year/" "./")
 
- ("/home/wrongway4you/Git/dotfiles/.emacs.d/" (22614 50023 799993 369000) ".mc-lists.el" "auto-save-list/" "../" "init.el" "ido.last" "elpa/" "./" "settings/")
+ ("/home/wrongway4you/.themes/new_year/" (22629 63058 290998 755000) "../" "theme.lua" "background.jpg" "./")
 
- ("/home/wrongway4you/Projects/gsh/tests/" (22614 43951 760994 788000) "test_xstr.h" "main.c" "test_xstr.c" "../" "test_xstack.c" "test_xstack.h" "test_util.c" "test_xvec.h" "test_xvec.c" "test_util.h" "test_xmap.h" "test_tokenizer.h" "test_tokenizer.c" "tests.h" "./" "test_xmap.c")
+ ("/home/wrongway4you/Temp/lua-5.3.3/" (22628 44611 677567 936000) "../" "src/" "README" "doc/" "./")
 
- ("/home/wrongway4you/Temp/" (22614 26813 460998 794000) "../" "./")
+ ("/home/wrongway4you/Git/dotfiles/" (22627 19637 574800 533000) ".git/" ".vimrc" ".config/" "../" ".xinitrc" ".emacs.d/" ".xsession" "Screenshots/" ".mpd/" ".astylerc" ".bash_profile" ".fonts.conf" ".bash_logout" ".zshrc" ".vim/" ".oh-my-zsh/" ".bashrc" ".themes/" "README.md" "./" ".ncmpcpp/" ".Xresources")
+
+ ("/home/wrongway4you/Git/dotfiles/.themes/" (22629 61866 736999 33000) "../" "default/" "new_year/" "./")
+
+ ("/home/wrongway4you/Git/dotfiles/.themes/new_year/" (22629 63058 290998 755000) "../" "theme.lua" "background.jpg" "./")
+
+ ("/home/wrongway4you/Projects/gsh/src/interpreter/parser/" (22629 61017 169999 232000) "ast.c" "stmt.h" "../" "parser.c" "stmt.c" "expr.c" "parser.h" "ast.h" "./" "expr.h")
+
+ ("/home/wrongway4you/Projects/gsh/src/platform/linux/" (22629 61016 469999 232000) "gsh.c" "main.c" "../" "gsh.h" "./" "types.h")
+
+ ("/home/wrongway4you/Projects/gsh/tests/mm/" (22628 929 27485 368000) "tests.c" "main.c" "util.h" "xvec.c" "tokenizer.c" "../" "xvec.h" "interpreter.h" "parser.c" "xstr.c" "tokenizer.h" "platform.c" "util.c" "parser.h" "platform.h" "xmap.h" "xstack.c" "tests.h" "./" "xmap.c" "xstack.h" "interpreter.c" "xstr.h")
+
+ ("/home/wrongway4you/Projects/gsh/tests/" (22628 992 54479 560000) "../" "performance/" "work/" "mm/" "tests.h" "./")
+
+ ("/home/wrongway4you/Projects/gsh/src/interpreter/lexer/" (22629 60885 647999 263000) "token.c" "token.h" "../" "lex.c" "lex.h" "./")
+
+ ("/home/wrongway4you/Projects/gsh/src/interpreter/" (22629 60808 557999 281000) "parser/" "executor/" "../" "interpreter.h" "lexer/" "./" "interpreter.c")
+
+ ("/home/wrongway4you/Projects/gsh/" (22629 58817 756999 746000) ".git/" "TODO" ".gitignore" "../" "Makefile" "AUTHORS" "tests/" "tmp/" "src/" "bin/" "README" "examples/" "LICENSE" "INSTALL" "NEWS" "docs/" "BUGS" "COPYING" "./" "resources/")
+
+ ("/home/wrongway4you/Projects/gsh/src/mm/" (22629 21308 277240 455000) "../" "memory.h" "memory.c" "./")
+
+ ("/home/wrongway4you/Projects/gsh/src/util/" (22629 21257 15245 179000) "str.c" "util.h" "int.h" "../" "int.c" "io.c" "str.h" "io.h" "macros.h" "util.c" "./")
+
+ ("/home/wrongway4you/Projects/gsh/src/shell/" (22629 16258 879705 759000) "../" "./" "shell.c" "shell.h")
+
+ ("/home/wrongway4you/Projects/gsh/src/lib/" (22629 17956 761549 299000) "xvec.c" "../" "xvec.h" "xstr.c" "xmap.h" "xstack.c" "./" "xmap.c" "xstack.h" "xstr.h")
+
+ ("/home/wrongway4you/Projects/gsh/src/" (22629 12795 67024 951000) "err.c" "../" "platform/" "mm/" "util/" "lib/" "err.h" "./" "shell/" "interpreter/")
+
+ ("/home/wrongway4you/Projects/gsh/src/interpreter/executor/" (22628 40797 133919 448000) "../" "./")
+
+ ("/home/wrongway4you/.emacs.d/" (22628 1197 151460 660000) ".mc-lists.el" "eshell/" "ede-projects.el" "auto-save-list/" "../" "init.el" "lisp/" "ido.last" "semanticdb/" "elpa/" "./" "srecode-map.el" "ac-comphist.dat")
+
+ ("/home/wrongway4you/Projects/gsh/src/shell/parser/" (22628 1112 429468 467000) "ast.c" "stmt.h" "tokenize.h" "token.c" "token.h" "../" "parser.c" "toekn.c" "stmt.c" "expr.c" "parser.h" "ast.h" "tokenize.c" "./" "expr.h")
+
+ ("/home/wrongway4you/Projects/gsh/docs/" (22627 31456 359711 428000) "astylerc" "code_style.txt" "../" "specs.txt" "description.txt" "coding.txt" "grammar.txt" "./")
+
+ ("/home/wrongway4you/.emacs.d/lisp/" (22626 35202 957991 989000) "../" "util.el" "packages.el" "./" "keybindings.el" "appearance.el" "hooks.el")
+
+ ("/home/wrongway4you/Projects/gsh/src/ds/" (22626 48619 148988 854000) "ast.c" "xvec.c" "token.c" "token.h" "../" "xvec.h" "xstr.c" "ast.h" "xmap.h" "xstack.c" "./" "xmap.c" "xstack.h" "xstr.h")
+
+ ("/home/wrongway4you/Projects/gsh/src/shell/tokenizer/" (22626 10680 816997 720000) "tokenize.h" "../" "tokenize.c" "./")
+
+ ("/proc/" (22626 919 12000 0) "31540/" "30577/" "30509/" "27152/" "18340/" "17142/" "16776/" "16675/" "15779/" "15625/" "14914/" "8551/" "7271/" "6722/" "5433/" "5313/" "5291/" "5286/" "4951/" "4793/" "4760/" "4116/" "4050/" "4036/" "4004/" "3958/" "3955/" "3954/" "3952/" "3951/" "3946/" "3945/" "3940/" "3902/" "3900/" "3895/" "3873/" "3872/" "3869/" "3858/" "3856/" "3851/" "3849/" "3848/" "3813/" "3811/" "3810/" "3807/" "3806/" "3790/" "3767/" "3754/" "3748/" "3737/" "3736/" "3735/" "3734/" "3733/" "3732/" "3701/" "3700/" "3527/" "3352/" "2782/" "2403/" "2383/" "2382/" "2381/" "2380/" "2008/" "1946/" "1110/" "1025/" "1008/" "989/" "984/" "970/" "928/" "926/" "901/" "862/" "861/" "858/" "857/" "836/" "835/" "832/" "831/" "828/" "826/" "824/" "823/" "795/" "792/" "789/" "786/" "783/" "780/" "777/" "774/" "769/" "621/" "620/" "496/" "485/" "465/" "347/" "345/" "344/" "343/" "320/" "311/" "306/" "24/" "23/" "22/" "20/" "19/" "18/" "17/" "15/" "14/" "13/" "12/" "11/" "10/" "9/" "8/" "7/" "5/" "4/" "3/" "2/" "1/" "thread-self/" "self/" "pagetypeinfo" "vmallocinfo" "filesystems" "execdomains" "timer_list" "partitions" "kpageflags" "kpagecount" "interrupts" "key-users" "diskstats" "buddyinfo" "zoneinfo" "softirqs" "slabinfo" "kallsyms" "consoles" "version" "sysvipc/" "modules" "meminfo" "loadavg" "ioports" "devices" "cpuinfo" "cmdline" "cgroups" "vmstat" "uptime" "mounts" "mdstat" "driver/" "crypto" "asound/" "swaps" "locks" "kcore" "iomem" "stat" "scsi/" "mtrr" "misc" "kmsg" "keys" "acpi/" "tty/" "sys/" "net/" "irq/" "dma" "bus/" "fs/" "fb" "../" "./")
+
+ ("/usr/" (22596 15309 709997 175000) "sbin/" "../" "libexec/" "tmp/" "portage/" "src/" "bin/" "x86_64-pc-linux-gnu/" "lib64/" "lib/" "local/" "share/" "./" "lib32/" "include/")
+
+ ("/usr/include/" (22626 8923 481998 131000) "libtasn1.h" "aupvlist.h" "lzma/" "python3.4m/" "atomic_ops_malloc.h" "astyle.h" "alloca.h" "gif_lib.h" "cairo/" "llvm/" "fpu_control.h" "mpfr.h" "gawkapi.h" "fdt.h" "jconfig.h" "jpeglib.h" "fcntl.h" "openjpeg-2.1/" "libunrar5/" "ImageMagick-6/" "pcreposix.h" "tiff.h" "cursesf.h" "dlfcn.h" "udev.h" "torrent/" "einfo.h" "libfdt_env.h" "sqlite3ext.h" "unistd.h" "xorg/" "error.h" "math.h" "pcre_stringpiece.h" "mad.h" "cpio.h" "netrom/" "argz.h" "jbig2.h" "net/" "librsvg-2.0/" "valgrind/" "bfdlink.h" "ext2fs/" "fenv.h" "blkid/" "xvid.h" "check_stdint.h" "dconf/" "ogg/" "giblib/" "libguile/" "stab.h" "aliases.h" "basedir.h" "popt.h" "libiberty.h" "libmnl/" "libxml2/" "uuid/" "termio.h" "cups/" "pipeline.h" "utmp.h" "lber.h" "yajl/" "uchar.h" "canberra.h" "mtdev-mapping.h" "gpm.h" "pngconf.h" "xtables.h" "regexp.h" "netash/" "gbm.h" "aio.h" "libswscale/" "mcheck.h" "sigc++-2.0/" "qpdf/" "GL/" "libgen.h" "bits/" "gcrypt.h" "cursesm.h" "netiucv/" "cursslk.h" "libavformat/" "netipx/" "libxslt/" "bfd.h" "stdc-predef.h" "turbojpeg.h" "tiffio.h" "FlexLexer.h" "libyasm-stdint.h" "spawn.h" "pygtk-2.0/" "stdint.h" "fstab.h" "packer.h" "libavutil/" "tiffio.hxx" "js/" "gtk-unix-print-2.0/" "ss/" "ldif.h" "jansson_config.h" "GLES3/" "guile/" "netax25/" "glib-2.0/" "x264.h" "freetype2/" "fts.h" "malloc.h" "menu.h" "wctype.h" "at-spi-2.0/" "gail-3.0/" "crypt.h" "cap-ng.h" "pycairo/" "poppler/" "execinfo.h" "glob.h" "signal.h" "SDL/" "ldap_schema.h" "sqlite3.h" "gnu/" "pcrecpp.h" "graphite2/" "netatalk/" "gnutls/" "cppunit/" "gnumake.h" "syscall.h" "libio.h" "video/" "tar.h" "ltdl.h" "semaphore.h" "db4.8/" "ghostscript/" "libmng.h" "complex.h" "dictionary.h" "asm/" "libltdl/" "mtdev.h" "neteconet/" "libiberty/" "printf.h" "locale.h" "search.h" "mpc.h" "libiptc/" "polkit-1/" "inttypes.h" "epoxy/" "nfs/" "hunspell/" "obstack.h" "idn-int.h" "libavcodec/" "stdio.h" "zlib.h" "features.h" "db_185.h" "x264_config.h" "nc_tparm.h" "libglade-2.0/" "pthread.h" "png.h" "maillock.h" "asm-generic/" "gudev-1.0/" "paths.h" "archive.h" "syslog.h" "time.h" "libfdt.h" "termcap.h" "curses.h" "libkmod.h" "libnetlink.h" "com_err.h" "x86_64-pc-linux-gnu/" "unctrl.h" "qt4/" "libdrm/" "pty.h" "ldap_cdefs.h" "unicode/" "byteswap.h" "audiofile.h" "etip.h" "setjmp.h" "sudo_plugin.h" "gc/" "langinfo.h" "lzo/" "libical/" "autoopts/" "sched.h" "utempter.h" "utmpx.h" "libevdev-1.0/" "python2.7/" "zconf.h" "termios.h" "startup-notification-1.0/" "ip6tables.h" "ifaddrs.h" "ieee754.h" "fontembed/" "seccomp.h" "EGL/" "dis-asm.h" "sgtty.h" "lua.hpp" "punycode.h" "libnotify/" "af_vfs.h" "gail-1.0/" "nss/" "protocols/" "parted/" "rpcsvc/" "cupsfilters/" "ConsoleKit/" "strings.h" "mix/" "gdbm.h" "libudev.h" "FLAC++/" "pixman-1/" "libusb-1.0/" "xf86drm.h" "wchar.h" "term.h" "fmtmsg.h" "libguile.h" "wx-2.8/" "drm/" "ncurses_dll.h" "assuan.h" "stropts.h" "efivar/" "atomic_ops.h" "linux/" "pango-1.0/" "a.out.h" "check.h" "paper.h" "libaio.h" "Imlib2.h" "id3tag.h" "CL/" "pr29.h" "nspr/" "eventlog/" "basedir_fs.h" "eti.h" "lauxlib.h" "symcat.h" "getopt.h" "gstreamer-1.0/" "pcre.h" "xen/" "gnu-versions.h" "ldap_features.h" "idn-free.h" "i686-pc-linux-gnu/" "libmng_conf.h" "sasl/" "envz.h" "wordexp.h" "tiffvers.h" "expat.h" "pcre_scanner.h" "libpng16/" "gshadow.h" "libyasm.h" "memory.h" "rpc/" "atomic_ops_stack.h" "misc/" "regex.h" "pcrecpparg.h" "libavfilter/" "string.h" "ksba.h" "at-spi2-atk/" "canberra-gtk.h" "harfbuzz/" "lcms2.h" "bsd/" "libexif/" "lcms2_plugin.h" "lastlog.h" "ansidecl.h" "acl/" "dirent.h" "wine/" "utime.h" "xf86drmMode.h" "et/" "stdio_ext.h" "cursesw.h" "openssl/" "ical.h" "udisks2/" "endian.h" "stringprep.h" "ijs/" "rc.h" "iptables/" "gmpxx.h" "shout/" "gc.h" "ftw.h" "e2p/" "atk-1.0/" "netinet/" "samplerate.h" "libunrar/" "ar.h" "shadow.h" "expat_external.h" "gpg-error.h" "fnmatch.h" "gio-unix-2.0/" "lockfile.h" "tic.h" "mqueue.h" "tiffconf.h" "re_comp.h" "zsh/" "bluetooth/" "jansson.h" "err.h" "ucontext.h" "gconv.h" "sysexits.h" "_G_config.h" "iniparser.h" "ttyent.h" "cursesp.h" "wait.h" "tld.h" "gdk-pixbuf-2.0/" "gtk-2.0/" "xlocale.h" "values.h" "ncurses.h" "jerror.h" "gdb/" "rdma/" "fontconfig/" "readline/" "form.h" "lame/" "gettext-po.h" "monetary.h" "lualib.h" "tcpd.h" "tgmath.h" "ustat.h" "iptables.h" "xcb/" "db.h" "luaconf.h" "netpacket/" "libexslt/" "gdbm/" "vo-aacenc/" "pwd.h" "mono-2.0/" "libfdisk/" "pciaccess.h" "arpa/" "libcroco-0.6/" "netdb.h" "orc-0.4/" "lzma.h" "ulimit.h" "jmorecfg.h" "ldap_utf8.h" "syslog-ng/" "resolv.h" "libmount/" "libintl.h" "mntent.h" "slapi-plugin.h" "proc/" "autosprintf.h" "gc_cpp.h" "limits.h" "dbus-1.0/" "vdpau/" "security/" "libavresample/" "boost/" "pci/" "lber_types.h" "cursesapp.h" "KHR/" "libmng_types.h" "libsmartcols/" "mtdev-plumbing.h" "npth.h" "atomic_ops/" "nss.h" "mpd/" "panel.h" "nettle/" "crack.h" "awk/" "errno.h" "OpenSP/" "ctype.h" "vorbis/" "sys/" "wx-3.0/" "initreq.h" "gmp.h" "iconv.h" "poll.h" "atasmart.h" "pnglibconf.h" "libavdevice/" "FLAC/" "ncursesw/" "gsettings-desktop-schemas/" "mpf2mpfr.h" "argp.h" "xtables-version.h" "magic.h" "attr/" "plugin-api.h" "sound/" "X11/" "grp.h" "thread_db.h" "bzlib.h" "scsi/" "mtd/" "mpg123.h" "expat_config.h" "link.h" "libpostproc/" "elf.h" "gtk-3.0/" "llvm-c/" "libswresample/" "stdlib.h" "archive_entry.h" "xpyb.h" "assert.h" "gconf/" "GLES2/" "gtksourceview-2.0/" "idna.h" "ldap.h" "curl/" "nl_types.h" "gobject-introspection-1.0/" "lua.h" "libyasm/" "alsa/" "netrose/" "term_entry.h" "../" "./")
+
+ ("/home/wrongway4you/Projects/gsh/resources/" (22617 24267 737992 171000) "../" "tests/" "etc/" "lib/" "./")
+
+ ("/home/wrongway4you/Learning/custom_malloc/" (22624 44080 190064 494000) "*gud-main*" "malloc_test" "../" "Makefile" "xmalloc_test.c" "xmalloc.c" "malloc_test.c" "xstr.c" "xmalloc_test" "xmalloc.h" "malloc_test.h" "./" "xstr.h")
+
+ ("/home/wrongway4you/Learning/" (22623 52576 579434 420000) "compilers_and_programming_languages/" "../" "algorithms_and_ds/" "custom_malloc/" "./")
+
+ ("/home/wrongway4you/Projects/gsh/bin/" (22623 36803 890228 300000) "gsh_debug" "../" "gsh" "gsh_test" "./")
+
+ ("/home/wrongway4you/Projects/gsh/src/platform/win32/" (22622 20072 347291 33000) "gsh.c" "main.c" "../" "./")
+
+ ("/home/wrongway4you/Projects/gsh/src/platform/" (22622 19895 531288 722000) "../" "win32/" "linux/" "./")
+
+ ("/home/wrongway4you/Projects/gsh/src/shell/interpreter/" (22620 6002 42477 396000) "parser/" "../" "interpreter.h" "tokenizer/" "./" "interpreter.c")
+
+ ("/home/wrongway4you/Projects/gsh/src/shell/interpreter/parser/" (22620 5567 886517 403000) "ast.c" "../" "parser.c" "parser.h" "ast.h" "./")
+
+ ("/home/wrongway4you/Projects/gsh/src/shell/interpreter/tokenizer/" (22620 5498 365523 810000) "token.c" "tokenizer.c" "token.h" "../" "tokenizer.h" "./")
+
+ ("/home/wrongway4you/Projects/gsh/src/interpreter/tokenizer/" (22620 3242 73731 728000) "token.c" "tokenizer.c" "token.h" "../" "tokenizer.h" "./")
+
+ ("/home/wrongway4you/Archives/" (22614 25612 940999 74000) "greenlemon.com.tar.gz" "cryptolist.com.tar.gz" "../" "Projects.tbz2" "Documents.tbz2" "emerald_args.tbz2" "lemonblog.com.tar.gz" "./" "emerald_templater.tbz2" "check-0.10.0.tar.gz")
+
+ ("/home/wrongway4you/Projects/gsh/src/parser/" (22617 32073 113990 347000) "ast.c" "../" "parser.c" "parser.h" "ast.h" "./")
+
+ ("/home/wrongway4you/Projects/gsh/src/tokenizer/" (22617 31152 27990 562000) "token.c" "tokenizer.c" "token.h" "../" "tokenizer.h" ".#tokenizer.c" "./")
+
+ ("/home/wrongway4you/Git/dotfiles/.emacs.d/" (22616 978 9809 969000) ".mc-lists.el" "auto-save-list/" "../" "init.el" "ido.last" "elpa/" "./" "settings/")
+
+ ("/home/wrongway4you/.emacs.d/elpa/" (22616 2181 552699 62000) "archives/" "solarized-theme-20161203.301/" "pkg-info-20150517.443/" "../" "ample-theme-20161207.614/" "zenburn-theme-20161018.437/" "bind-key-20161218.1520/" "flycheck-20161216.1227/" "seq-2.19/" "gnupg/" "diminish-20151215.915/" "let-alist-1.0.4.signed" "ggtags-20161022.251/" "multiple-cursors-20161021.1431/" "epl-20150517.433/" "let-alist-1.0.4/" "seq-2.19.signed" "gotham-theme-20161022.848/" "autopair-20160304.437/" "dash-20161121.55/" "./" "srefactor-20161130.2112/" "0blayout-readme.txt" "use-package-20161218.1521/")
+
+ ("/home/wrongway4you/.emacs.d/elpa/srefactor-20161130.2112/" (22616 2185 96698 736000) "srefactor-pkg.el" "../" "srefactor-lisp.elc" "srefactor.el" "srefactor.elc" "srefactor-lisp.el" "srefactor-ui.elc" "srefactor-ui.el" "./" "srefactor-autoloads.el")
+
+ ("/home/wrongway4you/.emacs.d/settings/" (22615 61612 207261 672000) "styles.el" "../" "util.el" "packages.el" "./" "keybindings.el" "hooks.el")
+
+ ("/home/wrongway4you/Git/dotfiles/.emacs.d/settings/" (22615 56946 289691 638000) "../" "util.el" "packages.el" "./" "keybindings.el" "hooks.el")
+
+ ("/home/wrongway4you/.emacs.d/elpa/ggtags-20161022.251/" (22615 60494 605364 659000) "ggtags.elc" "ggtags.el" "../" "ggtags-autoloads.el" "ggtags-pkg.el" "./" "ggtags-pkg.elc")
 
  ("/home/wrongway4you/Projects/" (22614 25619 679999 73000) "emerald_requests/" "../" "gsh/" "./" "emerald_web/")
-
- ("/home/wrongway4you/Git/dotfiles/.emacs.d/settings/" (22612 55742 887092 456000) "../" "util.el" "packages.el" "./" "keybindings.el" "hooks.el")
-
- ("/home/wrongway4you/.emacs.d/settings/" (22612 55742 887092 456000) "../" "util.el" "packages.el" "./" "keybindings.el" "hooks.el")
-
- ("/home/wrongway4you/Git/dotfiles/" (22611 53672 897970 982000) ".git/" ".vimrc" ".config/" "../" ".xinitrc" ".emacs.d/" ".xsession" "Screenshots/" ".mpd/" ".bash_profile" ".fonts.conf" ".bash_logout" ".zshrc" ".vim/" ".oh-my-zsh/" ".bashrc" ".themes/" "README.md" "./" ".ncmpcpp/" ".Xresources")
-
- ("/home/wrongway4you/Projects/gsh/bin/" (22605 19755 346356 518000) "../" "gsh" "./")
 
  ("/home/wrongway4you/Learning/algorithms_and_ds/selection_sort/" (22606 55250 474489 520000) "main.c" "main" "../" "Makefile" "./")
 
@@ -84,8 +191,6 @@
  ("/home/wrongway4you/Git/" (22600 4059 217706 388000) "emerald_requests/" "../" "dotfiles/" "./")
 
  ("/home/wrongway4you/Learning/algorithms_and_ds/" (22605 28257 779467 629000) "selection_sort/" "math/" "../" "list/" "./")
-
- ("/home/wrongway4you/Learning/" (22606 42724 879643 757000) "compilers_and_programming_languages/" "../" "algorithms_and_ds/" "./")
 
  ("/home/wrongway4you/Projects/shell/src/" (22605 31983 401516 316000) "ast.c" "main.c" "util.h" "token.c" "token.h" "../" "util.c" "ast.h" "./" "shell.c" "shell.h")
 

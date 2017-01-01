@@ -1,6 +1,9 @@
 local m = {}
 
-m.wallpaper = "background.jpg"
+m.name = "default"
+
+
+m.wallpaper = "~/.themes/" .. m.name .. "/background.jpg"
 
 -- Wibox top
 m.WIBOX_TOP_H = 20

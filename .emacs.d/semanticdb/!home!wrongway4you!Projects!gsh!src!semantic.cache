@@ -1,0 +1,186 @@
+;; Object src/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "src/"
+  :tables
+  (list
+    (semanticdb-table "err.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("ERR_H" variable (:constant-flag t) nil [128 133])
+            ("gsh.h" include nil nil [135 151])
+            ("ERR_EXIT_CODE" variable (:constant-flag t) nil [243 256])
+            ("SUCCESS_EXIT_CODE" variable (:constant-flag t) nil [363 380])
+            ("ErrorCode" type
+               (:members 
+                  ( ("EC_OK" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [405 411])
+                    ("EC_NO_SUCH_FILE" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [416 432])
+                    ("EC_PERM_DENIED" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [437 452])
+                    ("EC_INDEX_OUT_OF_RANGE" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [457 480]))                  
+                :type "enum")
+                nil [384 481])
+            ("err_code" variable (:type ("ErrorCode" type (:type "enum") nil nil)) nil [538 562])
+            ("print_error" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("format" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [642 661])
+                    ("..." variable (:type "vararg") (reparse-symbol arg-sub-list) [666 670]))                  
+                :type "void")
+                nil [620 671])
+            ("print_error_fatal" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("format" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [763 782])
+                    ("..." variable (:type "vararg") (reparse-symbol arg-sub-list) [787 791]))                  
+                :type "void")
+                nil [735 792])
+            ("set_ec" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("code" variable
+                       (:constant-flag t
+                        :type ("ErrorCode" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [893 919]))                  
+                :type "void")
+                nil [881 920])
+            ("set_syntax_ec_type" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("SyntaxErrorType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [946 978]))                  
+                :type "void")
+                nil [922 979])
+            ("print_ec" function
+               (:prototype-flag t
+                :type "void")
+                nil [1065 1081]))          
+      :file "err.h"
+      :pointmax 1099
+      :fsize 1098
+      :lastmodtime '(22630 33632 280990 316000)
+      :unmatched-syntax '((symbol 457 . 478) (punctuation 698 . 699) (semantic-list 664 . 698) (VOID 648 . 652) (punctuation 589 . 590) (ENUM 566 . 570))
+      :lexical-table 
+        '(("ERR_H")
+          ("SUCCESS_EXIT_CODE" . ((number "0" 381 . 382)))
+          ("ERR_EXIT_CODE" . ((number "128" 257 . 260)))
+          )
+)
+    (semanticdb-table "err.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("err.h" include nil nil [176 192])
+            ("stdarg.h" include (:system-flag t) nil [194 213])
+            ("stdio.h" include (:system-flag t) nil [214 232])
+            ("util/io.h" include nil nil [234 254])
+            ("util/str.h" include nil nil [255 276])
+            ("shell/shell.h" include nil nil [277 301])
+            ("print_error" function
+               (:arguments 
+                  ( ("format" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [325 344])
+                    ("..." variable (:type "vararg") (reparse-symbol arg-sub-list) [349 353]))                  
+                :type "void")
+                nil [303 522])
+            ("print_error_fatal" function
+               (:arguments 
+                  ( ("format" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [552 571])
+                    ("..." variable (:type "vararg") (reparse-symbol arg-sub-list) [576 580]))                  
+                :type "void")
+                nil [524 755])
+            ("err_ueof" function
+               (:arguments 
+                  ( ("filename" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [756 756])
+                    ("text" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [756 756])
+                    ("ln" variable
+                       (:constant-flag t
+                        :type ("uint64" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [756 756])
+                    ("cn" variable
+                       (:constant-flag t
+                        :type ("uint64" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [756 756]))                  
+                :type "void")
+                nil [756 756])
+            ("err_syntax" function
+               (:arguments 
+                  ( ("filename" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [756 756])
+                    ("text" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [756 756])
+                    ("ln" variable
+                       (:constant-flag t
+                        :type ("uint64" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [756 756])
+                    ("cn" variable
+                       (:constant-flag t
+                        :type ("uint64" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [756 756]))                  
+                :type "void")
+                nil [756 756])
+            ("set_ec" function
+               (:arguments 
+                  ( ("code" variable
+                       (:constant-flag t
+                        :type ("ErrorCode" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [769 795]))                  
+                :type "void")
+                nil [757 820])
+            ("set_syntax_ec_type" function
+               (:arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("SyntaxErrorType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [846 878]))                  
+                :type "void")
+                nil [822 909])
+            ("print_ec" function (:type "void") nil [911 1403]))          
+      :file "err.c"
+      :pointmax 1404
+      :fsize 1403
+      :lastmodtime '(22630 40211 267988 778000)
+      :unmatched-syntax nil))
+  :file "!home!wrongway4you!Projects!gsh!src!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

@@ -1,0 +1,82 @@
+;; Object cedet/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "cedet/"
+  :tables
+  (list
+    (semanticdb-table "mode-local.el"
+      :major-mode 'emacs-lisp-mode
+      :tags 
+        '( ("cl" include nil nil [1786 1799])
+            ("mode-local-map-file-buffers" function (:arguments ("function" "predicate" "buffers")) nil [1824 2498])
+            ("get-mode-local-parent" function (:arguments ("mode")) nil [2500 2699])
+            ("mode-local-equivalent-mode-p" function (:arguments ("mode")) nil [2835 3079])
+            ("mode-local-map-mode-buffers" function (:arguments ("function" "modes")) nil [3081 3551])
+            ("mode-local-init-hook" variable nil nil [3576 3711])
+            ("mode-local-changed-mode-buffers" variable nil nil [3713 3818])
+            ("mode-local--init-mode" variable nil nil [3820 3854])
+            ("mode-local-initialized-p" function nil nil [3856 4116])
+            ("mode-local-post-major-mode-change" function nil nil [4118 4724])
+            ("mode-local-on-major-mode-change" function nil nil [4726 4956])
+            ("set-mode-local-parent" function (:arguments ("mode" "parent")) nil [4979 5474])
+            ("define-child-mode" function (:arguments ("mode" "parent" "docstring")) nil [5476 5760])
+            ("mode-local-use-bindings-p" function (:arguments ("this-mode" "desired-mode")) nil [5762 6054])
+            ("mode-local-symbol-table" variable nil nil [6083 6290])
+            ("make-variable-buffer-local" code nil nil [6291 6344])
+            ("mode-local-active-mode" variable nil nil [6346 6426])
+            ("new-mode-local-bindings" function nil nil [6428 6537])
+            ("mode-local-bind" function (:arguments ("bindings" "plist" "mode")) nil [6539 9652])
+            ("mode-local-symbol" function (:arguments ("symbol" "mode")) nil [9654 10538])
+            ("mode-local-symbol-value" function (:arguments ("symbol" "mode" "property")) nil [10540 11114])
+            ("activate-mode-local-bindings" function (:arguments ("mode")) nil [11145 12889])
+            ("deactivate-mode-local-bindings" function (:arguments ("mode")) nil [12891 13567])
+            ("with-mode-local-symbol" function (:arguments ("mode" "body")) nil [13569 14965])
+            ("put" code nil nil [14966 15019])
+            ("with-mode-local" function (:arguments ("mode" "body")) nil [15021 15404])
+            ("put" code nil nil [15405 15451])
+            ("mode-local-value" function (:arguments ("mode" "sym")) nil [15454 15650])
+            ("setq-mode-local" function (:arguments ("mode" "args")) nil [15652 16817])
+            ("defvar-mode-local" function (:arguments ("mode" "sym" "val" "docstring")) nil [16819 17106])
+            ("put" code nil nil [17107 17160])
+            ("defconst-mode-local" function (:arguments ("mode" "sym" "val" "docstring")) nil [17162 17549])
+            ("put" code nil nil [17550 17605])
+            ("make-obsolete-overload" function (:arguments ("old" "new" "when")) nil [17636 17959])
+            ("overload-obsoleted-by" function (:arguments ("overload")) nil [17961 18139])
+            ("overload-that-obsolete" function (:arguments ("overload")) nil [18141 18341])
+            ("fetch-overload" function (:arguments ("overload")) nil [18343 18832])
+            ("mode-local--override" function (:arguments ("name" "args" "body")) nil [18834 19512])
+            ("mode-local--expand-overrides" function (:arguments ("name" "args" "body")) nil [19514 20413])
+            ("mode-local--overload-body" function (:arguments ("name" "args" "body")) nil [20415 20808])
+            ("put" code nil nil [20825 20878])
+            ("define-overloadable-function" function (:arguments ("name" "args" "docstring" "body")) nil [20880 22190])
+            ("put" code nil nil [22191 22240])
+            ("defalias" code nil nil [22242 22299])
+            ("function-overload-p" function (:arguments ("symbol")) nil [22301 22474])
+            ("define-mode-local-override" function (:arguments ("name" "mode" "args" "docstring" "body")) nil [22476 23432])
+            ("mode-local-read-function" function (:arguments ("prompt" "initial" "hist" "default")) nil [23458 23744])
+            ("overload-docstring-extension" function (:arguments ("overload")) nil [23767 24416])
+            ("mode-local-augment-function-help" function (:arguments ("symbol")) nil [24418 24949])
+            ("mode-local-print-binding" function (:arguments ("symbol")) nil [24984 25379])
+            ("mode-local-print-bindings" function (:arguments ("table")) nil [25381 26610])
+            ("mode-local-describe-bindings-2" function (:arguments ("buffer-or-mode")) nil [26612 27532])
+            ("mode-local-describe-bindings-1" function (:arguments ("buffer-or-mode" "interactive-p")) nil [27534 28451])
+            ("describe-mode-local-bindings" function
+               (:user-visible-flag t
+                :arguments ("buffer"))
+                nil [28453 28685])
+            ("describe-mode-local-bindings-in-mode" function
+               (:user-visible-flag t
+                :arguments ("mode"))
+                nil [28687 29074])
+            ("mode-local-setup-edebug-specs" function nil nil [29699 30306])
+            ("add-hook" code nil nil [30308 30368])
+            ("add-hook" code nil nil [30370 30431])
+            ("add-hook" code nil nil [30432 30499])
+            ("mode-local" package nil nil [30501 30522]))          
+      :file "mode-local.el"
+      :pointmax 30552
+      :fsize 30551
+      :lastmodtime '(21710 25077 0 0)
+      :unmatched-syntax '((close-paren 1799 . 1800) (symbol 1768 . 1785) (open-paren 1767 . 1768))))
+  :file "!usr!share!emacs!24.5!lisp!cedet!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

@@ -1,0 +1,526 @@
+;; Object emacs-lisp/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "emacs-lisp/"
+  :tables
+  (list
+    (semanticdb-table "advice.el"
+      :major-mode 'emacs-lisp-mode
+      :tags 
+        '( ("macroexp" include nil nil [68034 68053])
+            ("cl-lib" include nil nil [68151 68168])
+            ("advice" customgroup (:user-visible-flag t) nil [68228 68388])
+            ("ad-version" variable
+               (:constant-flag t
+                :default-value "2.14")
+                nil [68390 68418])
+            ("ad-redefinition-action" variable (:default-value (quote warn)) nil [68435 69201])
+            ("ad-default-compilation-action" variable (:default-value (quote maybe)) nil [69218 69886])
+            ("ad-substitute-tree" function (:arguments ("sUbTrEe-TeSt" "fUnCtIoN" "tReE")) nil [70062 70930])
+            ("ad-advised-functions" variable nil nil [71608 71641])
+            ("ad-pushnew-advised-function" function (:arguments ("function")) nil [71643 71930])
+            ("ad-pop-advised-function" function (:arguments ("function")) nil [71932 72147])
+            ("ad-do-advised-functions" function (:arguments ("varform" "body")) nil [72149 72541])
+            ("ad-get-advice-info" function (:arguments ("function")) nil [72543 72613])
+            ("ad-get-advice-info-macro" function (:arguments ("function")) nil [72615 72696])
+            ("ad-set-advice-info" function (:arguments ("function" "advice-info")) nil [72698 73071])
+            ("ad-copy-advice-info" function (:arguments ("function")) nil [73073 73161])
+            ("ad-is-advised" function (:arguments ("function")) nil [73163 73360])
+            ("ad-initialize-advice-info" function (:arguments ("function")) nil [73362 73598])
+            ("ad-get-advice-info-field" function (:arguments ("function" "field")) nil [73600 73773])
+            ("ad-set-advice-info-field" function (:arguments ("function" "field" "value")) nil [73775 74270])
+            ("ad-is-active" function (:arguments ("function")) nil [74332 74466])
+            ("ad-make-advice" function (:arguments ("name" "protect" "enable" "definition")) nil [74608 74969])
+            ("ad-advice-name" function (:arguments ("advice")) nil [75069 75116])
+            ("ad-advice-protected" function (:arguments ("advice")) nil [75117 75171])
+            ("ad-advice-enabled" function (:arguments ("advice")) nil [75172 75224])
+            ("ad-advice-definition" function (:arguments ("advice")) nil [75225 75280])
+            ("ad-advice-set-enabled" function (:arguments ("advice" "flag")) nil [75282 75360])
+            ("ad-advice-classes" variable (:default-value (quote (before around after activation deactivation))) nil [75362 75471])
+            ("ad-class-p" function (:arguments ("thing")) nil [75473 75532])
+            ("ad-name-p" function (:arguments ("thing")) nil [75533 75588])
+            ("ad-position-p" function (:arguments ("thing")) nil [75589 75674])
+            ("ad-has-enabled-advice" function (:arguments ("function" "class")) nil [75740 75969])
+            ("ad-has-redefining-advice" function (:arguments ("function")) nil [75971 76331])
+            ("ad-has-any-advice" function (:arguments ("function")) nil [76333 76585])
+            ("ad-get-enabled-advices" function (:arguments ("function" "class")) nil [76587 76886])
+            ("defalias" code nil nil [77362 77407])
+            ("ad-make-advicefunname" function (:arguments ("function")) nil [77409 77557])
+            ("ad-get-orig-definition" function (:arguments ("function")) nil [77559 77860])
+            ("ad-clear-advicefunname-definition" function (:arguments ("function")) nil [77862 78066])
+            ("declare-function" code nil nil [78140 78191])
+            ("ad-read-advised-function" function (:arguments ("prompt" "predicate" "default")) nil [78193 79783])
+            ("ad-advice-class-completion-table" variable (:default-value (mapcar (lambda (class) (list (symbol-name class))) ad-advice-classes)) nil [79785 79902])
+            ("ad-read-advice-class" function (:arguments ("function" "prompt" "default")) nil [79904 80601])
+            ("ad-read-advice-name" function (:arguments ("function" "class" "prompt")) nil [80603 81336])
+            ("ad-read-advice-specification" function (:arguments ("prompt")) nil [81338 81744])
+            ("ad-last-regexp" variable nil nil [81783 81809])
+            ("ad-read-regexp" function (:arguments ("prompt")) nil [81811 82152])
+            ("ad-find-advice" function (:arguments ("function" "class" "name")) nil [82282 82447])
+            ("ad-advice-position" function (:arguments ("function" "class" "name")) nil [82449 82763])
+            ("ad-find-some-advice" function (:arguments ("function" "class" "name")) nil [82765 83515])
+            ("ad-enable-advice-internal" function (:arguments ("function" "class" "name" "flag")) nil [83517 84485])
+            ("ad-enable-advice" function
+               (:user-visible-flag t
+                :arguments ("function" "class" "name"))
+                nil [84502 84921])
+            ("ad-disable-advice" function
+               (:user-visible-flag t
+                :arguments ("function" "class" "name"))
+                nil [84938 85363])
+            ("ad-enable-regexp-internal" function (:arguments ("regexp" "class" "flag")) nil [85365 85847])
+            ("ad-enable-regexp" function
+               (:user-visible-flag t
+                :arguments ("regexp"))
+                nil [85849 86267])
+            ("ad-disable-regexp" function
+               (:user-visible-flag t
+                :arguments ("regexp"))
+                nil [86269 86692])
+            ("ad-remove-advice" function
+               (:user-visible-flag t
+                :arguments ("function" "class" "name"))
+                nil [86694 87351])
+            ("ad-add-advice" function (:arguments ("function" "advice" "class" "position")) nil [87368 89385])
+            ("ad-macrofy" function (:arguments ("definition")) nil [89499 89628])
+            ("ad-lambdafy" function (:arguments ("definition")) nil [89630 89752])
+            ("ad-lambda-p" function (:arguments ("definition")) nil [89754 89880])
+            ("ad-advice-p" function (:arguments ("definition")) nil [89942 90066])
+            ("ad-compiled-p" function (:arguments ("definition")) nil [90068 90308])
+            ("ad-compiled-code" function (:arguments ("compiled-definition")) nil [90310 90519])
+            ("ad-lambda-expression" function (:arguments ("definition")) nil [90521 90789])
+            ("ad-arglist" function (:arguments ("definition")) nil [90791 91031])
+            ("ad-docstring" function (:arguments ("definition")) nil [91033 91334])
+            ("ad-interactive-form" function (:arguments ("definition")) nil [91336 91595])
+            ("ad-body-forms" function (:arguments ("definition")) nil [91597 91893])
+            ("ad-definition-type" function (:arguments ("definition")) nil [91895 92406])
+            ("ad-has-proper-definition" function (:arguments ("function")) nil [92440 92708])
+            ("ad-real-definition" function (:arguments ("function")) nil [92838 93122])
+            ("ad-real-orig-definition" function (:arguments ("function")) nil [93124 93294])
+            ("ad-is-compilable" function (:arguments ("function")) nil [93296 93597])
+            ("warning-suppress-types" variable nil nil [93599 93630])
+            ("ad-compile-function" function (:arguments ("function")) nil [93658 94080])
+            ("ad-parse-arglist" function (:arguments ("arglist")) nil [94149 94811])
+            ("ad-retrieve-args-form" function (:arguments ("arglist")) nil [94813 95716])
+            ("ad-arg-binding-field" function (:arguments ("binding" "field")) nil [95718 95891])
+            ("ad-list-access" function (:arguments ("position" "list")) nil [95893 96031])
+            ("ad-element-access" function (:arguments ("position" "list")) nil [96033 96185])
+            ("ad-access-argument" function (:arguments ("arglist" "index")) nil [96187 96737])
+            ("ad-get-argument" function (:arguments ("arglist" "index")) nil [96739 97073])
+            ("ad-set-argument" function (:arguments ("arglist" "index" "value-form")) nil [97075 97666])
+            ("ad-get-arguments" function (:arguments ("arglist" "index")) nil [97668 98291])
+            ("ad-set-arguments" function (:arguments ("arglist" "index" "values-form")) nil [98293 99904])
+            ("ad-insert-argument-access-forms" function (:arguments ("definition" "arglist")) nil [99906 100814])
+            ("ad-map-arglists" function (:arguments ("source-arglist" "target-arglist")) nil [101248 103287])
+            ("ad-make-single-advice-docstring" function (:arguments ("advice" "class" "style")) nil [103905 104360])
+            ("help-fns" include nil nil [104362 104381])
+            ("ad--make-advised-docstring" function (:arguments ("function" "style")) nil [104437 106003])
+            ("ad-advised-arglist" function (:arguments ("function")) nil [106127 106547])
+            ("ad-advised-interactive-form" function (:arguments ("function")) nil [106549 107019])
+            ("ad-make-advised-definition" function (:arguments ("function")) nil [107086 108068])
+            ("ad-assemble-advised-definition" function (:arguments ("args" "docstring" "interactive" "orig" "befores" "arounds" "afters")) nil [108070 110932])
+            ("ad-make-hook-form" function (:arguments ("function" "hook-name")) nil [110987 111331])
+            ("ad-get-cache-definition" function (:arguments ("function")) nil [114643 114741])
+            ("ad-get-cache-id" function (:arguments ("function")) nil [114743 114833])
+            ("ad-set-cache" function (:arguments ("function" "definition" "id")) nil [114835 114957])
+            ("ad-clear-cache" function
+               (:user-visible-flag t
+                :arguments ("function"))
+                nil [114959 115289])
+            ("ad-make-cache-id" function (:arguments ("function")) nil [115291 116091])
+            ("ad-get-cache-class-id" function (:arguments ("function" "class")) nil [116093 116365])
+            ("ad-verify-cache-class-id" function (:arguments ("cache-class-id" "advices")) nil [116367 116636])
+            ("ad-cache-id-verification-code" function (:arguments ("function")) nil [117034 118137])
+            ("ad-verify-cache-id" function (:arguments ("function")) nil [118139 118306])
+            ("ad-preactivate-advice" function (:arguments ("function" "advice" "class" "position")) nil [119631 120549])
+            ("ad-should-compile" function (:arguments ("function" "compile")) nil [120637 121489])
+            ("ad-activate-advised-definition" function (:arguments ("function" "compile")) nil [121491 123220])
+            ("ad--defalias-fset" function (:arguments ("fsetfun" "function" "newdef")) nil [123222 125202])
+            ("ad-activate" function
+               (:user-visible-flag t
+                :arguments ("function" "compile"))
+                nil [125297 127061])
+            ("defalias" code nil nil [127063 127102])
+            ("ad-deactivate" function
+               (:user-visible-flag t
+                :arguments ("function"))
+                nil [127104 127957])
+            ("ad-update" function
+               (:user-visible-flag t
+                :arguments ("function" "compile"))
+                nil [127959 128315])
+            ("ad-unadvise" function
+               (:user-visible-flag t
+                :arguments ("function"))
+                nil [128317 128755])
+            ("ad-recover" function
+               (:user-visible-flag t
+                :arguments ("function"))
+                nil [128757 129420])
+            ("ad-activate-regexp" function
+               (:user-visible-flag t
+                :arguments ("regexp" "compile"))
+                nil [129422 129953])
+            ("ad-deactivate-regexp" function
+               (:user-visible-flag t
+                :arguments ("regexp"))
+                nil [129955 130377])
+            ("ad-update-regexp" function
+               (:user-visible-flag t
+                :arguments ("regexp" "compile"))
+                nil [130379 130904])
+            ("ad-activate-all" function
+               (:user-visible-flag t
+                :arguments ("compile"))
+                nil [130906 131159])
+            ("ad-deactivate-all" function (:user-visible-flag t) nil [131161 131321])
+            ("ad-update-all" function
+               (:user-visible-flag t
+                :arguments ("compile"))
+                nil [131323 131561])
+            ("ad-unadvise-all" function (:user-visible-flag t) nil [131563 131717])
+            ("ad-recover-all" function (:user-visible-flag t) nil [131719 132164])
+            ("ad-defadvice-flags" variable (:default-value (quote (("protect") ("disable") ("activate") ("compile") ("preactivate")))) nil [132214 132315])
+            ("defadvice" function (:arguments ("function" "args" "body")) nil [132332 137147])
+            ("ad-with-originals" function (:arguments ("functions" "body")) nil [137177 138786])
+            ("ad-recover-normality" function (:user-visible-flag t) nil [138932 139235])
+            ("advice" package nil nil [139237 139254]))          
+      :file "advice.el"
+      :pointmax 139280
+      :fsize 139279
+      :lastmodtime '(21710 25077 0 0)
+      :unmatched-syntax '((close-paren 68168 . 68169) (symbol 68133 . 68150) (open-paren 68132 . 68133)))
+    (semanticdb-table "macroexp.el"
+      :file "macroexp.el"
+      :fsize 18827
+      :lastmodtime '(21788 61018 0 0))
+    (semanticdb-table "cl-lib.el"
+      :file "cl-lib.el"
+      :fsize 28016
+      :lastmodtime '(21788 61018 0 0))
+    (semanticdb-table "autoload.el"
+      :major-mode 'emacs-lisp-mode
+      :tags 
+        '( ("lisp-mode" include nil nil [1211 1231])
+            ("lisp-mnt" include nil nil [1268 1287])
+            ("help-fns" include nil nil [1288 1307])
+            ("cl-lib" include nil nil [1357 1374])
+            ("generated-autoload-file" variable nil nil [1377 1899])
+            ("put" code nil nil [1915 1975])
+            ("generated-autoload-load-name" variable nil nil [1977 2291])
+            ("put" code nil nil [2307 2372])
+            ("generate-autoload-cookie" variable (:default-value ";;;###autoload") nil [2515 3018])
+            ("autoload-excludes" variable nil nil [3020 3121])
+            ("generate-autoload-section-header" variable
+               (:constant-flag t
+                :default-value "
+;;;### ")
+                nil [3123 3258])
+            ("generate-autoload-section-trailer" variable
+               (:constant-flag t
+                :default-value "
+;;;***
+")
+                nil [3260 3392])
+            ("generate-autoload-section-continuation" variable
+               (:constant-flag t
+                :default-value ";;;;;; ")
+                nil [3394 3520])
+            ("autoload-modified-buffers" variable nil nil [3522 3556])
+            ("make-autoload" function (:arguments ("form" "file" "expansion")) nil [3588 10091])
+            ("autoload-find-generated-file" function nil nil [10301 10759])
+            ("autoload-generated-file" function nil nil [10761 11164])
+            ("autoload-read-section-header" function nil nil [11167 11873])
+            ("autoload-print-form-outbuf" variable nil nil [11875 11973])
+            ("autoload-print-form" function (:arguments ("form")) nil [11975 13662])
+            ("autoload-rubric" function (:arguments ("file" "type" "feature")) nil [13664 14683])
+            ("autoload-ensure-default-file" function (:arguments ("file")) nil [14685 14889])
+            ("autoload-insert-section-header" function (:arguments ("outbuf" "autoloads" "load-name" "file" "time")) nil [14891 15516])
+            ("autoload-find-file" function (:arguments ("file")) nil [15518 16107])
+            ("no-update-autoloads" variable nil nil [16109 16217])
+            ("autoload-file-load-name" function (:arguments ("file")) nil [16219 17544])
+            ("generate-file-autoloads" function
+               (:user-visible-flag t
+                :arguments ("file"))
+                nil [17546 18054])
+            ("print-readably" variable nil nil [18056 18079])
+            ("autoload--setup-output" function (:arguments ("otherbuf" "outbuf" "absfile" "load-name")) nil [18082 18740])
+            ("autoload--print-cookie-text" function (:arguments ("output-start" "load-name" "file")) nil [18742 20030])
+            ("autoload-builtin-package-versions" variable nil nil [20032 20078])
+            ("autoload-generate-file-autoloads" function (:arguments ("file" "outbuf" "outfile")) nil [20431 26636])
+            ("autoload-save-buffers" function nil nil [26639 26819])
+            ("update-file-autoloads" function
+               (:user-visible-flag t
+                :arguments ("file" "save-after" "outfile"))
+                nil [26836 27911])
+            ("autoload-find-destination" function (:arguments ("file" "load-name")) nil [27913 31206])
+            ("autoload-remove-section" function (:arguments ("begin")) nil [31208 31352])
+            ("update-directory-autoloads" function
+               (:user-visible-flag t
+                :arguments ("dirs"))
+                nil [31369 35903])
+            ("define-obsolete-function-alias" code nil nil [35905 36011])
+            ("batch-update-autoloads" function nil nil [36028 37079])
+            ("autoload" package nil nil [37081 37100]))          
+      :file "autoload.el"
+      :pointmax 37128
+      :fsize 37127
+      :lastmodtime '(21788 61018 0 0)
+      :unmatched-syntax '((close-paren 1374 . 1375) (symbol 1339 . 1356) (open-paren 1338 . 1339)))
+    (semanticdb-table "lisp-mode.el"
+      :file "lisp-mode.el"
+      :fsize 75896
+      :lastmodtime '(21788 61018 0 0))
+    (semanticdb-table "lisp-mnt.el"
+      :file "lisp-mnt.el"
+      :fsize 22166
+      :lastmodtime '(21710 25077 0 0))
+    (semanticdb-table "nadvice.el"
+      :major-mode 'emacs-lisp-mode
+      :tags 
+        '( ("advice--where-alist" variable (:default-value (quote ((:around "\300\301\302#\207" 5) (:before "\300\301\"\210\300\302\"\207" 4) (:after "\300\302\"\300\301\"\210\207" 5) (:override "\300\301\"\207" 4) (:after-until "\300\302\"\206 \300\301\"\207" 4) (:after-while "\300\302\"\205 \300\301\"\207" 4) (:before-until "\300\301\"\206 \300\302\"\207" 4) (:before-while "\300\301\"\205 \300\302\"\207" 4) (:filter-args "\300\302\301!\"\207" 5) (:filter-return "\301\300\302\"!\207" 5)))) nil [1628 2497])
+            ("advice--bytecodes" variable (:default-value (mapcar (function cadr) advice--where-alist)) nil [2499 2561])
+            ("advice--p" function (:arguments ("object")) nil [2563 2789])
+            ("advice--car" function (:arguments ("f")) nil [2791 2839])
+            ("advice--cdr" function (:arguments ("f")) nil [2840 2888])
+            ("advice--props" function (:arguments ("f")) nil [2889 2937])
+            ("advice--cd*r" function (:arguments ("f")) nil [2939 3020])
+            ("advice--make-docstring" function (:arguments ("function")) nil [3022 5227])
+            ("advice-eval-interactive-spec" function (:arguments ("spec")) nil [5229 5819])
+            ("advice--interactive-form" function (:arguments ("function")) nil [5821 6191])
+            ("advice--make-interactive-form" function (:arguments ("function" "main")) nil [6193 6766])
+            ("advice--make-1" function (:arguments ("byte-code" "stack-depth" "function" "main" "props")) nil [6768 7332])
+            ("advice--make" function (:arguments ("where" "function" "main" "props")) nil [7334 8150])
+            ("advice--member-p" function (:arguments ("function" "use-name" "definition")) nil [8152 8662])
+            ("advice--tweak" function (:arguments ("flist" "tweaker")) nil [8664 9172])
+            ("advice--remove-function" function (:arguments ("flist" "function")) nil [9189 9551])
+            ("advice--buffer-local-function-sample" variable nil nil [9553 9900])
+            ("advice--set-buffer-local" function (:arguments ("var" "val")) nil [9902 10081])
+            ("advice--buffer-local" function (:arguments ("var")) nil [10098 10486])
+            ("advice--normalize-place" function (:arguments ("place")) nil [10488 10740])
+            ("add-function" function (:arguments ("where" "place" "function" "props")) nil [10757 13627])
+            ("advice--add-function" function (:arguments ("where" "ref" "function" "props")) nil [13644 14132])
+            ("remove-function" function (:arguments ("place" "function")) nil [14149 14604])
+            ("advice-function-mapc" function (:arguments ("f" "function-def")) nil [14606 14987])
+            ("advice-function-member-p" function (:arguments ("advice" "function-def")) nil [14989 15246])
+            ("advice--subst-main" function (:arguments ("old" "new")) nil [15324 15450])
+            ("advice--normalize" function (:arguments ("symbol" "def")) nil [15452 16019])
+            ("advice--strip-macro" function (:arguments ("x")) nil [16021 16097])
+            ("advice--symbol-function" function (:arguments ("symbol")) nil [16099 17047])
+            ("advice--defalias-fset" function (:arguments ("fsetfun" "symbol" "newdef")) nil [17049 17816])
+            ("advice-add" function (:arguments ("symbol" "where" "function" "props")) nil [17833 19313])
+            ("advice-remove" function (:arguments ("symbol" "function")) nil [19330 20395])
+            ("advice-mapc" function (:arguments ("fun" "symbol")) nil [20397 20669])
+            ("advice-member-p" function (:arguments ("advice" "symbol")) nil [20686 20944])
+            ("add-hook" code nil nil [21363 21453])
+            ("advice--called-interactively-skip" function (:arguments ("origi" "frame1" "frame2")) nil [21454 23266])
+            ("nadvice" package nil nil [23269 23287]))          
+      :file "nadvice.el"
+      :pointmax 23313
+      :fsize 23312
+      :lastmodtime '(21788 61018 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "byte-run.el"
+      :major-mode 'emacs-lisp-mode
+      :tags 
+        '( ("macro-declaration-function" variable (:default-value (function macro-declaration-function)) nil [1239 1571])
+            ("defalias" code nil nil [1573 2715])
+            ("defun-declarations-alist" variable (:default-value (list (list (quote advertised-calling-convention) (function (lambda (f _args arglist when) (list (quote set-advertised-calling-convention) (list (quote quote) f) (list (quote quote) arglist) (list (quote quote) when))))) (list (quote obsolete) (function (lambda (f _args new-name when) (list (quote make-obsolete) (list (quote quote) f) (list (quote quote) new-name) (list (quote quote) when))))) (list (quote compiler-macro) (function (lambda (f args compiler-function) (\` (eval-and-compile (put (quote (\, f)) (quote compiler-macro) (\, (if (eq (car-safe compiler-function) (quote lambda)) (\` (lambda (\, (append (cadr compiler-function) args)) (\,@ (cddr compiler-function)))) (\` (function (\, compiler-function))))))))))) (list (quote doc-string) (function (lambda (f _args pos) (list (quote put) (list (quote quote) f) (quote (quote doc-string-elt)) (list (quote quote) pos))))) (list (quote indent) (function (lambda (f _args val) (list (quote put) (list (quote quote) f) (quote (quote lisp-indent-function)) (list (quote quote) val))))))) nil [2912 4524])
+            ("macro-declarations-alist" variable (:default-value (cons (list (quote debug) (function (lambda (name _args spec) (list (quote progn) :autoload-end (list (quote put) (list (quote quote) name) (quote (quote edebug-form-spec)) (list (quote quote) spec)))))) defun-declarations-alist)) nil [4526 5153])
+            ("put" code nil nil [5155 5188])
+            ("put" code nil nil [5189 5228])
+            ("defalias" code nil nil [5229 6948])
+            ("defun" function (:arguments ("name" "arglist" "docstring" "body")) nil [6997 9374])
+            ("fset" code nil nil [9480 9501])
+            ("defsubst" function (:arguments ("name" "arglist" "body")) nil [10512 10983])
+            ("advertised-signature-table" variable (:default-value (make-hash-table :test (quote eq) :weakness (quote key))) nil [10985 11063])
+            ("set-advertised-calling-convention" function (:arguments ("function" "signature" "_when")) nil [11065 11435])
+            ("make-obsolete" function (:arguments ("obsolete-name" "current-name" "when")) nil [11437 12330])
+            ("define-obsolete-function-alias" function (:arguments ("obsolete-name" "current-name" "when" "docstring")) nil [12332 13149])
+            ("make-obsolete-variable" function (:arguments ("obsolete-name" "current-name" "when" "access-type")) nil [13151 13982])
+            ("define-obsolete-variable-alias" function (:arguments ("obsolete-name" "current-name" "when" "docstring")) nil [13985 15680])
+            ("define-obsolete-face-alias" function (:arguments ("obsolete-face" "current-face" "when")) nil [16010 16396])
+            ("dont-compile" function (:arguments ("body")) nil [16398 16707])
+            ("eval-when-compile" function (:arguments ("body")) nil [16950 17311])
+            ("eval-and-compile" function (:arguments ("body")) nil [17313 17691])
+            ("with-no-warnings" function (:arguments ("body")) nil [17693 17901])
+            ("make-obsolete-variable" code nil nil [19196 19305])
+            ("make-obsolete" code nil nil [19306 19397]))          
+      :file "byte-run.el"
+      :pointmax 19425
+      :fsize 19424
+      :lastmodtime '(21788 61018 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "ring.el"
+      :file "ring.el"
+      :fsize 8312
+      :lastmodtime '(21710 25077 0 0))
+    (semanticdb-table "cl.el"
+      :major-mode 'emacs-lisp-mode
+      :tags 
+        '( ("cl-lib" include nil nil [1047 1064])
+            ("macroexp" include nil nil [1065 1084])
+            ("gv" include nil nil [1085 1098])
+            ("cl-unload-function" function nil nil [3594 3752])
+            ("dolist" code nil nil [3789 4502])
+            ("dolist" code nil nil [4504 9695])
+            ("cl--wrap-in-nil-block" function (:arguments ("fun" "args")) nil [9697 9779])
+            ("advice-add" code nil nil [9780 9832])
+            ("advice-add" code nil nil [9833 9886])
+            ("cl--pass-args-to-cl-declare" function (:arguments ("specs")) nil [9888 9976])
+            ("advice-add" code nil nil [9977 10035])
+            ("cl-closure-vars" variable nil nil [10195 10223])
+            ("cl--function-convert-cache" variable nil nil [10224 10263])
+            ("cl--function-convert" function (:arguments ("f")) nil [10265 12578])
+            ("lexical-let" function (:arguments ("bindings" "body")) nil [12580 14610])
+            ("lexical-let*" function (:arguments ("bindings" "body")) nil [14612 15142])
+            ("flet" function (:arguments ("bindings" "body")) nil [15221 16975])
+            ("labels" function (:arguments ("bindings" "body")) nil [16977 17921])
+            ("cl--gv-adapt" function (:arguments ("cl-gv" "do")) nil [18117 19007])
+            ("define-setf-expander" function (:arguments ("name" "arglist" "body")) nil [19009 19912])
+            ("defsetf" function (:arguments ("name" "arg1" "args")) nil [19914 21529])
+            ("make-obsolete" code nil nil [23443 23495])
+            ("define-modify-macro" function (:arguments ("name" "arglist" "func" "doc")) nil [23497 24256])
+            ("define-obsolete-function-alias" code nil nil [24358 24426])
+            ("define-obsolete-variable-alias" code nil nil [24427 24519])
+            ("define-obsolete-function-alias" code nil nil [24520 24596])
+            ("cl-not-hash-table" function (:arguments ("x" "y" "_z")) nil [24734 24883])
+            ("cl-builtin-gethash" variable (:default-value (symbol-function (quote gethash))) nil [24885 24939])
+            ("make-obsolete-variable" code nil nil [24940 24995])
+            ("cl-builtin-remhash" variable (:default-value (symbol-function (quote remhash))) nil [24996 25050])
+            ("make-obsolete-variable" code nil nil [25051 25106])
+            ("cl-builtin-clrhash" variable (:default-value (symbol-function (quote clrhash))) nil [25107 25161])
+            ("make-obsolete-variable" code nil nil [25162 25217])
+            ("cl-builtin-maphash" variable (:default-value (symbol-function (quote maphash))) nil [25218 25272])
+            ("make-obsolete-variable" code nil nil [25274 25329])
+            ("define-obsolete-function-alias" code nil nil [25330 25396])
+            ("define-obsolete-function-alias" code nil nil [25397 25461])
+            ("define-obsolete-function-alias" code nil nil [25462 25522])
+            ("define-obsolete-function-alias" code nil nil [25523 25583])
+            ("define-obsolete-function-alias" code nil nil [25584 25644])
+            ("define-obsolete-function-alias" code nil nil [25645 25705])
+            ("define-obsolete-function-alias" code nil nil [25706 25766])
+            ("define-obsolete-function-alias" code nil nil [25767 25843])
+            ("define-obsolete-function-alias" code nil nil [25844 25914])
+            ("define-obsolete-function-alias" code nil nil [25915 25993])
+            ("define-obsolete-function-alias" code nil nil [25995 26091])
+            ("define-obsolete-function-alias" code nil nil [26092 26168])
+            ("define-obsolete-function-alias" code nil nil [26169 26242])
+            ("define-obsolete-function-alias" code nil nil [26243 26309])
+            ("cl-maclisp-member" function (:arguments ("item" "list")) nil [26311 26466])
+            ("cl-struct-setf-expander" function (:arguments ("x" "name" "accessor" "pred-form" "pos")) nil [26517 27451])
+            ("cl" package nil nil [27453 27466])
+            ("run-hooks" code nil nil [27468 27493]))          
+      :file "cl.el"
+      :pointmax 27515
+      :fsize 27516
+      :lastmodtime '(21788 61018 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "gv.el"
+      :file "gv.el"
+      :fsize 22063
+      :lastmodtime '(21788 61018 0 0))
+    (semanticdb-table "easymenu.el"
+      :major-mode 'emacs-lisp-mode
+      :tags 
+        '( ("easy-menu-precalculate-equivalent-keybindings" variable nil nil [1135 1656])
+            ("make-obsolete-variable" code nil nil [1657 1740])
+            ("easy-menu-intern" function (:arguments ("s")) nil [1742 1805])
+            ("easy-menu-define" function (:arguments ("symbol" "maps" "doc" "menu")) nil [1822 5443])
+            ("easy-menu-binding" function (:arguments ("menu" "item-name")) nil [5445 6207])
+            ("easy-menu-do-define" function (:arguments ("symbol" "maps" "doc" "menu")) nil [6224 7169])
+            ("easy-menu-filter-return" function (:arguments ("menu" "name")) nil [7171 7957])
+            ("easy-menu-avoid-duplicate-keys" variable (:default-value t) nil [7959 8213])
+            ("easy-menu-create-menu" function (:arguments ("menu-name" "menu-items")) nil [8230 10302])
+            ("easy-menu-button-prefix" variable (:default-value (quote ((radio . :radio) (toggle . :toggle)))) nil [10328 10401])
+            ("easy-menu-converted-items-table" variable (:default-value (make-hash-table :test (quote equal))) nil [10403 10474])
+            ("easy-menu-convert-item" function (:arguments ("item")) nil [10476 11914])
+            ("easy-menu-convert-item-1" function (:arguments ("item")) nil [11916 16300])
+            ("easy-menu-define-key" function (:arguments ("menu" "key" "item" "before")) nil [16302 18051])
+            ("easy-menu-name-match" function (:arguments ("name" "item")) nil [18053 18649])
+            ("easy-menu-always-true-p" function (:arguments ("x")) nil [18651 18824])
+            ("easy-menu-item-count" variable nil nil [18826 18857])
+            ("easy-menu-make-symbol" function (:arguments ("callback" "noexp")) nil [18859 19488])
+            ("easy-menu-change" function (:arguments ("path" "name" "items" "before" "map")) nil [19505 20442])
+            ("defalias" code nil nil [20615 20842])
+            ("easy-menu-add" function (:arguments ("_menu" "_map")) nil [20844 21220])
+            ("add-submenu" function (:arguments ("menu-path" "submenu" "before" "in-menu")) nil [21222 21620])
+            ("easy-menu-add-item" function (:arguments ("map" "path" "item" "before")) nil [21622 23514])
+            ("easy-menu-item-present-p" function (:arguments ("map" "path" "name")) nil [23516 23822])
+            ("easy-menu-remove-item" function (:arguments ("map" "path" "name")) nil [23824 24210])
+            ("easy-menu-return-item" function (:arguments ("menu" "name")) nil [24212 25824])
+            ("easy-menu-lookup-name" function (:arguments ("map" "name")) nil [25826 26619])
+            ("easy-menu-get-map" function (:arguments ("map" "path" "to-modify")) nil [26621 28185])
+            ("easymenu" package nil nil [28187 28206]))          
+      :file "easymenu.el"
+      :pointmax 28234
+      :fsize 28233
+      :lastmodtime '(21710 25077 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "timer.el"
+      :major-mode 'emacs-lisp-mode
+      :tags 
+        '( ("cl-lib" include nil nil [1046 1063])
+            ("cl-defstruct" code nil nil [1066 1818])
+            ("timerp" function (:arguments ("object")) nil [1820 1925])
+            ("timer--check" function (:arguments ("timer")) nil [1927 2032])
+            ("timer--time-setter" function (:arguments ("timer" "time")) nil [2034 2468])
+            ("timer--time" function (:arguments ("timer")) nil [2494 2680])
+            ("timer-set-time" function (:arguments ("timer" "time" "delta")) nil [2682 3077])
+            ("timer-set-idle-time" function (:arguments ("timer" "secs" "repeat")) nil [3079 3578])
+            ("timer-next-integral-multiple-of-time" function (:arguments ("time" "secs")) nil [3580 4585])
+            ("timer-relative-time" function (:arguments ("time" "secs" "usecs" "psecs")) nil [4587 5028])
+            ("timer--time-less-p" function (:arguments ("t1" "t2")) nil [5030 5172])
+            ("timer-inc-time" function (:arguments ("timer" "secs" "usecs" "psecs")) nil [5174 5506])
+            ("timer-set-time-with-usecs" function (:arguments ("timer" "time" "usecs" "delta")) nil [5508 6161])
+            ("timer-set-function" function (:arguments ("timer" "function" "args")) nil [6163 6393])
+            ("timer--activate" function (:arguments ("timer" "triggered-p" "reuse-cell" "idle")) nil [6396 7395])
+            ("timer-activate" function (:arguments ("timer" "triggered-p" "reuse-cell")) nil [7397 7913])
+            ("timer-activate-when-idle" function (:arguments ("timer" "dont-wait" "reuse-cell")) nil [7915 8793])
+            ("defalias" code nil nil [8795 8836])
+            ("cancel-timer" function (:arguments ("timer")) nil [8838 9042])
+            ("cancel-timer-internal" function (:arguments ("timer")) nil [9044 9466])
+            ("cancel-function-timers" function
+               (:user-visible-flag t
+                :arguments ("function"))
+                nil [9468 10006])
+            ("timer-event-last" variable nil nil [10055 10113])
+            ("timer-event-last-1" variable nil nil [10114 10182])
+            ("timer-event-last-2" variable nil nil [10183 10252])
+            ("timer-max-repeats" variable (:default-value 10) nil [10254 10631])
+            ("timer-until" function (:arguments ("timer" "time")) nil [10633 10890])
+            ("timer-event-handler" function (:arguments ("timer")) nil [10892 13826])
+            ("timeout-event-p" function (:arguments ("event")) nil [13889 14013])
+            ("declare-function" code nil nil [14017 14068])
+            ("run-at-time" function
+               (:user-visible-flag t
+                :arguments ("time" "repeat" "function" "args"))
+                nil [14070 16363])
+            ("run-with-timer" function
+               (:user-visible-flag t
+                :arguments ("secs" "repeat" "function" "args"))
+                nil [16365 16851])
+            ("add-timeout" function (:arguments ("secs" "function" "object" "repeat")) nil [16853 17157])
+            ("run-with-idle-timer" function
+               (:user-visible-flag t
+                :arguments ("secs" "repeat" "function" "args"))
+                nil [17159 18310])
+            ("with-timeout-timers" variable nil nil [18313 18416])
+            ("with-timeout" function (:arguments ("list" "body")) nil [18418 19897])
+            ("with-timeout-suspend" function nil nil [19899 20362])
+            ("with-timeout-unsuspend" function (:arguments ("timer-spec-list")) nil [20364 20707])
+            ("y-or-n-p-with-timeout" function (:arguments ("prompt" "seconds" "default-value")) nil [20709 20949])
+            ("timer-duration-words" variable
+               (:constant-flag t
+                :default-value (list (cons "microsec" 1e-06) (cons "microsecond" 1e-06) (cons "millisec" 0.001) (cons "millisecond" 0.001) (cons "sec" 1) (cons "second" 1) (cons "min" 60) (cons "minute" 60) (cons "hour" (* 60 60)) (cons "day" (* 24 60 60)) (cons "week" (* 7 24 60 60)) (cons "fortnight" (* 14 24 60 60)) (cons "month" (* 30 24 60 60)) (cons "year" (* 365.25 24 60 60))))
+                nil [20952 21468])
+            ("timer-duration" function (:arguments ("string")) nil [21470 22172])
+            ("internal-timer-start-idle" function nil nil [22174 22401])
+            ("timer" package nil nil [22404 22420]))          
+      :file "timer.el"
+      :pointmax 22445
+      :fsize 22444
+      :lastmodtime '(21788 61018 0 0)
+      :unmatched-syntax '((close-paren 1063 . 1064) (symbol 1028 . 1045) (open-paren 1027 . 1028))))
+  :file "!usr!share!emacs!24.5!lisp!emacs-lisp!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")
