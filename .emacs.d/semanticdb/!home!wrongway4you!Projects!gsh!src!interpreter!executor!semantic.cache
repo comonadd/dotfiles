@@ -6,67 +6,548 @@
     (semanticdb-table "executor.h"
       :major-mode 'c-mode
       :tags 
-        '( ("EXECUTOR_H" variable (:constant-flag t) nil [157 167])
-            ("types.h" include nil nil [169 187])
-            ("interpreter/parser/ast.h" include nil nil [189 224])
-            ("execute" function
-               (:prototype-flag t
-                :arguments 
-                  ( ("input_name" variable
+        '( ("EXECUTOR_H" variable (:constant-flag t) nil [201 211])
+            ("lib/types.h" include nil nil [213 235])
+            ("lib/dict.h" include nil nil [236 257])
+            ("interpreter/interpreter.h" include nil nil [258 294])
+            ("executor_global_var_set" variable (:constant-flag t) nil [304 327])
+            ("executor_global_var_get" variable (:constant-flag t) nil [395 418])
+            ("executor_global_var_get" variable (:constant-flag t) nil [395 418])
+            ("executor_local_var_set" variable (:constant-flag t) nil [479 501])
+            ("executor_local_var_set" variable (:constant-flag t) nil [479 501])
+            ("executor_local_var_get" variable (:constant-flag t) nil [576 598])
+            ("executor_local_var_get" variable (:constant-flag t) nil [576 598])
+            ("executor_local_var_get" variable (:constant-flag t) nil [576 598])
+            ("BlockState" type
+               (:members 
+                  ( ("vars" variable (:type ("Dictionary" type
+                         (:prototype t
+                          :type "struct")
+                          nil nil)) (reparse-symbol classsubparts) [824 847])
+                    ("prev" variable
                        (:pointer 1
-                        :type "char")
-                        (reparse-symbol arg-sub-list) [244 261])
-                    ("input_text" variable
-                       (:pointer 1
-                        :type "char")
-                        (reparse-symbol arg-sub-list) [266 283])
-                    ("ast" variable
-                       (:pointer 1
-                        :type ("ASTNode" type
+                        :type ("BlockState" type
                              (:prototype t
                               :type "struct")
                               nil nil))
-                        (reparse-symbol arg-sub-list) [288 308]))                  
+                        (reparse-symbol classsubparts) [852 876]))                  
+                :type "struct")
+                nil [800 879])
+            ("ExecutorState" type
+               (:members 
+                  ( ("vars" variable (:type ("Dictionary" type
+                         (:prototype t
+                          :type "struct")
+                          nil nil)) (reparse-symbol classsubparts) [1105 1128])
+                    ("consts" variable (:type ("Dictionary" type
+                         (:prototype t
+                          :type "struct")
+                          nil nil)) (reparse-symbol classsubparts) [1133 1158])
+                    ("funcs" variable (:type ("Dictionary" type
+                         (:prototype t
+                          :type "struct")
+                          nil nil)) (reparse-symbol classsubparts) [1163 1187])
+                    ("block" variable
+                       (:pointer 1
+                        :type ("BlockState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [1192 1217]))                  
+                :type "struct")
+                nil [1078 1220])
+            ("execute" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("Interpreter" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1482 1505])
+                    ("ast" variable
+                       (:pointer 1
+                        :type ("AST" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1510 1526]))                  
                 :type "bool")
-                nil [226 309]))          
+                nil [1464 1527]))          
       :file "executor.h"
-      :pointmax 332
-      :fsize 331
-      :lastmodtime '(22629 12649 627038 353000)
+      :pointmax 1550
+      :fsize 1549
+      :lastmodtime '(22649 13800 744987 536000)
       :unmatched-syntax nil
       :lexical-table 
-        '(("EXECUTOR_H")
+        '(("executor_local_var_set" (spp-arg-list ("es" "name" "obj") 501 . 516) . ((symbol "dict_insert" 523 . 534) (semantic-list "(&((es)->block->vars), name, obj)" 534 . 567)))
+          ("executor_global_var_get" (spp-arg-list ("es" "name" "obj") 418 . 433) . ((symbol "dict_find" 440 . 449) (semantic-list "(&((es)->vars), name)" 449 . 470)))
+          ("executor_local_var_get" (spp-arg-list ("es" "name" "obj") 598 . 613) . ((symbol "dict_find" 620 . 629) (semantic-list "(&((es)->block->vars), name)" 629 . 657)))
+          ("EXECUTOR_H")
+          ("executor_global_var_set" (spp-arg-list ("es" "name" "obj") 327 . 342) . ((symbol "dict_insert" 349 . 360) (semantic-list "(&es->vars, name, obj)" 360 . 382)))
           )
 )
     (semanticdb-table "executor.c"
       :major-mode 'c-mode
       :tags 
-        '( ("executor.h" include nil nil [130 151])
-            ("types.h" include nil nil [153 171])
-            ("interpreter/parser/ast.h" include nil nil [173 208])
-            ("execute" function
-               (:arguments 
-                  ( ("input_name" variable
+        '( ("shell/executor.h" include nil nil [174 201])
+            ("lib/types.h" include nil nil [203 225])
+            ("lib/macros.h" include nil nil [226 249])
+            ("interpreter/object/object.h" include nil nil [250 288])
+            ("interpreter/parser/ast.h" include nil nil [289 324])
+            ("__executor_init" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("es" variable
                        (:pointer 1
-                        :type "char")
-                        (reparse-symbol arg-sub-list) [228 245])
-                    ("input_text" variable
+                        :type ("ExecutorState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [430 455]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [396 562])
+            ("executor_enter_block" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("es" variable
                        (:pointer 1
+                        :type ("ExecutorState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [603 628]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [564 830])
+            ("executor_leave_block" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("es" variable
+                       (:pointer 1
+                        :type ("ExecutorState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [871 896]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [832 1039])
+            ("executor_assign" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("I" variable
+                       (:pointer 1
+                        :type ("Interpreter" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1550 1572])
+                    ("es" variable
+                       (:pointer 1
+                        :type ("ExecutorState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1577 1602])
+                    ("var_name" variable
+                       (:pointer 1
+                        :constant-flag t
                         :type "char")
-                        (reparse-symbol arg-sub-list) [250 267])
-                    ("ast" variable
+                        (reparse-symbol arg-sub-list) [1607 1634])
+                    ("obj" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1639 1661]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [1504 2413])
+            ("execute_func_def" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("I" variable
+                       (:pointer 1
+                        :type ("Interpreter" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3078 3100])
+                    ("es" variable
+                       (:pointer 1
+                        :type ("ExecutorState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3105 3130])
+                    ("node" variable
                        (:pointer 1
                         :type ("ASTNode" type
                              (:prototype t
                               :type "struct")
                               nil nil))
-                        (reparse-symbol arg-sub-list) [272 292]))                  
+                        (reparse-symbol arg-sub-list) [3135 3156]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [3031 3861])
+            ("execute_var_def" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("I" variable
+                       (:pointer 1
+                        :type ("Interpreter" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4254 4276])
+                    ("es" variable
+                       (:pointer 1
+                        :type ("ExecutorState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4281 4306])
+                    ("node" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4311 4332]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [4208 5257])
+            ("execute_id" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("I" variable
+                       (:pointer 1
+                        :type ("Interpreter" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [5749 5771])
+                    ("es" variable
+                       (:pointer 1
+                        :type ("ExecutorState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [5776 5801])
+                    ("node" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [5806 5827]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [5708 6908])
+            ("execute_binop" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("I" variable
+                       (:pointer 1
+                        :type ("Interpreter" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [7464 7486])
+                    ("es" variable
+                       (:pointer 1
+                        :type ("ExecutorState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [7491 7516])
+                    ("node" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [7521 7542]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [7420 9629])
+            ("execute_unop" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("I" variable
+                       (:pointer 1
+                        :type ("Interpreter" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [9889 9911])
+                    ("es" variable
+                       (:pointer 1
+                        :type ("ExecutorState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [9916 9941])
+                    ("node" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [9946 9967]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [9846 10557])
+            ("execute_c_call" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("es" variable
+                       (:pointer 1
+                        :type ("ExecutorState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [10941 10966])
+                    ("name" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [10971 10994])
+                    ("args" variable
+                       (:pointer 1
+                        :type ("CallArguments" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [10999 11026]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [10896 11656])
+            ("execute_gsh_call" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("es" variable
+                       (:pointer 1
+                        :type ("ExecutorState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [12040 12065])
+                    ("name" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [12070 12093])
+                    ("args" variable (:type ("CallArguments" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [12098 12117]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [11993 14144])
+            ("execute_call" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("es" variable
+                       (:pointer 1
+                        :type ("ExecutorState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [14558 14583])
+                    ("node" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [14588 14609]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [14515 16180])
+            ("execute_if" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("es" variable
+                       (:pointer 1
+                        :type ("ExecutorState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [16798 16823])
+                    ("node" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [16828 16849]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [16757 17446])
+            ("execute_while" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("es" variable
+                       (:pointer 1
+                        :type ("ExecutorState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [17572 17597])
+                    ("node" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [17602 17623]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [17528 17923])
+            ("execute_import" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("Interpreter" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [18051 18074])
+                    ("es" variable
+                       (:pointer 1
+                        :type ("ExecutorState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [18079 18104])
+                    ("node" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [18109 18130]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [18006 18426])
+            ("execute_block" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("Interpreter" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [18542 18565])
+                    ("es" variable
+                       (:pointer 1
+                        :type ("ExecutorState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [18570 18595])
+                    ("node" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [18600 18621]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [18498 18916])
+            ("execute_node" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("Interpreter" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [19030 19053])
+                    ("es" variable
+                       (:pointer 1
+                        :type ("ExecutorState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [19058 19083])
+                    ("node" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [19088 19109]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [18987 19906])
+            ("execute" function
+               (:arguments 
+                  ( ("I" variable
+                       (:pointer 1
+                        :type ("Interpreter" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [19990 20012])
+                    ("ast" variable
+                       (:pointer 1
+                        :type ("AST" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [20017 20033]))                  
                 :type "bool")
-                nil [210 313]))          
+                nil [19972 20207]))          
       :file "executor.c"
-      :pointmax 314
-      :fsize 313
-      :lastmodtime '(22629 12651 203038 208000)
+      :pointmax 20208
+      :fsize 20207
+      :lastmodtime '(22649 51328 560998 961000)
       :unmatched-syntax nil))
   :file "!home!wrongway4you!Projects!gsh!src!interpreter!executor!semantic.cache"
   :semantic-tag-version "2.0"

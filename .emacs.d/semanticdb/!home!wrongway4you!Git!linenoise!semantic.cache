@@ -1,0 +1,732 @@
+;; Object linenoise/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "linenoise/"
+  :tables
+  (list
+    (semanticdb-table "example.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("stdio.h" include (:system-flag t) nil [1 19])
+            ("stdlib.h" include (:system-flag t) nil [20 39])
+            ("string.h" include (:system-flag t) nil [40 59])
+            ("linenoise.h" include nil nil [60 82])
+            ("completion" function
+               (:arguments 
+                  ( ("buf" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [101 117])
+                    ("lc" variable
+                       (:pointer 1
+                        :type ("linenoiseCompletions" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [118 143]))                  
+                :type "void")
+                nil [85 272])
+            ("hints" function
+               (:pointer 1
+                :arguments 
+                  ( ("buf" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [286 302])
+                    ("color" variable
+                       (:pointer 1
+                        :type "int")
+                        (reparse-symbol arg-sub-list) [303 314])
+                    ("bold" variable
+                       (:pointer 1
+                        :type "int")
+                        (reparse-symbol arg-sub-list) [315 325]))                  
+                :type "char")
+                nil [274 453])
+            ("main" function
+               (:arguments 
+                  ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [464 473])
+                    ("argv" variable
+                       (:pointer 2
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [474 486]))                  
+                :type "int")
+                nil [455 2425]))          
+      :file "example.c"
+      :pointmax 2426
+      :fsize 2425
+      :lastmodtime '(22655 5506 641478 277000)
+      :unmatched-syntax nil)
+    (semanticdb-table "linenoise.h"
+      :file "linenoise.h"
+      :fsize 2825
+      :lastmodtime '(22655 5506 641478 277000))
+    (semanticdb-table "linenoise.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("termios.h" include (:system-flag t) nil [3894 3914])
+            ("unistd.h" include (:system-flag t) nil [3915 3934])
+            ("stdlib.h" include (:system-flag t) nil [3935 3954])
+            ("stdio.h" include (:system-flag t) nil [3955 3973])
+            ("errno.h" include (:system-flag t) nil [3974 3992])
+            ("string.h" include (:system-flag t) nil [3993 4012])
+            ("stdlib.h" include (:system-flag t) nil [4013 4032])
+            ("ctype.h" include (:system-flag t) nil [4033 4051])
+            ("sys/stat.h" include (:system-flag t) nil [4052 4073])
+            ("sys/types.h" include (:system-flag t) nil [4074 4096])
+            ("sys/ioctl.h" include (:system-flag t) nil [4097 4119])
+            ("unistd.h" include (:system-flag t) nil [4120 4139])
+            ("linenoise.h" include nil nil [4140 4162])
+            ("LINENOISE_DEFAULT_HISTORY_MAX_LEN" variable (:constant-flag t) nil [4172 4205])
+            ("LINENOISE_MAX_LINE" variable (:constant-flag t) nil [4218 4236])
+            ("unsupported_term" variable
+               (:pointer 1
+                :dereference 1
+                :typemodifiers ("static")
+                :default-value "{\"dumb\",\"cons25\",\"emacs\",NULL}"
+                :type "char")
+                nil [4242 4307])
+            ("completionCallback" variable
+               (:pointer 1
+                :typemodifiers ("static")
+                :default-value "NULL"
+                :type ("linenoiseCompletionCallback" type (:type "class") nil nil))
+                nil [4308 4370])
+            ("hintsCallback" variable
+               (:pointer 1
+                :typemodifiers ("static")
+                :default-value "NULL"
+                :type ("linenoiseHintsCallback" type (:type "class") nil nil))
+                nil [4371 4423])
+            ("freeHintsCallback" variable
+               (:pointer 1
+                :typemodifiers ("static")
+                :default-value "NULL"
+                :type ("linenoiseFreeHintsCallback" type (:type "class") nil nil))
+                nil [4424 4484])
+            ("orig_termios" variable
+               (:typemodifiers ("static")
+                :type ("termios" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [4486 4521])
+            ("rawmode" variable
+               (:typemodifiers ("static")
+                :default-value "0"
+                :type "int")
+                nil [4556 4579])
+            ("mlmode" variable
+               (:typemodifiers ("static")
+                :default-value "0"
+                :type "int")
+                nil [4637 4659])
+            ("atexit_registered" variable
+               (:typemodifiers ("static")
+                :default-value "0"
+                :type "int")
+                nil [4708 4741])
+            ("history_max_len" variable
+               (:typemodifiers ("static")
+                :default-value "LINENOISE_DEFAULT_HISTORY_MAX_LEN"
+                :type "int")
+                nil [4777 4840])
+            ("history_len" variable
+               (:typemodifiers ("static")
+                :default-value "0"
+                :type "int")
+                nil [4841 4868])
+            ("history" variable
+               (:pointer 2
+                :typemodifiers ("static")
+                :default-value "NULL"
+                :type "char")
+                nil [4869 4898])
+            ("linenoiseState" type
+               (:members 
+                  ( ("ifd" variable (:type "int") (reparse-symbol classsubparts) [5090 5098])
+                    ("ofd" variable (:type "int") (reparse-symbol classsubparts) [5152 5160])
+                    ("buf" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol classsubparts) [5215 5225])
+                    ("buflen" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5265 5279])
+                    ("prompt" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol classsubparts) [5320 5339])
+                    ("plen" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5369 5381])
+                    ("pos" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5414 5425])
+                    ("oldpos" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5469 5483])
+                    ("len" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5533 5544])
+                    ("cols" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5591 5603])
+                    ("maxrows" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5652 5667])
+                    ("history_index" variable (:type "int") (reparse-symbol classsubparts) [5731 5749]))                  
+                :type "struct")
+                nil [5062 5803])
+            ("KEY_ACTION" type
+               (:members 
+                  ( ("KEY_NULL" variable
+                       (:constant-flag t
+                        :default-value (5834 5835)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [5823 5835])
+                    ("CTRL_A" variable
+                       (:constant-flag t
+                        :default-value (5862 5863)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [5853 5863])
+                    ("CTRL_B" variable
+                       (:constant-flag t
+                        :default-value (5896 5897)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [5887 5897])
+                    ("CTRL_C" variable
+                       (:constant-flag t
+                        :default-value (5930 5931)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [5921 5931])
+                    ("CTRL_D" variable
+                       (:constant-flag t
+                        :default-value (5964 5965)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [5955 5965])
+                    ("CTRL_E" variable
+                       (:constant-flag t
+                        :default-value (5998 5999)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [5989 5999])
+                    ("CTRL_F" variable
+                       (:constant-flag t
+                        :default-value (6032 6033)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [6023 6033])
+                    ("CTRL_H" variable
+                       (:constant-flag t
+                        :default-value (6066 6067)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [6057 6067])
+                    ("TAB" variable
+                       (:constant-flag t
+                        :default-value (6097 6098)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [6091 6098])
+                    ("CTRL_K" variable
+                       (:constant-flag t
+                        :default-value (6131 6133)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [6122 6133])
+                    ("CTRL_L" variable
+                       (:constant-flag t
+                        :default-value (6165 6167)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [6156 6167])
+                    ("ENTER" variable
+                       (:constant-flag t
+                        :default-value (6198 6200)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [6190 6200])
+                    ("CTRL_N" variable
+                       (:constant-flag t
+                        :default-value (6232 6234)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [6223 6234])
+                    ("CTRL_P" variable
+                       (:constant-flag t
+                        :default-value (6266 6268)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [6257 6268])
+                    ("CTRL_T" variable
+                       (:constant-flag t
+                        :default-value (6300 6302)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [6291 6302])
+                    ("CTRL_U" variable
+                       (:constant-flag t
+                        :default-value (6334 6336)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [6325 6336])
+                    ("CTRL_W" variable
+                       (:constant-flag t
+                        :default-value (6368 6370)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [6359 6370])
+                    ("ESC" variable
+                       (:constant-flag t
+                        :default-value (6399 6401)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [6393 6401])
+                    ("BACKSPACE" variable
+                       (:constant-flag t
+                        :default-value (6440 6443)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [6427 6443]))                  
+                :type "enum")
+                nil [5805 6465])
+            ("linenoiseAtExit" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [6495 6500]))                  
+                :type "void")
+                nil [6467 6501])
+            ("linenoiseHistoryAdd" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("line" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [6526 6543]))                  
+                :type "int")
+                nil [6502 6544])
+            ("refreshLine" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("l" variable
+                       (:pointer 1
+                        :type ("linenoiseState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [6569 6594]))                  
+                :type "void")
+                nil [6545 6595])
+            ("lndebug" variable (:constant-flag t) nil [7121 7128])
+            ("linenoiseSetMultiLine" function
+               (:arguments 
+                  ( ("ml" variable (:type "int") (reparse-symbol arg-sub-list) [7304 7311]))                  
+                :type "void")
+                nil [7277 7332])
+            ("isUnsupportedTerm" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [7492 7497]))                  
+                :type "int")
+                nil [7463 7695])
+            ("enableRawMode" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("fd" variable (:type "int") (reparse-symbol arg-sub-list) [7755 7762]))                  
+                :type "int")
+                nil [7730 8919])
+            ("disableRawMode" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("fd" variable (:type "int") (reparse-symbol arg-sub-list) [8948 8955]))                  
+                :type "void")
+                nil [8921 9106])
+            ("getCursorPosition" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("ifd" variable (:type "int") (reparse-symbol arg-sub-list) [9300 9308])
+                    ("ofd" variable (:type "int") (reparse-symbol arg-sub-list) [9309 9317]))                  
+                :type "int")
+                nil [9271 9812])
+            ("getColumns" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("ifd" variable (:type "int") (reparse-symbol arg-sub-list) [9929 9937])
+                    ("ofd" variable (:type "int") (reparse-symbol arg-sub-list) [9938 9946]))                  
+                :type "int")
+                nil [9907 10806])
+            ("linenoiseClearScreen" function
+               (:arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [10880 10885]))                  
+                :type "void")
+                nil [10854 11002])
+            ("linenoiseBeep" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [11143 11148]))                  
+                :type "void")
+                nil [11117 11200])
+            ("freeCompletions" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("lc" variable
+                       (:pointer 1
+                        :type ("linenoiseCompletions" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [11390 11415]))                  
+                :type "void")
+                nil [11362 11544])
+            ("completeLine" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("ls" variable
+                       (:pointer 1
+                        :type ("linenoiseState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [11867 11893]))                  
+                :type "int")
+                nil [11843 13541])
+            ("linenoiseSetCompletionCallback" function
+               (:arguments 
+                  ( ("fn" variable
+                       (:pointer 1
+                        :type ("linenoiseCompletionCallback" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [13647 13679]))                  
+                :type "void")
+                nil [13611 13712])
+            ("linenoiseSetHintsCallback" function
+               (:arguments 
+                  ( ("fn" variable
+                       (:pointer 1
+                        :type ("linenoiseHintsCallback" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [13845 13872]))                  
+                :type "void")
+                nil [13814 13900])
+            ("linenoiseSetFreeHintsCallback" function
+               (:arguments 
+                  ( ("fn" variable
+                       (:pointer 1
+                        :type ("linenoiseFreeHintsCallback" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [14060 14091]))                  
+                :type "void")
+                nil [14025 14123])
+            ("linenoiseAddCompletion" function
+               (:arguments 
+                  ( ("lc" variable
+                       (:pointer 1
+                        :type ("linenoiseCompletions" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [14392 14417])
+                    ("str" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [14418 14434]))                  
+                :type "void")
+                nil [14364 14752])
+            ("abuf" type
+               (:members 
+                  ( ("b" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol classsubparts) [15132 15140])
+                    ("len" variable (:type "int") (reparse-symbol classsubparts) [15145 15153]))                  
+                :type "struct")
+                nil [15114 15156])
+            ("abInit" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("ab" variable
+                       (:pointer 1
+                        :type ("abuf" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [15177 15193]))                  
+                :type "void")
+                nil [15158 15232])
+            ("abAppend" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("ab" variable
+                       (:pointer 1
+                        :type ("abuf" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [15255 15271])
+                    ("s" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [15272 15286])
+                    ("len" variable (:type "int") (reparse-symbol arg-sub-list) [15287 15295]))                  
+                :type "void")
+                nil [15234 15441])
+            ("abFree" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("ab" variable
+                       (:pointer 1
+                        :type ("abuf" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [15462 15478]))                  
+                :type "void")
+                nil [15443 15499])
+            ("refreshShowHints" function
+               (:arguments 
+                  ( ("ab" variable
+                       (:pointer 1
+                        :type ("abuf" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [15627 15643])
+                    ("l" variable
+                       (:pointer 1
+                        :type ("linenoiseState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [15644 15669])
+                    ("plen" variable (:type "int") (reparse-symbol arg-sub-list) [15670 15679]))                  
+                :type "void")
+                nil [15605 16476])
+            ("refreshSingleLine" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("l" variable
+                       (:pointer 1
+                        :type ("linenoiseState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [16684 16709]))                  
+                :type "void")
+                nil [16654 17646])
+            ("refreshMultiLine" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("l" variable
+                       (:pointer 1
+                        :type ("linenoiseState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [17852 17877]))                  
+                :type "void")
+                nil [17823 20340])
+            ("refreshLine" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("l" variable
+                       (:pointer 1
+                        :type ("linenoiseState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [20483 20508]))                  
+                :type "void")
+                nil [20459 20596])
+            ("linenoiseEditInsert" function
+               (:arguments 
+                  ( ("l" variable
+                       (:pointer 1
+                        :type ("linenoiseState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [20749 20774])
+                    ("c" variable (:type "char") (reparse-symbol arg-sub-list) [20775 20782]))                  
+                :type "int")
+                nil [20725 21504])
+            ("linenoiseEditMoveLeft" function
+               (:arguments 
+                  ( ("l" variable
+                       (:pointer 1
+                        :type ("linenoiseState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [21564 21589]))                  
+                :type "void")
+                nil [21537 21663])
+            ("linenoiseEditMoveRight" function
+               (:arguments 
+                  ( ("l" variable
+                       (:pointer 1
+                        :type ("linenoiseState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [21725 21750]))                  
+                :type "void")
+                nil [21697 21830])
+            ("linenoiseEditMoveHome" function
+               (:arguments 
+                  ( ("l" variable
+                       (:pointer 1
+                        :type ("linenoiseState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [21903 21928]))                  
+                :type "void")
+                nil [21876 22005])
+            ("linenoiseEditMoveEnd" function
+               (:arguments 
+                  ( ("l" variable
+                       (:pointer 1
+                        :type ("linenoiseState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [22075 22100]))                  
+                :type "void")
+                nil [22049 22187])
+            ("LINENOISE_HISTORY_NEXT" variable (:constant-flag t) nil [22306 22328])
+            ("LINENOISE_HISTORY_PREV" variable (:constant-flag t) nil [22339 22361])
+            ("linenoiseEditHistoryNext" function
+               (:arguments 
+                  ( ("l" variable
+                       (:pointer 1
+                        :type ("linenoiseState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [22394 22419])
+                    ("dir" variable (:type "int") (reparse-symbol arg-sub-list) [22420 22428]))                  
+                :type "void")
+                nil [22364 23198])
+            ("linenoiseEditDelete" function
+               (:arguments 
+                  ( ("l" variable
+                       (:pointer 1
+                        :type ("linenoiseState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [23383 23408]))                  
+                :type "void")
+                nil [23358 23596])
+            ("linenoiseEditBackspace" function
+               (:arguments 
+                  ( ("l" variable
+                       (:pointer 1
+                        :type ("linenoiseState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [23658 23683]))                  
+                :type "void")
+                nil [23630 23882])
+            ("linenoiseEditDeletePrevWord" function
+               (:arguments 
+                  ( ("l" variable
+                       (:pointer 1
+                        :type ("linenoiseState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [24009 24034]))                  
+                :type "void")
+                nil [23976 24350])
+            ("linenoiseEdit" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("stdin_fd" variable (:type "int") (reparse-symbol arg-sub-list) [24723 24736])
+                    ("stdout_fd" variable (:type "int") (reparse-symbol arg-sub-list) [24737 24751])
+                    ("buf" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [24752 24762])
+                    ("buflen" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [24763 24777])
+                    ("prompt" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [24778 24797]))                  
+                :type "int")
+                nil [24698 31154])
+            ("linenoisePrintKeyCodes" function
+               (:arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [31392 31397]))                  
+                :type "void")
+                nil [31364 32200])
+            ("linenoiseRaw" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("buf" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [32346 32356])
+                    ("buflen" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [32357 32371])
+                    ("prompt" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [32372 32391]))                  
+                :type "int")
+                nil [32322 32685])
+            ("linenoiseNoTTY" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [33074 33079]))                  
+                :type "char")
+                nil [33046 33792])
+            ("linenoise" function
+               (:pointer 1
+                :arguments 
+                  ( ("prompt" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [34171 34190]))                  
+                :type "char")
+                nil [34155 34970])
+            ("linenoiseFree" function
+               (:arguments 
+                  ( ("ptr" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [35225 35235]))                  
+                :type "void")
+                nil [35206 35254])
+            ("freeHistory" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [35498 35503]))                  
+                :type "void")
+                nil [35474 35643])
+            ("linenoiseAtExit" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [35744 35749]))                  
+                :type "void")
+                nil [35716 35806])
+            ("linenoiseHistoryAdd" function
+               (:arguments 
+                  ( ("line" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [36263 36280]))                  
+                :type "int")
+                nil [36239 37106])
+            ("linenoiseHistorySetMaxLen" function
+               (:arguments 
+                  ( ("len" variable (:type "int") (reparse-symbol arg-sub-list) [37425 37433]))                  
+                :type "int")
+                nil [37395 38119])
+            ("linenoiseHistorySave" function
+               (:arguments 
+                  ( ("filename" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [38246 38267]))                  
+                :type "int")
+                nil [38221 38579])
+            ("linenoiseHistoryLoad" function
+               (:arguments 
+                  ( ("filename" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [38838 38859]))                  
+                :type "int")
+                nil [38813 39203]))          
+      :file "linenoise.c"
+      :pointmax 39204
+      :fsize 39203
+      :lastmodtime '(22655 6616 930375 964000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("LINENOISE_DEFAULT_HISTORY_MAX_LEN" . ((number "100" 4206 . 4209)))
+          ("lndebug" (spp-arg-list ("fmt" "...") 7128 . 7138))
+          ("LINENOISE_MAX_LINE" . ((number "4096" 4237 . 4241)))
+          ("LINENOISE_HISTORY_PREV" . ((number "1" 22362 . 22363)))
+          ("LINENOISE_HISTORY_NEXT" . ((number "0" 22329 . 22330)))
+          )
+))
+  :file "!home!wrongway4you!Git!linenoise!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

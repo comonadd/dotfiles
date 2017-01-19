@@ -1,0 +1,16 @@
+;; Object badger-theme-20140716.1932/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "badger-theme-20140716.1932/"
+  :tables
+  (list
+    (semanticdb-table "badger-theme-autoloads.el"
+      :major-mode 'emacs-lisp-mode
+      :tags nil
+      :file "badger-theme-autoloads.el"
+      :pointmax 297
+      :fsize 605
+      :lastmodtime '(22653 48928 540510 631000)
+      :unmatched-syntax nil))
+  :file "!home!wrongway4you!Git!dotfiles!.emacs.d!elpa!badger-theme-20140716.1932!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

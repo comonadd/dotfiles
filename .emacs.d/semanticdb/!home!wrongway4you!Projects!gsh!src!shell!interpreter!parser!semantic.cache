@@ -3,492 +3,1718 @@
 (semanticdb-project-database-file "parser/"
   :tables
   (list
-    (semanticdb-table "parser.h"
-      :major-mode 'c-mode
-      :tags 
-        '( ("PARSER_H" variable (:constant-flag t) nil [134 142])
-            ("stdint.h" include (:system-flag t) nil [144 163])
-            ("stdlib.h" include (:system-flag t) nil [164 183])
-            ("ds/xvec.h" include nil nil [185 205])
-            ("shell/interpreter/parser/ast.h" include nil nil [206 247])
-            ("parser_init" function
-               (:prototype-flag t
-                :type "void")
-                nil [249 268])
-            ("parse" function
-               (:prototype-flag t
-                :arguments 
-                  ( ("tokens" variable
-                       (:pointer 1
-                        :type ("XVector" type (:type "class") nil nil))
-                        (reparse-symbol arg-sub-list) [286 302])
-                    ("ast" variable
-                       (:pointer 1
-                        :type ("ASTNode" type (:type "class") nil nil))
-                        (reparse-symbol arg-sub-list) [307 320]))                  
-                :type "bool")
-                nil [270 321]))          
-      :file "parser.h"
-      :pointmax 342
-      :fsize 341
-      :lastmodtime '(22620 5567 841517 407000)
-      :unmatched-syntax nil
-      :lexical-table 
-        '(("PARSER_H")
-          )
-)
+
     (semanticdb-table "parser.c"
       :major-mode 'c-mode
       :tags 
-        '( ("shell/interpreter/parser/parser.h" include nil nil [399 443])
-            ("stdio.h" include (:system-flag t) nil [445 463])
-            ("gsh.h" include nil nil [465 481])
-            ("err.h" include nil nil [482 498])
-            ("ds/xvec.h" include nil nil [499 519])
-            ("ds/xstr.h" include nil nil [520 540])
-            ("ds/xstack.h" include nil nil [541 563])
-            ("util/xmalloc.h" include nil nil [564 589])
-            ("util/io.h" include nil nil [590 610])
-            ("util/util.h" include nil nil [611 633])
-            ("util/macros.h" include nil nil [634 658])
-            ("shell/shell.h" include nil nil [659 683])
-            ("shell/interpreter/interpreter.h" include nil nil [684 726])
-            ("shell/interpreter/tokenizer/token.h" include nil nil [727 773])
-            ("shell/interpreter/parser/ast.h" include nil nil [774 815])
-            ("parser" variable
+        '( ("shell/parser.h" include nil nil [145 170])
+            ("string.h" include (:system-flag t) nil [172 191])
+            ("lib/types.h" include nil nil [193 215])
+            ("lib/macros.h" include nil nil [216 239])
+            ("lib/xstack.h" include nil nil [240 263])
+            ("lib/xvec_stream.h" include nil nil [264 292])
+            ("shell/interpreter/parser/lex.h" include nil nil [293 334])
+            ("shell/interpreter/parser/token.h" include nil nil [335 378])
+            ("shell/interpreter/parser/ast.h" include nil nil [379 420])
+            ("__CHECK_SHOULD_BE" variable (:constant-flag t) nil [430 447])
+            ("__incr_ln" variable (:constant-flag t) nil [515 524])
+            ("__skip" variable (:constant-flag t) nil [544 550])
+            ("__read" variable (:constant-flag t) nil [589 595])
+            ("__get" variable (:constant-flag t) nil [634 639])
+            ("__lookahead" variable (:constant-flag t) nil [677 688])
+            ("__eq" variable (:constant-flag t) nil [732 736])
+            ("__neq" variable (:constant-flag t) nil [775 780])
+            ("__lookahead_eq" variable (:constant-flag t) nil [819 833])
+            ("__text" variable
+               (:pointer 1
+                :typemodifiers ("static")
+                :type "char")
+                nil [985 1011])
+            ("__stream" variable
                (:typemodifiers ("static")
-                :type ("" type
-                     (:members 
-                        ( ("tokens_pos" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol classsubparts) [837 855])
-                          ("tokens" variable
-                             (:pointer 1
-                              :type ("XVector" type (:type "class") nil nil))
-                              (reparse-symbol classsubparts) [860 876]))                        
+                :type ("XVectorStream" type
+                     (:prototype t
                       :type "struct")
                       nil nil))
-                nil [817 886])
-            ("parse_expr_bool" function
+                nil [1095 1132])
+            ("__ln" variable
+               (:typemodifiers ("static")
+                :type ("uint64" type (:type "class") nil nil))
+                nil [1197 1216])
+            ("__ast" variable
+               (:typemodifiers ("static")
+                :type ("AST" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [1296 1320])
+            ("__init_parser" function
+               (:typemodifiers ("static" "inline")
+                :arguments 
+                  ( ("text" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [1361 1384])
+                    ("toks" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1389 1422]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [1322 1519])
+            ("__check" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1844 1872])
+                    ("type" variable
+                       (:constant-flag t
+                        :type ("TokenType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [1877 1903]))                  
+                :type ("Token" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [1804 2158])
+            ("__eat" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("TokenType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [2430 2456]))                  
+                :type ("Token" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [2397 2535])
+            ("tok_id_to_ast_node" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("tok" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("Token" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2687 2717]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [2640 3181])
+            ("parse_expr_call" function
                (:prototype-flag t
                 :pointer 1
                 :typemodifiers ("static")
-                :type ("ASTNode" type (:type "class") nil nil))
-                nil [888 922])
-            ("parse_stmt_if" function
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [4111 4116]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [4072 4117])
+            ("postfix_toks_into_node" function
                (:prototype-flag t
                 :pointer 1
                 :typemodifiers ("static")
-                :type ("ASTNode" type (:type "class") nil nil))
-                nil [924 956])
-            ("parse_stmt_while" function
+                :arguments 
+                  ( ("toks" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4169 4202]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [4118 4203])
+            ("parse_expr_compound" function
                (:prototype-flag t
                 :pointer 1
                 :typemodifiers ("static")
-                :type ("ASTNode" type (:type "class") nil nil))
-                nil [958 993])
-            ("parse_function_args" function
-               (:prototype-flag t
-                :pointer 1
-                :typemodifiers ("static")
-                :type ("ASTNode" type (:type "class") nil nil))
-                nil [995 1033])
-            ("parse_stmt_function" function
-               (:prototype-flag t
-                :pointer 1
-                :typemodifiers ("static")
-                :type ("ASTNode" type (:type "class") nil nil))
-                nil [1035 1073])
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [4247 4252]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [4204 4253])
             ("parse_expr" function
                (:prototype-flag t
                 :pointer 1
                 :typemodifiers ("static")
-                :type ("ASTNode" type (:type "class") nil nil))
-                nil [1075 1104])
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [4288 4293]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [4254 4294])
+            ("parse_stmt_function" function
+               (:prototype-flag t
+                :pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [4338 4343]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [4295 4344])
+            ("parse_stmt_if" function
+               (:prototype-flag t
+                :pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [4382 4387]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [4345 4388])
+            ("parse_stmt_while" function
+               (:prototype-flag t
+                :pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [4429 4434]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [4389 4435])
+            ("parse_stmt_import" function
+               (:prototype-flag t
+                :pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [4477 4482]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [4436 4483])
+            ("parse_expr_var_def" function
+               (:prototype-flag t
+                :pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [4526 4531]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [4484 4532])
             ("parse_stmt" function
                (:prototype-flag t
                 :pointer 1
                 :typemodifiers ("static")
-                :type ("ASTNode" type (:type "class") nil nil))
-                nil [1106 1135])
-            ("parser_get_token" function
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [4567 4572]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [4533 4573])
+            ("parse_expr_var_def" function
                (:pointer 1
                 :typemodifiers ("static")
                 :arguments 
-                  ( ("offset" variable (:type "long") (reparse-symbol arg-sub-list) [1310 1322]))                  
-                :type ("Token" type (:type "class") nil nil))
-                nil [1279 1563])
-            ("parser_next_token" function
-               (:typemodifiers ("static")
-                :type "bool")
-                nil [1626 1813])
-            ("parser_token_type_eq" function
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [4861 4866]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [4819 5570])
+            ("parse_expr_call" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [5836 5864]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [5797 7195])
+            ("postfix_toks_into_node" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [7555 7583])
+                    ("toks" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [7588 7621]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [7504 9828])
+            ("parse_compound_expr_into_postfix_order" function
                (:typemodifiers ("static")
                 :arguments 
-                  ( ("offset" variable (:type "long") (reparse-symbol arg-sub-list) [2008 2020])
-                    ("type" variable (:type ("TokenType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2025 2040]))                  
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [10318 10346])
+                    ("postfx_toks" variable
+                       (:pointer 1
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [10351 10379]))                  
                 :type "bool")
-                nil [1970 2187])
-            ("parse_expr_bool" function
+                nil [10262 12257])
+            ("parse_expr_compound" function
                (:pointer 1
                 :typemodifiers ("static")
-                :type ("ASTNode" type (:type "class") nil nil))
-                nil [2225 3505])
-            ("parse_stmt_if" function
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [12399 12404]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [12356 13042])
+            ("parse_expr" function
                (:pointer 1
                 :typemodifiers ("static")
-                :type ("ASTNode" type (:type "class") nil nil))
-                nil [3507 4100])
-            ("parse_stmt_while" function
-               (:pointer 1
-                :typemodifiers ("static")
-                :type ("ASTNode" type (:type "class") nil nil))
-                nil [4102 4536])
-            ("parse_function_args" function
-               (:pointer 1
-                :typemodifiers ("static")
-                :type ("ASTNode" type (:type "class") nil nil))
-                nil [4538 5465])
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [13511 13539]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [13477 14460])
             ("parse_stmt_function" function
                (:pointer 1
                 :typemodifiers ("static")
-                :type ("ASTNode" type (:type "class") nil nil))
-                nil [5467 6274])
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [14892 14920]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [14849 16628])
+            ("parse_stmt_if" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [17091 17119]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [17054 18613])
+            ("parse_stmt_while" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [18972 18977]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [18932 19543])
             ("parse_stmt_import" function
                (:pointer 1
                 :typemodifiers ("static")
-                :type ("ASTNode" type (:type "class") nil nil))
-                nil [6276 6707])
-            ("parse_expr" function
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [19837 19865]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [19796 20232])
+            ("parse_stmt_block" function
                (:pointer 1
                 :typemodifiers ("static")
-                :type ("ASTNode" type (:type "class") nil nil))
-                nil [6709 7070])
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [20615 20643]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [20575 21600])
+            ("parse_stmt_return" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [21845 21873]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [21799 22218])
             ("parse_stmt" function
                (:pointer 1
                 :typemodifiers ("static")
-                :type ("ASTNode" type (:type "class") nil nil))
-                nil [7072 7900])
-            ("parser_init" function (:type "void") nil [7902 8013])
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [22439 22467]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [22400 22886])
             ("parse" function
-               (:arguments 
-                  ( ("tokens" variable
+               (:pointer 1
+                :arguments 
+                  ( ("is" variable
                        (:pointer 1
-                        :type ("XVector" type (:type "class") nil nil))
-                        (reparse-symbol arg-sub-list) [8031 8047])
-                    ("ast" variable
-                       (:pointer 1
-                        :type ("ASTNode" type (:type "class") nil nil))
-                        (reparse-symbol arg-sub-list) [8052 8065]))                  
-                :type "bool")
-                nil [8015 8678]))          
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [22906 22934]))                  
+                :type ("AST" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [22888 23447]))          
       :file "parser.c"
-      :pointmax 8679
-      :fsize 8678
-      :lastmodtime '(22620 5553 538518 725000)
-      :unmatched-syntax nil)
+      :pointmax 37451
+      :fsize 37450
+      :lastmodtime '(22648 62413 772991 491000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("__CHECK_SHOULD_BE" (spp-arg-list ("type") 433 . 439) . ((symbol "DEBUG_ASSERT" 440 . 452) (semantic-list "(__check(type), \"not-proper token type\")" 452 . 492)))
+          ("__eq" (spp-arg-list ("type") 722 . 728) . ((semantic-list "(__get()->type == type)" 729 . 752)))
+          ("__neq" (spp-arg-list ("type") 766 . 772) . ((semantic-list "(__get()->type != type)" 773 . 796)))
+          ("__lookahead_eq" (spp-arg-list ("type") 819 . 825) . ((semantic-list "(__lookahead()->type == type)" 826 . 855)))
+          ("__skip" (spp-arg-list nil 536 . 538) . ((symbol "xvec_stream_skip" 539 . 555) (semantic-list "(&__stream)" 555 . 566)))
+          ("__read" (spp-arg-list nil 581 . 583) . ((symbol "xvec_stream_read" 584 . 600) (semantic-list "(&__stream)" 600 . 611)))
+          ("__lookahead" (spp-arg-list nil 674 . 676) . ((symbol "xvec_stream_lookahead" 677 . 698) (semantic-list "(&__stream)" 698 . 709)))
+          ("__incr_ln" (spp-arg-list nil 510 . 512) . ((semantic-list "(++__ln)" 513 . 521)))
+          ("__get" (spp-arg-list nil 625 . 627) . ((symbol "xvec_stream_get" 628 . 643) (semantic-list "(&__stream)" 643 . 654)))
+          )
+)
     (semanticdb-table "ast.h"
       :major-mode 'c-mode
       :tags 
-        '( ("AST_H" variable (:constant-flag t) nil [128 133])
-            ("stdint.h" include (:system-flag t) nil [135 154])
-            ("stdlib.h" include (:system-flag t) nil [155 174])
-            ("ds/xvec.h" include nil nil [176 196])
-            ("ds/xstr.h" include nil nil [197 217])
-            ("AstNodeType" type
-               (:typedef ("" type
-                     (:members 
-                        ( ("AST_NODE_PROGRAM" variable
-                             (:constant-flag t
-                              :type "int")
-                              (reparse-symbol enumsubparts) [238 255])
-                          ("AST_NODE_ID" variable
-                             (:constant-flag t
-                              :type "int")
-                              (reparse-symbol enumsubparts) [260 272])
-                          ("AST_NODE_IF" variable
-                             (:constant-flag t
-                              :type "int")
-                              (reparse-symbol enumsubparts) [277 289])
-                          ("AST_NODE_BOOLEAN_EQ" variable
-                             (:constant-flag t
-                              :type "int")
-                              (reparse-symbol enumsubparts) [294 314])
-                          ("AST_NODE_BOOLEAN_NEQ" variable
-                             (:constant-flag t
-                              :type "int")
-                              (reparse-symbol enumsubparts) [319 340])
-                          ("AST_NODE_BOOLEAN_LT" variable
-                             (:constant-flag t
-                              :type "int")
-                              (reparse-symbol enumsubparts) [345 365])
-                          ("AST_NODE_BOOLEAN_GT" variable
-                             (:constant-flag t
-                              :type "int")
-                              (reparse-symbol enumsubparts) [370 390])
-                          ("AST_NODE_BOOLEAN_LTE" variable
-                             (:constant-flag t
-                              :type "int")
-                              (reparse-symbol enumsubparts) [395 416])
-                          ("AST_NODE_BOOLEAN_GTE" variable
-                             (:constant-flag t
-                              :type "int")
-                              (reparse-symbol enumsubparts) [421 442])
-                          ("AST_NODE_WHILE" variable
-                             (:constant-flag t
-                              :type "int")
-                              (reparse-symbol enumsubparts) [447 462])
-                          ("AST_NODE_FUNCTION" variable
-                             (:constant-flag t
-                              :type "int")
-                              (reparse-symbol enumsubparts) [467 485])
-                          ("AST_NODE_FUNCTION_ARG" variable
-                             (:constant-flag t
-                              :type "int")
-                              (reparse-symbol enumsubparts) [490 512])
-                          ("AST_NODE_FUNCTION_ARGS" variable
-                             (:constant-flag t
-                              :type "int")
-                              (reparse-symbol enumsubparts) [517 540])
-                          ("AST_NODE_IMPORT" variable
-                             (:constant-flag t
-                              :type "int")
-                              (reparse-symbol enumsubparts) [545 561])
-                          ("AST_NODE_ASSIGN" variable
-                             (:constant-flag t
-                              :type "int")
-                              (reparse-symbol enumsubparts) [566 583]))                        
-                      :type "enum")
-                      nil nil)
-                :type "typedef")
-                nil [219 596])
-            ("ASTNode" type
-               (:typedef ("" type
-                     (:members 
-                        ( ("type" variable (:type ("AstNodeType" type (:type "class") nil nil)) (reparse-symbol classsubparts) [619 636])
-                          ("val" variable (:type ("XString" type (:type "class") nil nil)) (reparse-symbol classsubparts) [641 653])
-                          ("childs" variable (:type ("XVector" type (:type "class") nil nil)) (reparse-symbol classsubparts) [658 673]))                        
-                      :type "struct")
-                      nil nil)
-                :type "typedef")
-                nil [598 684])
-            ("ast_node_if" function
-               (:prototype-flag t
-                :pointer 1
-                :arguments 
-                  ( ("node_cond" variable
+        '( ("AST_H" variable (:constant-flag t) nil [157 162])
+            ("NODE_CHILD" variable (:constant-flag t) nil [172 182])
+            ("lib/types.h" include nil nil [256 278])
+            ("lib/xmalloc.h" include nil nil [279 303])
+            ("lib/xvec.h" include nil nil [304 325])
+            ("shell/interpreter/lexer/token.h" include nil nil [326 368])
+            ("ASTNodeType" type
+               (:members 
+                  ( ("AST_NODE_BLOCK" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [567 582])
+                    ("AST_NODE_INUMLIT" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [587 604])
+                    ("AST_NODE_DNUMLIT" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [605 622])
+                    ("AST_NODE_BOOL" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [627 641])
+                    ("AST_NODE_STRLIT" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [646 662])
+                    ("AST_NODE_VAR_DEF" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [663 680])
+                    ("AST_NODE_VAR" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [681 694])
+                    ("AST_NODE_UNARY_PLUS" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [726 746])
+                    ("AST_NODE_UNARY_MINUS" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [747 768])
+                    ("AST_NODE_LOGICAL_NOT" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [773 794])
+                    ("AST_NODE_BITWISE_NOT" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [795 816])
+                    ("AST_NODE_ADD" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [849 862])
+                    ("AST_NODE_SUB" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [863 876])
+                    ("AST_NODE_MUL" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [881 894])
+                    ("AST_NODE_DIV" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [895 908])
+                    ("AST_NODE_MOD" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [913 926])
+                    ("AST_NODE_POW" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [927 940])
+                    ("AST_NODE_EQ" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [945 957])
+                    ("AST_NODE_NEQ" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [958 971])
+                    ("AST_NODE_LT" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [976 988])
+                    ("AST_NODE_GT" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [989 1001])
+                    ("AST_NODE_LTE" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1006 1019])
+                    ("AST_NODE_GTE" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1020 1033])
+                    ("AST_NODE_LAND" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1038 1052])
+                    ("AST_NODE_LOR" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1053 1066])
+                    ("AST_NODE_BAND" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1071 1085])
+                    ("AST_NODE_BOR" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1086 1099])
+                    ("AST_NODE_BXOR" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1104 1118])
+                    ("AST_NODE_LS" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1123 1135])
+                    ("AST_NODE_RS" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1136 1148])
+                    ("AST_NODE_ASSIGN" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1153 1169])
+                    ("AST_NODE_IF" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1194 1206])
+                    ("AST_NODE_RETURN" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1207 1223])
+                    ("AST_NODE_WHILE" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1228 1243])
+                    ("AST_NODE_IMPORT" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1244 1260])
+                    ("AST_NODE_FUNC_DEF" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1265 1283])
+                    ("AST_NODE_CALL" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1288 1302])
+                    ("AST_NODE_CALL_ARG" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1303 1321]))                  
+                :type "enum")
+                nil [525 1324])
+            ("ASTNodeBlockData" type
+               (:members 
+                  ( ("nodes" variable
                        (:pointer 1
-                        :type ("ASTNode" type (:type "class") nil nil))
-                        (reparse-symbol arg-sub-list) [834 853])
-                    ("node_then" variable
-                       (:pointer 1
-                        :type ("ASTNode" type (:type "class") nil nil))
-                        (reparse-symbol arg-sub-list) [858 877])
-                    ("node_else" variable
-                       (:pointer 1
-                        :type ("ASTNode" type (:type "class") nil nil))
-                        (reparse-symbol arg-sub-list) [882 901]))                  
-                :type ("ASTNode" type (:type "class") nil nil))
-                nil [808 902])
-            ("ast_node_import" function
-               (:prototype-flag t
-                :pointer 1
-                :arguments 
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [1432 1454]))                  
+                :type "struct")
+                nil [1402 1457])
+            ("ASTNodeFuncDefData" type
+               (:members 
                   ( ("name" variable
                        (:pointer 1
-                        :type ("XString" type (:type "class") nil nil))
-                        (reparse-symbol arg-sub-list) [1004 1018]))                  
-                :type ("ASTNode" type (:type "class") nil nil))
-                nil [974 1019])
-            ("ast_node_while" function
-               (:prototype-flag t
-                :pointer 1
-                :arguments 
-                  ( ("cond" variable
-                       (:pointer 1
-                        :type ("ASTNode" type (:type "class") nil nil))
-                        (reparse-symbol arg-sub-list) [1145 1159])
-                    ("body" variable
-                       (:pointer 1
-                        :type ("ASTNode" type (:type "class") nil nil))
-                        (reparse-symbol arg-sub-list) [1164 1178]))                  
-                :type ("ASTNode" type (:type "class") nil nil))
-                nil [1116 1179])
-            ("ast_node_function_arg" function
-               (:prototype-flag t
-                :pointer 1
-                :arguments 
-                  ( ("name" variable
-                       (:pointer 1
-                        :type ("XString" type (:type "class") nil nil))
-                        (reparse-symbol arg-sub-list) [1293 1307]))                  
-                :type ("ASTNode" type (:type "class") nil nil))
-                nil [1257 1308])
-            ("ast_node_function_args" function
-               (:prototype-flag t
-                :pointer 1
-                :arguments 
-                  ( ("args_size" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1480 1497])
-                    ("args_array" variable
-                       (:pointer 1
-                        :type ("XVector" type (:type "class") nil nil))
-                        (reparse-symbol arg-sub-list) [1502 1522]))                  
-                :type ("ASTNode" type (:type "class") nil nil))
-                nil [1443 1523])
-            ("ast_node_function" function
-               (:prototype-flag t
-                :pointer 1
-                :arguments 
-                  ( ("name" variable
-                       (:pointer 1
-                        :type ("XString" type (:type "class") nil nil))
-                        (reparse-symbol arg-sub-list) [1720 1734])
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [1708 1731])
                     ("args" variable
                        (:pointer 1
-                        :type ("ASTNode" type (:type "class") nil nil))
-                        (reparse-symbol arg-sub-list) [1739 1753])
-                    ("body" variable
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [1736 1757]))                  
+                :type "struct")
+                nil [1676 1760])
+            ("ASTNodeCallData" type
+               (:members 
+                  ( ("name" variable
                        (:pointer 1
-                        :type ("ASTNode" type (:type "class") nil nil))
-                        (reparse-symbol arg-sub-list) [1758 1772]))                  
-                :type ("ASTNode" type (:type "class") nil nil))
-                nil [1688 1773])
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [1973 1996])
+                    ("args" variable
+                       (:pointer 1
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [2001 2022]))                  
+                :type "struct")
+                nil [1944 2025])
+            ("ASTNodeImportData" type
+               (:members 
+                  ( ("name" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [2177 2200]))                  
+                :type "struct")
+                nil [2146 2203])
+            ("ASTNodeIfData" type
+               (:members 
+                  ( ("stmts" variable
+                       (:pointer 1
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [2403 2425]))                  
+                :type "struct")
+                nil [2376 2428])
+            ("ASTNodeData" type
+               (:members 
+                  ( ("inum" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [2996 3019])
+                    ("dnum" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [3024 3047])
+                    ("str" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [3052 3074])
+                    ("bool_" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [3079 3103])
+                    ("var_name" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [3108 3135])
+                    ("block" variable (:type ("ASTNodeBlockData" type
+                         (:prototype t
+                          :type "struct")
+                          nil nil)) (reparse-symbol classsubparts) [3140 3170])
+                    ("func_def" variable (:type ("ASTNodeFuncDefData" type
+                         (:prototype t
+                          :type "struct")
+                          nil nil)) (reparse-symbol classsubparts) [3175 3210])
+                    ("call" variable (:type ("ASTNodeCallData" type
+                         (:prototype t
+                          :type "struct")
+                          nil nil)) (reparse-symbol classsubparts) [3215 3243])
+                    ("import" variable (:type ("ASTNodeImportData" type
+                         (:prototype t
+                          :type "struct")
+                          nil nil)) (reparse-symbol classsubparts) [3248 3280])
+                    ("if_" variable (:type ("ASTNodeIfData" type
+                         (:prototype t
+                          :type "struct")
+                          nil nil)) (reparse-symbol classsubparts) [3285 3310]))                  
+                :type "union")
+                nil [2972 3313])
+            ("ASTNode" type
+               (:members 
+                  ( ("data" variable (:type ("ASTNodeData" type (:type "union") nil nil)) (reparse-symbol classsubparts) [3534 3557])
+                    ("type" variable (:type ("ASTNodeType" type (:type "enum") nil nil)) (reparse-symbol classsubparts) [3562 3584])
+                    ("left" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [3589 3610])
+                    ("right" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [3615 3637]))                  
+                :type "struct")
+                nil [3513 3640])
+            ("AST" type
+               (:members 
+                  ( ("childs" variable (:type ("XVector" type
+                         (:prototype t
+                          :type "struct")
+                          nil nil)) (reparse-symbol classsubparts) [3784 3806]))                  
+                :type "struct")
+                nil [3767 3809])
+            ("ast_init" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("ast" variable
+                       (:pointer 1
+                        :type ("AST" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3869 3885]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [3854 3886])
+            ("ast_deinit" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("ast" variable
+                       (:pointer 1
+                        :type ("AST" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3904 3920]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [3887 3921])
+            ("ast_append" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("ast" variable
+                       (:pointer 1
+                        :type ("AST" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3944 3960])
+                    ("node" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3965 3986]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [3922 3987])
+            ("ast_node_new" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("ASTNodeType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [4017 4045]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [3988 4046])
             ("ast_node_free" function
                (:prototype-flag t
                 :arguments 
                   ( ("node" variable
                        (:pointer 1
-                        :type ("ASTNode" type (:type "class") nil nil))
-                        (reparse-symbol arg-sub-list) [1799 1813]))                  
-                :type "void")
-                nil [1775 1814])
-            ("ast_node_print" function
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4067 4088]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [4047 4089])
+            ("ast_node_xvec_deinit" function
                (:prototype-flag t
                 :arguments 
-                  ( ("node" variable
+                  ( ("nodes" variable
                        (:pointer 1
-                        :type ("ASTNode" type (:type "class") nil nil))
-                        (reparse-symbol arg-sub-list) [1890 1904])
-                    ("indentation_level" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1909 1934]))                  
-                :type "void")
-                nil [1865 1935]))          
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4435 4457]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [4408 4458])
+            ("ast_node_unop_type_from_tok_type" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("TokenType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [4742 4768]))                  
+                :type ("ASTNodeType" type (:type "enum") nil nil))
+                nil [4687 4769])
+            ("ast_node_binop_type_from_tok_type" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("TokenType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [5044 5070]))                  
+                :type ("ASTNodeType" type (:type "enum") nil nil))
+                nil [4988 5071])
+            ("ast_node_rval_type_from_shorthand_assign_tok_type" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("TokenType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [5374 5400]))                  
+                :type ("ASTNodeType" type (:type "enum") nil nil))
+                nil [5302 5401])
+            ("mk_ast_node_inumlit" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("obj" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [5643 5665]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [5607 5666])
+            ("mk_ast_node_dnumlit" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("obj" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [5703 5725]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [5667 5726])
+            ("mk_ast_node_strlit" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("obj" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [5762 5784]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [5727 5785])
+            ("mk_ast_node_var" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("name" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [5818 5841]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [5786 5842])
+            ("mk_ast_node_unary_op" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("ASTNodeType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [5885 5913])
+                    ("operand" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [5918 5942]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [5843 5943])
+            ("mk_ast_node_binary_op" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("ASTNodeType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [5987 6015])
+                    ("lop" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [6020 6040])
+                    ("rop" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [6045 6065]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [5944 6066]))          
       :file "ast.h"
-      :pointmax 1953
-      :fsize 1952
-      :lastmodtime '(22620 411 800992 538000)
+      :pointmax 6084
+      :fsize 6083
+      :lastmodtime '(22648 63261 729991 293000)
       :unmatched-syntax nil
       :lexical-table 
         '(("AST_H")
+          ("NODE_CHILD" (spp-arg-list ("node" "n") 182 . 191) . ((symbol "CAST" 202 . 206) (semantic-list "(xvec_get((node)->childs, (n)), struct ASTNode*)" 206 . 254)))
           )
 )
     (semanticdb-table "ast.c"
       :major-mode 'c-mode
       :tags 
-        '( ("shell/interpreter/parser/ast.h" include nil nil [238 279])
-            ("stdlib.h" include (:system-flag t) nil [281 300])
-            ("stdint.h" include (:system-flag t) nil [301 320])
-            ("stdio.h" include (:system-flag t) nil [321 339])
-            ("gsh.h" include nil nil [341 357])
-            ("ds/xvec.h" include nil nil [358 378])
-            ("ds/xstr.h" include nil nil [379 399])
-            ("util/int.h" include nil nil [400 421])
-            ("util/util.h" include nil nil [422 444])
-            ("util/xmalloc.h" include nil nil [445 470])
-            ("ast_node_import" function
-               (:pointer 1
-                :arguments 
-                  ( ("name" variable
-                       (:pointer 1
-                        :type ("XString" type (:type "class") nil nil))
-                        (reparse-symbol arg-sub-list) [502 516]))                  
-                :type ("ASTNode" type (:type "class") nil nil))
-                nil [472 667])
-            ("ast_node_if" function
-               (:pointer 1
-                :arguments 
-                  ( ("node_cond" variable
-                       (:pointer 1
-                        :type ("ASTNode" type (:type "class") nil nil))
-                        (reparse-symbol arg-sub-list) [695 714])
-                    ("node_then" variable
-                       (:pointer 1
-                        :type ("ASTNode" type (:type "class") nil nil))
-                        (reparse-symbol arg-sub-list) [719 738])
-                    ("node_else" variable
-                       (:pointer 1
-                        :type ("ASTNode" type (:type "class") nil nil))
-                        (reparse-symbol arg-sub-list) [743 762]))                  
-                :type ("ASTNode" type (:type "class") nil nil))
-                nil [669 1040])
-            ("ast_node_while" function
-               (:pointer 1
-                :arguments 
-                  ( ("node_cond" variable
-                       (:pointer 1
-                        :type ("ASTNode" type (:type "class") nil nil))
-                        (reparse-symbol arg-sub-list) [1071 1090])
-                    ("node_body" variable
-                       (:pointer 1
-                        :type ("ASTNode" type (:type "class") nil nil))
-                        (reparse-symbol arg-sub-list) [1095 1114]))                  
-                :type ("ASTNode" type (:type "class") nil nil))
-                nil [1042 1312])
-            ("ast_node_function_arg" function
-               (:pointer 1
-                :arguments 
-                  ( ("name" variable
-                       (:pointer 1
-                        :type ("XString" type (:type "class") nil nil))
-                        (reparse-symbol arg-sub-list) [1350 1364]))                  
-                :type ("ASTNode" type (:type "class") nil nil))
-                nil [1314 1521])
-            ("ast_node_function_args" function
-               (:pointer 1
-                :arguments 
-                  ( ("args_size" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1560 1577])
-                    ("args_array" variable
-                       (:pointer 1
-                        :type ("XVector" type (:type "class") nil nil))
-                        (reparse-symbol arg-sub-list) [1582 1602]))                  
-                :type ("ASTNode" type (:type "class") nil nil))
-                nil [1523 1922])
-            ("ast_node_function" function
-               (:pointer 1
-                :arguments 
-                  ( ("name" variable
-                       (:pointer 1
-                        :type ("XString" type (:type "class") nil nil))
-                        (reparse-symbol arg-sub-list) [1956 1970])
-                    ("args" variable
-                       (:pointer 1
-                        :type ("ASTNode" type (:type "class") nil nil))
-                        (reparse-symbol arg-sub-list) [1975 1989])
-                    ("body" variable
-                       (:pointer 1
-                        :type ("ASTNode" type (:type "class") nil nil))
-                        (reparse-symbol arg-sub-list) [1994 2008]))                  
-                :type ("ASTNode" type (:type "class") nil nil))
-                nil [1924 2237])
-            ("ast_node_print" function
+        '( ("shell/ast.h" include nil nil [135 157])
+            ("lib/types.h" include nil nil [159 181])
+            ("lib/macros.h" include nil nil [182 205])
+            ("lib/xmalloc.h" include nil nil [206 230])
+            ("lib/xvec.h" include nil nil [231 252])
+            ("ast_init" function
                (:arguments 
-                  ( ("node" variable
+                  ( ("ast" variable
                        (:pointer 1
-                        :type ("ASTNode" type (:type "class") nil nil))
-                        (reparse-symbol arg-sub-list) [2264 2278])
-                    ("indentation_level" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2283 2308]))                  
+                        :type ("AST" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [312 328]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [297 398])
+            ("ast_deinit" function
+               (:arguments 
+                  ( ("ast" variable
+                       (:pointer 1
+                        :type ("AST" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [417 433]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [400 568])
+            ("ast_append" function
+               (:arguments 
+                  ( ("ast" variable
+                       (:pointer 1
+                        :type ("AST" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [591 607])
+                    ("node" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [612 633]))                  
                 :type "void")
-                nil [2239 4863])
+                nil [570 784])
+            ("ast_node_new" function
+               (:pointer 1
+                :arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("ASTNodeType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [820 848]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [786 999])
             ("ast_node_free" function
                (:arguments 
                   ( ("node" variable
                        (:pointer 1
-                        :type ("ASTNode" type (:type "class") nil nil))
-                        (reparse-symbol arg-sub-list) [4889 4903]))                  
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1020 1041]))                  
                 :type "void")
-                nil [4865 5163]))          
+                nil [1001 1204])
+            ("ast_node_xvec_deinit" function
+               (:arguments 
+                  ( ("nodes" variable
+                       (:pointer 1
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1232 1254]))                  
+                :type "void")
+                nil [1206 1493])
+            ("ast_node_unop_type_from_tok_type" function
+               (:arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("TokenType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [1550 1576]))                  
+                :type ("ASTNodeType" type (:type "enum") nil nil))
+                nil [1495 1938])
+            ("ast_node_binop_type_from_tok_type" function
+               (:arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("TokenType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [1996 2022]))                  
+                :type ("ASTNodeType" type (:type "enum") nil nil))
+                nil [1940 3317])
+            ("ast_node_rval_type_from_shorthand_assign_tok_type" function
+               (:arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("TokenType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [3391 3417]))                  
+                :type ("ASTNodeType" type (:type "enum") nil nil))
+                nil [3319 4124])
+            ("mk_ast_node_inumlit" function
+               (:pointer 1
+                :arguments 
+                  ( ("obj" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [9328 9350]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [9292 9457])
+            ("mk_ast_node_dnumlit" function
+               (:pointer 1
+                :arguments 
+                  ( ("obj" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [9495 9517]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [9459 9624])
+            ("mk_ast_node_strlit" function
+               (:pointer 1
+                :arguments 
+                  ( ("obj" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [9661 9683]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [9626 9788])
+            ("mk_ast_node_bool" function
+               (:pointer 1
+                :arguments 
+                  ( ("obj" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [9823 9845]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [9790 10010])
+            ("mk_ast_node_var" function
+               (:pointer 1
+                :arguments 
+                  ( ("name" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [10044 10067]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [10012 10175])
+            ("mk_ast_node_unary_op" function
+               (:pointer 1
+                :arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("ASTNodeType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [10219 10247])
+                    ("operand" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [10252 10276]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [10177 10613])
+            ("mk_ast_node_binary_op" function
+               (:pointer 1
+                :arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("ASTNodeType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [10658 10686])
+                    ("lop" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [10691 10711])
+                    ("rop" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [10716 10736]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [10615 11588]))          
       :file "ast.c"
-      :pointmax 5164
-      :fsize 5163
-      :lastmodtime '(22620 4221 56641 514000)
-      :unmatched-syntax nil))
+      :pointmax 11589
+      :fsize 11588
+      :lastmodtime '(22648 63333 322991 276000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("mk_ast_node_")
+          )
+)
+
+    (semanticdb-table "parse.h"
+      :file "parse.h"
+      :fsize 371
+      :lastmodtime '(22647 44856 306990 860000))
+
+    (semanticdb-table "parse.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("shell/parser.h" include nil nil [145 170])
+            ("string.h" include (:system-flag t) nil [172 191])
+            ("lib/types.h" include nil nil [193 215])
+            ("lib/macros.h" include nil nil [216 239])
+            ("lib/xstack.h" include nil nil [240 263])
+            ("lib/xvec_stream.h" include nil nil [264 292])
+            ("shell/interpreter/token.h" include nil nil [293 329])
+            ("shell/interpreter/ast.h" include nil nil [330 364])
+            ("__CHECK_SHOULD_BE" variable (:constant-flag t) nil [374 391])
+            ("__incr_ln" variable (:constant-flag t) nil [459 468])
+            ("__skip" variable (:constant-flag t) nil [488 494])
+            ("__read" variable (:constant-flag t) nil [533 539])
+            ("__get" variable (:constant-flag t) nil [578 583])
+            ("__lookahead" variable (:constant-flag t) nil [621 632])
+            ("__eq" variable (:constant-flag t) nil [676 680])
+            ("__neq" variable (:constant-flag t) nil [719 724])
+            ("__lookahead_eq" variable (:constant-flag t) nil [763 777])
+            ("__stream" variable
+               (:typemodifiers ("static")
+                :type ("XVectorStream" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [897 934])
+            ("__ln" variable
+               (:typemodifiers ("static")
+                :type ("uint64" type (:type "class") nil nil))
+                nil [999 1018])
+            ("__ast" variable
+               (:typemodifiers ("static")
+                :type ("AST" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [1098 1122])
+            ("__init_parser" function
+               (:typemodifiers ("static" "inline")
+                :arguments 
+                  ( ("toks" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1163 1196]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [1124 1288])
+            ("__check" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1613 1641])
+                    ("type" variable
+                       (:constant-flag t
+                        :type ("TokenType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [1646 1672]))                  
+                :type ("Token" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [1573 1927])
+            ("__eat" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("TokenType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [2199 2225]))                  
+                :type ("Token" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [2166 2304])
+            ("tok_id_to_ast_node" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("tok" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("Token" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2456 2486]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [2409 2950])
+            ("parse_expr_call" function
+               (:prototype-flag t
+                :pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [3880 3885]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [3841 3886])
+            ("postfix_toks_into_node" function
+               (:prototype-flag t
+                :pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("toks" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3938 3971]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [3887 3972])
+            ("parse_expr_compound" function
+               (:prototype-flag t
+                :pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [4016 4021]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [3973 4022])
+            ("parse_expr" function
+               (:prototype-flag t
+                :pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [4057 4062]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [4023 4063])
+            ("parse_stmt_function" function
+               (:prototype-flag t
+                :pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [4107 4112]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [4064 4113])
+            ("parse_stmt_if" function
+               (:prototype-flag t
+                :pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [4151 4156]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [4114 4157])
+            ("parse_stmt_while" function
+               (:prototype-flag t
+                :pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [4198 4203]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [4158 4204])
+            ("parse_stmt_import" function
+               (:prototype-flag t
+                :pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [4246 4251]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [4205 4252])
+            ("parse_expr_var_def" function
+               (:prototype-flag t
+                :pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [4295 4300]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [4253 4301])
+            ("parse_stmt" function
+               (:prototype-flag t
+                :pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [4336 4341]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [4302 4342])
+            ("parse_expr_var_def" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [4630 4635]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [4588 5339])
+            ("parse_expr_call" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [5605 5633]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [5566 6964])
+            ("postfix_toks_into_node" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [7324 7352])
+                    ("toks" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [7357 7390]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [7273 9597])
+            ("parse_compound_expr_into_postfix_order" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [10087 10115])
+                    ("postfx_toks" variable
+                       (:pointer 1
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [10120 10148]))                  
+                :type "bool")
+                nil [10031 12026])
+            ("parse_expr_compound" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [12168 12173]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [12125 12811])
+            ("parse_expr" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [13280 13308]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [13246 14229])
+            ("parse_stmt_function" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [14661 14689]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [14618 16397])
+            ("parse_stmt_if" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [16860 16888]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [16823 18382])
+            ("parse_stmt_while" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [18741 18746]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [18701 19312])
+            ("parse_stmt_import" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [19606 19634]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [19565 20001])
+            ("parse_stmt_block" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [20384 20412]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [20344 21369])
+            ("parse_stmt_return" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [21614 21642]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [21568 21987])
+            ("parse_stmt" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [22208 22236]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [22169 22655])
+            ("parse" function
+               (:pointer 1
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [22680 22708])
+                    ("toks" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [22713 22746]))                  
+                :type ("AST" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [22657 23253]))          
+      :file "parse.c"
+      :pointmax 37257
+      :fsize 37256
+      :lastmodtime '(22648 63440 860991 251000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("__CHECK_SHOULD_BE" (spp-arg-list ("type") 391 . 397) . ((symbol "DEBUG_ASSERT" 398 . 410) (semantic-list "(__check(type), \"not-proper token type\")" 410 . 450)))
+          ("__eq" (spp-arg-list ("type") 680 . 686) . ((semantic-list "(__get()->type == type)" 687 . 710)))
+          ("__neq" (spp-arg-list ("type") 724 . 730) . ((semantic-list "(__get()->type != type)" 731 . 754)))
+          ("__lookahead_eq" (spp-arg-list ("type") 777 . 783) . ((semantic-list "(__lookahead()->type == type)" 784 . 813)))
+          ("__skip" (spp-arg-list nil 494 . 496) . ((symbol "xvec_stream_skip" 497 . 513) (semantic-list "(&__stream)" 513 . 524)))
+          ("__read" (spp-arg-list nil 539 . 541) . ((symbol "xvec_stream_read" 542 . 558) (semantic-list "(&__stream)" 558 . 569)))
+          ("__lookahead" (spp-arg-list nil 632 . 634) . ((symbol "xvec_stream_lookahead" 635 . 656) (semantic-list "(&__stream)" 656 . 667)))
+          ("__incr_ln" (spp-arg-list nil 468 . 470) . ((semantic-list "(++__ln)" 471 . 479)))
+          ("__get" (spp-arg-list nil 583 . 585) . ((symbol "xvec_stream_get" 586 . 601) (semantic-list "(&__stream)" 601 . 612)))
+          )
+))
   :file "!home!wrongway4you!Projects!gsh!src!shell!interpreter!parser!semantic.cache"
   :semantic-tag-version "2.0"
   :semanticdb-version "2.2")

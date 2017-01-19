@@ -1,0 +1,16 @@
+;; Object kooten-theme-20161023.205/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "kooten-theme-20161023.205/"
+  :tables
+  (list
+    (semanticdb-table "kooten-theme-autoloads.el"
+      :major-mode 'emacs-lisp-mode
+      :tags nil
+      :file "kooten-theme-autoloads.el"
+      :pointmax 297
+      :fsize 605
+      :lastmodtime '(22653 48751 538526 942000)
+      :unmatched-syntax nil))
+  :file "!home!wrongway4you!Git!dotfiles!.emacs.d!elpa!kooten-theme-20161023.205!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

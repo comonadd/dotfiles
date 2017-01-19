@@ -1,0 +1,41 @@
+;; Object hash/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "hash/"
+  :tables
+  (list
+    (semanticdb-table "main.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("stdint.h" include (:system-flag t) nil [312 331])
+            ("stdio.h" include (:system-flag t) nil [332 350])
+            ("string.h" include (:system-flag t) nil [351 370])
+            ("sedgwick_hash" function
+               (:arguments 
+                  ( ("str" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [395 405])
+                    ("hash_size" variable (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [406 425]))                  
+                :type ("uint64_t" type (:type "class") nil nil))
+                nil [372 618])
+            ("custom_hash" function
+               (:arguments 
+                  ( ("str" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [641 651]))                  
+                :type ("uint64_t" type (:type "class") nil nil))
+                nil [620 777])
+            ("main" function
+               (:arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [788 793]))                  
+                :type "int")
+                nil [779 1537]))          
+      :file "main.c"
+      :pointmax 1538
+      :fsize 1537
+      :lastmodtime '(22640 42864 537040 204000)
+      :unmatched-syntax nil))
+  :file "!home!wrongway4you!Learning!algorithms_and_ds!hash!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

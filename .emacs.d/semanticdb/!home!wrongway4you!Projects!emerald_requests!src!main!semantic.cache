@@ -1,0 +1,363 @@
+;; Object main/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "main/"
+  :tables
+  (list
+    (semanticdb-table "url_opener.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("main/url_opener.hpp" include nil nil [1 31])
+            ("sstream" include (:system-flag t) nil [33 51])
+            ("regex" include (:system-flag t) nil [52 68])
+            ("boost/algorithm/string.hpp" include nil nil [70 107])
+            ("boost/algorithm/string/find.hpp" include nil nil [108 150])
+            ("emerald_requests.hpp" include nil nil [152 183])
+            ("types/types.hpp" include nil nil [184 210])
+            ("url/url.hpp" include nil nil [211 233])
+            ("http/http.hpp" include nil nil [234 258])
+            ("utils/utils.hpp" include nil nil [259 285])
+            ("std::string" using (:type ("std::string" type
+                 (:prototype t
+                  :type "class")
+                  nil nil)) nil [287 305])
+            ("std::stringstream" using (:type ("std::stringstream" type
+                 (:prototype t
+                  :type "class")
+                  nil nil)) nil [306 330])
+            ("std::to_string" using (:type ("std::to_string" type
+                 (:prototype t
+                  :type "class")
+                  nil nil)) nil [331 352])
+            ("std::stoi" using (:type ("std::stoi" type
+                 (:prototype t
+                  :type "class")
+                  nil nil)) nil [353 369])
+            ("std::regex_replace" using (:type ("std::regex_replace" type
+                 (:prototype t
+                  :type "class")
+                  nil nil)) nil [370 395])
+            ("emerald_requests::types::map_ss" using (:type ("emerald_requests::types::map_ss" type
+                 (:prototype t
+                  :type "class")
+                  nil nil)) nil [397 435])
+            ("emerald_requests::types::vec_s" using (:type ("emerald_requests::types::vec_s" type
+                 (:prototype t
+                  :type "class")
+                  nil nil)) nil [436 473])
+            ("emerald_requests::url::UrlScheme" using (:type ("emerald_requests::url::UrlScheme" type
+                 (:prototype t
+                  :type "class")
+                  nil nil)) nil [474 513])
+            ("emerald_requests::url::UrlInfo" using (:type ("emerald_requests::url::UrlInfo" type
+                 (:prototype t
+                  :type "class")
+                  nil nil)) nil [514 551])
+            ("emerald_requests::url::parse_url" using (:type ("emerald_requests::url::parse_url" type
+                 (:prototype t
+                  :type "class")
+                  nil nil)) nil [552 591])
+            ("emerald_requests::http::DEFAULT_REQ_OPTS" using (:type ("emerald_requests::http::DEFAULT_REQ_OPTS" type
+                 (:prototype t
+                  :type "class")
+                  nil nil)) nil [592 639])
+            ("emerald_requests::http::HTTP_HEAD_END_PHRASE" using (:type ("emerald_requests::http::HTTP_HEAD_END_PHRASE" type
+                 (:prototype t
+                  :type "class")
+                  nil nil)) nil [640 691])
+            ("emerald_requests::http::HTTP_HEAD_END_PHRASE_LEN" using (:type ("emerald_requests::http::HTTP_HEAD_END_PHRASE_LEN" type
+                 (:prototype t
+                  :type "class")
+                  nil nil)) nil [692 747])
+            ("emerald_requests::http::HttpMethod" using (:type ("emerald_requests::http::HttpMethod" type
+                 (:prototype t
+                  :type "class")
+                  nil nil)) nil [748 789])
+            ("emerald_requests::http::check_req_opts" using (:type ("emerald_requests::http::check_req_opts" type
+                 (:prototype t
+                  :type "class")
+                  nil nil)) nil [790 835])
+            ("emerald_requests::http::construct_req" using (:type ("emerald_requests::http::construct_req" type
+                 (:prototype t
+                  :type "class")
+                  nil nil)) nil [836 880])
+            ("emerald_requests::http::head_from_resp" using (:type ("emerald_requests::http::head_from_resp" type
+                 (:prototype t
+                  :type "class")
+                  nil nil)) nil [881 926])
+            ("emerald_requests::http::body_from_resp" using (:type ("emerald_requests::http::body_from_resp" type
+                 (:prototype t
+                  :type "class")
+                  nil nil)) nil [927 972])
+            ("emerald_requests::utils::LIB_VERSION" using (:type ("emerald_requests::utils::LIB_VERSION" type
+                 (:prototype t
+                  :type "class")
+                  nil nil)) nil [973 1016])
+            ("emerald_requests::utils::base64_encode" using (:type ("emerald_requests::utils::base64_encode" type
+                 (:prototype t
+                  :type "class")
+                  nil nil)) nil [1017 1062])
+            ("emerald_requests::utils::set_err_code" using (:type ("emerald_requests::utils::set_err_code" type
+                 (:prototype t
+                  :type "class")
+                  nil nil)) nil [1063 1107])
+            ("extract_status_code" function
+               (:parent "emerald_requests::main::UrlOpener"
+                :arguments 
+                  ( ("resp_head" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1373 1397])
+                    ("resp_obj" variable
+                       (:reference 1
+                        :type ("HttpResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1402 1425]))                  
+                :type "void")
+                nil [1308 1668])
+            ("extract_headers" function
+               (:parent "emerald_requests::main::UrlOpener"
+                :arguments 
+                  ( ("resp_head" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1731 1755])
+                    ("resp_obj" variable
+                       (:reference 1
+                        :type ("HttpResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1760 1783]))                  
+                :type "void")
+                nil [1670 2429])
+            ("extract_cookies" function
+               (:parent "emerald_requests::main::UrlOpener"
+                :arguments 
+                  ( ("resp_obj" variable
+                       (:reference 1
+                        :type ("HttpResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2492 2515]))                  
+                :type "void")
+                nil [2431 2963])
+            ("extract_encoding" function
+               (:parent "emerald_requests::main::UrlOpener"
+                :arguments 
+                  ( ("resp_obj" variable
+                       (:reference 1
+                        :type ("HttpResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3027 3050]))                  
+                :type "void")
+                nil [2965 3401])
+            ("get_rid_of_transfer_encoding_stuff" function
+               (:parent "emerald_requests::main::UrlOpener"
+                :arguments 
+                  ( ("resp_obj" variable
+                       (:reference 1
+                        :type ("HttpResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3483 3506]))                  
+                :type "void")
+                nil [3403 3872])
+            ("set_state" function
+               (:parent "emerald_requests::main::UrlOpener"
+                :arguments 
+                  ( ("method" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("HttpMethod" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3929 3954])
+                    ("url" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3959 3977])
+                    ("req_opts" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("HttpRequestOptions" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3982 4017]))                  
+                :type "bool")
+                nil [3874 4241])
+            ("extract_content" function
+               (:parent "emerald_requests::main::UrlOpener"
+                :arguments 
+                  ( ("resp_body" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4304 4328])
+                    ("resp_obj" variable
+                       (:reference 1
+                        :type ("HttpResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4333 4356]))                  
+                :type "bool")
+                nil [4243 5369])
+            ("redirect" function
+               (:parent "emerald_requests::main::UrlOpener"
+                :arguments 
+                  ( ("resp_obj" variable
+                       (:reference 1
+                        :type ("HttpResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5425 5448]))                  
+                :type "bool")
+                nil [5371 5647])
+            ("parse_raw_resp" function
+               (:parent "emerald_requests::main::UrlOpener"
+                :arguments 
+                  ( ("raw_resp" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5709 5732])
+                    ("resp_obj" variable
+                       (:reference 1
+                        :type ("HttpResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5737 5760]))                  
+                :type "bool")
+                nil [5649 6163])
+            ("request" function
+               (:parent "emerald_requests::main::UrlOpener"
+                :arguments 
+                  ( ("resp_obj" variable
+                       (:reference 1
+                        :type ("HttpResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6218 6241]))                  
+                :type "bool")
+                nil [6165 7176])
+            ("get" function
+               (:parent "emerald_requests::main::UrlOpener"
+                :arguments 
+                  ( ("url" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7238 7256])
+                    ("resp_obj" variable
+                       (:reference 1
+                        :type ("HttpResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7261 7284]))                  
+                :type "bool")
+                nil [7189 7392])
+            ("get" function
+               (:parent "emerald_requests::main::UrlOpener"
+                :arguments 
+                  ( ("url" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7443 7461])
+                    ("req_opts" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("HttpRequestOptions" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7466 7501])
+                    ("resp_obj" variable
+                       (:reference 1
+                        :type ("HttpResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7506 7529]))                  
+                :type "bool")
+                nil [7394 7629])
+            ("post" function
+               (:parent "emerald_requests::main::UrlOpener"
+                :arguments 
+                  ( ("url" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7681 7699])
+                    ("resp_obj" variable
+                       (:reference 1
+                        :type ("HttpResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7704 7727]))                  
+                :type "bool")
+                nil [7631 7836])
+            ("post" function
+               (:parent "emerald_requests::main::UrlOpener"
+                :arguments 
+                  ( ("url" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7888 7906])
+                    ("req_opts" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("HttpRequestOptions" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7911 7946])
+                    ("resp_obj" variable
+                       (:reference 1
+                        :type ("HttpResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7951 7974]))                  
+                :type "bool")
+                nil [7838 8075])
+            ("head" function
+               (:parent "emerald_requests::main::UrlOpener"
+                :arguments 
+                  ( ("url" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8127 8145])
+                    ("resp_obj" variable
+                       (:reference 1
+                        :type ("HttpResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8150 8173]))                  
+                :type "bool")
+                nil [8077 8282])
+            ("head" function
+               (:parent "emerald_requests::main::UrlOpener"
+                :arguments 
+                  ( ("url" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8334 8352])
+                    ("req_opts" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("HttpRequestOptions" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8357 8392])
+                    ("resp_obj" variable
+                       (:reference 1
+                        :type ("HttpResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8397 8420]))                  
+                :type "bool")
+                nil [8284 8521])
+            ("options" function
+               (:parent "emerald_requests::main::UrlOpener"
+                :arguments 
+                  ( ("url" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8576 8594])
+                    ("resp_obj" variable
+                       (:reference 1
+                        :type ("HttpResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8599 8622]))                  
+                :type "bool")
+                nil [8523 8734])
+            ("options" function
+               (:parent "emerald_requests::main::UrlOpener"
+                :arguments 
+                  ( ("url" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8789 8807])
+                    ("req_opts" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("HttpRequestOptions" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8812 8847])
+                    ("resp_obj" variable
+                       (:reference 1
+                        :type ("HttpResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8852 8875]))                  
+                :type "bool")
+                nil [8736 8979]))          
+      :file "url_opener.cpp"
+      :pointmax 8980
+      :fsize 8979
+      :lastmodtime '(22649 3495 837989 944000)
+      :unmatched-syntax nil))
+  :file "!home!wrongway4you!Projects!emerald_requests!src!main!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

@@ -1,0 +1,16 @@
+;; Object ujelly-theme-20170116.1121/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "ujelly-theme-20170116.1121/"
+  :tables
+  (list
+    (semanticdb-table "ujelly-theme-autoloads.el"
+      :major-mode 'emacs-lisp-mode
+      :tags nil
+      :file "ujelly-theme-autoloads.el"
+      :pointmax 297
+      :fsize 566
+      :lastmodtime '(22653 48214 931576 391000)
+      :unmatched-syntax nil))
+  :file "!home!wrongway4you!Git!dotfiles!.emacs.d!elpa!ujelly-theme-20170116.1121!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

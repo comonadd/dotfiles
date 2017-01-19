@@ -3,184 +3,406 @@
 (semanticdb-project-database-file "src/"
   :tables
   (list
-    (semanticdb-table "err.h"
+    (semanticdb-table "Makefile"
+      :major-mode 'makefile-gmake-mode
+      :tags 
+        '( ("CURR_DIR" variable (:default-value ("$(dir $(abspath $(lastword $(MAKEFILE_LIST))))")) nil [131 190])
+            ("EXEC_NAME" variable (:default-value ("gsh")) nil [190 207])
+            ("SRC" variable (:default-value ("$(shell find . -type f -name '*.c')")) nil [207 250])
+            ("OBJ" variable (:default-value ("$(SRC:.c=.o)")) nil [250 270])
+            ("LD" variable (:default-value ("gcc")) nil [429 439])
+            ("LDFLAGS" variable (:default-value ("-lc" "-lm" "-g" "-ggdb")) nil [439 467])
+            ("CC" variable (:default-value ("gcc")) nil [544 554])
+            ("CCSTD" variable (:default-value ("-std=gnu99" "-pedantic")) nil [554 584])
+            ("CCWARN_FLAGS" variable (:default-value ("-Wno-missing-braces" "-Wextra" "-Wno-missing-field-initializers" "-Wformat=2" "-Wswitch-default" "-Wcast-align" "-Wpointer-arith" "-Wbad-function-cast" "-Wstrict-overflow=5" "-Wstrict-prototypes" "-Winline" "-Wundef" "-Wnested-externs" "-Wshadow" "-Wunreachable-code" "-Wlogical-op" "-Wfloat-equal" "-Wstrict-aliasing=2" "-Wredundant-decls" "-Wold-style-definition" "-Werror")) nil [584 953])
+            ("CCOPTIMIZATION_FLAGS" variable (:default-value ("-O3")) nil [953 981])
+            ("CCDEFINITIONS" variable (:default-value ("-DVERSION=\\\"$(VERSION)\\\"" "-DVERSION_EXTRA=\\\"$(VERSION_EXTRA)\\\"" "-DUSER_CONF_DIR=\\\"$(USER_CONF_DIR)\\\"" "-DSYS_CONF_DIR=\\\"$(SYS_CONF_DIR)\\\"" "-DDEFAULT_CONF_DIR=\\\"$(DEFAULT_CONF_DIR)\\\"" "-DDEFAULT_MODULES_SEARCH_PATH=\\\"$(DEFAULT_MODULES_SEARCH_PATH)\\\"" "-DPARSER_TESTS_RESOURCES_DIR=\\\"$(PARSER_TESTS_RESOURCES_DIR)\\\"" "-DFILE_WITH_HELLO_IN_IT_PATH=\\\"$(FILE_WITH_HELLO_IN_IT)\\\"" "-DTEST=$(TEST)" "-DBENCH=$(BENCH)" "-DDEBUG=$(DEBUG)" "-DDEBUG_MEMORY=$(DEBUG_MEMORY)")) nil [981 1464])
+            ("CCINCLUDES" variable (:default-value ("-I./" "-I../")) nil [1464 1489])
+            ("CCFLAGS" variable (:default-value ("$(CCSTD)" "$(CCWARN_FLAGS)" "$(CCDEFINITIONS)" "$(CCINCLUDES)" "-fno-omit-frame-pointer" "-ffloat-store" "-fno-common" "-fstrict-aliasing")) nil [1489 1627])
+            ("CCFLAGS" variable (:default-value ("-g" "-ggdb" "-O0")) nil [1647 1671])
+            ("CCFLAGS" variable (:default-value ("$(CCOPTIMIZATION_FLAGS)")) nil [1676 1711])
+            ("all" function (:arguments ("exec")) nil [1767 1777])
+            ("exec" function (:arguments ("$(EXEC_NAME)")) nil [1778 1797])
+            (".PHONY" function (:arguments ("exec")) nil [1797 1810])
+            ("$(EXEC_NAME)" function (:arguments ("$(OBJ)")) nil [1811 1926])
+            ("%.o" function (:arguments ("%.c")) nil [1950 2290])
+            ("clean" function nil nil [2291 2742]))          
+      :file "Makefile"
+      :pointmax 2756
+      :fsize 2755
+      :lastmodtime '(22655 29060 740307 759000)
+      :unmatched-syntax nil)
+    (semanticdb-table "shell.c"
       :major-mode 'c-mode
       :tags 
-        '( ("ERR_H" variable (:constant-flag t) nil [128 133])
-            ("gsh.h" include nil nil [135 151])
-            ("ERR_EXIT_CODE" variable (:constant-flag t) nil [243 256])
-            ("SUCCESS_EXIT_CODE" variable (:constant-flag t) nil [363 380])
+        '( ("shell.h" include nil nil [127 145])
+            ("string.h" include (:system-flag t) nil [147 166])
+            ("lib/types.h" include nil nil [168 190])
+            ("lib/macros.h" include nil nil [191 214])
+            ("lib/xmalloc.h" include nil nil [215 239])
+            ("lib/xvec_stream.h" include nil nil [240 268])
+            ("lib/args.h" include nil nil [269 290])
+            ("lib/util.h" include nil nil [291 312])
+            ("interpreter/interpreter.h" include nil nil [313 349])
+            ("interpreter/lexer/lexer.h" include nil nil [350 386])
+            ("interpreter/parser/parser.h" include nil nil [387 425])
+            ("repl.h" include nil nil [426 443])
+            ("err_code" variable (:type ("ErrorCode" type (:type "enum") nil nil)) nil [445 469])
+            ("shell_set_default_config" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("ss" variable
+                       (:pointer 1
+                        :type ("ShellState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [585 607]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [547 608])
+            ("shell_set_conf_dir" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("ss" variable
+                       (:pointer 1
+                        :type ("ShellState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [641 663]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [609 664])
+            ("shell_exec_init_file" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("ss" variable
+                       (:pointer 1
+                        :type ("ShellState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [698 720]))                  
+                :type "bool")
+                nil [665 721])
+            ("shell_init" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("ss" variable
+                       (:pointer 1
+                        :type ("ShellState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [745 767]))                  
+                :type "bool")
+                nil [722 768])
+            ("shell_parse_args" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("args" variable
+                       (:pointer 1
+                        :type ("Arguments" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [799 822]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [769 823])
+            ("shell_set_default_config" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("ss" variable
+                       (:pointer 1
+                        :type ("ShellState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [958 980]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [920 1060])
+            ("shell_set_conf_dir" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("ss" variable
+                       (:pointer 1
+                        :type ("ShellState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1277 1299]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [1245 1726])
+            ("shell_exec_init_file" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("ss" variable
+                       (:pointer 1
+                        :type ("ShellState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1888 1910]))                  
+                :type "bool")
+                nil [1855 2213])
+            ("shell_init" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("ss" variable
+                       (:pointer 1
+                        :type ("ShellState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2264 2286]))                  
+                :type "bool")
+                nil [2241 2482])
+            ("shell_parse_args" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("args" variable
+                       (:pointer 1
+                        :type ("Arguments" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2622 2645]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [2592 4133])
+            ("err_report" function
+               (:arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [4152 4157]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [4135 4769])
+            ("shell_main" function
+               (:arguments 
+                  ( ("args" variable
+                       (:pointer 1
+                        :type ("Arguments" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4787 4810]))                  
+                :type "void")
+                nil [4771 4929]))          
+      :file "shell.c"
+      :pointmax 4930
+      :fsize 4929
+      :lastmodtime '(22655 25580 81628 503000)
+      :unmatched-syntax nil)
+    (semanticdb-table "shell.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("SHELL_H" variable (:constant-flag t) nil [132 139])
+            ("stdio.h" include (:system-flag t) nil [141 159])
+            ("lib/types.h" include nil nil [161 183])
+            ("lib/macros.h" include nil nil [184 207])
+            ("lib/args.h" include nil nil [208 229])
+            ("interpreter/interpreter.h" include nil nil [230 266])
+            ("DEFAULT_PROMPT" variable (:constant-flag t) nil [276 290])
+            ("DEFAULT_MOTD" variable (:constant-flag t) nil [305 317])
+            ("err_set" variable (:constant-flag t) nil [369 376])
+            ("GSH_RUN_TEST_SUITE" variable (:constant-flag t) nil [410 428])
+            ("GSH_RUN_BENCH_SUITE" variable (:constant-flag t) nil [542 561])
+            ("PRINT_ERR_FATAL" variable (:constant-flag t) nil [678 693])
+            ("PRINT_ERR_FATAL" variable (:constant-flag t) nil [678 693])
+            ("PRINT_ERROR" variable (:constant-flag t) nil [789 800])
+            ("PRINTF_ERROR" variable (:constant-flag t) nil [883 895])
+            ("PRINT_WARNING" variable (:constant-flag t) nil [1041 1054])
+            ("PRINT_WARNING" variable (:constant-flag t) nil [1041 1054])
+            ("PRINT_BUG" variable (:constant-flag t) nil [1147 1156])
+            ("PRINT_BUG" variable (:constant-flag t) nil [1147 1156])
             ("ErrorCode" type
                (:members 
                   ( ("EC_OK" variable
                        (:constant-flag t
                         :type "int")
-                        (reparse-symbol enumsubparts) [405 411])
+                        (reparse-symbol enumsubparts) [1254 1260])
+                    ("EC_UNKNOWN" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1265 1276])
+                    ("EC_INVALID_ARG" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1281 1296])
                     ("EC_NO_SUCH_FILE" variable
                        (:constant-flag t
                         :type "int")
-                        (reparse-symbol enumsubparts) [416 432])
+                        (reparse-symbol enumsubparts) [1301 1317])
+                    ("EC_NO_SUCH_DIR" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1322 1337])
                     ("EC_PERM_DENIED" variable
                        (:constant-flag t
                         :type "int")
-                        (reparse-symbol enumsubparts) [437 452])
-                    ("EC_INDEX_OUT_OF_RANGE" variable
+                        (reparse-symbol enumsubparts) [1342 1357])
+                    ("EC_WRITE_FAILED" variable
                        (:constant-flag t
                         :type "int")
-                        (reparse-symbol enumsubparts) [457 480]))                  
+                        (reparse-symbol enumsubparts) [1362 1378])
+                    ("EC_ALREADY_CLOSED" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1383 1402]))                  
                 :type "enum")
-                nil [384 481])
-            ("err_code" variable (:type ("ErrorCode" type (:type "enum") nil nil)) nil [538 562])
-            ("print_error" function
-               (:prototype-flag t
-                :arguments 
-                  ( ("format" variable
+                nil [1233 1403])
+            ("ShellConfig" type
+               (:members 
+                  ( ("prompt" variable
                        (:pointer 1
-                        :constant-flag t
                         :type "char")
-                        (reparse-symbol arg-sub-list) [642 661])
-                    ("..." variable (:type "vararg") (reparse-symbol arg-sub-list) [666 670]))                  
-                :type "void")
-                nil [620 671])
-            ("print_error_fatal" function
-               (:prototype-flag t
-                :arguments 
-                  ( ("format" variable
+                        (reparse-symbol classsubparts) [1580 1593])
+                    ("motd" variable
                        (:pointer 1
-                        :constant-flag t
                         :type "char")
-                        (reparse-symbol arg-sub-list) [763 782])
-                    ("..." variable (:type "vararg") (reparse-symbol arg-sub-list) [787 791]))                  
-                :type "void")
-                nil [735 792])
-            ("set_ec" function
+                        (reparse-symbol classsubparts) [1598 1609]))                  
+                :type "struct")
+                nil [1555 1612])
+            ("ShellState" type
+               (:members 
+                  ( ("I" variable (:type ("Interpreter" type
+                         (:prototype t
+                          :type "struct")
+                          nil nil)) (reparse-symbol classsubparts) [1837 1858])
+                    ("config" variable (:type ("ShellConfig" type
+                         (:prototype t
+                          :type "struct")
+                          nil nil)) (reparse-symbol classsubparts) [1863 1889])
+                    ("conf_dir" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol classsubparts) [1894 1909]))                  
+                :type "struct")
+                nil [1813 1912])
+            ("err_code" variable
+               (:typemodifiers ("extern")
+                :type ("ErrorCode" type (:type "enum") nil nil))
+                nil [1983 2014])
+            ("err_report" function
                (:prototype-flag t
                 :arguments 
-                  ( ("code" variable
-                       (:constant-flag t
-                        :type ("ErrorCode" type (:type "enum") nil nil))
-                        (reparse-symbol arg-sub-list) [893 919]))                  
-                :type "void")
-                nil [881 920])
-            ("set_syntax_ec_type" function
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [2179 2184]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [2162 2185])
+            ("shell_main" function
                (:prototype-flag t
                 :arguments 
-                  ( ("type" variable
-                       (:constant-flag t
-                        :type ("SyntaxErrorType" type (:type "enum") nil nil))
-                        (reparse-symbol arg-sub-list) [946 978]))                  
-                :type "void")
-                nil [922 979])
-            ("print_ec" function
-               (:prototype-flag t
-                :type "void")
-                nil [1065 1081]))          
-      :file "err.h"
-      :pointmax 1099
-      :fsize 1098
-      :lastmodtime '(22630 33632 280990 316000)
-      :unmatched-syntax '((symbol 457 . 478) (punctuation 698 . 699) (semantic-list 664 . 698) (VOID 648 . 652) (punctuation 589 . 590) (ENUM 566 . 570))
+                  ( ("args" variable
+                       (:pointer 1
+                        :type ("Arguments" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2400 2423]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [2383 2424]))          
+      :file "shell.h"
+      :pointmax 2447
+      :fsize 2446
+      :lastmodtime '(22655 25416 385643 588000)
+      :unmatched-syntax nil
       :lexical-table 
-        '(("ERR_H")
-          ("SUCCESS_EXIT_CODE" . ((number "0" 381 . 382)))
-          ("ERR_EXIT_CODE" . ((number "128" 257 . 260)))
+        '(("PRINTF_ERROR" (spp-arg-list ("msg" "...") 893 . 903) . 
+              ((DO "do" 904 . 906) (semantic-list "{		\\
+	fprintf(stderr, \"[!] Error: \");		\\
+	fprintf(stderr, msg, __VA_ARGS__);	\\
+	fprintf(stderr, \"\\n\");			\\
+    }" 907 . 1019) (WHILE "while" 1020 . 1025) (semantic-list "(0)" 1026 . 1029)))
+          ("SHELL_H")
+          ("PRINT_ERROR" (spp-arg-list ("msg") 798 . 803) . 
+              ((DO "do" 804 . 806) (semantic-list "{\\
+	fprintf(stderr, \"[!] Error: %s\\n\", (msg)); \\
+    }" 807 . 861) (WHILE "while" 862 . 867) (semantic-list "(0)" 868 . 871)))
+          ("DEFAULT_MOTD" . ((semantic-list "(\"GSh v\" VERSION \" (\" VERSION_EXTRA \")\\n\")" 318 . 360)))
+          ("err_set" (spp-arg-list ("code") 376 . 382) . ((semantic-list "(err_code = code)" 383 . 400)))
+          ("GSH_RUN_TEST_SUITE" (spp-arg-list ("name") 428 . 434) . 
+              ((DO "do" 435 . 437) (semantic-list "{				\\
+	printf(\"Running test suite \\\"\" #name \"\\\":\\n\");	\\
+	test_##name();					\\
+    }" 438 . 522) (WHILE "while" 523 . 528) (semantic-list "(0)" 529 . 532)))
+          ("PRINT_BUG" (spp-arg-list ("msg") 1156 . 1161) . 
+              ((DO "do" 1162 . 1164) (semantic-list "{				\\
+	fprintf(stdout, \"[!] Bug: %s\\n\", (msg));	\\
+    }" 1165 . 1221) (WHILE "while" 1222 . 1227) (semantic-list "(0)" 1228 . 1231)))
+          ("PRINT_WARNING" (spp-arg-list ("msg") 1054 . 1059) . 
+              ((DO "do" 1060 . 1062) (semantic-list "{			     \\
+	fprintf(stdout, \"[!] Warning: %s\\n\", (msg)); \\
+    }" 1063 . 1127) (WHILE "while" 1128 . 1133) (semantic-list "(0)" 1134 . 1137)))
+          ("PRINT_ERR_FATAL" (spp-arg-list ("msg") 693 . 698) . 
+              ((DO "do" 699 . 701) (semantic-list "{		       \\
+	fprintf(stderr, \"[!] Fatal Error: %s\\n\", msg); \\
+    }" 702 . 769) (WHILE "while" 770 . 775) (semantic-list "(0)" 776 . 779)))
+          ("GSH_RUN_BENCH_SUITE" (spp-arg-list ("name") 561 . 567) . 
+              ((DO "do" 568 . 570) (semantic-list "{				\\
+	printf(\"Running bench suite \\\"\" #name \"\\\":\");	\\
+	bench_##name();						\\
+    }" 571 . 656) (WHILE "while" 657 . 662) (semantic-list "(0)" 663 . 666)))
+          ("DEFAULT_PROMPT" . ((string "\">> \"" 291 . 296)))
           )
 )
-    (semanticdb-table "err.c"
+    (semanticdb-table "repl.c"
       :major-mode 'c-mode
       :tags 
-        '( ("err.h" include nil nil [176 192])
-            ("stdarg.h" include (:system-flag t) nil [194 213])
-            ("stdio.h" include (:system-flag t) nil [214 232])
-            ("util/io.h" include nil nil [234 254])
-            ("util/str.h" include nil nil [255 276])
-            ("shell/shell.h" include nil nil [277 301])
-            ("print_error" function
+        '( ("repl.h" include nil nil [127 144])
+            ("deps/sil/src/sil.h" include nil nil [146 175])
+            ("lib/types.h" include nil nil [177 199])
+            ("lib/macros.h" include nil nil [200 223])
+            ("lib/xmalloc.h" include nil nil [224 248])
+            ("shell.h" include nil nil [249 267])
+            ("interpreter/interpreter.h" include nil nil [268 304])
+            ("shell_do_repl" function
                (:arguments 
-                  ( ("format" variable
+                  ( ("ss" variable
                        (:pointer 1
-                        :constant-flag t
-                        :type "char")
-                        (reparse-symbol arg-sub-list) [325 344])
-                    ("..." variable (:type "vararg") (reparse-symbol arg-sub-list) [349 353]))                  
-                :type "void")
-                nil [303 522])
-            ("print_error_fatal" function
-               (:arguments 
-                  ( ("format" variable
+                        :type ("ShellState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [373 395]))                  
+                :type "bool")
+                nil [354 761]))          
+      :file "repl.c"
+      :pointmax 762
+      :fsize 761
+      :lastmodtime '(22655 15325 184573 495000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("shell_print_motd" (spp-arg-list ("ss") 330 . 334) . ((symbol "PRINT_STDOUT" 335 . 347) (semantic-list "(ss->config.motd)" 347 . 364)))
+          )
+)
+    (semanticdb-table "repl.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("REPL_H" variable (:constant-flag t) nil [149 155])
+            ("lib/types.h" include nil nil [157 179])
+            ("shell.h" include nil nil [180 198])
+            ("shell_do_repl" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("ss" variable
                        (:pointer 1
-                        :constant-flag t
-                        :type "char")
-                        (reparse-symbol arg-sub-list) [552 571])
-                    ("..." variable (:type "vararg") (reparse-symbol arg-sub-list) [576 580]))                  
-                :type "void")
-                nil [524 755])
-            ("err_ueof" function
-               (:arguments 
-                  ( ("filename" variable
-                       (:pointer 1
-                        :constant-flag t
-                        :type "char")
-                        (reparse-symbol arg-sub-list) [756 756])
-                    ("text" variable
-                       (:pointer 1
-                        :constant-flag t
-                        :type "char")
-                        (reparse-symbol arg-sub-list) [756 756])
-                    ("ln" variable
-                       (:constant-flag t
-                        :type ("uint64" type (:type "class") nil nil))
-                        (reparse-symbol arg-sub-list) [756 756])
-                    ("cn" variable
-                       (:constant-flag t
-                        :type ("uint64" type (:type "class") nil nil))
-                        (reparse-symbol arg-sub-list) [756 756]))                  
-                :type "void")
-                nil [756 756])
-            ("err_syntax" function
-               (:arguments 
-                  ( ("filename" variable
-                       (:pointer 1
-                        :constant-flag t
-                        :type "char")
-                        (reparse-symbol arg-sub-list) [756 756])
-                    ("text" variable
-                       (:pointer 1
-                        :constant-flag t
-                        :type "char")
-                        (reparse-symbol arg-sub-list) [756 756])
-                    ("ln" variable
-                       (:constant-flag t
-                        :type ("uint64" type (:type "class") nil nil))
-                        (reparse-symbol arg-sub-list) [756 756])
-                    ("cn" variable
-                       (:constant-flag t
-                        :type ("uint64" type (:type "class") nil nil))
-                        (reparse-symbol arg-sub-list) [756 756]))                  
-                :type "void")
-                nil [756 756])
-            ("set_ec" function
-               (:arguments 
-                  ( ("code" variable
-                       (:constant-flag t
-                        :type ("ErrorCode" type (:type "enum") nil nil))
-                        (reparse-symbol arg-sub-list) [769 795]))                  
-                :type "void")
-                nil [757 820])
-            ("set_syntax_ec_type" function
-               (:arguments 
-                  ( ("type" variable
-                       (:constant-flag t
-                        :type ("SyntaxErrorType" type (:type "enum") nil nil))
-                        (reparse-symbol arg-sub-list) [846 878]))                  
-                :type "void")
-                nil [822 909])
-            ("print_ec" function (:type "void") nil [911 1403]))          
-      :file "err.c"
-      :pointmax 1404
-      :fsize 1403
-      :lastmodtime '(22630 40211 267988 778000)
-      :unmatched-syntax nil))
+                        :type ("ShellState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [219 241]))                  
+                :type "bool")
+                nil [200 242]))          
+      :file "repl.h"
+      :pointmax 264
+      :fsize 263
+      :lastmodtime '(22654 11474 414922 877000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("REPL_H")
+          )
+))
   :file "!home!wrongway4you!Projects!gsh!src!semantic.cache"
   :semantic-tag-version "2.0"
   :semanticdb-version "2.2")

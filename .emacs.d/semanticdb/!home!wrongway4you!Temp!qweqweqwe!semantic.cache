@@ -1,0 +1,335 @@
+;; Object qweqweqwe/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "qweqweqwe/"
+  :tables
+  (list
+    (semanticdb-table "control.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("main.h" include nil nil [1 18])
+            ("HttpGet" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("host" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [40 57])
+                    ("port" variable (:type "int") (reparse-symbol arg-sub-list) [58 67])
+                    ("thread" variable (:type "int") (reparse-symbol arg-sub-list) [68 79])
+                    ("timeout" variable (:type "int") (reparse-symbol arg-sub-list) [80 92]))                  
+                :type "void")
+                nil [20 93])
+            ("HttpPost" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("host" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [115 132])
+                    ("port" variable (:type "int") (reparse-symbol arg-sub-list) [133 142])
+                    ("thread" variable (:type "int") (reparse-symbol arg-sub-list) [143 154])
+                    ("timeout" variable (:type "int") (reparse-symbol arg-sub-list) [155 167]))                  
+                :type "void")
+                nil [94 168])
+            ("JSBypass" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("host" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [190 207])
+                    ("port" variable (:type "int") (reparse-symbol arg-sub-list) [208 217])
+                    ("thread" variable (:type "int") (reparse-symbol arg-sub-list) [218 229])
+                    ("timeout" variable (:type "int") (reparse-symbol arg-sub-list) [230 242]))                  
+                :type "void")
+                nil [169 243])
+            ("UDP" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("host" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [260 277])
+                    ("port" variable (:type "int") (reparse-symbol arg-sub-list) [278 287])
+                    ("thread" variable (:type "int") (reparse-symbol arg-sub-list) [288 299])
+                    ("timeout" variable (:type "int") (reparse-symbol arg-sub-list) [300 312]))                  
+                :type "void")
+                nil [244 313])
+            ("TCP" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("host" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [330 347])
+                    ("port" variable (:type "int") (reparse-symbol arg-sub-list) [348 357])
+                    ("thread" variable (:type "int") (reparse-symbol arg-sub-list) [358 369])
+                    ("timeout" variable (:type "int") (reparse-symbol arg-sub-list) [370 382]))                  
+                :type "void")
+                nil [314 383])
+            ("SampSt" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("host" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [403 420])
+                    ("port" variable (:type "int") (reparse-symbol arg-sub-list) [421 430])
+                    ("thread" variable (:type "int") (reparse-symbol arg-sub-list) [431 442])
+                    ("timeout" variable (:type "int") (reparse-symbol arg-sub-list) [443 455]))                  
+                :type "void")
+                nil [384 456])
+            ("Task" function (:type "int") nil [458 959]))          
+      :file "control.cpp"
+      :pointmax 960
+      :fsize 996
+      :lastmodtime '(22647 52723 214989 21000)
+      :unmatched-syntax nil)
+    (semanticdb-table "main.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("main.h" include nil nil [1 18])
+            ("MAXTHREAD" variable
+               (:constant-flag t
+                :default-value "1000"
+                :type "int")
+                nil [20 47])
+            ("FuncPtr" function
+               (:prototype-flag t
+                :function-pointer t
+                :arguments 
+                  ( ("" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [70 82])
+                    ("" variable (:type "int") (reparse-symbol arg-sub-list) [83 87])
+                    ("" variable (:type "int") (reparse-symbol arg-sub-list) [88 92])
+                    ("" variable (:type "int") (reparse-symbol arg-sub-list) [93 97]))                  
+                :type "int")
+                nil [56 98])
+            ("HttpGet" function
+               (:parent "Command"
+                :arguments 
+                  ( ("host" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [138 155])
+                    ("port" variable (:type "int") (reparse-symbol arg-sub-list) [156 165])
+                    ("thread" variable (:type "int") (reparse-symbol arg-sub-list) [166 177])
+                    ("timeout" variable (:type "int") (reparse-symbol arg-sub-list) [178 190]))                  
+                :type "void")
+                nil [116 619])
+            ("UDP" function
+               (:parent "Command"
+                :arguments 
+                  ( ("host" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [639 656])
+                    ("port" variable (:type "int") (reparse-symbol arg-sub-list) [657 666])
+                    ("thread" variable (:type "int") (reparse-symbol arg-sub-list) [667 678])
+                    ("timeout" variable (:type "int") (reparse-symbol arg-sub-list) [679 691]))                  
+                :type "void")
+                nil [621 1107])
+            ("TCP" function
+               (:parent "Command"
+                :arguments 
+                  ( ("host" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1127 1144])
+                    ("port" variable (:type "int") (reparse-symbol arg-sub-list) [1145 1154])
+                    ("thread" variable (:type "int") (reparse-symbol arg-sub-list) [1155 1166])
+                    ("timeout" variable (:type "int") (reparse-symbol arg-sub-list) [1167 1179]))                  
+                :type "void")
+                nil [1109 1595])
+            ("SampSt" function
+               (:parent "Command"
+                :arguments 
+                  ( ("host" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1618 1635])
+                    ("port" variable (:type "int") (reparse-symbol arg-sub-list) [1636 1645])
+                    ("thread" variable (:type "int") (reparse-symbol arg-sub-list) [1646 1657])
+                    ("timeout" variable (:type "int") (reparse-symbol arg-sub-list) [1658 1670]))                  
+                :type "void")
+                nil [1597 2092])
+            ("AutoRun" function
+               (:parent "System"
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [2115 2120]))                  
+                :type "void")
+                nil [2094 2587])
+            ("DriveAttack" function
+               (:arguments 
+                  ( ("" variable (:type ("FuncPtr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2606 2614]))                  
+                :type "void")
+                nil [2589 2755])
+            ("main" function
+               (:arguments 
+                  ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [2766 2775])
+                    ("argv" variable
+                       (:pointer 2
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [2776 2788]))                  
+                :type "int")
+                nil [2757 2834]))          
+      :file "main.cpp"
+      :pointmax 2835
+      :fsize 2956
+      :lastmodtime '(22649 7792 961988 940000)
+      :unmatched-syntax nil)
+    (semanticdb-table "main.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("H_GRANDFATHER" variable (:constant-flag t) nil [9 22])
+            ("_WINSOCK_DEPRECATED_NO_WARNINGS" variable (:constant-flag t) nil [31 62])
+            ("_CRT_SECURE_NO_WARNINGS" variable (:constant-flag t) nil [71 94])
+            ("stdio.h" include (:system-flag t) nil [95 113])
+            ("winsock2.h" include (:system-flag t) nil [114 135])
+            ("WS2tcpip.h" include (:system-flag t) nil [136 157])
+            ("thread" include (:system-flag t) nil [158 175])
+            ("iostream" include (:system-flag t) nil [176 195])
+            ("vector" include (:system-flag t) nil [196 213])
+            ("string" include (:system-flag t) nil [214 231])
+            ("control.h" include nil nil [271 291])
+            ("install_bot.h" include nil nil [292 316])
+            ("TaskID" type
+               (:typedef ("TaskID" type (:type "enum") nil nil)
+                :type "typedef")
+                nil [318 354])
+            ("task" variable
+               (:typemodifiers ("extern")
+                :type ("TaskID" type (:type "class") nil nil))
+                nil [356 375])
+            ("task" variable
+               (:typemodifiers ("extern")
+                :type "char")
+                nil [377 409])
+            ("sss" variable
+               (:typemodifiers ("extern")
+                :type "char")
+                nil [377 409])
+            ("sendbuf" variable
+               (:pointer 1
+                :typemodifiers ("extern")
+                :type "char")
+                nil [377 409])
+            ("bytesSent" variable
+               (:typemodifiers ("extern")
+                :type "int")
+                nil [410 431])
+            ("Command" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [449 456])
+                    ("HttpGet" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("host" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [478 495])
+                            ("port" variable (:type "int") (reparse-symbol arg-sub-list) [496 505])
+                            ("thread" variable (:type "int") (reparse-symbol arg-sub-list) [506 517])
+                            ("timeout" variable (:type "int") (reparse-symbol arg-sub-list) [518 530]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [458 531])
+                    ("HttpPost" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("host" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [554 571])
+                            ("port" variable (:type "int") (reparse-symbol arg-sub-list) [572 581])
+                            ("thread" variable (:type "int") (reparse-symbol arg-sub-list) [582 593])
+                            ("timeout" variable (:type "int") (reparse-symbol arg-sub-list) [594 606]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [533 607])
+                    ("JSBypass" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("host" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [630 647])
+                            ("port" variable (:type "int") (reparse-symbol arg-sub-list) [648 657])
+                            ("thread" variable (:type "int") (reparse-symbol arg-sub-list) [658 669])
+                            ("timeout" variable (:type "int") (reparse-symbol arg-sub-list) [670 682]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [609 683])
+                    ("UDP" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("host" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [701 718])
+                            ("port" variable (:type "int") (reparse-symbol arg-sub-list) [719 728])
+                            ("thread" variable (:type "int") (reparse-symbol arg-sub-list) [729 740])
+                            ("timeout" variable (:type "int") (reparse-symbol arg-sub-list) [741 753]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [685 754])
+                    ("TCP" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("host" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [772 789])
+                            ("port" variable (:type "int") (reparse-symbol arg-sub-list) [790 799])
+                            ("thread" variable (:type "int") (reparse-symbol arg-sub-list) [800 811])
+                            ("timeout" variable (:type "int") (reparse-symbol arg-sub-list) [812 824]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [756 825])
+                    ("SampSt" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("host" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [846 863])
+                            ("port" variable (:type "int") (reparse-symbol arg-sub-list) [864 873])
+                            ("thread" variable (:type "int") (reparse-symbol arg-sub-list) [874 885])
+                            ("timeout" variable (:type "int") (reparse-symbol arg-sub-list) [886 898]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [827 899]))                  
+                :type "class")
+                nil [433 902])
+            ("System" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [919 926])
+                    ("AutoRun" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :type "void")
+                        (reparse-symbol classsubparts) [928 950]))                  
+                :type "class")
+                nil [904 953]))          
+      :file "main.h"
+      :pointmax 954
+      :fsize 987
+      :lastmodtime '(22647 52722 496989 22000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("H_GRANDFATHER")
+          ("_WINSOCK_DEPRECATED_NO_WARNINGS")
+          ("_CRT_SECURE_NO_WARNINGS")
+          )
+)
+    (semanticdb-table "control.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("TargetInfo" type
+               (:members 
+                  ( ("num_tach" variable (:type "int") (reparse-symbol classsubparts) [25 38])
+                    ("type" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [40 57])
+                    ("host" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [59 76])
+                    ("port" variable (:type "int") (reparse-symbol classsubparts) [78 87])
+                    ("thread" variable (:type "int") (reparse-symbol classsubparts) [89 100])
+                    ("timeout" variable (:type "int") (reparse-symbol classsubparts) [102 114]))                  
+                :type "struct")
+                nil [1 117])
+            ("Task" function
+               (:prototype-flag t
+                :type "int")
+                nil [119 130]))          
+      :file "control.h"
+      :pointmax 131
+      :fsize 141
+      :lastmodtime '(22647 51030 743989 417000)
+      :unmatched-syntax nil)
+    (semanticdb-table "install_bot.h"
+      :file "install_bot.h"
+      :fsize 16
+      :lastmodtime '(22647 51080 625989 405000))
+    (semanticdb-table "install_bot.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("main.h" include nil nil [1 18])
+            ("instal" function (:type "void") nil [20 173]))          
+      :file "install_bot.cpp"
+      :pointmax 231
+      :fsize 241
+      :lastmodtime '(22647 51076 221989 406000)
+      :unmatched-syntax nil)
+
+
+    (semanticdb-table "socket.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("SOCKET_H" variable (:constant-flag t) nil [153 161]))          
+      :file "socket.h"
+      :pointmax 183
+      :fsize 182
+      :lastmodtime '(22649 2746 547990 119000)
+      :unmatched-syntax '((VOID 163 . 167))
+      :lexical-table 
+        '(("SOCKET_H")
+          )
+))
+  :file "!home!wrongway4you!Temp!qweqweqwe!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

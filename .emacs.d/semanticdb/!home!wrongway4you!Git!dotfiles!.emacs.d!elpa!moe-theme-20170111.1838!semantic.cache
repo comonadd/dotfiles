@@ -1,0 +1,16 @@
+;; Object moe-theme-20170111.1838/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "moe-theme-20170111.1838/"
+  :tables
+  (list
+    (semanticdb-table "moe-theme-autoloads.el"
+      :major-mode 'emacs-lisp-mode
+      :tags nil
+      :file "moe-theme-autoloads.el"
+      :pointmax 291
+      :fsize 471
+      :lastmodtime '(22653 48403 46559 56000)
+      :unmatched-syntax nil))
+  :file "!home!wrongway4you!Git!dotfiles!.emacs.d!elpa!moe-theme-20170111.1838!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

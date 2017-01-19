@@ -1,0 +1,1667 @@
+;; Object lib/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "lib/"
+  :tables
+  (list
+    (semanticdb-table "Makefile"
+      :major-mode 'makefile-gmake-mode
+      :tags 
+        '( ("STR_STREAM_OBJ" variable (:default-value ("$(LIB_OBJ_DIR)/str_stream.o")) nil [61 106])
+            ("STR_STREAM_NAME" variable (:default-value ("$(LIB_SRC_DIR)/str_stream.c")) nil [106 152])
+            ("XMAP_OBJ" variable (:default-value ("$(LIB_OBJ_DIR)/xmap.o")) nil [152 185])
+            ("XMAP_NAME" variable (:default-value ("$(LIB_SRC_DIR)/xmap.c")) nil [185 219])
+            ("XSTACK_OBJ" variable (:default-value ("$(LIB_OBJ_DIR)/xstack.o")) nil [219 256])
+            ("XSTACK_NAME" variable (:default-value ("$(LIB_SRC_DIR)/xstack.c")) nil [256 294])
+            ("XSTR_OBJ" variable (:default-value ("$(LIB_OBJ_DIR)/xstr.o")) nil [294 327])
+            ("XSTR_NAME" variable (:default-value ("$(LIB_SRC_DIR)/xstr.c")) nil [327 361])
+            ("XVEC_OBJ" variable (:default-value ("$(LIB_OBJ_DIR)/xvec.o")) nil [361 394])
+            ("XVEC_NAME" variable (:default-value ("$(LIB_SRC_DIR)/xvec.c")) nil [394 428])
+            ("XVEC_STREAM_OBJ" variable (:default-value ("$(LIB_OBJ_DIR)/xvec_stream.o")) nil [428 475])
+            ("XVEC_STREAM_NAME" variable (:default-value ("$(LIB_SRC_DIR)/xvec_stream.c")) nil [475 523])
+            ("LIB_NAME" variable (:default-value ("$(OBJ_DIR)/liblib.a")) nil [524 555])
+            ("LIB_OBJ" variable (:default-value ("$(OBJ_DIR)/liblib.o")) nil [555 585])
+            ("LIB_OBJ_FILES" variable (:default-value ("$(STR_STREAM_OBJ)" "$(XMAP_OBJ)" "$(XSTACK_OBJ)" "$(XSTR_OBJ)" "$(XVEC_OBJ)" "$(XVEC_STREAM_OBJ)")) nil [585 709])
+            ("all" function (:arguments ("$(LIB_NAME)")) nil [709 726])
+            ("$(LIB_NAME)" function (:arguments ("$(LIB_OBJ)")) nil [727 765])
+            ("$(LIB_OBJ)" function (:arguments ("$(LIB_OBJ_FILES)")) nil [766 811])
+            ("$(STR_STREAM_OBJ)" function (:arguments ("$(STR_STREAM_NAME)")) nil [812 880])
+            ("$(XMAP_OBJ)" function (:arguments ("$(XMAP_NAME)")) nil [881 937])
+            ("$(XSTACK_OBJ)" function (:arguments ("$(XSTACK_NAME)")) nil [938 998])
+            ("$(XSTR_OBJ)" function (:arguments ("$(XSTR_NAME)")) nil [999 1055])
+            ("$(XVEC_OBJ)" function (:arguments ("$(XVEC_NAME)")) nil [1056 1112])
+            ("$(XVEC_STREAM_OBJ)" function (:arguments ("$(XVEC_STREAM_NAME)")) nil [1113 1183]))          
+      :file "Makefile"
+      :pointmax 1183
+      :fsize 1182
+      :lastmodtime '(22635 59075 518598 360000)
+      :unmatched-syntax '((shell-command 1154 . 1182) (bol 1153 . 1153)))
+    (semanticdb-table "xmalloc.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("xmalloc.h" include nil nil [129 149])
+            ("stdio.h" include (:system-flag t) nil [151 169]))          
+      :file "xmalloc.c"
+      :pointmax 3688
+      :fsize 3687
+      :lastmodtime '(22635 50135 400481 529000)
+      :unmatched-syntax nil)
+    (semanticdb-table "xmalloc.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("XMALLOC_H" variable (:constant-flag t) nil [155 164])
+            ("stdlib.h" include (:system-flag t) nil [166 185])
+            ("xmalloc" variable (:constant-flag t) nil [387 394])
+            ("xmalloc" variable (:constant-flag t) nil [387 394])
+            ("xrealloc" variable (:constant-flag t) nil [426 434])
+            ("xfree" variable (:constant-flag t) nil [479 484]))          
+      :file "xmalloc.h"
+      :pointmax 850
+      :fsize 849
+      :lastmodtime '(22635 49971 943479 393000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("xrealloc" (spp-arg-list ("ptr" "size") 452 . 463) . ((symbol "realloc" 464 . 471) (semantic-list "((ptr), (size))" 471 . 486)))
+          ("xmalloc" (spp-arg-list ("size") 394 . 400) . ((symbol "malloc" 401 . 407) (semantic-list "((size))" 407 . 415)))
+          ("xfree" (spp-arg-list ("ptr") 502 . 507) . ((symbol "free" 508 . 512) (semantic-list "((ptr))" 512 . 519)))
+          ("XMALLOC_H")
+          )
+)
+    (semanticdb-table "types.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("TYPES_H" variable (:constant-flag t) nil [151 158])
+            ("stdlib.h" include (:system-flag t) nil [160 179])
+            ("stdint.h" include (:system-flag t) nil [180 199])
+            ("stdbool.h" include (:system-flag t) nil [200 220])
+            ("uint64" type
+               (:typedef ("uint64_t" type (:type "class") nil nil)
+                :type "typedef")
+                nil [222 246])
+            ("uint32" type
+               (:typedef ("uint32_t" type (:type "class") nil nil)
+                :type "typedef")
+                nil [247 271])
+            ("uint16" type
+               (:typedef ("uint16_t" type (:type "class") nil nil)
+                :type "typedef")
+                nil [272 296])
+            ("uint8" type
+               (:typedef ("uint8_t" type (:type "class") nil nil)
+                :type "typedef")
+                nil [297 319])
+            ("ByteSize" type
+               (:typedef ("size_t" type (:type "class") nil nil)
+                :type "typedef")
+                nil [320 344]))          
+      :file "types.h"
+      :pointmax 364
+      :fsize 363
+      :lastmodtime '(22635 49414 39472 102000)
+      :unmatched-syntax '((TYPEDEF 320 . 327) (punctuation 239 . 240) (BOOL 235 . 239) (BOOL 230 . 234) (TYPEDEF 222 . 229) (TYPEDEF 160 . 167))
+      :lexical-table 
+        '(("TYPES_H")
+          )
+)
+    (semanticdb-table "str_stream.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("lib/str_stream.h" include nil nil [132 159])
+            ("string.h" include (:system-flag t) nil [161 180])
+            ("lib/types.h" include nil nil [182 204])
+            ("str_stream_init" function
+               (:arguments 
+                  ( ("stream" variable
+                       (:pointer 1
+                        :type ("StringStream" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [232 266])
+                    ("data" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [271 294]))                  
+                :type "void")
+                nil [206 355])
+            ("str_stream_read" function
+               (:arguments 
+                  ( ("stream" variable
+                       (:pointer 1
+                        :type ("StringStream" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [383 417]))                  
+                :type "char")
+                nil [357 552])
+            ("str_stream_skip" function
+               (:arguments 
+                  ( ("stream" variable
+                       (:pointer 1
+                        :type ("StringStream" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [580 614]))                  
+                :type "void")
+                nil [554 694])
+            ("str_stream_skip_until" function
+               (:arguments 
+                  ( ("stream" variable
+                       (:pointer 1
+                        :type ("StringStream" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [728 756])
+                    ("f" function
+                       (:function-pointer t
+                        :arguments 
+                          ( ("" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [762 774]))                          
+                        :type "bool")
+                        nil nil))                  
+                :type "bool")
+                nil [696 909])
+            ("str_stream_skip_while" function
+               (:arguments 
+                  ( ("stream" variable
+                       (:pointer 1
+                        :type ("StringStream" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [943 971])
+                    ("f" function
+                       (:function-pointer t
+                        :arguments 
+                          ( ("" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [977 989]))                          
+                        :type "bool")
+                        nil nil))                  
+                :type "void")
+                nil [911 1055])
+            ("str_stream_lookahead" function
+               (:arguments 
+                  ( ("stream" variable
+                       (:pointer 1
+                        :type ("StringStream" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1088 1122]))                  
+                :type "char")
+                nil [1057 1169])
+            ("str_stream_get" function
+               (:pointer 1
+                :constant-flag t
+                :arguments 
+                  ( ("stream" variable
+                       (:pointer 1
+                        :type ("StringStream" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1209 1243]))                  
+                :type "char")
+                nil [1171 1272]))          
+      :file "str_stream.c"
+      :pointmax 1273
+      :fsize 1272
+      :lastmodtime '(22635 50294 575483 609000)
+      :unmatched-syntax nil)
+    (semanticdb-table "str_stream.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("STR_STREAM_H" variable (:constant-flag t) nil [161 173])
+            ("lib/types.h" include nil nil [175 197])
+            ("StringStream" type
+               (:members 
+                  ( ("len" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol classsubparts) [225 236])
+                    ("data" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol classsubparts) [241 258]))                  
+                :type "struct")
+                nil [199 261])
+            ("str_stream_init" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("stream" variable
+                       (:pointer 1
+                        :type ("StringStream" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [289 323])
+                    ("data" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [328 351]))                  
+                :type "void")
+                nil [263 352])
+            ("str_stream_read" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("stream" variable
+                       (:pointer 1
+                        :type ("StringStream" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [380 414]))                  
+                :type "char")
+                nil [354 415])
+            ("str_stream_skip" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("stream" variable
+                       (:pointer 1
+                        :type ("StringStream" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [443 477]))                  
+                :type "void")
+                nil [417 478])
+            ("str_stream_skip_until" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("stream" variable
+                       (:pointer 1
+                        :type ("StringStream" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [512 540])
+                    ("f" function
+                       (:function-pointer t
+                        :arguments 
+                          ( ("" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [550 562]))                          
+                        :type "bool")
+                        nil nil))                  
+                :type "bool")
+                nil [480 568])
+            ("str_stream_skip_while" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("stream" variable
+                       (:pointer 1
+                        :type ("StringStream" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [602 630])
+                    ("f" function
+                       (:function-pointer t
+                        :arguments 
+                          ( ("" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [640 652]))                          
+                        :type "bool")
+                        nil nil))                  
+                :type "void")
+                nil [570 658])
+            ("str_stream_lookahead" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("stream" variable
+                       (:pointer 1
+                        :type ("StringStream" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [691 725]))                  
+                :type "char")
+                nil [660 726])
+            ("str_stream_get" function
+               (:prototype-flag t
+                :pointer 1
+                :constant-flag t
+                :arguments 
+                  ( ("stream" variable
+                       (:pointer 1
+                        :type ("StringStream" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [766 800]))                  
+                :type "char")
+                nil [728 801]))          
+      :file "str_stream.h"
+      :pointmax 826
+      :fsize 825
+      :lastmodtime '(22635 51067 655493 712000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("STR_STREAM_H")
+          )
+)
+    (semanticdb-table "xstr.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("xstr.h" include nil nil [107 124])
+            ("ctype.h" include (:system-flag t) nil [126 144])
+            ("string.h" include (:system-flag t) nil [145 164])
+            ("lib/types.h" include nil nil [166 188])
+            ("lib/macros.h" include nil nil [189 212])
+            ("lib/xmalloc.h" include nil nil [213 237])
+            ("ALLOC_SIZE" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "64"
+                :type ("uint8" type (:type "class") nil nil))
+                nil [239 274])
+            ("xstr_alloc_more" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [364 382]))                  
+                :type "void")
+                nil [336 584])
+            ("xstr_init" function
+               (:arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [606 624])
+                    ("val" variable
+                       (:dereference 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [629 646]))                  
+                :type "void")
+                nil [586 940])
+            ("xstr_deinit" function
+               (:arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [959 977]))                  
+                :type "void")
+                nil [942 1164])
+            ("xstr_copy" function
+               (:pointer 1
+                :arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1192 1210]))                  
+                :type ("XString" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [1166 1459])
+            ("xstr_eq" function
+               (:arguments 
+                  ( ("s0" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1479 1504])
+                    ("s1" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1509 1534]))                  
+                :type "bool")
+                nil [1461 1803])
+            ("xstr_append_char" function
+               (:arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1832 1850])
+                    ("c" variable
+                       (:constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [1855 1868]))                  
+                :type "void")
+                nil [1805 2092])
+            ("xstr_append" function
+               (:arguments 
+                  ( ("dst" variable
+                       (:pointer 1
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2116 2136])
+                    ("src" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2141 2167]))                  
+                :type "void")
+                nil [2094 2592])
+            ("xstr_append_str" function
+               (:arguments 
+                  ( ("dst" variable
+                       (:pointer 1
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2620 2640])
+                    ("src" variable
+                       (:dereference 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [2645 2662]))                  
+                :type "void")
+                nil [2594 3090])
+            ("xstr_set_val" function
+               (:arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3115 3133])
+                    ("val" variable
+                       (:dereference 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [3138 3155]))                  
+                :type "void")
+                nil [3092 3660])
+            ("xstr_concat_str" function
+               (:arguments 
+                  ( ("src_0" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3688 3716])
+                    ("src_1" variable
+                       (:dereference 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [3721 3740])
+                    ("dst" variable
+                       (:pointer 1
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3745 3765]))                  
+                :type "void")
+                nil [3662 4312])
+            ("xstr_concat" function
+               (:arguments 
+                  ( ("src_0" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4336 4364])
+                    ("src_1" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4369 4397])
+                    ("dst" variable
+                       (:pointer 1
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4402 4422]))                  
+                :type "void")
+                nil [4314 4952])
+            ("xstr_at" function
+               (:arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4971 4995])
+                    ("pos" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5000 5011]))                  
+                :type "int")
+                nil [4954 5244])
+            ("xstr_clear" function
+               (:arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [5262 5280]))                  
+                :type "void")
+                nil [5246 5422]))          
+      :file "xstr.c"
+      :pointmax 5423
+      :fsize 5422
+      :lastmodtime '(22635 54615 7540 69000)
+      :unmatched-syntax nil)
+    (semanticdb-table "xstr.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("XSTR_H" variable (:constant-flag t) nil [130 136])
+            ("lib/types.h" include nil nil [138 160])
+            ("XString" type
+               (:members 
+                  ( ("len" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol classsubparts) [183 194])
+                    ("capacity" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol classsubparts) [199 215])
+                    ("val" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol classsubparts) [220 230])
+                    ("initialized" variable (:type ("uint8" type (:type "class") nil nil)) (reparse-symbol classsubparts) [235 253]))                  
+                :type "struct")
+                nil [162 256])
+            ("xstr_init" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [342 360])
+                    ("val" variable
+                       (:dereference 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [365 382]))                  
+                :type "void")
+                nil [322 383])
+            ("xstr_deinit" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [402 420]))                  
+                :type "void")
+                nil [385 421])
+            ("xstr_copy" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [449 467]))                  
+                :type ("XString" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [423 468])
+            ("xstr_eq" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("s0" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [545 570])
+                    ("s1" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [575 600]))                  
+                :type "bool")
+                nil [527 601])
+            ("xstr_append_char" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [667 685])
+                    ("c" variable
+                       (:constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [690 703]))                  
+                :type "void")
+                nil [640 704])
+            ("xstr_append" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("dst" variable
+                       (:pointer 1
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [771 791])
+                    ("src" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [796 822]))                  
+                :type "void")
+                nil [749 823])
+            ("xstr_append_str" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("dst" variable
+                       (:pointer 1
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [894 914])
+                    ("src" variable
+                       (:dereference 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [919 936]))                  
+                :type "void")
+                nil [868 937])
+            ("xstr_set_val" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1006 1024])
+                    ("val" variable
+                       (:dereference 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [1029 1046]))                  
+                :type "void")
+                nil [983 1047])
+            ("xstr_concat" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("src_0" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1135 1163])
+                    ("src_1" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1168 1196])
+                    ("dst" variable
+                       (:pointer 1
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1201 1221]))                  
+                :type "void")
+                nil [1113 1222])
+            ("xstr_concat_str" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("src_0" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1319 1347])
+                    ("src_1" variable
+                       (:dereference 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [1352 1371])
+                    ("dst" variable
+                       (:pointer 1
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1376 1396]))                  
+                :type "void")
+                nil [1293 1397])
+            ("xstr_at" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1548 1572])
+                    ("pos" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1577 1588]))                  
+                :type "int")
+                nil [1531 1589])
+            ("xstr_clear" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1631 1649]))                  
+                :type "void")
+                nil [1615 1650]))          
+      :file "xstr.h"
+      :pointmax 1669
+      :fsize 1668
+      :lastmodtime '(22635 54618 175540 110000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("XSTR_H")
+          )
+)
+    (semanticdb-table "macros.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("MACROS_H" variable (:constant-flag t) nil [153 161])
+            ("stdio.h" include (:system-flag t) nil [163 181])
+            ("platform/core.h" include nil nil [183 209])
+            ("ENTER_KC" variable (:constant-flag t) nil [219 227])
+            ("SPACE_CH" variable (:constant-flag t) nil [239 247])
+            ("CR_CH" variable (:constant-flag t) nil [260 265])
+            ("LF_CH" variable (:constant-flag t) nil [279 284])
+            ("SEMI_CH" variable (:constant-flag t) nil [298 305])
+            ("COMMA_CH" variable (:constant-flag t) nil [318 326])
+            ("LBRACKET_CH" variable (:constant-flag t) nil [339 350])
+            ("RBRACKET_CH" variable (:constant-flag t) nil [363 374])
+            ("LPAREN_CH" variable (:constant-flag t) nil [387 396])
+            ("RPAREN_CH" variable (:constant-flag t) nil [409 418])
+            ("LBRACE_CH" variable (:constant-flag t) nil [431 440])
+            ("RBRACE_CH" variable (:constant-flag t) nil [453 462])
+            ("PLUS_CH" variable (:constant-flag t) nil [475 482])
+            ("MINUS_CH" variable (:constant-flag t) nil [495 503])
+            ("STAR_CH" variable (:constant-flag t) nil [516 523])
+            ("SLASH_CH" variable (:constant-flag t) nil [536 544])
+            ("MODULUS_CH" variable (:constant-flag t) nil [557 567])
+            ("LT_CH" variable (:constant-flag t) nil [580 585])
+            ("GT_CH" variable (:constant-flag t) nil [598 603])
+            ("AMP_CH" variable (:constant-flag t) nil [616 622])
+            ("EXCLAM_CH" variable (:constant-flag t) nil [635 644])
+            ("PIPE_CH" variable (:constant-flag t) nil [657 664])
+            ("TILDA_CH" variable (:constant-flag t) nil [677 685])
+            ("CARET_CH" variable (:constant-flag t) nil [698 706])
+            ("EQ_CH" variable (:constant-flag t) nil [719 724])
+            ("AT_CH" variable (:constant-flag t) nil [737 742])
+            ("STR_END_CH" variable (:constant-flag t) nil [755 765])
+            ("QUOTE_CH" variable (:constant-flag t) nil [779 787])
+            ("TAB_CH" variable (:constant-flag t) nil [800 806])
+            ("STDIN_NAME" variable (:constant-flag t) nil [820 830])
+            ("KNRM" variable (:constant-flag t) nil [849 853])
+            ("KRED" variable (:constant-flag t) nil [873 877])
+            ("KGRN" variable (:constant-flag t) nil [898 902])
+            ("KYEL" variable (:constant-flag t) nil [923 927])
+            ("KBLU" variable (:constant-flag t) nil [948 952])
+            ("KMAG" variable (:constant-flag t) nil [973 977])
+            ("KCYN" variable (:constant-flag t) nil [998 1002])
+            ("KWHT" variable (:constant-flag t) nil [1023 1027])
+            ("KRESET" variable (:constant-flag t) nil [1048 1054])
+            ("PTR_SIZE" variable (:constant-flag t) nil [1073 1081])
+            ("CAST" variable (:constant-flag t) nil [1105 1109])
+            ("ASCII_DIGIT2NORMAL_DIGIT" variable (:constant-flag t) nil [1143 1167])
+            ("PRINT_STDERR" variable (:constant-flag t) nil [1215 1227])
+            ("PRINT_STDOUT" variable (:constant-flag t) nil [1262 1274])
+            ("GSH_STATIC" variable (:constant-flag t) nil [1459 1469])
+            ("PRINT_ERR_FATAL" variable (:constant-flag t) nil [1309 1324])
+            ("GSH_STATIC" variable (:constant-flag t) nil [1459 1469])
+            ("PRINT_ERR_FATAL" variable (:constant-flag t) nil [1309 1324])
+            ("GSH_STATIC" variable (:constant-flag t) nil [1459 1469])
+            ("PRINT_ERR_FATAL" variable (:constant-flag t) nil [1309 1324])
+            ("GSH_STATIC" variable (:constant-flag t) nil [1459 1469])
+            ("PRINT_ERR_FATAL" variable (:constant-flag t) nil [1309 1324])
+            ("GSH_STATIC" variable (:constant-flag t) nil [1459 1469])
+            ("PRINT_ERR_FATAL" variable (:constant-flag t) nil [1309 1324])
+            ("GSH_STATIC" variable (:constant-flag t) nil [1459 1469])
+            ("PRINT_ERR_FATAL" variable (:constant-flag t) nil [1309 1324])
+            ("GSH_STATIC" variable (:constant-flag t) nil [1459 1469])
+            ("PRINT_ERR_FATAL" variable (:constant-flag t) nil [1309 1324])
+            ("STREQ" variable (:constant-flag t) nil [1376 1381])
+            ("GSH_STATIC" variable (:constant-flag t) nil [1459 1469])
+            ("UNLIKELY" variable (:constant-flag t) nil [1501 1509])
+            ("DEV_ASSERT" variable (:constant-flag t) nil [2108 2118])
+            ("DEV_ASSERT_IF" variable (:constant-flag t) nil [2140 2153]))          
+      :file "macros.h"
+      :pointmax 2208
+      :fsize 2207
+      :lastmodtime '(22635 55933 263557 296000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("RBRACKET_CH" . ((string "']'" 379 . 382)))
+          ("TAB_CH" . ((string "'\\t'" 811 . 815)))
+          ("KRESET" . ((string "\"\\x1B[0m\"" 1059 . 1068)))
+          ("UNLIKELY" (spp-arg-list nil 1402 . 1404) . 
+              ((DO "do" 1405 . 1407) (semantic-list "{							\\
+	printf(\"[%s:%d] We shouldn't be here\\n\", __FILE__, __LINE__);	\\
+	gsh_exit();							\\
+    }" 1408 . 1509) (WHILE "while" 1510 . 1515) (semantic-list "(0)" 1516 . 1519) (punctuation ";" 1519 . 1520)))
+          ("MACROS_H")
+          ("TILDA_CH" . ((string "'~'" 690 . 693)))
+          ("KWHT" . ((string "\"\\x1B[37m\"" 1033 . 1043)))
+          ("MINUS_CH" . ((string "'-'" 508 . 511)))
+          ("KYEL" . ((string "\"\\x1B[33m\"" 933 . 943)))
+          ("ASCII_DIGIT2NORMAL_DIGIT" (spp-arg-list ("ASCII_DIGIT_CH") 1171 . 1187) . ((semantic-list "(ASCII_DIGIT_CH + '0')" 1188 . 1210)))
+          ("MODULUS_CH" . ((string "'%'" 572 . 575)))
+          ("PIPE_CH" . ((string "'|'" 669 . 672)))
+          ("AT_CH" . ((string "'@'" 747 . 750)))
+          ("SEMI_CH" . ((string "';'" 310 . 313)))
+          ("COMMA_CH" . ((string "','" 331 . 334)))
+          ("CARET_CH" . ((string "'^'" 711 . 714)))
+          ("QUOTE_CH" . ((string "'\"'" 792 . 795)))
+          ("SLASH_CH" . ((string "'/'" 549 . 552)))
+          ("PRINT_STDOUT" (spp-arg-list ("str") 1278 . 1283) . ((symbol "fputs" 1284 . 1289) (semantic-list "((str), stdout)" 1289 . 1304)))
+          ("ENTER_KC" . ((number "10" 232 . 234)))
+          ("CR_CH" . ((string "'\\n'" 270 . 274)))
+          ("LPAREN_CH" . ((string "'('" 401 . 404)))
+          ("PLUS_CH" . ((string "'+'" 487 . 490)))
+          ("EXCLAM_CH" . ((string "'!'" 649 . 652)))
+          ("STR_END_CH" . ((string "'\\0'" 770 . 774)))
+          ("KBLU" . ((string "\"\\x1B[34m\"" 958 . 968)))
+          ("KMAG" . ((string "\"\\x1B[35m\"" 983 . 993)))
+          ("PRINT_ERR_FATAL" (spp-arg-list ("msg") 1324 . 1329) . ((symbol "PRINT_STDERR" 1330 . 1342) (semantic-list "(\"[!] Fatal Error: \" msg)" 1342 . 1367)))
+          ("STREQ" (spp-arg-list ("s1" "s2") 1381 . 1389) . ((semantic-list "(strcmp(s1, s2) == 0)" 1390 . 1411)))
+          ("LBRACKET_CH" . ((string "'['" 355 . 358)))
+          ("STAR_CH" . ((string "'*'" 528 . 531)))
+          ("GT_CH" . ((string "'>'" 608 . 611)))
+          ("KNRM" . ((string "\"\\x1B[0m\"" 859 . 868)))
+          ("PTR_SIZE" . ((SIZEOF "sizeof" 1086 . 1092) (semantic-list "(void*)" 1092 . 1099)))
+          ("LF_CH" . ((string "'\\r'" 289 . 293)))
+          ("RPAREN_CH" . ((string "')'" 423 . 426)))
+          ("LBRACE_CH" . ((string "'{'" 445 . 448)))
+          ("AMP_CH" . ((string "'&'" 627 . 630)))
+          ("KRED" . ((string "\"\\x1B[31m\"" 883 . 893)))
+          ("KCYN" . ((string "\"\\x1B[36m\"" 1008 . 1018)))
+          ("PRINT_STDERR" (spp-arg-list ("str") 1231 . 1236) . ((symbol "fputs" 1237 . 1242) (semantic-list "((str), stderr)" 1242 . 1257)))
+          ("LT_CH" . ((string "'<'" 590 . 593)))
+          ("CAST" (spp-arg-list ("val" "type") 1113 . 1124) . ((semantic-list "((type)(val))" 1125 . 1138)))
+          ("PRINT")
+          ("SPACE_CH" . ((string "' '" 252 . 255)))
+          ("RBRACE_CH" . ((string "'}'" 467 . 470)))
+          ("STDIN_NAME" . ((string "\"<stdin>\"" 835 . 844)))
+          ("KGRN" . ((string "\"\\x1B[32m\"" 908 . 918)))
+          ("GSH_STATIC" . ((STATIC "static" 1470 . 1476)))
+          ("DEV_ASSERT" (spp-arg-list ("cond" "msg") 2011 . 2022))
+          ("DEV_ASSERT_IF" (spp-arg-list ("cond" "cond_if" "msg") 2046 . 2066))
+          ("EQ_CH" . ((string "'='" 729 . 732)))
+          )
+)
+    (semanticdb-table "xvec.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("XVEC_H" variable (:constant-flag t) nil [200 206])
+            ("lib/types.h" include nil nil [208 230])
+            ("XVector" type
+               (:members 
+                  ( ("capacity" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol classsubparts) [341 357])
+                    ("size" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol classsubparts) [362 374])
+                    ("elems" variable
+                       (:pointer 2
+                        :type "void")
+                        (reparse-symbol classsubparts) [379 392])
+                    ("initialized" variable (:type ("uint8" type (:type "class") nil nil)) (reparse-symbol classsubparts) [397 415]))                  
+                :type "struct")
+                nil [320 418])
+            ("xvec_init" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("v" variable
+                       (:pointer 1
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [435 453]))                  
+                :type "void")
+                nil [420 454])
+            ("xvec_deinit" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("v" variable
+                       (:pointer 1
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [473 491]))                  
+                :type "void")
+                nil [456 492])
+            ("xvec_clear" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("v" variable
+                       (:pointer 1
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [510 528]))                  
+                :type "void")
+                nil [494 529])
+            ("xvec_set" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("v" variable
+                       (:pointer 1
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [605 623])
+                    ("index" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [628 641])
+                    ("item" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [646 657]))                  
+                :type "void")
+                nil [586 658])
+            ("xvec_append" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("v" variable
+                       (:pointer 1
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [728 746])
+                    ("item" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [751 762]))                  
+                :type "void")
+                nil [706 763])
+            ("xvec_get" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("v" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [834 858])
+                    ("index" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [863 876]))                  
+                :type "void")
+                nil [814 877])
+            ("xvec_copy" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("src" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [955 981])
+                    ("dst" variable
+                       (:pointer 1
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [986 1006])
+                    ("n" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1011 1020]))                  
+                :type "void")
+                nil [935 1021]))          
+      :file "xvec.h"
+      :pointmax 1040
+      :fsize 1039
+      :lastmodtime '(22635 51093 759494 53000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("XVEC_H")
+          )
+)
+    (semanticdb-table "xmap.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("XMAP_H" variable (:constant-flag t) nil [193 199])
+            ("lib/types.h" include nil nil [201 223])
+            ("lib/xvec.h" include nil nil [224 245])
+            ("lib/xstr.h" include nil nil [246 267])
+            ("XMap" type
+               (:members 
+                  ( ("keys" variable (:type ("XVector" type
+                         (:prototype t
+                          :type "struct")
+                          nil nil)) (reparse-symbol classsubparts) [287 307])
+                    ("vals" variable (:type ("XVector" type
+                         (:prototype t
+                          :type "struct")
+                          nil nil)) (reparse-symbol classsubparts) [312 332])
+                    ("initialized" variable (:type ("uint8" type (:type "class") nil nil)) (reparse-symbol classsubparts) [337 355]))                  
+                :type "struct")
+                nil [269 358])
+            ("xmap_init" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable
+                       (:pointer 1
+                        :type ("XMap" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [375 388]))                  
+                :type "void")
+                nil [360 389])
+            ("xmap_deinit" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable
+                       (:pointer 1
+                        :type ("XMap" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [408 421]))                  
+                :type "void")
+                nil [391 422])
+            ("xmap_get" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("m" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XMap" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [568 589])
+                    ("key" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [594 620]))                  
+                :type "void")
+                nil [548 621])
+            ("xmap_set" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("m" variable
+                       (:pointer 1
+                        :type ("XMap" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [695 710])
+                    ("key" variable
+                       (:pointer 1
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [715 735])
+                    ("val" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [740 750]))                  
+                :type "void")
+                nil [676 751]))          
+      :file "xmap.h"
+      :pointmax 770
+      :fsize 769
+      :lastmodtime '(22635 50312 711483 846000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("XMAP_H")
+          )
+)
+    (semanticdb-table "xmap.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("lib/xmap.h" include nil nil [172 193])
+            ("lib/types.h" include nil nil [195 217])
+            ("lib/macros.h" include nil nil [218 241])
+            ("lib/xmalloc.h" include nil nil [242 266])
+            ("lib/xvec.h" include nil nil [267 288])
+            ("lib/xstr.h" include nil nil [289 310])
+            ("xmap_init" function
+               (:arguments 
+                  ( ("m" variable
+                       (:pointer 1
+                        :type ("XMap" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [327 342]))                  
+                :type "void")
+                nil [312 456])
+            ("xmap_deinit" function
+               (:arguments 
+                  ( ("m" variable
+                       (:pointer 1
+                        :type ("XMap" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [475 490]))                  
+                :type "void")
+                nil [458 670])
+            ("xmap_get" function
+               (:pointer 1
+                :arguments 
+                  ( ("m" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XMap" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [692 713])
+                    ("key" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [718 744]))                  
+                :type "void")
+                nil [672 1085])
+            ("xmap_set" function
+               (:arguments 
+                  ( ("m" variable
+                       (:pointer 1
+                        :type ("XMap" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1106 1121])
+                    ("key" variable
+                       (:pointer 1
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1126 1146])
+                    ("val" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [1151 1161]))                  
+                :type "void")
+                nil [1087 1634]))          
+      :file "xmap.c"
+      :pointmax 1635
+      :fsize 1634
+      :lastmodtime '(22635 50565 575487 150000)
+      :unmatched-syntax nil)
+    (semanticdb-table "xstack.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("XSTACK_H" variable (:constant-flag t) nil [134 142])
+            ("lib/types.h" include nil nil [144 166])
+            ("XStack" type
+               (:members 
+                  ( ("capacity" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol classsubparts) [188 204])
+                    ("size" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol classsubparts) [209 221])
+                    ("elems" variable
+                       (:pointer 2
+                        :type "void")
+                        (reparse-symbol classsubparts) [226 239])
+                    ("initialized" variable (:type ("uint8" type (:type "class") nil nil)) (reparse-symbol classsubparts) [244 262]))                  
+                :type "struct")
+                nil [168 265])
+            ("xstack_init" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type ("XStack" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [284 301]))                  
+                :type "void")
+                nil [267 302])
+            ("xstack_deinit" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type ("XStack" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [323 340]))                  
+                :type "void")
+                nil [304 341])
+            ("xstack_pop" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type ("XStack" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [360 377]))                  
+                :type "void")
+                nil [343 378])
+            ("xstack_push" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type ("XStack" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [402 419])
+                    ("item" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [424 435]))                  
+                :type "void")
+                nil [380 436])
+            ("xstack_top" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type ("XStack" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [455 472]))                  
+                :type "void")
+                nil [438 473]))          
+      :file "xstack.h"
+      :pointmax 494
+      :fsize 493
+      :lastmodtime '(22635 51082 271493 903000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("XSTACK_H")
+          )
+)
+    (semanticdb-table "xstack.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("lib/xstack.h" include nil nil [109 132])
+            ("lib/types.h" include nil nil [134 156])
+            ("lib/macros.h" include nil nil [157 180])
+            ("lib/xmalloc.h" include nil nil [181 205])
+            ("ALLOC_SIZE" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "64"
+                :type ("uint8" type (:type "class") nil nil))
+                nil [207 242])
+            ("xstack_alloc_more" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type ("XStack" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [274 291]))                  
+                :type "void")
+                nil [244 498])
+            ("xstack_init" function
+               (:arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type ("XStack" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [517 534]))                  
+                :type "void")
+                nil [500 693])
+            ("xstack_deinit" function
+               (:arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type ("XStack" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [714 731]))                  
+                :type "void")
+                nil [695 878])
+            ("xstack_pop" function
+               (:pointer 1
+                :arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type ("XStack" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [897 914]))                  
+                :type "void")
+                nil [880 1187])
+            ("xstack_push" function
+               (:arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type ("XStack" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1211 1228])
+                    ("elem" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [1233 1244]))                  
+                :type "void")
+                nil [1189 1479])
+            ("xstack_top" function
+               (:pointer 1
+                :arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type ("XStack" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1498 1515]))                  
+                :type "void")
+                nil [1481 1761]))          
+      :file "xstack.c"
+      :pointmax 1762
+      :fsize 1761
+      :lastmodtime '(22635 50810 719490 354000)
+      :unmatched-syntax nil)
+    (semanticdb-table "xvec.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("lib/xvec.h" include nil nil [179 200])
+            ("lib/types.h" include nil nil [202 224])
+            ("lib/macros.h" include nil nil [225 248])
+            ("lib/xmalloc.h" include nil nil [249 273])
+            ("ALLOC_SIZE" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "64"
+                :type ("uint8" type (:type "class") nil nil))
+                nil [275 310])
+            ("xvec_alloc_more" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("v" variable
+                       (:pointer 1
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [340 358]))                  
+                :type "void")
+                nil [312 565])
+            ("xvec_init" function
+               (:arguments 
+                  ( ("v" variable
+                       (:pointer 1
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [582 600]))                  
+                :type "void")
+                nil [567 767])
+            ("xvec_deinit" function
+               (:arguments 
+                  ( ("v" variable
+                       (:pointer 1
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [786 804]))                  
+                :type "void")
+                nil [769 951])
+            ("xvec_clear" function
+               (:arguments 
+                  ( ("v" variable
+                       (:pointer 1
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [969 987]))                  
+                :type "void")
+                nil [953 1102])
+            ("xvec_set" function
+               (:arguments 
+                  ( ("v" variable
+                       (:pointer 1
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1123 1141])
+                    ("index" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1146 1159])
+                    ("item" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [1164 1175]))                  
+                :type "void")
+                nil [1104 1445])
+            ("xvec_append" function
+               (:arguments 
+                  ( ("v" variable
+                       (:pointer 1
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1469 1487])
+                    ("item" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [1492 1503]))                  
+                :type "void")
+                nil [1447 1742])
+            ("xvec_get" function
+               (:pointer 1
+                :arguments 
+                  ( ("v" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1764 1788])
+                    ("index" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1793 1806]))                  
+                :type "void")
+                nil [1744 2026])
+            ("xvec_copy" function
+               (:arguments 
+                  ( ("src" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2048 2074])
+                    ("dst" variable
+                       (:pointer 1
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2079 2099])
+                    ("n" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2104 2113]))                  
+                :type "void")
+                nil [2028 2526]))          
+      :file "xvec.c"
+      :pointmax 2527
+      :fsize 2526
+      :lastmodtime '(22635 54634 639540 326000)
+      :unmatched-syntax nil)
+    (semanticdb-table "xvec_stream.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("xvec_stream.h" include nil nil [133 157])
+            ("types.h" include nil nil [159 177])
+            ("xvec.h" include nil nil [178 195])
+            ("xvec_stream_init" function
+               (:arguments 
+                  ( ("stream" variable
+                       (:pointer 1
+                        :type ("XVectorStream" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [224 253])
+                    ("vec" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [258 290])
+                    ("end" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [295 317]))                  
+                :type "void")
+                nil [197 388])
+            ("xvec_stream_read" function
+               (:pointer 1
+                :arguments 
+                  ( ("stream" variable
+                       (:pointer 1
+                        :type ("XVectorStream" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [424 459]))                  
+                :type "void")
+                nil [390 596])
+            ("xvec_stream_skip" function
+               (:arguments 
+                  ( ("stream" variable
+                       (:pointer 1
+                        :type ("XVectorStream" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [625 660]))                  
+                :type "void")
+                nil [598 683])
+            ("xvec_stream_get" function
+               (:pointer 1
+                :arguments 
+                  ( ("stream" variable
+                       (:pointer 1
+                        :type ("XVectorStream" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [718 753]))                  
+                :type "void")
+                nil [685 867])
+            ("xvec_stream_lookahead" function
+               (:pointer 1
+                :arguments 
+                  ( ("stream" variable
+                       (:pointer 1
+                        :type ("XVectorStream" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [908 943]))                  
+                :type "void")
+                nil [869 1065]))          
+      :file "xvec_stream.c"
+      :pointmax 1066
+      :fsize 1065
+      :lastmodtime '(22635 54457 447538 10000)
+      :unmatched-syntax nil)
+    (semanticdb-table "xvec_stream.h"
+      :file "xvec_stream.h"
+      :fsize 999
+      :lastmodtime '(22634 31160 148299 597000)))
+  :file "!home!wrongway4you!Projects!gsh!lib!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

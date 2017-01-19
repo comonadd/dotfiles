@@ -1,0 +1,55 @@
+;; Object .emacs.d/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file ".emacs.d/"
+  :tables
+  (list
+    (semanticdb-table "init.el"
+      :major-mode 'emacs-lisp-mode
+      :tags 
+        '( ("package-initialize" code nil nil [98 118])
+            ("package-refresh-contents" code nil nil [119 145])
+            ("setq" code nil nil [183 211])
+            ("setq" code nil nil [212 240])
+            ("setq" code nil nil [241 276])
+            ("set-language-environment" code nil nil [290 323])
+            ("setq" code nil nil [324 363])
+            ("setq-default" code nil nil [364 408])
+            ("setq" code nil nil [409 446])
+            ("set-selection-coding-system" code nil nil [447 483])
+            ("set-keyboard-coding-system" code nil nil [484 524])
+            ("set-terminal-coding-system" code nil nil [525 560])
+            ("prefer-coding-system" code nil nil [561 590])
+            ("setq" code nil nil [614 634])
+            ("setq" code nil nil [635 658])
+            ("setq" code nil nil [659 693])
+            ("defalias" code nil nil [713 746])
+            ("setq" code nil nil [755 780])
+            ("setq" code nil nil [804 838])
+            ("global-ede-mode" code nil nil [847 866])
+            ("setq" code nil nil [868 921])
+            ("c-set-offset" code nil nil [922 953])
+            ("c-set-offset" code nil nil [954 983])
+            ("setq" code nil nil [984 1007])
+            ("setq" code nil nil [1008 1038])
+            ("setq" code nil nil [1039 1065])
+            ("setq" code nil nil [1066 1099])
+            ("setq" code nil nil [1100 1130])
+            ("show-paren-mode" code nil nil [1131 1150])
+            ("setq" code nil nil [1151 1178])
+            ("add-to-list" code nil nil [1180 1251])
+            ("util" include nil nil [1252 1267])
+            ("appearance" include nil nil [1268 1289])
+            ("packages" include nil nil [1290 1309])
+            ("hooks" include nil nil [1310 1326])
+            ("keybindings" include nil nil [1327 1349])
+            ("split-window-horizontally" code nil nil [1351 1378])
+            ("custom-set-variables" code nil nil [1459 6894])
+            ("custom-set-faces" code nil nil [6895 7134]))          
+      :file "init.el"
+      :pointmax 7135
+      :fsize 7134
+      :lastmodtime '(22653 49835 730427 34000)
+      :unmatched-syntax nil))
+  :file "!home!wrongway4you!Git!dotfiles!.emacs.d!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

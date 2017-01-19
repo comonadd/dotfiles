@@ -1,0 +1,138 @@
+;; Object modules/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "modules/"
+  :tables
+  (list
+    (semanticdb-table "math.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("shell/interpreter/modules/math.h" include nil nil [157 200])
+            ("shell/interpreter/api.h" include nil nil [202 236])
+            ("shell/interpreter/object/object.h" include nil nil [237 281])
+            ("module_math_abs" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("es" variable
+                       (:pointer 1
+                        :type ("ExecutorState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [329 354])
+                    ("args" variable
+                       (:pointer 1
+                        :type ("CallArguments" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [359 379]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [283 581])
+            ("module_math_open" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [606 634]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [583 1096]))          
+      :file "math.c"
+      :pointmax 1097
+      :fsize 1096
+      :lastmodtime '(22647 21642 655996 285000)
+      :unmatched-syntax nil)
+    (semanticdb-table "math.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("MATH_H" variable (:constant-flag t) nil [180 186])
+            ("lib/types.h" include nil nil [188 210])
+            ("module_math_open" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [235 240]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [212 241]))          
+      :file "math.h"
+      :pointmax 260
+      :fsize 259
+      :lastmodtime '(22647 20734 871996 497000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("MATH_H")
+          )
+)
+    (semanticdb-table "io.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("IO_H" variable (:constant-flag t) nil [145 149])
+            ("lib/types.h" include nil nil [151 173])
+            ("module_io_load" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [196 224]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [175 225]))          
+      :file "io.h"
+      :pointmax 242
+      :fsize 241
+      :lastmodtime '(22647 23903 24995 757000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("IO_H")
+          )
+)
+    (semanticdb-table "io.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("io.h" include nil nil [124 139])
+            ("shell/interpreter/api.h" include nil nil [141 175])
+            ("shell/interpreter/object/object.h" include nil nil [176 220])
+            ("module_io_print" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("es" variable
+                       (:pointer 1
+                        :type ("ExecutorState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [268 293])
+                    ("args" variable
+                       (:pointer 1
+                        :type ("CallArguments" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [298 318]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [222 654])
+            ("module_io_load" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [677 705]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [656 968]))          
+      :file "io.c"
+      :pointmax 969
+      :fsize 968
+      :lastmodtime '(22647 21855 863996 235000)
+      :unmatched-syntax nil))
+  :file "!home!wrongway4you!Projects!gsh!src!shell!interpreter!modules!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

@@ -1,0 +1,43 @@
+;; Object lib/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "lib/"
+  :tables
+  (list
+    (semanticdb-table "bit.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("bit.h" include nil nil [125 141])
+            ("stdint.h" include (:system-flag t) nil [143 162])
+            ("stdio.h" include (:system-flag t) nil [163 181])
+            ("assert.h" include (:system-flag t) nil [182 201])
+            ("main" function
+               (:arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [212 217]))                  
+                :type "int")
+                nil [203 701]))          
+      :file "bit.c"
+      :pointmax 702
+      :fsize 701
+      :lastmodtime '(22643 43270 156325 905000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("UNUSED" (spp-arg-list ("a") 247 . 250) . ((semantic-list "(void)" 251 . 257) (symbol "a" 257 . 258)))
+          ("CAST" (spp-arg-list ("a" "type") 215 . 224) . ((semantic-list "(type)" 225 . 231) (symbol "a" 231 . 232)))
+          )
+)
+    (semanticdb-table "bit.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("BIT_H" variable (:constant-flag t) nil [147 152]))          
+      :file "bit.h"
+      :pointmax 172
+      :fsize 171
+      :lastmodtime '(22643 36104 754986 200000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("BIT_H")
+          )
+))
+  :file "!home!wrongway4you!Temp!lib!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

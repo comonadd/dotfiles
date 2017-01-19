@@ -1,0 +1,31 @@
+;; Object bsearch/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "bsearch/"
+  :tables
+  (list
+    (semanticdb-table "main.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("bsearch" function
+               (:arguments 
+                  ( ("arr" variable
+                       (:dereference 1
+                        :type "int")
+                        (reparse-symbol arg-sub-list) [158 168])
+                    ("size" variable (:type "int") (reparse-symbol arg-sub-list) [169 178])
+                    ("val" variable (:type "int") (reparse-symbol arg-sub-list) [179 187]))                  
+                :type "int")
+                nil [146 389])
+            ("main" function
+               (:arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [400 405]))                  
+                :type "int")
+                nil [391 820]))          
+      :file "main.c"
+      :pointmax 821
+      :fsize 820
+      :lastmodtime '(22639 37910 134397 846000)
+      :unmatched-syntax nil))
+  :file "!home!wrongway4you!Learning!algorithms_and_ds!bsearch!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

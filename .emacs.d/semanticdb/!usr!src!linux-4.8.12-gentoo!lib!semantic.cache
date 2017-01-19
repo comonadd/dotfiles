@@ -1,0 +1,511 @@
+;; Object lib/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "lib/"
+  :tables
+  (list
+    (semanticdb-table "assoc_array.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("linux/rcupdate.h" include (:system-flag t) nil [488 515])
+            ("linux/slab.h" include (:system-flag t) nil [516 539])
+            ("linux/err.h" include (:system-flag t) nil [540 562])
+            ("linux/assoc_array_priv.h" include (:system-flag t) nil [563 598])
+            ("assoc_array_subtree_iterate" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("root" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("assoc_array_ptr" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [738 773])
+                    ("stop" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("assoc_array_ptr" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [785 820])
+                    ("iterator" function
+                       (:function-pointer t
+                        :arguments 
+                          ( ("leaf" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [848 865])
+                            ("iterator_data" variable
+                               (:pointer 1
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [879 899]))                          
+                        :type "int")
+                        nil nil)
+                    ("iterator_data" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [912 932]))                  
+                :type "int")
+                nil [699 3504])
+            ("assoc_array_iterate" function
+               (:arguments 
+                  ( ("array" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("assoc_array" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4548 4580])
+                    ("iterator" function
+                       (:function-pointer t
+                        :arguments 
+                          ( ("object" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [4600 4619])
+                            ("iterator_data" variable
+                               (:pointer 1
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [4625 4645]))                          
+                        :type "int")
+                        nil nil)
+                    ("iterator_data" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [4650 4670]))                  
+                :type "int")
+                nil [4524 4831])
+            ("assoc_array_walk_status" type
+               (:members 
+                  ( ("assoc_array_walk_tree_empty" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [4865 4893])
+                    ("assoc_array_walk_found_terminal_node" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [4895 4932])
+                    ("assoc_array_walk_found_wrong_shortcut" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [4934 4972]))                  
+                :type "enum")
+                nil [4833 4975])
+            ("assoc_array_walk_result" type
+               (:members 
+                  ( ("terminal_node" variable (:type ("" type
+                         (:members 
+                            ( ("node" variable
+                                 (:pointer 1
+                                  :type ("assoc_array_node" type
+                                       (:prototype t
+                                        :type "struct")
+                                        nil nil))
+                                  (reparse-symbol classsubparts) [5022 5052])
+                              ("level" variable (:type "int") (reparse-symbol classsubparts) [5095 5106])
+                              ("slot" variable (:type "int") (reparse-symbol classsubparts) [5109 5119]))                            
+                          :type "struct")
+                          nil nil)) (reparse-symbol classsubparts) [5011 5137])
+                    ("wrong_shortcut" variable (:type ("" type
+                         (:members 
+                            ( ("shortcut" variable
+                                 (:pointer 1
+                                  :type ("assoc_array_shortcut" type
+                                       (:prototype t
+                                        :type "struct")
+                                        nil nil))
+                                  (reparse-symbol classsubparts) [5150 5188])
+                              ("level" variable (:type "int") (reparse-symbol classsubparts) [5191 5202])
+                              ("sc_level" variable (:type "int") (reparse-symbol classsubparts) [5205 5219])
+                              ("sc_segments" variable (:type "unsigned long") (reparse-symbol classsubparts) [5222 5248])
+                              ("dissimilarity" variable (:type "unsigned long") (reparse-symbol classsubparts) [5251 5279]))                            
+                          :type "struct")
+                          nil nil)) (reparse-symbol classsubparts) [5139 5298]))                  
+                :type "struct")
+                nil [4977 5301])
+            ("assoc_array_walk" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("array" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("assoc_array" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [5442 5474])
+                    ("ops" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("assoc_array_ops" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [5478 5512])
+                    ("index_key" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [5516 5538])
+                    ("result" variable
+                       (:pointer 1
+                        :type ("assoc_array_walk_result" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [5542 5581]))                  
+                :type ("assoc_array_walk_status" type (:type "enum") nil nil))
+                nil [5389 9527])
+            ("assoc_array_find" function
+               (:pointer 1
+                :arguments 
+                  ( ("array" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("assoc_array" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [10018 10050])
+                    ("ops" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("assoc_array_ops" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [10060 10094])
+                    ("index_key" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [10104 10126]))                  
+                :type "void")
+                nil [9995 11017])
+            ("assoc_array_destroy_subtree" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("root" variable
+                       (:pointer 1
+                        :type ("assoc_array_ptr" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [11175 11204])
+                    ("ops" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("assoc_array_ops" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [11210 11244]))                  
+                :type "void")
+                nil [11135 13252])
+            ("assoc_array_destroy" function
+               (:arguments 
+                  ( ("array" variable
+                       (:pointer 1
+                        :type ("assoc_array" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [13816 13842])
+                    ("ops" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("assoc_array_ops" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [13847 13881]))                  
+                :type "void")
+                nil [13791 13954])
+            ("assoc_array_insert_in_empty_tree" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("edit" variable
+                       (:pointer 1
+                        :type ("assoc_array_edit" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [14048 14078]))                  
+                :type "bool")
+                nil [14003 14525])
+            ("assoc_array_insert_into_terminal_node" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("edit" variable
+                       (:pointer 1
+                        :type ("assoc_array_edit" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [14626 14656])
+                    ("ops" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("assoc_array_ops" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [14665 14699])
+                    ("index_key" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [14708 14730])
+                    ("result" variable
+                       (:pointer 1
+                        :type ("assoc_array_walk_result" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [14739 14778]))                  
+                :type "bool")
+                nil [14576 25791])
+            ("assoc_array_insert_mid_shortcut" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("edit" variable
+                       (:pointer 1
+                        :type ("assoc_array_edit" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [25895 25925])
+                    ("ops" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("assoc_array_ops" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [25935 25969])
+                    ("result" variable
+                       (:pointer 1
+                        :type ("assoc_array_walk_result" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [25979 26018]))                  
+                :type "bool")
+                nil [25851 31217])
+            ("assoc_array_insert" function
+               (:pointer 1
+                :arguments 
+                  ( ("array" variable
+                       (:pointer 1
+                        :type ("assoc_array" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [32011 32037])
+                    ("ops" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("assoc_array_ops" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [32047 32081])
+                    ("index_key" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [32091 32113])
+                    ("object" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [32123 32136]))                  
+                :type ("assoc_array_edit" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [31967 33668])
+            ("assoc_array_insert_set_object" function
+               (:arguments 
+                  ( ("edit" variable
+                       (:pointer 1
+                        :type ("assoc_array_edit" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [34037 34067])
+                    ("object" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [34068 34081]))                  
+                :type "void")
+                nil [34002 34150])
+            ("assoc_array_delete_collapse_context" type
+               (:members 
+                  ( ("node" variable
+                       (:pointer 1
+                        :type ("assoc_array_node" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [34198 34228])
+                    ("skip_leaf" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [34230 34253])
+                    ("slot" variable (:type "int") (reparse-symbol classsubparts) [34255 34266]))                  
+                :type "struct")
+                nil [34152 34269])
+            ("assoc_array_delete_collapse_iterator" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("leaf" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [34364 34381])
+                    ("iterator_data" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [34388 34408]))                  
+                :type "int")
+                nil [34316 34665])
+            ("assoc_array_delete" function
+               (:pointer 1
+                :arguments 
+                  ( ("array" variable
+                       (:pointer 1
+                        :type ("assoc_array" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [35467 35493])
+                    ("ops" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("assoc_array_ops" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [35503 35537])
+                    ("index_key" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [35547 35569]))                  
+                :type ("assoc_array_edit" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [35423 40675])
+            ("assoc_array_clear" function
+               (:pointer 1
+                :arguments 
+                  ( ("array" variable
+                       (:pointer 1
+                        :type ("assoc_array" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [41464 41490])
+                    ("ops" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("assoc_array_ops" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [41499 41533]))                  
+                :type ("assoc_array_edit" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [41421 41955])
+            ("assoc_array_rcu_cleanup" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("head" variable
+                       (:pointer 1
+                        :type ("rcu_head" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [42058 42080]))                  
+                :type "void")
+                nil [42022 42946])
+            ("assoc_array_apply_edit" function
+               (:arguments 
+                  ( ("edit" variable
+                       (:pointer 1
+                        :type ("assoc_array_edit" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [43529 43559]))                  
+                :type "void")
+                nil [43501 44840])
+            ("assoc_array_cancel_edit" function
+               (:arguments 
+                  ( ("edit" variable
+                       (:pointer 1
+                        :type ("assoc_array_edit" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [45245 45275]))                  
+                :type "void")
+                nil [45216 45642])
+            ("assoc_array_gc" function
+               (:arguments 
+                  ( ("array" variable
+                       (:pointer 1
+                        :type ("assoc_array" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [46707 46733])
+                    ("ops" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("assoc_array_ops" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [46739 46773])
+                    ("iterator" function
+                       (:function-pointer t
+                        :arguments 
+                          ( ("object" variable
+                               (:pointer 1
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [46796 46809])
+                            ("iterator_data" variable
+                               (:pointer 1
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [46810 46830]))                          
+                        :type "bool")
+                        nil nil)
+                    ("iterator_data" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [46837 46857]))                  
+                :type "int")
+                nil [46688 53883]))          
+      :file "assoc_array.c"
+      :pointmax 53884
+      :fsize 53883
+      :lastmodtime '(22513 38705 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "assoc_array.h"
+      :major-mode 'c-mode
+      :tags nil
+      :file "assoc_array.h"
+      :pointmax 1
+      :unmatched-syntax nil))
+  :file "!usr!src!linux-4.8.12-gentoo!lib!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

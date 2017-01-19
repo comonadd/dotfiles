@@ -1,0 +1,78 @@
+;; Object set/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "set/"
+  :tables
+  (list
+    (semanticdb-table "main.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("stdlib.h" include (:system-flag t) nil [126 145])
+            ("stdbool.h" include (:system-flag t) nil [146 166])
+            ("stdint.h" include (:system-flag t) nil [167 186])
+            ("stdio.h" include (:system-flag t) nil [187 205])
+            ("Set" type
+               (:members 
+                  ( ("bitfield" variable (:type "int") (reparse-symbol classsubparts) [224 237])
+                    ("size" variable (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [242 256]))                  
+                :type "struct")
+                nil [207 259])
+            ("set_init" function
+               (:arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type ("Set" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [275 289]))                  
+                :type "void")
+                nil [261 331])
+            ("set_contains" function
+               (:arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type ("Set" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [351 365])
+                    ("val" variable (:type "int") (reparse-symbol arg-sub-list) [366 374]))                  
+                :type "bool")
+                nil [333 450])
+            ("set_insert" function
+               (:arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type ("Set" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [468 482])
+                    ("val" variable (:type "int") (reparse-symbol arg-sub-list) [483 491]))                  
+                :type "void")
+                nil [452 579])
+            ("set_remove" function
+               (:arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type ("Set" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [597 611])
+                    ("val" variable (:type "int") (reparse-symbol arg-sub-list) [612 620]))                  
+                :type "void")
+                nil [581 710])
+            ("main" function
+               (:arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [721 726]))                  
+                :type "int")
+                nil [712 1223]))          
+      :file "main.c"
+      :pointmax 1224
+      :fsize 1223
+      :lastmodtime '(22639 51798 991117 983000)
+      :unmatched-syntax nil))
+  :file "!home!wrongway4you!Learning!algorithms_and_ds!set!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

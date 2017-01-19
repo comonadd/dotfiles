@@ -11,22 +11,26 @@
 (setq use-dialog-box nil)
 (set-fringe-mode 0)
 
+;; Font
 (require 'font-lock)
 (global-font-lock-mode t)
 (setq font-lock-maximum-decoration t)
 
+(add-to-list 'default-frame-alist '(font . "Mono-10"))
+(set-face-attribute 'default t :font "Mono-10")
+
 (setq search-highlight t)
 (setq query-replace-highlight t)
 
-;; Bright-red TODOs
+;; Bright-red TODOs and green NOTEs
 (setq fixme-modes '(c++-mode c-mode emacs-lisp-mode))
 (make-face 'font-lock-fixme-face)
 (make-face 'font-lock-note-face)
 (mapc (lambda (mode)
-          (font-lock-add-keywords
-           mode
-           '(("\\<\\(TODO\\)" 1 'font-lock-fixme-face t)
-             ("\\<\\(NOTE\\)" 1 'font-lock-note-face t))))
+	  (font-lock-add-keywords
+	   mode
+	   '(("\\<\\(TODO\\)" 1 'font-lock-fixme-face t)
+	     ("\\<\\(NOTE\\)" 1 'font-lock-note-face t))))
       fixme-modes)
 (modify-face 'font-lock-fixme-face "Red" nil nil t nil t nil nil)
 (modify-face 'font-lock-note-face "Dark Green" nil nil t nil t nil nil)

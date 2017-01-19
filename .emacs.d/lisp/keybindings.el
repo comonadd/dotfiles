@@ -41,6 +41,8 @@
 (global-set-key (kbd "C-/") 'toggle-comment-region-or-line)
 (global-set-key (kbd "<backtab>") 'indent-for-tab-command)
 (global-set-key (kbd "C-i") 'quoted-insert)
+(global-set-key (kbd "C-<backspace>") 'backward-kill-word)
+(global-set-key (kbd "C-<delete>") 'forward-kill-word)
 
 ;; Refactoring
 (global-set-key (kbd "C-S-r") 'query-replace-in-project)

@@ -1,0 +1,51 @@
+;; Object examples/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "examples/"
+  :tables
+  (list
+    (semanticdb-table "example_basic.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("sil.h" include nil nil [135 151])
+            ("stdio.h" include (:system-flag t) nil [153 171])
+            ("main" function
+               (:arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [182 187]))                  
+                :type "int")
+                nil [173 409]))          
+      :file "example_basic.c"
+      :pointmax 410
+      :fsize 409
+      :lastmodtime '(22655 7763 615270 296000)
+      :unmatched-syntax nil)
+    (semanticdb-table "Makefile"
+      :major-mode 'makefile-gmake-mode
+      :tags 
+        '( ("SRC" variable (:default-value ("$(shell find . -type f -name '*.c')")) nil [36 79])
+            ("OBJ" variable (:default-value ("$(SRC:.c=.o)")) nil [79 99])
+            ("EXAMPLES" variable (:default-value ("$(BASIC_EXAMPLE_NAME)")) nil [100 137])
+            ("BASIC_EXAMPLE_OBJ" variable (:default-value ("example_basic.o")) nil [202 239])
+            ("all" function (:arguments ("$(LIB_NAME)" "$(EXAMPLES)")) nil [342 371])
+            ("$(BASIC_EXAMPLE_NAME)" function (:arguments ("$(BASIC_EXAMPLE_OBJ)")) nil [372 521])
+            ("%.o" function (:arguments ("%.c")) nil [854 1194]))          
+      :file "Makefile"
+      :pointmax 1217
+      :fsize 1216
+      :lastmodtime '(22654 15317 710568 716000)
+      :unmatched-syntax nil)
+    (semanticdb-table "example_basic.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("EXAMPLE_BASIC_H" variable (:constant-flag t) nil [168 183]))          
+      :file "example_basic.h"
+      :pointmax 216
+      :fsize 215
+      :lastmodtime '(22655 6831 757356 167000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("EXAMPLE_BASIC_H")
+          )
+))
+  :file "!home!wrongway4you!Projects!sil!examples!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

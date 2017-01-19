@@ -1,0 +1,368 @@
+;; Object dict/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "dict/"
+  :tables
+  (list
+    (semanticdb-table "dict.h"
+      :major-mode 'c-mode
+      :tags nil
+      :file "dict.h"
+      :pointmax 0
+      :fsize 2214
+      :lastmodtime '(22648 53671 92993 534000)
+      :unmatched-syntax nil)
+    (semanticdb-table "dict.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("dict.h" include nil nil [166 183])
+            ("stdlib.h" include (:system-flag t) nil [185 204])
+            ("UNUSED" variable (:constant-flag t) nil [214 220])
+            ("CAST" variable (:constant-flag t) nil [242 246])
+            ("xfree" variable (:constant-flag t) nil [274 279])
+            ("xmalloc" variable (:constant-flag t) nil [305 312])
+            ("xrealloc" variable (:constant-flag t) nil [342 350])
+            ("dict_get_key_index" variable (:constant-flag t) nil [393 411])
+            ("dict_get_key_index" variable (:constant-flag t) nil [393 411])
+            ("dict_slot_is_empty" variable (:constant-flag t) nil [568 586])
+            ("dict_slot_incr_size" variable (:constant-flag t) nil [470 489])
+            ("dict_slot_decr_size" variable (:constant-flag t) nil [519 538])
+            ("dict_slot_is_empty" variable (:constant-flag t) nil [568 586])
+            ("dict_slot_keys_eq" variable (:constant-flag t) nil [619 636])
+            ("dict_slot_entry_new" function
+               (:pointer 1
+                :arguments 
+                  ( ("key" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [853 863])
+                    ("val" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [868 878]))                  
+                :type ("DictionaryEntry" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [804 1056])
+            ("dict_slot_entry_delete" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("dict" variable
+                       (:pointer 1
+                        :type ("Dictionary" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1099 1123])
+                    ("entry" variable
+                       (:pointer 1
+                        :type ("DictionaryEntry" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1128 1158]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [1058 1361])
+            ("dict_slot_init" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("slot" variable
+                       (:pointer 1
+                        :type ("DictionarySlot" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1463 1491]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [1430 1561])
+            ("dict_slot_deinit" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("dict" variable
+                       (:pointer 1
+                        :type ("Dictionary" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1598 1622])
+                    ("slot" variable
+                       (:pointer 1
+                        :type ("DictionarySlot" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1627 1655]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [1563 1982])
+            ("dict_slot_append" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("slot" variable
+                       (:pointer 1
+                        :type ("DictionarySlot" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2168 2196])
+                    ("entry" variable
+                       (:pointer 1
+                        :type ("DictionaryEntry" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2201 2231]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [2133 2934])
+            ("dict_slot_remove" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("dict" variable
+                       (:pointer 1
+                        :type ("Dictionary" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2981 3005])
+                    ("slot" variable
+                       (:pointer 1
+                        :type ("DictionarySlot" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3010 3038])
+                    ("key" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [3043 3053]))                  
+                :type "bool")
+                nil [2947 4484])
+            ("dict_slot_find" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("dict" variable
+                       (:pointer 1
+                        :type ("Dictionary" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4548 4572])
+                    ("slot" variable
+                       (:pointer 1
+                        :type ("DictionarySlot" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4577 4605])
+                    ("key" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [4610 4620]))                  
+                :type ("DictionaryEntry" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [4497 5011])
+            ("dict_init" function
+               (:arguments 
+                  ( ("dict" variable
+                       (:pointer 1
+                        :type ("Dictionary" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [5086 5110])
+                    ("hash_f" function
+                       (:function-pointer t
+                        :arguments 
+                          ( ("" variable
+                               (:pointer 1
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [4986 4992]))                          
+                        :type ("uint32" type (:type "class") nil nil))
+                        nil nil)
+                    ("key_cmp_f" function
+                       (:function-pointer t
+                        :arguments 
+                          ( ("" variable
+                               (:pointer 1
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [5015 5021])
+                            ("" variable
+                               (:pointer 1
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [5022 5028]))                          
+                        :type "int")
+                        nil nil)
+                    ("key_free_f" function
+                       (:function-pointer t
+                        :arguments 
+                          ( ("" variable
+                               (:pointer 1
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [5054 5060]))                          
+                        :type ("NoRet" type (:type "class") nil nil))
+                        nil nil)
+                    ("val_free_f" function
+                       (:function-pointer t
+                        :arguments 
+                          ( ("" variable
+                               (:pointer 1
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [5086 5092]))                          
+                        :type ("NoRet" type (:type "class") nil nil))
+                        nil nil))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [5065 5465])
+            ("dict_deinit" function
+               (:arguments 
+                  ( ("dict" variable
+                       (:pointer 1
+                        :type ("Dictionary" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [5485 5509]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [5467 5647])
+            ("dict_insert" function
+               (:arguments 
+                  ( ("dict" variable
+                       (:pointer 1
+                        :type ("Dictionary" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [5691 5715])
+                    ("key" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [5720 5730])
+                    ("val" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [5735 5745]))                  
+                :type "bool")
+                nil [5669 6226])
+            ("dict_replace" function
+               (:arguments 
+                  ( ("dict" variable
+                       (:pointer 1
+                        :type ("Dictionary" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [6273 6297])
+                    ("key" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [6302 6312])
+                    ("val" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [6317 6327]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [6249 6945])
+            ("dict_remove" function
+               (:arguments 
+                  ( ("dict" variable
+                       (:pointer 1
+                        :type ("Dictionary" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [6989 7013])
+                    ("key" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [7018 7028]))                  
+                :type "bool")
+                nil [6967 7278])
+            ("dict_find" function
+               (:pointer 1
+                :arguments 
+                  ( ("dict" variable
+                       (:pointer 1
+                        :type ("Dictionary" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [7319 7343])
+                    ("key" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [7348 7358]))                  
+                :type "void")
+                nil [7298 7617]))          
+      :file "dict.c"
+      :pointmax 13578
+      :fsize 13577
+      :lastmodtime '(22648 53857 989993 490000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("UNUSED" (spp-arg-list ("a") 220 . 223) . ((semantic-list "((void)a)" 224 . 233)))
+          ("xrealloc" (spp-arg-list ("ptr" "size") 350 . 361) . ((symbol "realloc" 362 . 369) (semantic-list "((ptr), (size))" 369 . 384)))
+          ("dict_slot_is_empty" (spp-arg-list ("slot") 586 . 592) . ((semantic-list "(slot->size == 0)" 593 . 610)))
+          ("xmalloc" (spp-arg-list ("size") 312 . 318) . ((symbol "malloc" 319 . 325) (semantic-list "((size))" 325 . 333)))
+          ("dict_slot_keys_eq" (spp-arg-list ("dict" "key1" "key2") 538 . 556) . ((semantic-list "((key1 == key2) || (dict->key_cmp_f(key1, key2) == 0))" 565 . 619)))
+          ("dict_slot_incr_size" (spp-arg-list ("slot") 489 . 495) . ((semantic-list "(++slot->size)" 496 . 510)))
+          ("xfree" (spp-arg-list ("ptr") 279 . 284) . ((symbol "free" 285 . 289) (semantic-list "((ptr))" 289 . 296)))
+          ("CAST" (spp-arg-list ("a" "type") 246 . 255) . ((semantic-list "((type)a)" 256 . 265)))
+          ("dict_get_key_index" (spp-arg-list ("dict" "key") 411 . 422) . ((semantic-list "(dict->hash_f(key) % DICT_SLOTS_COUNT)" 423 . 461)))
+          ("dict_slot_decr_size" (spp-arg-list ("slot") 538 . 544) . ((semantic-list "(--slot->size)" 545 . 559)))
+          )
+)
+    (semanticdb-table "main.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("dict.h" include nil nil [126 143])
+            ("main" function
+               (:arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [154 159]))                  
+                :type "int")
+                nil [145 318]))          
+      :file "main.c"
+      :pointmax 319
+      :fsize 318
+      :lastmodtime '(22648 45122 16995 532000)
+      :unmatched-syntax nil)
+    (semanticdb-table "main.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("MAIN_H" variable (:constant-flag t) nil [149 155]))          
+      :file "main.h"
+      :pointmax 176
+      :fsize 175
+      :lastmodtime '(22648 39764 999996 784000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("MAIN_H")
+          )
+)
+    (semanticdb-table "Makefile"
+      :major-mode 'makefile-gmake-mode
+      :tags 
+        '( ("DEBUG" variable (:default-value ("1")) nil [61 72])
+            ("TEST" variable (:default-value ("0")) nil [72 82])
+            ("BENCH" variable (:default-value ("1")) nil [82 93])
+            ("CC" variable (:default-value ("gcc")) nil [94 104])
+            ("CCDEF" variable nil nil [104 113])
+            ("CCSTD" variable (:default-value ("-std=gnu99" "-pedantic")) nil [113 143])
+            ("CCWARN" variable (:default-value ("-Wall" "-Wextra" "-Werror")) nil [143 175])
+            ("CCDEF" variable (:default-value ("-DDICT_BENCH")) nil [195 217])
+            ("CCDEF" variable (:default-value ("-DDICT_TEST")) nil [242 263])
+            ("CCOPTIMIZATION" variable (:default-value ("-O0")) nil [289 311])
+            ("CCDEBUG" variable (:default-value ("-ggdb" "-g")) nil [311 331])
+            ("CCDEF" variable (:default-value ("-DDICT_DEBUG")) nil [331 353])
+            ("CCOPTIMIZATION" variable (:default-value ("-O3")) nil [358 380])
+            ("CCFLAGS" variable (:default-value ("$(CCSTD)" "$(CCWARN)" "$(CCDEBUG)" "$(CCDEF)" "$(CCOPTIMIZATION)")) nil [387 455])
+            ("main" function (:arguments ("main.c" "dict.c" "dict.h")) nil [456 521])
+            ("clean" function nil nil [522 542]))          
+      :file "Makefile"
+      :pointmax 556
+      :fsize 555
+      :lastmodtime '(22648 52972 339993 697000)
+      :unmatched-syntax nil))
+  :file "!home!wrongway4you!Temp!dict!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

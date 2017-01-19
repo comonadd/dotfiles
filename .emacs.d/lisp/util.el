@@ -5,6 +5,23 @@
 
 (require 'compile)
 
+(defun forward-kill-word ()
+  "If `point' is followed by whitespace kill that.
+Otherwise call `kill-word'"
+  (interactive)
+  (if (looking-at "[ \t\n]")
+      (let ((pos (point)))
+	(re-search-forward "[^ \t\n]" nil t)
+	(backward-char)
+	(kill-region pos (point)))
+    (kill-word 1)))
+
+(defun create-scratch-buffer nil
+  "create a scratch buffer"
+  (interactive)
+  (switch-to-buffer (get-buffer-create "*scratch*"))
+  (lisp-interaction-mode))
+
 (defun insert-current-date ()
   "Insert current date."
   (interactive)

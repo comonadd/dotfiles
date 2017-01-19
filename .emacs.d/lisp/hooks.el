@@ -5,7 +5,6 @@
 
 (defun main-c-mode-hook ()
     "Main C Mode hook."
-
     (defun insert-file-top-comment ()
 	"Insert the top comment to the file."
 	(interactive)
@@ -19,7 +18,7 @@
 	(insert " */\n")
 	(insert "/* Creation Date: ")
 	(insert-current-date)
-	(insert "*/\n")
+	(insert " */\n")
 	(insert "/* Creator: Dmitry Guzeev <dmitry.guzeev@yahoo.com> */\n")
 	(insert "/* Description: */\n"))
 
@@ -46,9 +45,9 @@
 	(insert "\n")
 	(insert "\n")
 	(insert "\n")
-	(insert "#endif // ")
+	(insert "#endif /* ")
 	(insert (upcase base-file-name))
-	(insert "_H")
+	(insert "_H */")
 	(save-buffer))
 
     (defun source-format ()
@@ -92,15 +91,17 @@
 	(find-corresponding-file)
 	(other-window -1))
 
+    (ggtags-mode 1)
+    (helm-gtags-mode 1)
     (define-key c-mode-map (kbd "<f12>") 'find-corresponding-file)
     (define-key c-mode-map (kbd "S-<f12>") 'find-corresponding-file-other-window)
-    )
+    (setq flycheck-gcc-include-path (list (get-project-root-dir default-directory))))
 
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
 (add-hook 'c-mode-hook 'main-c-mode-hook)
 
-;; (add-hook 'c++-mode-hook 'main-c-mode-hook)
+(add-hook 'c++-mode-hook 'main-c-mode-hook)
 
 (provide 'hooks)
 ;;; hooks.el ends here

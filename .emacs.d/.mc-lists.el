@@ -8,11 +8,15 @@
 	autopair-skip-close-maybe
 	c-electric-pound
 	c-electric-semi&comma
+	c-electric-slash
+	c-indent-line-or-region
 	find-corresponding-file
+	forward-kill-word
 	indent-for-tab-command
 	keyboard-escape-quit
 	kill-region
 	save-some-buffers
+	upcase-region
 	))
 
 (setq mc/cmds-to-run-once
@@ -20,6 +24,8 @@
 	c-electric-colon
 	c-electric-paren
 	c-electric-star
+	dired-next-line
+	dired-previous-line
 	kill-this-buffer
 	overwrite-mode
 	toggle-comment-region-or-line

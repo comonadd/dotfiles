@@ -1,0 +1,285 @@
+;; Object platform/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "platform/"
+  :tables
+  (list
+    (semanticdb-table "Makefile"
+      :major-mode 'makefile-gmake-mode
+      :tags 
+        '( ("PLATFORM_MAIN_NAME" variable (:default-value ("$(PLATFORM_SRC_DIR)/win32/main.c")) nil [18 72])
+            ("PLATFORM_CORE_NAME" variable (:default-value ("$(PLATFORM_SRC_DIR)/win32/core.c")) nil [72 126])
+            ("PLATFORM_MAIN_NAME" variable (:default-value ("$(PLATFORM_SRC_DIR)/linux/main.c")) nil [152 206])
+            ("PLATFORM_CORE_NAME" variable (:default-value ("$(PLATFORM_SRC_DIR)/linux/core.c")) nil [206 260])
+            ("PLATFORM_MAIN_NAME" variable (:default-value ("$(PLATFORM_SRC_DIR)/osx/main.c")) nil [284 336])
+            ("PLATFORM_CORE_NAME" variable (:default-value ("$(PLATFORM_SRC_DIR)/osx/core.c")) nil [336 388])
+            ("PLATFORM_CORE_OBJ" variable (:default-value ("$(PLATFORM_OBJ_DIR)/platform.o")) nil [395 446])
+            ("PLATFORM_MAIN_OBJ" variable (:default-value ("$(PLATFORM_OBJ_DIR)/main.o")) nil [446 493])
+            ("EXEC_NAME" variable (:default-value ("$(OBJ_DIR)/gsh")) nil [493 520])
+            ("EXEC_OBJ" variable (:default-value ("$(OBJ_DIR)/gsh.o")) nil [520 548])
+            ("all" function (:arguments ("$(EXEC_NAME)")) nil [549 567])
+            ("$(EXEC_NAME)" function (:arguments ("$(EXEC_OBJ)")) nil [568 621])
+            ("$(EXEC_OBJ)" function (:arguments ("$(PLATFORM_MAIN_OBJ)" "$(PLATFORM_CORE_OBJ)")) nil [622 715])
+            ("$(PLATFORM_MAIN_OBJ)" function (:arguments ("$(PLATFORM_MAIN_NAME)")) nil [716 790])
+            ("$(PLATFORM_CORE_OBJ)" function (:arguments ("$(PLATFORM_CORE_NAME)")) nil [791 865]))          
+      :file "Makefile"
+      :pointmax 865
+      :fsize 864
+      :lastmodtime '(22635 59756 726607 262000)
+      :unmatched-syntax nil)
+
+    (semanticdb-table "core.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("PLATFORM_H" variable (:constant-flag t) nil [362 372])
+            ("lib/types.h" include nil nil [374 396])
+            ("lib/xstr.h" include nil nil [397 418])
+            ("XFile" type
+               (:typedef ("int")
+                :type "typedef")
+                nil [420 438])
+            ("XFileMode" type
+               (:members 
+                  ( ("XFM_R" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [579 585])
+                    ("XFM_W" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [590 597]))                  
+                :type "enum")
+                nil [558 598])
+            ("PathAccessMode" type
+               (:members 
+                  ( ("PAM_USER_ONLY" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [832 846])
+                    ("PAM_ALL" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [851 860]))                  
+                :type "enum")
+                nil [806 861])
+            ("gsh_exit" function
+               (:prototype-flag t
+                :type "void")
+                nil [1068 1084])
+            ("parse_args" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("argc" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol arg-sub-list) [1334 1349])
+                    ("argv" variable
+                       (:pointer 2
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [1354 1378]))                  
+                :type "void")
+                nil [1313 1379])
+            ("path_concat" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("p1" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [1573 1594])
+                    ("p2" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [1599 1620]))                  
+                :type "char")
+                nil [1550 1621])
+            ("path_base" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [1794 1817]))                  
+                :type "char")
+                nil [1778 1818])
+            ("path_is_dir" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [1982 2005]))                  
+                :type "bool")
+                nil [1965 2006])
+            ("path_exists" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [2196 2219]))                  
+                :type "bool")
+                nil [2179 2220])
+            ("path_create" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [2519 2542])
+                    ("access_mode" variable
+                       (:constant-flag t
+                        :type ("PathAccessMode" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [2547 2585])
+                    ("dir" variable
+                       (:constant-flag t
+                        :type "bool")
+                        (reparse-symbol arg-sub-list) [2590 2605]))                  
+                :type "bool")
+                nil [2497 2606])
+            ("get_path_access_mode" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [2832 2855])
+                    ("mode" variable
+                       (:pointer 1
+                        :type ("PathAccessMode" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [2860 2886]))                  
+                :type "bool")
+                nil [2801 2887])
+            ("list_dir" function
+               (:prototype-flag t
+                :pointer 2
+                :arguments 
+                  ( ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [3138 3161])
+                    ("entries_count" variable
+                       (:pointer 1
+                        :type ("uint64" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3166 3188]))                  
+                :type "char")
+                nil [3117 3189])
+            ("file_copy" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("src_path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [3439 3466])
+                    ("dst_path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [3471 3498]))                  
+                :type "bool")
+                nil [3419 3499])
+            ("dir_copy" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("src_path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [3760 3787])
+                    ("dst_path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [3792 3819]))                  
+                :type "bool")
+                nil [3741 3820])
+            ("xfile_open" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("file" variable
+                       (:pointer 1
+                        :type ("XFile" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4475 4487])
+                    ("file_path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [4492 4520])
+                    ("file_mode" variable
+                       (:constant-flag t
+                        :type ("XFileMode" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [4525 4556])
+                    ("create_file_if_not_exists" variable
+                       (:constant-flag t
+                        :type "bool")
+                        (reparse-symbol arg-sub-list) [4561 4598])
+                    ("trunc" variable
+                       (:constant-flag t
+                        :type "bool")
+                        (reparse-symbol arg-sub-list) [4603 4620]))                  
+                :type "bool")
+                nil [4454 4621])
+            ("xfile_read" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("file" variable
+                       (:pointer 1
+                        :type ("XFile" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4863 4875])
+                    ("output_s" variable
+                       (:pointer 1
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4880 4905]))                  
+                :type "bool")
+                nil [4842 4906])
+            ("xfile_write" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("file" variable
+                       (:pointer 1
+                        :type ("XFile" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5111 5123])
+                    ("input_s" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [5128 5164]))                  
+                :type "bool")
+                nil [5089 5165])
+            ("xfile_close" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("file" variable
+                       (:pointer 1
+                        :type ("XFile" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5338 5350]))                  
+                :type "bool")
+                nil [5321 5351]))          
+      :file "core.h"
+      :pointmax 5374
+      :fsize 5373
+      :lastmodtime '(22635 55989 663558 33000)
+      :unmatched-syntax '((punctuation 3819 . 3820) (semantic-list 3754 . 3819) (punctuation 3498 . 3499) (semantic-list 3433 . 3498) (punctuation 3188 . 3189) (semantic-list 3132 . 3188))
+      :lexical-table 
+        '(("PLATFORM_H")
+          )
+))
+  :file "!home!wrongway4you!Projects!gsh!platform!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

@@ -1,0 +1,16 @@
+;; Object subatomic-theme-20160126.738/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "subatomic-theme-20160126.738/"
+  :tables
+  (list
+    (semanticdb-table "subatomic-theme-autoloads.el"
+      :major-mode 'emacs-lisp-mode
+      :tags nil
+      :file "subatomic-theme-autoloads.el"
+      :pointmax 303
+      :fsize 580
+      :lastmodtime '(22653 48186 436579 17000)
+      :unmatched-syntax nil))
+  :file "!home!wrongway4you!Git!dotfiles!.emacs.d!elpa!subatomic-theme-20160126.738!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

@@ -1,0 +1,130 @@
+;; Object list/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "list/"
+  :tables
+  (list
+    (semanticdb-table "main.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("stdlib.h" include (:system-flag t) nil [1 20])
+            ("stdio.h" include (:system-flag t) nil [21 39])
+            ("stdint.h" include (:system-flag t) nil [40 59])
+            ("uint64" type
+               (:typedef ("uint64_t" type (:type "class") nil nil)
+                :type "typedef")
+                nil [61 85])
+            ("ListNode" type
+               (:members 
+                  ( ("val" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol classsubparts) [109 119])
+                    ("prev" variable
+                       (:pointer 1
+                        :type ("ListNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [124 146])
+                    ("next" variable
+                       (:pointer 1
+                        :type ("ListNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [151 173]))                  
+                :type "struct")
+                nil [87 176])
+            ("List" type
+               (:members 
+                  ( ("size" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol classsubparts) [196 208])
+                    ("head" variable
+                       (:pointer 1
+                        :type ("ListNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [213 235])
+                    ("tail" variable
+                       (:pointer 1
+                        :type ("ListNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [240 262]))                  
+                :type "struct")
+                nil [178 265])
+            ("list_init" function
+               (:arguments 
+                  ( ("list" variable
+                       (:pointer 1
+                        :type ("List" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [282 300]))                  
+                :type "void")
+                nil [267 474])
+            ("list_insert_front" function
+               (:pointer 1
+                :arguments 
+                  ( ("list" variable
+                       (:pointer 1
+                        :type ("List" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [516 534])
+                    ("val" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [539 549]))                  
+                :type ("ListNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [476 780])
+            ("list_insert_back" function
+               (:pointer 1
+                :arguments 
+                  ( ("list" variable
+                       (:pointer 1
+                        :type ("List" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [821 839])
+                    ("val" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [844 854]))                  
+                :type ("ListNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [782 1091])
+            ("list_nth" function
+               (:pointer 1
+                :arguments 
+                  ( ("list" variable
+                       (:pointer 1
+                        :type ("List" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1124 1142])
+                    ("n" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1147 1156]))                  
+                :type ("ListNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [1093 1338])
+            ("main" function (:type "int") nil [1340 1684]))          
+      :file "main.c"
+      :pointmax 1685
+      :fsize 1634
+      :lastmodtime '(22639 43811 989853 988000)
+      :unmatched-syntax nil))
+  :file "!home!wrongway4you!Learning!algorithms_and_ds!list!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

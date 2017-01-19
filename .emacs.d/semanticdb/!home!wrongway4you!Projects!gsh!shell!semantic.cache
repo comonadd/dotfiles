@@ -1,0 +1,2720 @@
+;; Object shell/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "shell/"
+  :tables
+  (list
+    (semanticdb-table "Makefile"
+      :major-mode 'makefile-gmake-mode
+      :tags nil
+      :file "Makefile"
+      :pointmax 64
+      :fsize 63
+      :lastmodtime '(22635 59667 182606 92000)
+      :unmatched-syntax nil)
+    (semanticdb-table "shell.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("shell/shell.h" include nil nil [127 151])
+            ("string.h" include (:system-flag t) nil [153 172])
+            ("lib/types.h" include nil nil [174 196])
+            ("lib/macros.h" include nil nil [197 220])
+            ("lib/xmalloc.h" include nil nil [221 245])
+            ("lib/xstr.h" include nil nil [246 267])
+            ("lib/xmap.h" include nil nil [268 289])
+            ("shell/interpreter.h" include nil nil [290 320])
+            ("err_set" function
+               (:arguments 
+                  ( ("code" variable
+                       (:constant-flag t
+                        :type ("ErrorCode" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [335 361]))                  
+                :type "void")
+                nil [322 386])
+            ("err_report" function (:type "void") nil [388 1037])
+            ("shell_run" function
+               (:arguments 
+                  ( ("ss" variable
+                       (:pointer 1
+                        :type ("ShellState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1054 1076]))                  
+                :type "bool")
+                nil [1039 1659])
+            ("shell_init" function
+               (:arguments 
+                  ( ("ss" variable
+                       (:pointer 1
+                        :type ("ShellState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1677 1699]))                  
+                :type "bool")
+                nil [1661 2655])
+            ("shell_main" function (:type "void") nil [2657 2781]))          
+      :file "shell.c"
+      :pointmax 2782
+      :fsize 2781
+      :lastmodtime '(22635 59448 542603 235000)
+      :unmatched-syntax nil)
+    (semanticdb-table "shell.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("SHELL_H" variable (:constant-flag t) nil [132 139])
+            ("stdio.h" include (:system-flag t) nil [141 159])
+            ("lib/types.h" include nil nil [161 183])
+            ("lib/xstr.h" include nil nil [184 205])
+            ("lib/xmap.h" include nil nil [206 227])
+            ("shell/interpreter.h" include nil nil [228 258])
+            ("DEFAULT_PROMPT" variable (:constant-flag t) nil [268 282])
+            ("DEFAULT_MOTD" variable (:constant-flag t) nil [297 309])
+            ("ErrorCode" type
+               (:members 
+                  ( ("EC_OK" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [373 379])
+                    ("EC_UNKNOWN" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [384 395])
+                    ("EC_INVALID_ARG" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [400 415])
+                    ("EC_NO_SUCH_FILE" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [420 436])
+                    ("EC_NO_SUCH_DIR" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [441 456])
+                    ("EC_PERM_DENIED" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [461 476])
+                    ("EC_WRITE_FAILED" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [481 497])
+                    ("EC_ALREADY_CLOSED" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [502 521]))                  
+                :type "enum")
+                nil [352 522])
+            ("ShellConfig" type
+               (:members 
+                  ( ("prompt" variable (:type ("XString" type
+                         (:prototype t
+                          :type "struct")
+                          nil nil)) (reparse-symbol classsubparts) [678 700])
+                    ("motd" variable (:type ("XString" type
+                         (:prototype t
+                          :type "struct")
+                          nil nil)) (reparse-symbol classsubparts) [705 725]))                  
+                :type "struct")
+                nil [653 728])
+            ("ShellState" type
+               (:members 
+                  ( ("is" variable (:type ("InterpreterState" type
+                         (:prototype t
+                          :type "struct")
+                          nil nil)) (reparse-symbol classsubparts) [935 962])
+                    ("config" variable (:type ("ShellConfig" type
+                         (:prototype t
+                          :type "struct")
+                          nil nil)) (reparse-symbol classsubparts) [967 993])
+                    ("conf_dir" variable (:type ("XString" type
+                         (:prototype t
+                          :type "struct")
+                          nil nil)) (reparse-symbol classsubparts) [998 1022]))                  
+                :type "struct")
+                nil [911 1025])
+            ("err_code" variable (:type ("ErrorCode" type (:type "enum") nil nil)) nil [1082 1106])
+            ("err_set" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("code" variable
+                       (:constant-flag t
+                        :type ("ErrorCode" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [1292 1318]))                  
+                :type "void")
+                nil [1279 1319])
+            ("err_report" function
+               (:prototype-flag t
+                :type "void")
+                nil [1442 1460])
+            ("shell_run" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("ss" variable
+                       (:pointer 1
+                        :type ("ShellState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1551 1573]))                  
+                :type "bool")
+                nil [1536 1574])
+            ("shell_init" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("ss" variable
+                       (:pointer 1
+                        :type ("ShellState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1668 1690]))                  
+                :type "bool")
+                nil [1652 1691])
+            ("shell_main" function
+               (:prototype-flag t
+                :type "void")
+                nil [1807 1825]))          
+      :file "shell.h"
+      :pointmax 1845
+      :fsize 1844
+      :lastmodtime '(22635 55601 607552 962000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("SHELL_H")
+          ("DEFAULT_MOTD" . 
+              ((string "\"GSh v\"" 310 . 317) (symbol "VERSION" 318 . 325) (string "\" (\"" 326 . 330) (symbol "EXTRA_VERSION" 331 . 344) (string "\")\\n\"" 345 . 350)))
+          ("DEFAULT_PROMPT" . ((string "\">> \"" 283 . 288)))
+          )
+)
+
+    (semanticdb-table "util.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("UTIL_H" variable (:constant-flag t) nil [130 136])
+            ("lib/types.h" include nil nil [138 160])
+            ("lib/xstr.h" include nil nil [161 182])
+            ("str_reverse" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [201 209]))                  
+                :type "void")
+                nil [184 210])
+            ("get_line_from_str" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("str" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [240 256])
+                    ("lnum" variable
+                       (:constant-flag t
+                        :type ("uint64" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [261 279])
+                    ("line" variable
+                       (:pointer 1
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [284 305]))                  
+                :type "void")
+                nil [212 306])
+            ("itoa" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("val" variable (:type "int") (reparse-symbol arg-sub-list) [323 331])
+                    ("s" variable
+                       (:dereference 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [336 347]))                  
+                :type "void")
+                nil [308 348])
+            ("ch_is_newline" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("ch" variable (:type "char") (reparse-symbol arg-sub-list) [369 377]))                  
+                :type "bool")
+                nil [350 378]))          
+      :file "util.h"
+      :pointmax 397
+      :fsize 396
+      :lastmodtime '(22635 55915 983557 70000)
+      :unmatched-syntax '((punctuation 347 . 348) (semantic-list 317 . 347) (punctuation 305 . 306) (semantic-list 234 . 305))
+      :lexical-table 
+        '(("UTIL_H")
+          )
+)
+    (semanticdb-table "util.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("shell/util.h" include nil nil [107 130])
+            ("ctype.h" include (:system-flag t) nil [132 150])
+            ("string.h" include (:system-flag t) nil [151 170])
+            ("lib/types.h" include nil nil [172 194])
+            ("lib/macros.h" include nil nil [195 218])
+            ("str_reverse" function
+               (:arguments 
+                  ( ("s" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [237 245]))                  
+                :type "void")
+                nil [220 373])
+            ("get_line_from_str" function
+               (:arguments 
+                  ( ("str" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [403 419])
+                    ("lnum" variable
+                       (:constant-flag t
+                        :type ("uint64" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [424 442])
+                    ("line" variable
+                       (:pointer 1
+                        :type ("XString" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [447 468]))                  
+                :type "void")
+                nil [375 719])
+            ("itoa" function
+               (:arguments 
+                  ( ("n" variable (:type "int") (reparse-symbol arg-sub-list) [736 742])
+                    ("s" variable
+                       (:dereference 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [747 758]))                  
+                :type "void")
+                nil [721 1096])
+            ("ch_is_newline" function
+               (:arguments 
+                  ( ("ch" variable
+                       (:constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [1117 1131]))                  
+                :type "bool")
+                nil [1098 1174]))          
+      :file "util.c"
+      :pointmax 1175
+      :fsize 1174
+      :lastmodtime '(22635 55935 535557 326000)
+      :unmatched-syntax '((semantic-list 759 . 1096) (semantic-list 730 . 758) (semantic-list 469 . 719) (semantic-list 397 . 468)))
+    (semanticdb-table "interpreter.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("INTERPRETER_H" variable (:constant-flag t) nil [163 176])
+            ("lib/str_stream.h" include nil nil [178 205])
+            ("lib/xvec_stream.h" include nil nil [206 234])
+            ("shell/ast.h" include nil nil [235 257])
+            ("InterpreterErrCode" type
+               (:members 
+                  ( ("IEC_OK" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [391 398])
+                    ("IEC_SYNTAX" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [403 414])
+                    ("IEC_UEOF" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [419 429]))                  
+                :type "enum")
+                nil [361 430])
+            ("InterpreterSyntaxErrType" type
+               (:members 
+                  ( ("ISET_INVALID_SYNTAX" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [606 626])
+                    ("ISET_PAREN_MISMATCH" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [631 651])
+                    ("ISET_LITERAL_ASSIGN" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [656 677]))                  
+                :type "enum")
+                nil [570 678])
+            ("LexerState" type
+               (:members 
+                  ( ("toks" variable (:type ("XVector" type
+                         (:prototype t
+                          :type "struct")
+                          nil nil)) (reparse-symbol classsubparts) [889 909])
+                    ("stream" variable (:type ("StringStream" type
+                         (:prototype t
+                          :type "struct")
+                          nil nil)) (reparse-symbol classsubparts) [914 941])
+                    ("prev_tok" variable
+                       (:pointer 1
+                        :type ("Token" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [946 969]))                  
+                :type "struct")
+                nil [865 972])
+            ("ParserState" type
+               (:members 
+                  ( ("ast" variable (:type ("ASTNode" type
+                         (:prototype t
+                          :type "struct")
+                          nil nil)) (reparse-symbol classsubparts) [1163 1182])
+                    ("stream" variable (:type ("XVectorStream" type
+                         (:prototype t
+                          :type "struct")
+                          nil nil)) (reparse-symbol classsubparts) [1187 1215]))                  
+                :type "struct")
+                nil [1138 1218])
+            ("InterpreterState" type
+               (:members 
+                  ( ("ls" variable (:type ("LexerState" type
+                         (:prototype t
+                          :type "struct")
+                          nil nil)) (reparse-symbol classsubparts) [1639 1660])
+                    ("ps" variable (:type ("ParserState" type
+                         (:prototype t
+                          :type "struct")
+                          nil nil)) (reparse-symbol classsubparts) [1665 1687])
+                    ("ln" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1692 1702])
+                    ("input_text_len" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1707 1729])
+                    ("ec" variable (:type ("InterpreterErrCode" type (:type "enum") nil nil)) (reparse-symbol classsubparts) [1734 1761])
+                    ("syntax_err_type" variable (:type ("InterpreterSyntaxErrType" type (:type "enum") nil nil)) (reparse-symbol classsubparts) [1766 1812])
+                    ("input_name" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol classsubparts) [1817 1840])
+                    ("input_text" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol classsubparts) [1845 1868]))                  
+                :type "struct")
+                nil [1609 1871])
+            ("interpreter_init" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1987 2015]))                  
+                :type "void")
+                nil [1965 2016])
+            ("interpreter_set_ec" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2166 2194])
+                    ("ec" variable
+                       (:constant-flag t
+                        :type ("InterpreterErrCode" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [2199 2232]))                  
+                :type "void")
+                nil [2137 2233])
+            ("interpreter_set_syntax_ec" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2406 2434])
+                    ("type" variable
+                       (:constant-flag t
+                        :type ("InterpreterSyntaxErrType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [2439 2480]))                  
+                :type "void")
+                nil [2370 2481])
+            ("interpreter_err" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2716 2756]))                  
+                :type "void")
+                nil [2690 2757])
+            ("interpreter_incr_ln" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2895 2923]))                  
+                :type "void")
+                nil [2870 2924])
+            ("interpreter_set_input" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3153 3181])
+                    ("input_name" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [3186 3215])
+                    ("input_text" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [3220 3249]))                  
+                :type "void")
+                nil [3121 3250])
+            ("interpreter_do" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3460 3488]))                  
+                :type "bool")
+                nil [3440 3489])
+            ("interpreter_do_file" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3660 3688])
+                    ("filename" variable
+                       (:dereference 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [3693 3715]))                  
+                :type "bool")
+                nil [3630 3716]))          
+      :file "interpreter.h"
+      :pointmax 3742
+      :fsize 3741
+      :lastmodtime '(22635 51174 7495 101000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("INTERPRETER_H")
+          )
+)
+    (semanticdb-table "ast.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("AST_H" variable (:constant-flag t) nil [128 133])
+            ("lib/types.h" include nil nil [135 157])
+            ("lib/xmalloc.h" include nil nil [158 182])
+            ("lib/xvec.h" include nil nil [183 204])
+            ("lib/xstr.h" include nil nil [205 226])
+            ("ASTNodeType" type
+               (:members 
+                  ( ("AST_NODE_PROGRAM" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [410 427])
+                    ("AST_NODE_INUMLIT" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [432 449])
+                    ("AST_NODE_DNUMLIT" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [450 467])
+                    ("AST_NODE_STRLIT" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [472 488])
+                    ("AST_NODE_VAR" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [489 502])
+                    ("AST_NODE_UNARY_PLUS" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [534 554])
+                    ("AST_NODE_UNARY_MINUS" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [555 576])
+                    ("AST_NODE_LOGICAL_NOT" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [581 602])
+                    ("AST_NODE_BITWISE_NOT" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [603 624])
+                    ("AST_NODE_ADD" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [657 670])
+                    ("AST_NODE_SUB" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [671 684])
+                    ("AST_NODE_MUL" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [689 702])
+                    ("AST_NODE_DIV" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [703 716])
+                    ("AST_NODE_MOD" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [721 734])
+                    ("AST_NODE_POW" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [735 748])
+                    ("AST_NODE_EQ" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [753 765])
+                    ("AST_NODE_NEQ" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [766 779])
+                    ("AST_NODE_LT" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [784 796])
+                    ("AST_NODE_GT" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [797 809])
+                    ("AST_NODE_LTE" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [814 827])
+                    ("AST_NODE_GTE" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [828 841])
+                    ("AST_NODE_ASSIGN" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [846 862])
+                    ("AST_NODE_IF" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [887 899])
+                    ("AST_NODE_WHILE" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [900 915])
+                    ("AST_NODE_IMPORT" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [916 932])
+                    ("AST_NODE_FUNC" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [937 951])
+                    ("AST_NODE_FUNC_ARG" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [952 970])
+                    ("AST_NODE_CALL" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [975 989])
+                    ("AST_NODE_CALL_ARG" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [990 1008]))                  
+                :type "enum")
+                nil [369 1011])
+            ("ASTNodeFuncData" type
+               (:members 
+                  ( ("args_count" variable (:type ("uint16" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1123 1141])
+                    ("name" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol classsubparts) [1146 1157]))                  
+                :type "struct")
+                nil [1094 1160])
+            ("ASTNodeCallData" type
+               (:members 
+                  ( ("args_count" variable (:type ("uint16" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1264 1282])
+                    ("name" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol classsubparts) [1287 1298]))                  
+                :type "struct")
+                nil [1235 1301])
+            ("ASTNodeData" type
+               (:members 
+                  ( ("inumlit_val" variable (:type "long") (reparse-symbol classsubparts) [1798 1815])
+                    ("dnumlit_val" variable (:type "double") (reparse-symbol classsubparts) [1820 1839])
+                    ("strlit_val" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol classsubparts) [1844 1861])
+                    ("var_name" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol classsubparts) [1866 1881])
+                    ("import_name" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol classsubparts) [1886 1904])
+                    ("func_data" variable (:type ("ASTNodeFuncData" type
+                         (:prototype t
+                          :type "struct")
+                          nil nil)) (reparse-symbol classsubparts) [1909 1942])
+                    ("func_arg_name" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol classsubparts) [1947 1967])
+                    ("call_data" variable (:type ("ASTNodeCallData" type
+                         (:prototype t
+                          :type "struct")
+                          nil nil)) (reparse-symbol classsubparts) [1972 2005])
+                    ("call_arg_val" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol classsubparts) [2010 2029]))                  
+                :type "union")
+                nil [1774 2032])
+            ("ASTNode" type
+               (:members 
+                  ( ("data" variable (:type ("ASTNodeData" type (:type "union") nil nil)) (reparse-symbol classsubparts) [2167 2190])
+                    ("childs" variable
+                       (:pointer 1
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [2195 2218])
+                    ("type" variable (:type ("ASTNodeType" type (:type "enum") nil nil)) (reparse-symbol classsubparts) [2223 2245]))                  
+                :type "struct")
+                nil [2146 2248])
+            ("ast_node_init" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("node" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2274 2295])
+                    ("type" variable
+                       (:constant-flag t
+                        :type ("ASTNodeType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [2300 2328]))                  
+                :type "void")
+                nil [2250 2329])
+            ("ast_node_childs_deinit" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("childs" variable
+                       (:pointer 1
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2359 2382]))                  
+                :type "void")
+                nil [2331 2383])
+            ("ast_node_deinit" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("node" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2526 2547]))                  
+                :type "void")
+                nil [2505 2548])
+            ("mk_ast_node_inumlit" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("val" variable
+                       (:constant-flag t
+                        :type "long")
+                        (reparse-symbol arg-sub-list) [2613 2628]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [2577 2629])
+            ("mk_ast_node_dnumlit" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("val" variable
+                       (:constant-flag t
+                        :type "double")
+                        (reparse-symbol arg-sub-list) [2694 2711]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [2658 2712])
+            ("mk_ast_node_strlit" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("val" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [2793 2815]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [2758 2816])
+            ("mk_ast_node_var" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("name" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [2928 2951]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [2896 2952])
+            ("mk_ast_node_unary_op" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("ASTNodeType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [3082 3110])
+                    ("operand" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3115 3139]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [3040 3140])
+            ("mk_ast_node_binary_op" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("type" variable (:type ("ASTNodeType" type (:type "enum") nil nil)) (reparse-symbol arg-sub-list) [3333 3355])
+                    ("lop" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3360 3380])
+                    ("rop" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3385 3405]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [3290 3406])
+            ("mk_ast_node_if" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("node_cond" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3546 3572])
+                    ("node_then" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3577 3603])
+                    ("node_else" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3608 3634]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [3510 3635])
+            ("mk_ast_node_while" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("node_cond" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3739 3765])
+                    ("node_body" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3770 3796]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [3700 3797])
+            ("mk_ast_node_function_arg" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("name" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [3896 3919]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [3850 3920])
+            ("mk_ast_node_function" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("func_name" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [4164 4180])
+                    ("func_args_count" variable
+                       (:constant-flag t
+                        :type ("uint16" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4185 4214])
+                    ("node_childs" variable
+                       (:pointer 1
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4219 4247]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [4122 4248])
+            ("mk_ast_node_call_arg" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("val" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [4343 4365]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [4301 4366])
+            ("mk_ast_node_call" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("call_name" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [4564 4580])
+                    ("call_args_count" variable
+                       (:constant-flag t
+                        :type ("uint16" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4585 4614])
+                    ("node_childs" variable
+                       (:pointer 1
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4619 4647]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [4526 4648])
+            ("mk_ast_node_import" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("name" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [4761 4778]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [4721 4779]))          
+      :file "ast.h"
+      :pointmax 4900
+      :fsize 4899
+      :lastmodtime '(22635 53597 231526 769000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("AST_H")
+          )
+)
+    (semanticdb-table "ast.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("shell/ast.h" include nil nil [255 277])
+            ("string.h" include (:system-flag t) nil [279 298])
+            ("lib/types.h" include nil nil [300 322])
+            ("lib/macros.h" include nil nil [323 346])
+            ("lib/xmalloc.h" include nil nil [347 371])
+            ("lib/xvec.h" include nil nil [372 393])
+            ("lib/xstr.h" include nil nil [394 415])
+            ("shell/shell.h" include nil nil [416 440])
+            ("ast_node_init" function
+               (:arguments 
+                  ( ("node" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [466 487])
+                    ("type" variable
+                       (:constant-flag t
+                        :type ("ASTNodeType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [492 520]))                  
+                :type "void")
+                nil [442 572])
+            ("ast_node_childs_deinit" function
+               (:arguments 
+                  ( ("childs" variable
+                       (:pointer 1
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [602 625]))                  
+                :type "void")
+                nil [574 890])
+            ("ast_node_deinit" function
+               (:arguments 
+                  ( ("node" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [913 934]))                  
+                :type "void")
+                nil [892 1579])
+            ("mk_ast_node_inumlit" function
+               (:pointer 1
+                :arguments 
+                  ( ("val" variable
+                       (:constant-flag t
+                        :type "long")
+                        (reparse-symbol arg-sub-list) [1617 1632]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [1581 1790])
+            ("mk_ast_node_dnumlit" function
+               (:pointer 1
+                :arguments 
+                  ( ("val" variable
+                       (:constant-flag t
+                        :type "double")
+                        (reparse-symbol arg-sub-list) [1828 1845]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [1792 2003])
+            ("mk_ast_node_strlit" function
+               (:pointer 1
+                :arguments 
+                  ( ("val" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [2040 2062]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [2005 2385])
+            ("mk_ast_node_var" function
+               (:pointer 1
+                :arguments 
+                  ( ("name" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [2424 2447]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [2387 2769])
+            ("mk_ast_node_unary_op" function
+               (:pointer 1
+                :arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("ASTNodeType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [2813 2841])
+                    ("operand" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2846 2870]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [2771 3362])
+            ("mk_ast_node_binary_op" function
+               (:pointer 1
+                :arguments 
+                  ( ("type" variable (:type ("ASTNodeType" type (:type "enum") nil nil)) (reparse-symbol arg-sub-list) [3407 3429])
+                    ("lop" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3434 3454])
+                    ("rop" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3459 3479]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [3364 4434])
+            ("mk_ast_node_import" function
+               (:pointer 1
+                :arguments 
+                  ( ("name" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [4476 4499]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [4436 4830])
+            ("mk_ast_node_if" function
+               (:pointer 1
+                :arguments 
+                  ( ("node_cond" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4868 4894])
+                    ("node_then" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4899 4925])
+                    ("node_else" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4930 4956]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [4832 5431])
+            ("mk_ast_node_while" function
+               (:pointer 1
+                :arguments 
+                  ( ("node_cond" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [5472 5498])
+                    ("node_body" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [5503 5529]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [5433 5832])
+            ("mk_ast_node_function_arg" function
+               (:pointer 1
+                :arguments 
+                  ( ("name" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [5880 5903]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [5834 6240])
+            ("mk_ast_node_function" function
+               (:pointer 1
+                :arguments 
+                  ( ("func_name" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [6284 6300])
+                    ("func_args_count" variable
+                       (:constant-flag t
+                        :type ("uint16" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6305 6334])
+                    ("node_childs" variable
+                       (:pointer 1
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [6339 6367]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [6242 6940])
+            ("mk_ast_node_call_arg" function
+               (:pointer 1
+                :arguments 
+                  ( ("val" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [6984 7006]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [6942 7335])
+            ("mk_ast_node_call" function
+               (:pointer 1
+                :arguments 
+                  ( ("call_name" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [7375 7391])
+                    ("call_args_count" variable
+                       (:constant-flag t
+                        :type ("uint16" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7396 7425])
+                    ("node_childs" variable
+                       (:pointer 1
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [7430 7458]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [7337 7935]))          
+      :file "ast.c"
+      :pointmax 12407
+      :fsize 12406
+      :lastmodtime '(22635 53870 808530 344000)
+      :unmatched-syntax nil)
+    (semanticdb-table "token.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("shell/token.h" include nil nil [108 132])
+            ("stdio.h" include (:system-flag t) nil [134 152])
+            ("string.h" include (:system-flag t) nil [153 172])
+            ("lib/types.h" include nil nil [174 196])
+            ("lib/xmalloc.h" include nil nil [197 221])
+            ("lib/macros.h" include nil nil [222 245])
+            ("reserve_tokens" function (:type "void") nil [247 438])
+            ("tok_deinit" function
+               (:arguments 
+                  ( ("tok" variable
+                       (:pointer 1
+                        :type ("Token" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [456 474]))                  
+                :type "void")
+                nil [440 703])
+            ("tok_xvec_clear" function
+               (:arguments 
+                  ( ("v" variable
+                       (:pointer 1
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [725 743]))                  
+                :type "void")
+                nil [705 1068])
+            ("tok_is_id" function
+               (:arguments 
+                  ( ("tok" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("Token" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1155 1185]))                  
+                :type "bool")
+                nil [1140 1267])
+            ("tok_is_cmd_separator" function
+               (:arguments 
+                  ( ("tok" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("Token" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1295 1325]))                  
+                :type "bool")
+                nil [1269 1433])
+            ("tok_is_paren" function
+               (:arguments 
+                  ( ("tok" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("Token" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1453 1483]))                  
+                :type "bool")
+                nil [1435 1592])
+            ("tok_is_op" function
+               (:arguments 
+                  ( ("tok" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("Token" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1609 1639]))                  
+                :type "bool")
+                nil [1594 1729])
+            ("tok_is_unop" function
+               (:arguments 
+                  ( ("tok" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("Token" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1748 1778]))                  
+                :type "bool")
+                nil [1731 2017])
+            ("tok_is_binop" function
+               (:arguments 
+                  ( ("tok" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("Token" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2037 2067]))                  
+                :type "bool")
+                nil [2019 2336])
+            ("tok_preced" function
+               (:arguments 
+                  ( ("tok" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("Token" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2355 2385]))                  
+                :type ("uint8" type (:type "class") nil nil))
+                nil [2338 3426])
+            ("tok_left_assoc" function
+               (:arguments 
+                  ( ("tok" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("Token" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3448 3478]))                  
+                :type "bool")
+                nil [3428 4372]))          
+      :file "token.c"
+      :pointmax 7923
+      :fsize 7922
+      :lastmodtime '(22635 53678 520527 831000)
+      :unmatched-syntax nil)
+    (semanticdb-table "token.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("TOKEN_H" variable (:constant-flag t) nil [132 139])
+            ("lib/types.h" include nil nil [141 163])
+            ("lib/xvec.h" include nil nil [164 185])
+            ("KEYWORD_IF" variable (:constant-flag t) nil [195 205])
+            ("KEYWORD_ELIF" variable (:constant-flag t) nil [219 231])
+            ("KEYWORD_ELSE" variable (:constant-flag t) nil [247 259])
+            ("KEYWORD_WHILE" variable (:constant-flag t) nil [275 288])
+            ("KEYWORD_FOR" variable (:constant-flag t) nil [305 316])
+            ("KEYWORD_FUNCTION" variable (:constant-flag t) nil [331 347])
+            ("KEYWORD_IMPORT" variable (:constant-flag t) nil [367 381])
+            ("FIRST_RESERVED_TOK" variable (:constant-flag t) nil [400 418])
+            ("TokenType" type
+               (:members 
+                  ( ("TOK_INVALID" variable
+                       (:constant-flag t
+                        :default-value (544 562)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [530 562])
+                    ("TOK_NEWLINE" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [568 580])
+                    ("TOK_SEMI" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [581 590])
+                    ("TOK_COMMA" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [591 601])
+                    ("TOK_LBRACKET" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [606 619])
+                    ("TOK_RBRACKET" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [620 633])
+                    ("TOK_LPAREN" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [634 645])
+                    ("TOK_RPAREN" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [646 657])
+                    ("TOK_LBRACE" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [662 673])
+                    ("TOK_RBRACE" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [674 685])
+                    ("TOK_UNARY_PLUS" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [717 732])
+                    ("TOK_UNARY_MINUS" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [733 749])
+                    ("TOK_LOGICAL_NOT" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [754 770])
+                    ("TOK_BITWISE_NOT" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [771 787])
+                    ("TOK_INCR" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [792 801])
+                    ("TOK_DECR" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [802 811])
+                    ("TOK_BINARY_PLUS" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [844 860])
+                    ("TOK_BINARY_MINUS" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [861 878])
+                    ("TOK_STAR" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [883 892])
+                    ("TOK_SLASH" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [893 903])
+                    ("TOK_MODULUS" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [904 916])
+                    ("TOK_POW" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [921 929])
+                    ("TOK_EQ" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [930 937])
+                    ("TOK_NEQ" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [938 946])
+                    ("TOK_LT" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [947 954])
+                    ("TOK_GT" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [959 966])
+                    ("TOK_LTE" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [967 975])
+                    ("TOK_GTE" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [976 984])
+                    ("TOK_LOGICAL_AND" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [985 1001])
+                    ("TOK_LOGICAL_OR" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1006 1021])
+                    ("TOK_BITWISE_AND" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1022 1038])
+                    ("TOK_BITWISE_OR" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1043 1058])
+                    ("TOK_BITWISE_XOR" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1059 1075])
+                    ("TOK_BITWISE_LS" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1080 1095])
+                    ("TOK_BITWISE_RS" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1096 1111])
+                    ("TOK_ASSIGN" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1116 1127])
+                    ("TOK_ASSIGN_PLUS" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1128 1144])
+                    ("TOK_ASSIGN_MINUS" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1145 1162])
+                    ("TOK_ASSIGN_STAR" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1167 1183])
+                    ("TOK_ASSIGN_SLASH" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1184 1201])
+                    ("TOK_ASSIGN_MODULUS" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1206 1225])
+                    ("TOK_ASSIGN_POW" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1226 1241])
+                    ("TOK_ASSIGN_BITWISE_AND" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1246 1269])
+                    ("TOK_ASSIGN_BITWISE_OR" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1270 1292])
+                    ("TOK_ASSIGN_BITWISE_XOR" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1297 1320])
+                    ("TOK_ASSIGN_BITWISE_LS" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1321 1343])
+                    ("TOK_ASSIGN_BITWISE_RS" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1348 1370])
+                    ("TOK_KEYWORD_IF" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1395 1410])
+                    ("TOK_KEYWORD_ELIF" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1411 1428])
+                    ("TOK_KEYWORD_ELSE" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1429 1446])
+                    ("TOK_KEYWORD_WHILE" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1451 1469])
+                    ("TOK_KEYWORD_FOR" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1470 1486])
+                    ("TOK_KEYWORD_FUNCTION" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1491 1512])
+                    ("TOK_KEYWORD_IMPORT" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1513 1532])
+                    ("TOK_INUMLIT" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1561 1573])
+                    ("TOK_DNUMLIT" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1574 1586])
+                    ("TOK_STRLIT" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1591 1602])
+                    ("TOK_ID" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1603 1611]))                  
+                :type "enum")
+                nil [490 1612])
+            ("LAST_RESERVED_TOK" variable (:constant-flag t) nil [1622 1639])
+            ("RESERVED_TOKENS_COUNT" variable (:constant-flag t) nil [1667 1688])
+            ("TokenData" type
+               (:members 
+                  ( ("str_val" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol classsubparts) [1751 1765])
+                    ("dbl_val" variable (:type "double") (reparse-symbol classsubparts) [1770 1785])
+                    ("int_val" variable (:type "long") (reparse-symbol classsubparts) [1790 1803]))                  
+                :type "union")
+                nil [1729 1806])
+            ("Token" type
+               (:members 
+                  ( ("data" variable (:type ("TokenData" type (:type "union") nil nil)) (reparse-symbol classsubparts) [2010 2031])
+                    ("type" variable (:type ("TokenType" type (:type "enum") nil nil)) (reparse-symbol classsubparts) [2036 2056]))                  
+                :type "struct")
+                nil [1991 2059])
+            ("RESERVED_TOKENS" variable
+               (:pointer 1
+                :dereference 1
+                :type ("Token" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [2223 2276])
+            ("reserve_tokens" function
+               (:prototype-flag t
+                :type "void")
+                nil [2278 2300])
+            ("tok_deinit" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("tok" variable
+                       (:pointer 1
+                        :type ("Token" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2410 2428]))                  
+                :type "void")
+                nil [2394 2429])
+            ("tok_xvec_clear" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("v" variable
+                       (:pointer 1
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2505 2523]))                  
+                :type "void")
+                nil [2485 2524])
+            ("tok_is_paren" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("tok" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("Token" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2544 2574]))                  
+                :type "bool")
+                nil [2526 2575])
+            ("tok_is_id" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("tok" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("Token" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2718 2748]))                  
+                :type "bool")
+                nil [2703 2749])
+            ("tok_is_cmd_separator" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("tok" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("Token" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2777 2807]))                  
+                :type "bool")
+                nil [2751 2808])
+            ("tok_is_paren" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("tok" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("Token" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2828 2858]))                  
+                :type "bool")
+                nil [2810 2859])
+            ("tok_is_op" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("tok" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("Token" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2954 2984]))                  
+                :type "bool")
+                nil [2939 2985])
+            ("tok_is_unop" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("tok" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("Token" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3066 3096]))                  
+                :type "bool")
+                nil [3049 3097])
+            ("tok_is_binop" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("tok" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("Token" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3180 3210]))                  
+                :type "bool")
+                nil [3162 3211])
+            ("tok_left_assoc" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("tok" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("Token" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3318 3348]))                  
+                :type "bool")
+                nil [3298 3349])
+            ("tok_preced" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("tok" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("Token" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3503 3533]))                  
+                :type ("uint8" type (:type "class") nil nil))
+                nil [3486 3534]))          
+      :file "token.h"
+      :pointmax 3757
+      :fsize 3756
+      :lastmodtime '(22635 53567 791526 384000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("KEYWORD_FOR" . ((string "\"for\"" 317 . 322)))
+          ("KEYWORD_FUNCTION" . ((string "\"function\"" 348 . 358)))
+          ("TOKEN_H")
+          ("KEYWORD_WHILE" . ((string "\"while\"" 289 . 296)))
+          ("RESERVED_TOKENS_COUNT" . 
+              ((symbol "LAST_RESERVED_TOK" 1689 . 1706) (punctuation "-" 1707 . 1708) (symbol "FIRST_RESERVED_TOK" 1709 . 1727)))
+          ("KEYWORD_IF" . ((string "\"if\"" 206 . 210)))
+          ("KEYWORD_ELIF" . ((string "\"elif\"" 232 . 238)))
+          ("KEYWORD_IMPORT" . ((string "\"import\"" 382 . 390)))
+          ("LAST_RESERVED_TOK" . ((symbol "TOK_KEYWORD_IMPORT" 1640 . 1658)))
+          ("FIRST_RESERVED_TOK" . ((number "0" 419 . 420)))
+          ("KEYWORD_ELSE" . ((string "\"else\"" 260 . 266)))
+          )
+)
+    (semanticdb-table "interpreter.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("shell/interpreter.h" include nil nil [132 162])
+            ("string.h" include (:system-flag t) nil [164 183])
+            ("lib/types.h" include nil nil [185 207])
+            ("lib/xstr.h" include nil nil [208 229])
+            ("lib/macros.h" include nil nil [230 253])
+            ("shell/util.h" include nil nil [254 277])
+            ("shell/token.h" include nil nil [278 302])
+            ("shell/lexer.h" include nil nil [303 327])
+            ("shell/parser.h" include nil nil [328 353])
+            ("shell/executor.h" include nil nil [354 381])
+            ("interpreter_init" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [405 433]))                  
+                :type "void")
+                nil [383 692])
+            ("interpreter_set_ec" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [723 751])
+                    ("ec" variable
+                       (:constant-flag t
+                        :type ("InterpreterErrCode" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [756 789]))                  
+                :type "void")
+                nil [694 810])
+            ("interpreter_set_syntax_ec" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [848 876])
+                    ("type" variable
+                       (:constant-flag t
+                        :type ("InterpreterSyntaxErrType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [881 922]))                  
+                :type "void")
+                nil [812 983])
+            ("interpreter_err" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1011 1051]))                  
+                :type "void")
+                nil [985 1910])
+            ("interpreter_incr_ln" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1937 1965]))                  
+                :type "void")
+                nil [1912 1983])
+            ("interpreter_set_input" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2017 2045])
+                    ("input_name" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [2050 2079])
+                    ("input_text" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [2084 2113]))                  
+                :type "void")
+                nil [1985 2244])
+            ("interpreter_clear" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2269 2297]))                  
+                :type "void")
+                nil [2246 2496])
+            ("interpreter_do" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2518 2546]))                  
+                :type "bool")
+                nil [2498 3673])
+            ("interpreter_do_file" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3705 3733])
+                    ("filename" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [3738 3765]))                  
+                :type "bool")
+                nil [3675 4309]))          
+      :file "interpreter.c"
+      :pointmax 4310
+      :fsize 4309
+      :lastmodtime '(22635 59546 447604 514000)
+      :unmatched-syntax nil)
+    (semanticdb-table "lexer.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("LEXER_H" variable (:constant-flag t) nil [151 158])
+            ("lib/types.h" include nil nil [160 182])
+            ("lib/xvec.h" include nil nil [183 204])
+            ("shell/interpreter.h" include nil nil [205 235])
+            ("lex" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [586 614]))                  
+                :type "bool")
+                nil [577 615]))          
+      :file "lexer.h"
+      :pointmax 635
+      :fsize 634
+      :lastmodtime '(22635 53923 407531 31000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("LEXER_H")
+          )
+)
+    (semanticdb-table "parser.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("PARSER_H" variable (:constant-flag t) nil [153 161])
+            ("shell/ast.h" include nil nil [163 185])
+            ("shell/interpreter.h" include nil nil [186 216])
+            ("parse" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [229 257]))                  
+                :type "bool")
+                nil [218 258]))          
+      :file "parser.h"
+      :pointmax 279
+      :fsize 278
+      :lastmodtime '(22635 53990 759531 911000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("PARSER_H")
+          )
+)
+    (semanticdb-table "executor.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("EXECUTOR_H" variable (:constant-flag t) nil [157 167]))          
+      :file "executor.h"
+      :pointmax 309
+      :fsize 308
+      :lastmodtime '(22635 20174 475089 993000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("EXECUTOR_H")
+          )
+)
+    (semanticdb-table "lexer.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("shell/lexer.h" include nil nil [204 228])
+            ("ctype.h" include (:system-flag t) nil [230 248])
+            ("string.h" include (:system-flag t) nil [249 268])
+            ("lib/types.h" include nil nil [270 292])
+            ("lib/str_stream.h" include nil nil [293 320])
+            ("lib/macros.h" include nil nil [321 344])
+            ("shell/util.h" include nil nil [345 368])
+            ("shell/token.h" include nil nil [369 393])
+            ("shell/interpreter.h" include nil nil [394 424])
+            ("lexer_append_tok" function
+               (:arguments 
+                  ( ("ls" variable
+                       (:pointer 1
+                        :type ("LexerState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [534 556])
+                    ("tok" variable
+                       (:pointer 1
+                        :type ("Token" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [561 579]))                  
+                :type "void")
+                nil [507 616])
+            ("lexer_get_prev_tok" function
+               (:pointer 1
+                :arguments 
+                  ( ("ls" variable
+                       (:pointer 1
+                        :type ("LexerState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [667 689]))                  
+                :type ("Token" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [629 718])
+            ("stream_at_the_newline" function
+               (:arguments 
+                  ( ("stream" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [758 777]))                  
+                :type "bool")
+                nil [731 816])
+            ("stream_at_the_end_of_strlit" function
+               (:arguments 
+                  ( ("stream" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [862 881]))                  
+                :type "bool")
+                nil [829 917])
+            ("stream_at_digit" function
+               (:arguments 
+                  ( ("stream" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [951 970]))                  
+                :type "bool")
+                nil [930 1003])
+            ("stream_at_id" function
+               (:arguments 
+                  ( ("stream" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [1034 1053]))                  
+                :type "bool")
+                nil [1016 1204])
+            ("lexer_read_strlit" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1580 1608]))                  
+                :type "bool")
+                nil [1557 2215])
+            ("lexer_read_numlit" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2546 2574]))                  
+                :type "bool")
+                nil [2523 3113])
+            ("lexer_read_identifier" function
+               (:arguments 
+                  ( ("ls" variable
+                       (:pointer 1
+                        :type ("LexerState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3262 3284]))                  
+                :type "bool")
+                nil [3235 4512])
+            ("lexer_read_comment" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4823 4851]))                  
+                :type "bool")
+                nil [4799 5502])
+            ("lexer_read_caret_ch" function
+               (:arguments 
+                  ( ("ls" variable
+                       (:pointer 1
+                        :type ("LexerState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [5607 5629]))                  
+                :type "void")
+                nil [5582 5875])
+            ("lexer_read_pipe_ch" function
+               (:arguments 
+                  ( ("ls" variable
+                       (:pointer 1
+                        :type ("LexerState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [5978 6000]))                  
+                :type "void")
+                nil [5954 6354])
+            ("lexer_read_amp_ch" function
+               (:arguments 
+                  ( ("ls" variable
+                       (:pointer 1
+                        :type ("LexerState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [6461 6483]))                  
+                :type "void")
+                nil [6438 6839])
+            ("lexer_read_gt_ch" function
+               (:arguments 
+                  ( ("ls" variable
+                       (:pointer 1
+                        :type ("LexerState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [6948 6970]))                  
+                :type "void")
+                nil [6926 7483])
+            ("lexer_read_lt_ch" function
+               (:arguments 
+                  ( ("ls" variable
+                       (:pointer 1
+                        :type ("LexerState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [7589 7611]))                  
+                :type "void")
+                nil [7567 8124])
+            ("lexer_read_exclam_ch" function
+               (:arguments 
+                  ( ("ls" variable
+                       (:pointer 1
+                        :type ("LexerState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [8241 8263]))                  
+                :type "void")
+                nil [8215 8501])
+            ("lexer_read_eq_ch" function
+               (:arguments 
+                  ( ("ls" variable
+                       (:pointer 1
+                        :type ("LexerState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [8604 8626]))                  
+                :type "void")
+                nil [8582 8858])
+            ("lexer_read_modulus_ch" function
+               (:arguments 
+                  ( ("ls" variable
+                       (:pointer 1
+                        :type ("LexerState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [8967 8989]))                  
+                :type "void")
+                nil [8940 9234])
+            ("lexer_read_slash_ch" function
+               (:arguments 
+                  ( ("ls" variable
+                       (:pointer 1
+                        :type ("LexerState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [9339 9361]))                  
+                :type "void")
+                nil [9314 9602])
+            ("lexer_read_star_ch" function
+               (:arguments 
+                  ( ("ls" variable
+                       (:pointer 1
+                        :type ("LexerState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [9705 9727]))                  
+                :type "void")
+                nil [9681 10238])
+            ("lexer_read_minus_ch" function
+               (:arguments 
+                  ( ("ls" variable
+                       (:pointer 1
+                        :type ("LexerState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [10343 10365]))                  
+                :type "void")
+                nil [10318 10838])
+            ("lexer_read_plus_ch" function
+               (:arguments 
+                  ( ("ls" variable
+                       (:pointer 1
+                        :type ("LexerState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [10941 10963]))                  
+                :type "void")
+                nil [10917 11432])
+            ("lex" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [11443 11471]))                  
+                :type "bool")
+                nil [11434 13743]))          
+      :file "lexer.c"
+      :pointmax 13744
+      :fsize 13743
+      :lastmodtime '(22635 56364 888562 937000)
+      :unmatched-syntax nil)
+    (semanticdb-table "executor.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("shell/executor.h" include nil nil [130 157]))          
+      :file "executor.c"
+      :pointmax 315
+      :fsize 314
+      :lastmodtime '(22635 53955 759531 454000)
+      :unmatched-syntax nil)
+    (semanticdb-table "parser.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("shell/parser.h" include nil nil [128 153])
+            ("string.h" include (:system-flag t) nil [155 174])
+            ("lib/types.h" include nil nil [176 198])
+            ("lib/xstack.h" include nil nil [199 222])
+            ("lib/xvec_stream.h" include nil nil [223 251])
+            ("lib/macros.h" include nil nil [252 275])
+            ("shell/token.h" include nil nil [276 300])
+            ("shell/ast.h" include nil nil [301 323])
+            ("shell/interpreter.h" include nil nil [324 354])
+            ("postfix_toks_into_node" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1114 1142])
+                    ("toks" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1147 1174]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [1070 1175])
+            ("parse_expr_compound" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1229 1257]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [1188 1258])
+            ("parse_stmt_function" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1312 1340]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [1271 1341])
+            ("parse_expr_call" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1391 1419]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [1354 1420])
+            ("parse_stmt_if" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1468 1496]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [1433 1497])
+            ("parse_stmt_while" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1548 1576]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [1510 1577])
+            ("parse_stmt_import" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1629 1657]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [1590 1658])
+            ("parse_expr_id" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1706 1734]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [1671 1735])
+            ("parse_expr" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1780 1808]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [1748 1809])
+            ("parse_stmt" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1854 1882]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [1822 1883])
+            ("postfix_toks_into_node" function
+               (:pointer 1
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2033 2061])
+                    ("toks" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("XVector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2066 2093]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [1989 6220])
+            ("parse_expr_compound" function
+               (:pointer 1
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [6381 6409]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [6340 8612])
+            ("parse_stmt_function" function
+               (:pointer 1
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [8768 8796]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [8727 10988])
+            ("parse_expr_call" function
+               (:pointer 1
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [11103 11131]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [11066 12373])
+            ("parse_stmt_if" function
+               (:pointer 1
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [12485 12513]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [12450 13688])
+            ("parse_stmt_while" function
+               (:pointer 1
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [13806 13834]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [13768 14610])
+            ("parse_stmt_import" function
+               (:pointer 1
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [14730 14758]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [14691 15345])
+            ("parse_expr_id" function
+               (:pointer 1
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [15475 15503]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [15440 15834])
+            ("parse_expr" function
+               (:pointer 1
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [15939 15967]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [15907 16860])
+            ("parse_stmt" function
+               (:pointer 1
+                :arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [16964 16992]))                  
+                :type ("ASTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [16932 17492])
+            ("parse" function
+               (:arguments 
+                  ( ("is" variable
+                       (:pointer 1
+                        :type ("InterpreterState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [17505 17533]))                  
+                :type "bool")
+                nil [17494 18124]))          
+      :file "parser.c"
+      :pointmax 18125
+      :fsize 18124
+      :lastmodtime '(22635 54470 833538 185000)
+      :unmatched-syntax '((symbol 16921 . 16931) (symbol 15896 . 15906) (symbol 15429 . 15439) (symbol 14680 . 14690) (symbol 13757 . 13767) (symbol 12439 . 12449) (symbol 11055 . 11065) (symbol 8716 . 8726) (symbol 6329 . 6339) (symbol 1978 . 1988) (symbol 1811 . 1821) (symbol 1737 . 1747) (symbol 1660 . 1670) (symbol 1579 . 1589) (symbol 1499 . 1509) (symbol 1422 . 1432) (symbol 1343 . 1353) (symbol 1260 . 1270) (symbol 1177 . 1187) (symbol 1059 . 1069) (symbol 1177 . 1187) (punctuation 1174 . 1175) (semantic-list 1108 . 1174))))
+  :file "!home!wrongway4you!Projects!gsh!shell!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

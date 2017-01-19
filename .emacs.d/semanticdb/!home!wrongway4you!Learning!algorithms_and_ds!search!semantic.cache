@@ -1,0 +1,75 @@
+;; Object search/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "search/"
+  :tables
+  (list
+    (semanticdb-table "search_with_prepare.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("stdio.h" include (:system-flag t) nil [141 159])
+            ("stdint.h" include (:system-flag t) nil [160 179])
+            ("limits.h" include (:system-flag t) nil [180 199])
+            ("stdlib.h" include (:system-flag t) nil [200 219])
+            ("THRESHHOLD" variable (:constant-flag t) nil [229 239])
+            ("prepare" function
+               (:pointer 1
+                :arguments 
+                  ( ("arr" variable
+                       (:dereference 1
+                        :type "int")
+                        (reparse-symbol arg-sub-list) [262 272])
+                    ("size" variable (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [273 287]))                  
+                :type "int")
+                nil [249 556])
+            ("search_with_prepare" function
+               (:arguments 
+                  ( ("inv_arr" variable
+                       (:dereference 1
+                        :type "int")
+                        (reparse-symbol arg-sub-list) [582 596])
+                    ("size" variable (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [597 611])
+                    ("val" variable (:type "int") (reparse-symbol arg-sub-list) [612 620]))                  
+                :type "int")
+                nil [558 680])
+            ("main" function
+               (:arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [691 696]))                  
+                :type "int")
+                nil [682 1318]))          
+      :file "search_with_prepare.c"
+      :pointmax 1319
+      :fsize 1318
+      :lastmodtime '(22639 39931 886211 541000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("THRESHHOLD" . ((symbol "INT_MAX" 240 . 247)))
+          )
+)
+    (semanticdb-table "bsearch.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("stdio.h" include (:system-flag t) nil [126 144])
+            ("stdint.h" include (:system-flag t) nil [145 164])
+            ("bsearch" function
+               (:arguments 
+                  ( ("arr" variable
+                       (:dereference 1
+                        :type "int")
+                        (reparse-symbol arg-sub-list) [178 188])
+                    ("size" variable (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [189 203])
+                    ("val" variable (:type "int") (reparse-symbol arg-sub-list) [204 212]))                  
+                :type "int")
+                nil [166 445])
+            ("main" function
+               (:arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [456 461]))                  
+                :type "int")
+                nil [447 945]))          
+      :file "bsearch.c"
+      :pointmax 946
+      :fsize 945
+      :lastmodtime '(22639 39484 270252 789000)
+      :unmatched-syntax nil))
+  :file "!home!wrongway4you!Learning!algorithms_and_ds!search!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

@@ -3,15 +3,52 @@
 (semanticdb-project-database-file "Temp/"
   :tables
   (list
-    (semanticdb-table "main.c"
-      :major-mode 'c-mode
+
+    (semanticdb-table "main.cpp"
+      :major-mode 'c++-mode
       :tags 
-        '( ("main" function (:type "int") nil [141 169]))          
-      :file "main.c"
-      :pointmax 170
-      :fsize 169
-      :lastmodtime '(22625 25419 643677 71000)
-      :unmatched-syntax '((symbol 136 . 139) (punctuation 135 . 136) (symbol 127 . 134) (punctuation 126 . 127) (symbol 136 . 139) (punctuation 135 . 136) (symbol 127 . 134) (punctuation 126 . 127))))
+        '( ("stdio.h" include (:system-flag t) nil [1 19])
+            ("stdint.h" include (:system-flag t) nil [20 39])
+            ("EntityClass" type
+               (:members 
+                  ( ("private" label nil (reparse-symbol classsubparts) [61 69])
+                    ("x_" variable (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [74 86])
+                    ("y_" variable (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [91 103])
+                    ("public" label nil (reparse-symbol classsubparts) [104 111])
+                    ("EntityClass" function
+                       (:constructor-flag t
+                        :arguments 
+                          ( ("x" variable (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [128 139])
+                            ("y" variable (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [140 151]))                          
+                        :type ("EntityClass" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [116 183]))                  
+                :type "class")
+                nil [41 186])
+            ("EntityStruct" type
+               (:typedef ("" type
+                     (:members 
+                        ( ("x" variable (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [209 220])
+                          ("y" variable (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [225 236]))                        
+                      :type "struct")
+                      nil nil)
+                :type "typedef")
+                nil [188 252])
+            ("init_entity_struct" function
+               (:arguments 
+                  ( ("es" variable
+                       (:reference 1
+                        :type ("EntityStruct" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [278 295])
+                    ("x" variable (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [296 307])
+                    ("y" variable (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [308 319]))                  
+                :type "void")
+                nil [254 351])
+            ("main" function (:type "int") nil [353 620]))          
+      :file "main.cpp"
+      :pointmax 621
+      :fsize 620
+      :lastmodtime '(22632 53156 172119 667000)
+      :unmatched-syntax nil))
   :file "!home!wrongway4you!Temp!semantic.cache"
   :semantic-tag-version "2.0"
   :semanticdb-version "2.2")

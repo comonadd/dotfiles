@@ -1,0 +1,16 @@
+;; Object dakrone-theme-20140211.2045/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "dakrone-theme-20140211.2045/"
+  :tables
+  (list
+    (semanticdb-table "dakrone-theme-autoloads.el"
+      :major-mode 'emacs-lisp-mode
+      :tags nil
+      :file "dakrone-theme-autoloads.el"
+      :pointmax 299
+      :fsize 571
+      :lastmodtime '(22653 48849 839517 884000)
+      :unmatched-syntax nil))
+  :file "!home!wrongway4you!Git!dotfiles!.emacs.d!elpa!dakrone-theme-20140211.2045!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

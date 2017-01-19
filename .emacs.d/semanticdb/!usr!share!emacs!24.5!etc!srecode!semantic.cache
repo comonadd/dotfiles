@@ -195,6 +195,285 @@ AC_OUTPUT(Makefile, [date > stamp-h] )
       :pointmax 1796
       :fsize 1795
       :lastmodtime '(21710 25077 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "el.srt"
+      :major-mode 'srecode-template-mode
+      :tags 
+        '( ("escape_start" variable (:default-value ("$")) nil [824 845])
+            ("escape_end" variable (:default-value ("$")) nil [845 864])
+            ("mode" variable (:default-value ("emacs-lisp-mode")) nil [865 892])
+            ("comment_start" variable (:default-value (";;;")) nil [893 918])
+            ("comment_prefix" variable (:default-value (";;")) nil [918 943])
+            ("comment_end" variable (:default-value ("")) nil [943 963])
+            ("DOLLAR" variable (:default-value ("$")) nil [964 979])
+            ("file" context nil nil [980 993])
+            ("section-comment" function
+               (:binding "s"
+                :code "
+;;; $^$
+;;
+
+"
+                :documentation "Insert a comment that separates sections of an Emacs Lisp file."
+                :arguments (":blank"))
+                nil [994 1125])
+            ("empty" function
+               (:code "$>:filecomment$
+
+;;; Commentary:
+;;
+;; $^$
+
+;;; Code:
+
+
+(provide '$FILE$)
+
+;;; $FILENAME$ ends here
+
+"
+                :documentation "Insert a skeleton for an Emacs Lisp file."
+                :arguments (":user" ":time" ":file"))
+                nil [1127 1315])
+            ("MODESYM" prompt (:text "Major Mode Symbol (sans -mode): ") nil [1316 1366])
+            ("MODENAME" prompt
+               (:default (macro . "MODESYM")
+                :text "Nice Name of mode: ")
+                nil [1366 1427])
+            ("MODEEXTENSION" prompt (:text "File name extension for mode: ") nil [1427 1481])
+            ("major-mode" function
+               (:dictionaries (("FONTLOCK" ("NAME" variable (:default-value ((macro . "MODESYM") "-mode-font-lock-keywords")) (reparse-symbol flat-dictionary-entry) #<overlay from 1600 to 1652 in el.srt>) ("DOC" variable (:default-value ("Keywords for use with srecode macros and font-lock.")) (reparse-symbol flat-dictionary-entry) #<overlay from 1652 to 1714 in el.srt>)) ("MODEHOOK" ("NAME" variable (:default-value ((macro . "MODESYM") "-mode-hook")) (reparse-symbol flat-dictionary-entry) #<overlay from 1743 to 1781 in el.srt>) ("DOC" variable (:default-value ("Hook run when " (macro . "MODESYM") " starts.")) (reparse-symbol flat-dictionary-entry) #<overlay from 1781 to 1833 in el.srt>) ("GROUP" variable (:default-value ((macro . "MODESYM") "-mode")) (reparse-symbol flat-dictionary-entry) #<overlay from 1833 to 1867 in el.srt>) ("CUSTOMTYPE" variable (:default-value ("'hook")) (reparse-symbol flat-dictionary-entry) #<overlay from 1867 to 1890 in el.srt>)) ("MODEFCN" ("NAME" variable (:default-value ((macro . "MODESYM") "-mode")) (reparse-symbol flat-dictionary-entry) #<overlay from 1918 to 1951 in el.srt>) ("DOC" variable (:default-value ("Major-mode for " (macro . "MODESYM") "-mode buffers.")) (reparse-symbol flat-dictionary-entry) #<overlay from 1951 to 2010 in el.srt>) ("INTERACTIVE" variable (:default-value ("")) (reparse-symbol flat-dictionary-entry) #<overlay from 2010 to 2029 in el.srt>)))
+                :code "$>:declaration:defgroup$
+
+$>:syntax-table$
+
+$<FONTLOCK:declaration:variable$
+   '(
+     )
+$/FONTLOCK$
+
+$>:declaration:keymap$
+
+$<MODEHOOK:declaration:variable-option$nil$/MODEHOOK$
+
+;;;###autoload
+$<MODEFCN:declaration:function$
+  (interactive)
+  (kill-all-local-variables)
+  (setq major-mode '$MODESYM$-mode
+        mode-name \"$?MODENAME$\"
+	comment-start \";;\"
+	comment-end \"\")
+  (set (make-local-variable 'comment-start-skip)
+       \"\\\\(\\\\(^\\\\|[^\\\\\\\\\\n]\\\\)\\\\(\\\\\\\\\\\\\\\\\\\\)*\\\\);+ *\")
+  (set-syntax-table $MODESYM$-mode-syntax-table)
+  (use-local-map $MODESYM$-mode-map)
+  (set (make-local-variable 'font-lock-defaults)
+       '($MODESYM$-mode-font-lock-keywords
+         nil  ;; perform string/comment fontification
+         nil  ;; keywords are case sensitive.
+         ;; This puts _ & - as a word constituent,
+         ;; simplifying our keywords significantly
+         ((?_ . \"w\") (?- . \"w\"))))
+  (run-hooks '$MODESYM$-mode-hook)
+$/MODEFCN$
+
+;;;###autoload
+(add-to-list 'auto-mode-alist '(\"\\\\.$?MODEEXTENSION$$DOLLAR$\" . $MODESYM$-mode))
+
+$<A:section-comment$Commands for $MODESYM$$/A$
+
+$<B:section-comment$Utils for $MODESYM$$/B$
+"
+                :documentation "Insert the framework needed for a major mode."
+                :arguments (":file" ":blank" ":indent"))
+                nil [1482 3172])
+            ("syntax-table" function
+               (:dictionaries (("A" ("NAME" variable (:default-value ((macro . "?MODESYM") "-mode-syntax-table")) (reparse-symbol flat-dictionary-entry) #<overlay from 3242 to 3289 in el.srt>) ("DOC" variable (:default-value ("Syntax table used in " (macro . "?MODESYM") " buffers.")) (reparse-symbol flat-dictionary-entry) #<overlay from 3289 to 3350 in el.srt>)))
+                :code "$<A:declaration:variable$
+  (let ((table (make-syntax-table (standard-syntax-table))))
+    (modify-syntax-entry ?\\; \". 12\"  table) ;; SEMI, Comment start ;;
+    (modify-syntax-entry ?\\n \">\"     table) ;; Comment end
+    (modify-syntax-entry ?\\\" \"\\\"\"    table) ;; String
+    (modify-syntax-entry ?\\- \"_\"     table) ;; Symbol
+    (modify-syntax-entry ?\\\\ \"\\\\\"    table) ;; Quote
+    (modify-syntax-entry ?\\` \"'\"     table) ;; Prefix ` (backquote)
+    (modify-syntax-entry ?\\' \"'\"     table) ;; Prefix ' (quote)
+    (modify-syntax-entry ?\\, \"'\"     table) ;; Prefix , (comma)
+
+    table)
+$/A$
+"
+                :documentation "Create a syntax table.")
+                nil [3173 3950])
+            ("declaration" context nil nil [3952 3972])
+            ("include" function
+               (:binding "i"
+                :code "(require '$?NAME$)
+"
+                :documentation "Insert a require statement."
+                :arguments (":blank"))
+                nil [3973 4065])
+            ("include-protected" function
+               (:code "(condition-case nil
+     (require '$?NAME$)
+   (error nil))
+"
+                :documentation "Insert a require statement."
+                :arguments (":blank"))
+                nil [4066 4200])
+            ("INTERACTIVE" prompt
+               (:read y-or-n-p
+                :default "  (interactive)
+  "
+                :text "Is this an interactive function? ")
+                nil [4201 4300])
+            ("NAME" prompt
+               (:default (macro . "PRENAME")
+                :text "Name: ")
+                nil [4300 4344])
+            ("function" function
+               (:binding "f"
+                :code "(defun $?NAME$ ($#ARGS$$NAME$$#NOTLAST$ $/NOTLAST$$/ARGS$)
+  \"$DOC$\"
+$?INTERACTIVE$$^$
+  )
+"
+                :documentation "Insert a defun outline."
+                :arguments (":el" ":indent" ":blank"))
+                nil [4345 4518])
+            ("variable" function
+               (:binding "v"
+                :code "(defvar $?NAME$ $^$
+  \"$DOC$\")
+"
+                :documentation "Inert a variable.
+DOC is optional."
+                :arguments (":el" ":indent" ":blank"))
+                nil [4520 4644])
+            ("variable-const" function
+               (:code "(defconst $?NAME$ $^$
+  \"$DOC$\")
+"
+                :documentation "Inert a variable."
+                :arguments (":el" ":indent" ":blank"))
+                nil [4645 4751])
+            ("variable-option" function
+               (:binding "o"
+                :code "(defcustom $?NAME$ $^$
+  \"*$DOC$\"
+  :group '$GROUP$
+  :type $?CUSTOMTYPE$)
+"
+                :documentation "Inert a variable created using defcustom."
+                :arguments (":el" ":el-custom" ":indent" ":blank"))
+                nil [4752 4945])
+            ("class" function
+               (:binding "c"
+                :code "(defclass $?NAME$ ()
+   (($?ARG1$ :initarg :$ARG1$
+             :documentation
+	     \"$^$\")
+   )
+   \"Class $NAME$ \")
+"
+                :documentation "Insert a new class."
+                :arguments (":el" ":indent" ":blank"))
+                nil [4946 5138])
+            ("class-tag" function
+               (:code "(defclass $?NAME$ ($#PARENTS$$NAME$ $/PARENTS$)
+   ($^$
+    )
+   \"Class $NAME$ \")
+"
+                :documentation "Insert a new class."
+                :arguments (":el" ":indent" ":blank"))
+                nil [5139 5291])
+            ("method" function
+               (:binding "m"
+                :code "(defmethod $?NAME$ ((this $?PARENT$))
+  \"$DOC$\"
+  $^$
+  )
+"
+                :documentation "Insert a new method."
+                :arguments (":el" ":ctxt" ":indent" ":blank"))
+                nil [5292 5433])
+            ("method-tag" function
+               (:code "(defmethod $NAME$ ($#ARGS$$#FIRST$($NAME$ $PARENT$)$/FIRST$$#NOTFIRST$ $NAME$$/NOTFIRST$$/ARGS$)
+  \"$DOC$\"
+  $^$
+  )
+"
+                :documentation "Insert a new method for tag inserter."
+                :arguments (":el" ":ctxt" ":indent" ":blank"))
+                nil [5434 5646])
+            ("NAME" prompt
+               (:read mode-local-read-function
+                :default (macro . "PRENAME")
+                :text "Method to Override: ")
+                nil [5647 5735])
+            ("PARENT" prompt
+               (:default (macro . "MODESYM")
+                :text "Major Mode for binding: ")
+                nil [5735 5799])
+            ("modelocal" function
+               (:binding "l"
+                :code "(define-mode-local-override $?NAME$ $?PARENT$ ()
+  \"$DOC$\"
+  $^$)
+"
+                :documentation "Insert a new mode-local function."
+                :arguments (":el" ":ctxt" ":indent" ":blank"))
+                nil [5870 6035])
+            ("defgroup" function
+               (:binding "g"
+                :code "(defgroup $?MODESYM$-mode nil
+  \"$MODESYM$ group.\"
+  :group 'languages)
+"
+                :documentation "Create a custom group."
+                :arguments (":indent" ":blank"))
+                nil [6037 6186])
+            ("keymap" function
+               (:binding "k"
+                :code "(defvar $?MODESYM$-mode-map
+  (let ((km (make-sparse-keymap)))
+    (define-key km \"\\C-c\\C-c\" '$MODESYM$-mode$^$)
+    km)
+  \"Keymap used in `$MODESYM$-mode'.\")
+"
+                :documentation "Insert a keymap of some sort"
+                :arguments (":indent" ":blank"))
+                nil [6188 6428])
+            ("classdecl" context nil nil [6430 6448])
+            ("NAME" prompt (:text "Slot Name: ") nil [6449 6475])
+            ("variable-tag" function
+               (:code "($?NAME$ :initarg :$NAME$
+	 $#DEFAULTVALUE$:initform $VALUE$$/DEFAULTVALUE$
+	 :documentation
+	 \"$DOC$\")
+
+"
+                :documentation "A field in a class."
+                :arguments (":indent" ":indent" ":blank"))
+                nil [6476 6658])
+            ("variable" function
+               (:binding "s"
+                :code "($?NAME$ :initarg :$NAME$
+	 :initform nil
+	 :type list
+	 :documentation
+	 \"$DOC$\")
+
+"
+                :documentation "A field in a class."
+                :arguments (":indent" ":indent" ":blank"))
+                nil [6659 6825]))          
+      :file "el.srt"
+      :pointmax 6837
+      :fsize 6836
+      :lastmodtime '(21710 25077 0 0)
       :unmatched-syntax nil))
   :file "!usr!share!emacs!24.5!etc!srecode!semantic.cache"
   :semantic-tag-version "2.0"

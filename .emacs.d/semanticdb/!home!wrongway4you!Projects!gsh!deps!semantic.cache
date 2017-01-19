@@ -1,0 +1,17 @@
+;; Object deps/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "deps/"
+  :tables
+  (list
+    (semanticdb-table "Makefile"
+      :major-mode 'makefile-gmake-mode
+      :tags 
+        '( ("all" function nil nil [40 62]))          
+      :file "Makefile"
+      :pointmax 62
+      :fsize 61
+      :lastmodtime '(22646 15826 57052 289000)
+      :unmatched-syntax '((shell-command 46 . 61) (bol 45 . 45))))
+  :file "!home!wrongway4you!Projects!gsh!deps!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

@@ -1,0 +1,92 @@
+;; Object dumper/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "dumper/"
+  :tables
+  (list
+    (semanticdb-table "dumper.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("DUMPER_H" variable (:constant-flag t) nil [184 192])
+            ("lib/types.h" include nil nil [194 216])
+            ("interpreter/vm/bytecode.h" include nil nil [217 253])
+            ("dump" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("filename" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [270 285])
+                    ("bc" variable
+                       (:pointer 1
+                        :type ("ByteCode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [290 310]))                  
+                :type "bool")
+                nil [255 311]))          
+      :file "dumper.h"
+      :pointmax 335
+      :fsize 334
+      :lastmodtime '(22655 14868 488615 580000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("DUMPER_H")
+          )
+)
+    (semanticdb-table "dumper.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("interpreter/dumper/dumper.h" include nil nil [159 197])
+            ("lib/types.h" include nil nil [199 221])
+            ("lib/buffer.h" include nil nil [222 245])
+            ("interpreter/vm/bytecode.h" include nil nil [246 282])
+            ("__dumper" variable (:type ("" type
+                 (:members 
+                    ( ("buf" variable (:type ("Buffer" type
+                           (:prototype t
+                            :type "struct")
+                            nil nil)) (reparse-symbol classsubparts) [297 315]))                    
+                  :type "struct")
+                  nil nil)) nil [284 327])
+            ("__dumper_init" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [399 404]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [372 437])
+            ("__dumper_deinit" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [468 473]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [439 508])
+            ("__dumper_write_instr" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("instr" variable (:type ("Instruction" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [549 567]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [510 612])
+            ("dump" function
+               (:arguments 
+                  ( ("filename" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [663 678])
+                    ("bc" variable
+                       (:pointer 1
+                        :type ("ByteCode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [683 703]))                  
+                :type "bool")
+                nil [648 1051]))          
+      :file "dumper.c"
+      :pointmax 1052
+      :fsize 1051
+      :lastmodtime '(22654 6943 694340 385000)
+      :unmatched-syntax nil))
+  :file "!home!wrongway4you!Projects!gsh!src!interpreter!dumper!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

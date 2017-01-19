@@ -1,0 +1,68 @@
+;; Object examples/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "examples/"
+  :tables
+  (list
+    (semanticdb-table "Makefile"
+      :major-mode 'makefile-gmake-mode
+      :tags 
+        '( ("SRC" variable (:default-value ("$(shell find . -type f -name '*.c')")) nil [36 79])
+            ("OBJ" variable (:default-value ("$(SRC:.c=.o)")) nil [79 99])
+            ("EXAMPLES" variable (:default-value ("$(BASIC_EXAMPLE_NAME)")) nil [100 137])
+            ("BASIC_EXAMPLE_OBJ" variable (:default-value ("example_basic.o")) nil [200 237])
+            ("KEYBINDINGS_EXAMPLE_OBJ" variable (:default-value ("example_keybindings.o")) nil [237 286])
+            ("COMPLETIONS_EXAMPLE_OBJ" variable (:default-value ("example_completions.o")) nil [286 335])
+            ("all" function (:arguments ("$(LIB_NAME)" "$(EXAMPLES)")) nil [336 365])
+            ("$(BASIC_EXAMPLE_NAME)" function (:arguments ("$(BASIC_EXAMPLE_OBJ)")) nil [366 518])
+            ("%.o" function (:arguments ("%.c")) nil [857 1197]))          
+      :file "Makefile"
+      :pointmax 1344
+      :fsize 1343
+      :lastmodtime '(22646 12077 160397 751000)
+      :unmatched-syntax nil)
+
+
+
+    (semanticdb-table "example_keybindings.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("sil.h" include nil nil [188 204])
+            ("callback.h" include nil nil [205 226])
+            ("stdio.h" include (:system-flag t) nil [228 246])
+            ("do_whatever" function
+               (:arguments 
+                  ( ("ss" variable
+                       (:pointer 1
+                        :type ("SILState" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [278 298]))                  
+                :type ("SILCallbackStatus" type (:type "class") nil nil))
+                nil [248 355])
+            ("main" function
+               (:arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [366 371]))                  
+                :type "int")
+                nil [357 601]))          
+      :file "example_keybindings.c"
+      :pointmax 602
+      :unmatched-syntax nil)
+    (semanticdb-table "example_basic.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("sil.h" include nil nil [135 151])
+            ("stdio.h" include (:system-flag t) nil [153 171])
+            ("main" function
+               (:arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [182 187]))                  
+                :type "int")
+                nil [173 398]))          
+      :file "example_basic.c"
+      :pointmax 399
+      :fsize 398
+      :lastmodtime '(22646 11816 632421 759000)
+      :unmatched-syntax nil))
+  :file "!home!wrongway4you!Projects!small_input_library!examples!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

@@ -1,0 +1,42 @@
+;; Object sil/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "sil/"
+  :tables
+  (list
+    (semanticdb-table "Makefile"
+      :major-mode 'makefile-gmake-mode
+      :tags 
+        '( ("ROOT_DIR" variable (:default-value ("$(dir $(abspath $(lastword $(MAKEFILE_LIST))))")) nil [110 169])
+            ("OUTPUT_DIR" variable (:default-value ("$(ROOT_DIR)/tmp")) nil [169 199])
+            ("TEST" variable (:default-value ("1")) nil [200 210])
+            ("DEBUG" variable (:default-value ("1")) nil [210 221])
+            ("LD" variable (:default-value ("ld")) nil [287 296])
+            ("LDFLAGS" variable (:default-value ("-lc")) nil [296 311])
+            ("CCDEBUG_FLAGS" variable (:default-value ("-g" "-ggdb")) nil [407 433])
+            ("CCOPTIMIZATION_FLAGS" variable (:default-value ("-O0")) nil [433 461])
+            ("CC" variable (:default-value ("gcc")) nil [468 478])
+            ("CCSTD" variable (:default-value ("-std=gnu99" "-pedantic")) nil [478 508])
+            ("CCWARN_FLAGS" variable (:default-value ("-Wno-missing-braces" "-Wextra" "-Wno-missing-field-initializers" "-Wformat=2" "-Wswitch-default" "-Wcast-align" "-Wpointer-arith" "-Wbad-function-cast" "-Wstrict-overflow=5" "-Wstrict-prototypes" "-Winline" "-Wundef" "-Wnested-externs" "-Wshadow" "-Wunreachable-code" "-Wlogical-op" "-Wfloat-equal" "-Wstrict-aliasing=2" "-Wredundant-decls" "-Wold-style-definition" "-Werror")) nil [508 877])
+            ("CCDEFINITIONS" variable (:default-value ("-DTEST=$(TEST)" "-DDEBUG=$(DEBUG)")) nil [905 954])
+            ("CCINCLUDES" variable (:default-value ("-I$(ROOT_DIR)/src")) nil [954 986])
+            ("CCFLAGS" variable (:default-value ("$(CCSTD)" "$(CCWARN_FLAGS)" "$(CCDEBUG_FLAGS)" "$(CCOPTIMIZATION_FLAGS)" "$(CCDEFINITIONS)" "$(CCINCLUDES)" "-fno-omit-frame-pointer" "-ffloat-store" "-fno-common" "-fstrict-aliasing")) nil [987 1166])
+            ("LIB_SRC_PATH" variable (:default-value ("$(ROOT_DIR)/src")) nil [1210 1242])
+            ("LIB_SHARED_NAME" variable (:default-value ("$(OUTPUT_DIR)/libsil.so")) nil [1242 1285])
+            ("LIB_STATIC_NAME" variable (:default-value ("$(OUTPUT_DIR)/libsil.a")) nil [1285 1327])
+            ("BASIC_EXAMPLE_NAME" variable (:default-value ("$(OUTPUT_DIR)/example_basic")) nil [1328 1378])
+            ("KEYBINDINGS_EXAMPLE_NAME" variable (:default-value ("$(OUTPUT_DIR)/example_keybindings")) nil [1378 1440])
+            ("COMPLETIONS_EXAMPLE_NAME" variable (:default-value ("$(OUTPUT_DIR)/example_completions")) nil [1440 1502])
+            ("all" function (:arguments ("library")) nil [1560 1573])
+            ("library" function nil nil [1574 1612])
+            (".PHONY" function (:arguments ("library")) nil [1612 1628])
+            ("examples" function (:arguments ("library")) nil [1629 1669])
+            (".PHONY" function (:arguments ("examples")) nil [1669 1686])
+            ("clean" function nil nil [1688 2206]))          
+      :file "Makefile"
+      :pointmax 2220
+      :fsize 2219
+      :lastmodtime '(22648 55119 557993 196000)
+      :unmatched-syntax nil))
+  :file "!home!wrongway4you!Projects!sil!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

@@ -1,0 +1,1689 @@
+;; Object object/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "object/"
+  :tables
+  (list
+    (semanticdb-table "object.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("OBJECT_H" variable (:constant-flag t) nil [170 178])
+            ("lib/types.h" include nil nil [180 202])
+            ("lib/macros.h" include nil nil [203 226])
+            ("interpreter/lexer/token.h" include nil nil [227 263])
+            ("O_ASSERT_TYPE" variable (:constant-flag t) nil [273 286])
+            ("obj_type2str" variable (:constant-flag t) nil [338 350])
+            ("GShObjectType" type
+               (:members 
+                  ( ("O_INUM" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [552 559])
+                    ("O_DNUM" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [564 571])
+                    ("O_STR" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [576 583]))                  
+                :type "enum")
+                nil [527 584])
+            ("OBJ_TYPES_STR" variable
+               (:pointer 1
+                :dereference 1
+                :typemodifiers ("extern")
+                :type "char")
+                nil [586 615])
+            ("GShObjectINumData" type
+               (:members 
+                  ( ("val" variable (:type ("int64" type (:type "class") nil nil)) (reparse-symbol classsubparts) [648 658]))                  
+                :type "struct")
+                nil [617 661])
+            ("GShObjectDNumData" type
+               (:members 
+                  ( ("val" variable (:type "double") (reparse-symbol classsubparts) [694 705]))                  
+                :type "struct")
+                nil [663 708])
+            ("GShObjectStrData" type
+               (:members 
+                  ( ("len" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol classsubparts) [740 751])
+                    ("val" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol classsubparts) [756 766]))                  
+                :type "struct")
+                nil [710 769])
+            ("GShObjectData" type
+               (:members 
+                  ( ("inum" variable (:type ("GShObjectINumData" type
+                         (:prototype t
+                          :type "struct")
+                          nil nil)) (reparse-symbol classsubparts) [797 827])
+                    ("dnum" variable (:type ("GShObjectDNumData" type
+                         (:prototype t
+                          :type "struct")
+                          nil nil)) (reparse-symbol classsubparts) [832 862])
+                    ("str" variable (:type ("GShObjectStrData" type
+                         (:prototype t
+                          :type "struct")
+                          nil nil)) (reparse-symbol classsubparts) [867 895]))                  
+                :type "union")
+                nil [771 898])
+            ("GShObject" type
+               (:members 
+                  ( ("data" variable (:type ("GShObjectData" type (:type "union") nil nil)) (reparse-symbol classsubparts) [1085 1110])
+                    ("ref_count" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1115 1132])
+                    ("type" variable (:type ("GShObjectType" type (:type "enum") nil nil)) (reparse-symbol classsubparts) [1137 1161]))                  
+                :type "struct")
+                nil [1062 1164])
+            ("OBJ_NOTHING" variable
+               (:typemodifiers ("extern")
+                :constant-flag t
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [1166 1208])
+            ("OBJ_TRUE" variable
+               (:typemodifiers ("extern")
+                :constant-flag t
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [1209 1248])
+            ("OBJ_FALSE" variable
+               (:typemodifiers ("extern")
+                :constant-flag t
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [1249 1289])
+            ("obj_new" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("GShObjectType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [1470 1500]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [1444 1501])
+            ("obj_remove" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("obj" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1592 1614]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [1575 1615])
+            ("obj_decr_ref_count" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("obj" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1828 1850]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [1803 1851])
+            ("obj_incr_ref_count" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("obj" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1949 1971]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [1924 1972])
+            ("obj_free_f" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("obj" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [1991 2001]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [1974 2002])
+            ("obj_is_true" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("obj" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2021 2043]))                  
+                :type "bool")
+                nil [2004 2044])
+            ("obj_is_false" function
+               (:prototype-flag t
+                :typemodifiers ("extern")
+                :arguments 
+                  ( ("obj" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2071 2093]))                  
+                :type "bool")
+                nil [2046 2094]))          
+      :file "object.h"
+      :pointmax 2118
+      :fsize 2117
+      :lastmodtime '(22655 14856 672616 669000)
+      :unmatched-syntax '((semantic-list 2070 . 2093) (symbol 2058 . 2070) (BOOL 2053 . 2057) (INLINE 2046 . 2052))
+      :lexical-table 
+        '(("OBJECT_H")
+          ("obj_type2str" (spp-arg-list ("type") 350 . 356) . ((symbol "OBJ_TYPES_STR" 357 . 370) (semantic-list "[type]" 370 . 376)))
+          ("O_ASSERT_TYPE" (spp-arg-list ("obj" "t") 286 . 294) . ((symbol "DEBUG_ASSERT" 295 . 307) (semantic-list "(obj->type == (t), \"\")" 307 . 329)))
+          )
+)
+    (semanticdb-table "object.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("interpreter/object/object.h" include nil nil [145 183])
+            ("math.h" include (:system-flag t) nil [185 202])
+            ("lib/types.h" include nil nil [204 226])
+            ("lib/macros.h" include nil nil [227 250])
+            ("lib/util.h" include nil nil [251 272])
+            ("lib/dict.h" include nil nil [273 294])
+            ("interpreter/lexer/token.h" include nil nil [295 331])
+            ("interpreter/object/inum.h" include nil nil [332 368])
+            ("interpreter/object/dnum.h" include nil nil [369 405])
+            ("interpreter/object/str.h" include nil nil [406 441])
+            ("OBJ_NOTHING" variable
+               (:constant-flag t
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [443 478])
+            ("OBJ_TRUE" variable
+               (:constant-flag t
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [479 511])
+            ("OBJ_FALSE" variable
+               (:constant-flag t
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [512 545])
+            ("OBJ_TYPES_STR" variable
+               (:pointer 1
+                :dereference 1
+                :default-value "{
+    \"integer number\",
+    \"double-precision number\",
+    \"string\"
+}"
+                :type "char")
+                nil [546 640])
+            ("obj_new" function
+               (:pointer 1
+                :arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("GShObjectType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [711 741]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [685 879])
+            ("obj_remove" function
+               (:arguments 
+                  ( ("obj" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [898 920]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [881 1095])
+            ("obj_decr_ref_count" function
+               (:arguments 
+                  ( ("obj" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1122 1144]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [1097 1221])
+            ("obj_incr_ref_count" function
+               (:arguments 
+                  ( ("obj" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1248 1270]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [1223 1296])
+            ("obj_free_f" function
+               (:arguments 
+                  ( ("obj" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [1315 1325]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [1298 1383])
+            ("obj_is_true" function
+               (:arguments 
+                  ( ("obj" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1402 1424]))                  
+                :type "bool")
+                nil [1385 1739])
+            ("obj_is_false" function
+               (:typemodifiers ("inline")
+                :arguments 
+                  ( ("obj" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1766 1788]))                  
+                :type "bool")
+                nil [1741 1822]))          
+      :file "object.c"
+      :pointmax 1823
+      :fsize 1822
+      :lastmodtime '(22655 18617 152270 139000)
+      :unmatched-syntax nil)
+    (semanticdb-table "inum.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("OBJECT_INUM_H" variable (:constant-flag t) nil [182 195])
+            ("lib/types.h" include nil nil [197 219])
+            ("interpreter/object/object.h" include nil nil [220 258])
+            ("interpreter/object/ops.h" include nil nil [259 294])
+            ("obj_inum_create" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("val" variable
+                       (:constant-flag t
+                        :type ("int64" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [373 389]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [339 390])
+            ("obj_inum_create_from_str" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("str" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [440 462]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [392 463])
+            ("obj_inum_is_true" function
+               (:prototype-flag t
+                :typemodifiers ("extern")
+                :arguments 
+                  ( ("obj" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [494 516]))                  
+                :type "bool")
+                nil [465 517])
+            ("obj_inum_unop" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("GShObjectUnOpType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [556 590])
+                    ("obj" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [595 617]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [519 618]))          
+      :file "inum.h"
+      :pointmax 647
+      :fsize 646
+      :lastmodtime '(22654 13910 460698 395000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("OBJECT_INUM_H")
+          )
+)
+    (semanticdb-table "dnum.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("OBJECT_DNUM_H" variable (:constant-flag t) nil [178 191])
+            ("lib/types.h" include nil nil [193 215])
+            ("lib/dbl.h" include nil nil [216 236])
+            ("interpreter/object/object.h" include nil nil [237 275])
+            ("interpreter/object/ops.h" include nil nil [276 311])
+            ("obj_dnum_create" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("val" variable
+                       (:constant-flag t
+                        :type "double")
+                        (reparse-symbol arg-sub-list) [390 407]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [356 408])
+            ("obj_dnum_create_from_str" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("str" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [458 480]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [410 481])
+            ("obj_dnum_is_true" function
+               (:prototype-flag t
+                :typemodifiers ("extern")
+                :arguments 
+                  ( ("obj" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [512 534]))                  
+                :type "bool")
+                nil [483 535])
+            ("obj_dnum_unop" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("GShObjectUnOpType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [574 608])
+                    ("obj" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [613 635]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [537 636]))          
+      :file "dnum.h"
+      :pointmax 665
+      :fsize 664
+      :lastmodtime '(22655 14839 592618 243000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("OBJECT_DNUM_H")
+          )
+)
+    (semanticdb-table "inum.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("interpreter/object/inum.h" include nil nil [232 268])
+            ("math.h" include (:system-flag t) nil [270 287])
+            ("lib/types.h" include nil nil [289 311])
+            ("lib/macros.h" include nil nil [312 335])
+            ("lib/util.h" include nil nil [336 357])
+            ("interpreter/err.h" include nil nil [358 386])
+            ("interpreter/object/object.h" include nil nil [387 425])
+            ("interpreter/object/ops.h" include nil nil [426 461])
+            ("obj_inum_create" function
+               (:pointer 1
+                :arguments 
+                  ( ("val" variable
+                       (:constant-flag t
+                        :type ("int64" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [540 556]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [506 651])
+            ("obj_inum_create_from_str" function
+               (:pointer 1
+                :arguments 
+                  ( ("str" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [701 723]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [653 790])
+            ("obj_inum_is_true" function
+               (:typemodifiers ("inline")
+                :arguments 
+                  ( ("obj" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [821 843]))                  
+                :type "bool")
+                nil [792 883])
+            ("obj_inum_unop" function
+               (:pointer 1
+                :arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("GShObjectUnOpType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [922 956])
+                    ("obj" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [961 983]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [885 1512]))          
+      :file "inum.c"
+      :pointmax 1513
+      :fsize 1512
+      :lastmodtime '(22654 13907 519698 666000)
+      :unmatched-syntax nil)
+    (semanticdb-table "dnum.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("interpreter/object/dnum.h" include nil nil [228 264])
+            ("lib/macros.h" include nil nil [266 289])
+            ("lib/util.h" include nil nil [290 311])
+            ("lib/dbl.h" include nil nil [312 332])
+            ("interpreter/err.h" include nil nil [333 361])
+            ("interpreter/object/object.h" include nil nil [362 400])
+            ("interpreter/object/ops.h" include nil nil [401 436])
+            ("obj_dnum_create" function
+               (:pointer 1
+                :arguments 
+                  ( ("val" variable
+                       (:constant-flag t
+                        :type "double")
+                        (reparse-symbol arg-sub-list) [515 532]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [481 627])
+            ("obj_dnum_create_from_str" function
+               (:pointer 1
+                :arguments 
+                  ( ("str" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [677 699]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [629 770])
+            ("obj_dnum_is_true" function
+               (:typemodifiers ("inline")
+                :arguments 
+                  ( ("obj" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [801 823]))                  
+                :type "bool")
+                nil [772 872])
+            ("obj_dnum_unop" function
+               (:pointer 1
+                :arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("GShObjectUnOpType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [911 945])
+                    ("obj" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [950 972]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [874 1401]))          
+      :file "dnum.c"
+      :pointmax 1402
+      :fsize 1401
+      :lastmodtime '(22654 13927 559696 819000)
+      :unmatched-syntax nil)
+    (semanticdb-table "str.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("interpreter/object/str.h" include nil nil [150 185])
+            ("string.h" include (:system-flag t) nil [187 206])
+            ("lib/types.h" include nil nil [208 230])
+            ("lib/macros.h" include nil nil [231 254])
+            ("lib/xmalloc.h" include nil nil [255 279])
+            ("lib/util.h" include nil nil [280 301])
+            ("lib/dict.h" include nil nil [302 323])
+            ("interpreter/err.h" include nil nil [324 352])
+            ("interpreter/object/object.h" include nil nil [353 391])
+            ("interpreter/object/ops.h" include nil nil [392 427])
+            ("str_objs" variable
+               (:typemodifiers ("static")
+                :type ("Dictionary" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [429 463])
+            ("obj_str_find" variable (:constant-flag t) nil [473 485])
+            ("str_objs_init" function
+               (:arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [583 588]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [563 646])
+            ("obj_str_create_ne" function
+               (:pointer 1
+                :arguments 
+                  ( ("val" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [689 711]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [648 952])
+            ("obj_str_create" function
+               (:pointer 1
+                :arguments 
+                  ( ("val" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [992 1014]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [954 1134])
+            ("obj_str_remove" function
+               (:arguments 
+                  ( ("obj" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1162 1184]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [1136 1290])
+            ("obj_str_is_true" function
+               (:typemodifiers ("inline")
+                :arguments 
+                  ( ("obj" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1325 1347]))                  
+                :type "bool")
+                nil [1292 1386])
+            ("obj_str_unop" function
+               (:pointer 1
+                :arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("GShObjectUnOpType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [1424 1458])
+                    ("obj" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1463 1485]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [1388 1602]))          
+      :file "str.c"
+      :pointmax 1603
+      :fsize 1602
+      :lastmodtime '(22655 25043 249677 972000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("obj_str_find" (spp-arg-list ("val") 485 . 490) . ((symbol "dict_find" 491 . 500) (semantic-list "(&str_objs, (val))" 500 . 518)))
+          )
+)
+    (semanticdb-table "str.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("OBJECT_STR_H" variable (:constant-flag t) nil [179 191])
+            ("OBJECT_STR_H" variable (:constant-flag t) nil [179 191])
+            ("lib/types.h" include nil nil [193 215])
+            ("interpreter/object/object.h" include nil nil [216 254])
+            ("interpreter/object/ops.h" include nil nil [255 290])
+            ("str_objs_init" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [355 360]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [335 361])
+            ("obj_str_create_ne" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("val" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [404 426]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [363 427])
+            ("obj_str_create" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("val" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [467 489]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [429 490])
+            ("obj_str_remove" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("obj" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [518 540]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [492 541])
+            ("obj_str_is_true" function
+               (:prototype-flag t
+                :typemodifiers ("extern")
+                :arguments 
+                  ( ("obj" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [576 598]))                  
+                :type "bool")
+                nil [543 599])
+            ("obj_str_unop" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("GShObjectUnOpType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [637 671])
+                    ("obj" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [676 698]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [601 699]))          
+      :file "str.h"
+      :pointmax 727
+      :fsize 726
+      :lastmodtime '(22655 20446 320101 581000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("OBJECT_STR_H")
+          )
+)
+    (semanticdb-table "ops.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("OPS_H" variable (:constant-flag t) nil [148 153])
+            ("lib/types.h" include nil nil [155 177])
+            ("lib/macros.h" include nil nil [178 201])
+            ("lib/util.h" include nil nil [202 223])
+            ("interpreter/lexer/token.h" include nil nil [224 260])
+            ("interpreter/object/object.h" include nil nil [261 299])
+            ("obj_binop2str" variable (:constant-flag t) nil [309 322])
+            ("obj_unop2str" variable (:constant-flag t) nil [374 386])
+            ("obj_binop_is_arith" variable (:constant-flag t) nil [437 455])
+            ("obj_binop_is_cmp" variable (:constant-flag t) nil [531 547])
+            ("obj_neg" variable (:constant-flag t) nil [693 700])
+            ("obj_lnot" variable (:constant-flag t) nil [738 746])
+            ("obj_bnot" variable (:constant-flag t) nil [785 793])
+            ("obj_incr" variable (:constant-flag t) nil [832 840])
+            ("obj_decr" variable (:constant-flag t) nil [879 887])
+            ("obj_add" variable (:constant-flag t) nil [1033 1040])
+            ("obj_sub" variable (:constant-flag t) nil [1098 1105])
+            ("obj_mul" variable (:constant-flag t) nil [1163 1170])
+            ("obj_div" variable (:constant-flag t) nil [1228 1235])
+            ("obj_mod" variable (:constant-flag t) nil [1293 1300])
+            ("obj_pow" variable (:constant-flag t) nil [1358 1365])
+            ("obj_band" variable (:constant-flag t) nil [1423 1431])
+            ("obj_bor" variable (:constant-flag t) nil [1490 1497])
+            ("obj_bxor" variable (:constant-flag t) nil [1555 1563])
+            ("obj_ls" variable (:constant-flag t) nil [1622 1628])
+            ("obj_rs" variable (:constant-flag t) nil [1685 1691])
+            ("obj_eq" variable (:constant-flag t) nil [1855 1861])
+            ("obj_neq" variable (:constant-flag t) nil [1916 1923])
+            ("obj_lt" variable (:constant-flag t) nil [1979 1985])
+            ("obj_gt" variable (:constant-flag t) nil [2040 2046])
+            ("obj_lte" variable (:constant-flag t) nil [2101 2108])
+            ("obj_gte" variable (:constant-flag t) nil [2164 2171])
+            ("obj_land" variable (:constant-flag t) nil [2227 2235])
+            ("obj_lor" variable (:constant-flag t) nil [2292 2299])
+            ("GShObjectBinOpType" type
+               (:members 
+                  ( ("O_BINOP_ADD" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [2679 2691])
+                    ("O_BINOP_SUB" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [2692 2704])
+                    ("O_BINOP_MUL" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [2705 2717])
+                    ("O_BINOP_DIV" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [2718 2730])
+                    ("O_BINOP_MOD" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [2735 2747])
+                    ("O_BINOP_POW" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [2748 2760])
+                    ("O_BINOP_BAND" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [2765 2778])
+                    ("O_BINOP_BOR" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [2779 2791])
+                    ("O_BINOP_BXOR" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [2796 2809])
+                    ("O_BINOP_LS" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [2814 2825])
+                    ("O_BINOP_RS" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [2826 2837])
+                    ("O_BINOP_EQ" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [2864 2875])
+                    ("O_BINOP_NEQ" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [2876 2888])
+                    ("O_BINOP_LT" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [2893 2904])
+                    ("O_BINOP_GT" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [2905 2916])
+                    ("O_BINOP_LTE" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [2917 2929])
+                    ("O_BINOP_GTE" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [2930 2942])
+                    ("O_BINOP_LAND" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [2947 2960])
+                    ("O_BINOP_LOR" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [2961 2974]))                  
+                :type "enum")
+                nil [2628 2975])
+            ("GShObjectUnOpType" type
+               (:members 
+                  ( ("O_UNOP_NEG" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [3006 3017])
+                    ("O_UNOP_LNOT" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [3022 3034])
+                    ("O_UNOP_BNOT" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [3034 3046])
+                    ("O_UNOP_INCR" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [3051 3063])
+                    ("O_UNOP_DECR" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [3064 3077]))                  
+                :type "enum")
+                nil [2977 3078])
+            ("obj_binop_cmp_inum_dnum" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("GShObjectBinOpType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [3242 3277])
+                    ("lop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3282 3304])
+                    ("rop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3309 3331]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [3195 3332])
+            ("obj_binop_cmp_inum" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("GShObjectBinOpType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [3376 3411])
+                    ("lop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3416 3438])
+                    ("rop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3443 3465]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [3334 3466])
+            ("obj_binop_cmp_dnum" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("GShObjectBinOpType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [3510 3545])
+                    ("lop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3550 3572])
+                    ("rop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3577 3599]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [3468 3600])
+            ("obj_binop_cmp_str" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("GShObjectBinOpType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [3643 3678])
+                    ("lop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3683 3705])
+                    ("rop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3710 3732]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [3602 3733])
+            ("obj_binop_cmp" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("binop" variable
+                       (:constant-flag t
+                        :type ("GShObjectBinOpType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [3772 3808])
+                    ("lop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3813 3835])
+                    ("rop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3840 3862]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [3735 3863])
+            ("obj_binop_arith_inum_dnum" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("binop" variable
+                       (:constant-flag t
+                        :type ("GShObjectBinOpType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [4035 4071])
+                    ("lop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4076 4098])
+                    ("rop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4103 4125]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [3986 4126])
+            ("obj_binop_arith_inum_str" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("binop" variable
+                       (:constant-flag t
+                        :type ("GShObjectBinOpType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [4176 4212])
+                    ("lop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4217 4239])
+                    ("rop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4244 4266]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [4128 4267])
+            ("obj_binop_arith_inum" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("binop" variable
+                       (:constant-flag t
+                        :type ("GShObjectBinOpType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [4313 4349])
+                    ("lop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4354 4376])
+                    ("rop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4381 4403]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [4269 4404])
+            ("obj_binop_arith_dnum" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("binop" variable
+                       (:constant-flag t
+                        :type ("GShObjectBinOpType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [4450 4486])
+                    ("lop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4491 4513])
+                    ("rop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4518 4540]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [4406 4541])
+            ("obj_binop_arith_str" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("binop" variable
+                       (:constant-flag t
+                        :type ("GShObjectBinOpType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [4586 4622])
+                    ("lop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4627 4649])
+                    ("rop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4654 4676]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [4543 4677])
+            ("obj_binop_arith" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("binop" variable
+                       (:constant-flag t
+                        :type ("GShObjectBinOpType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [4718 4754])
+                    ("lop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4759 4781])
+                    ("rop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4786 4808]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [4679 4809])
+            ("obj_binop" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("binop" variable
+                       (:constant-flag t
+                        :type ("GShObjectBinOpType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [4917 4953])
+                    ("lop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4958 4980])
+                    ("rop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4985 5007]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [4884 5008])
+            ("obj_unop" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("GShObjectUnOpType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [5112 5146])
+                    ("obj" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [5151 5173]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [5080 5174]))          
+      :file "ops.h"
+      :pointmax 5195
+      :fsize 5194
+      :lastmodtime '(22654 11248 831943 665000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("obj_gte" (spp-arg-list ("lop" "rop") 2171 . 2181) . ((symbol "obj_binop_cmp" 2182 . 2195) (semantic-list "(O_BINOP_GTE, lop, rop)" 2195 . 2218)))
+          ("obj_land" (spp-arg-list ("lop" "rop") 2235 . 2245) . ((symbol "obj_binop_cmp" 2246 . 2259) (semantic-list "(O_BINOP_LAND, lop, rop)" 2259 . 2283)))
+          ("obj_add" (spp-arg-list ("lop" "rop") 1040 . 1050) . ((symbol "obj_binop_arith" 1051 . 1066) (semantic-list "(O_BINOP_ADD, lop, rop)" 1066 . 1089)))
+          ("obj_gt" (spp-arg-list ("lop" "rop") 2046 . 2056) . ((symbol "obj_binop_cmp" 2057 . 2070) (semantic-list "(O_BINOP_GT, lop, rop)" 2070 . 2092)))
+          ("obj_ls" (spp-arg-list ("lop" "rop") 1628 . 1638) . ((symbol "obj_binop_arith" 1639 . 1654) (semantic-list "(O_BINOP_LS, lop, rop)" 1654 . 1676)))
+          ("obj_band" (spp-arg-list ("lop" "rop") 1431 . 1441) . ((symbol "obj_binop_arith" 1442 . 1457) (semantic-list "(O_BINOP_BAND, lop, rop)" 1457 . 1481)))
+          ("obj_lt" (spp-arg-list ("lop" "rop") 1985 . 1995) . ((symbol "obj_binop_cmp" 1996 . 2009) (semantic-list "(O_BINOP_LT, lop, rop)" 2009 . 2031)))
+          ("OPS_H")
+          ("obj_binop_is_arith" (spp-arg-list ("__type") 455 . 463) . ((semantic-list "((__type >= O_BINOP_ADD) && (__type <= O_BINOP_POW))" 470 . 522)))
+          ("obj_incr" (spp-arg-list ("op") 840 . 844) . ((symbol "obj_unop" 845 . 853) (semantic-list "(O_UNOP_INCR, op)" 853 . 870)))
+          ("obj_sub" (spp-arg-list ("lop" "rop") 1105 . 1115) . ((symbol "obj_binop_arith" 1116 . 1131) (semantic-list "(O_BINOP_SUB, lop, rop)" 1131 . 1154)))
+          ("obj_neq" (spp-arg-list ("lop" "rop") 1923 . 1933) . ((symbol "obj_binop_cmp" 1934 . 1947) (semantic-list "(O_BINOP_NEQ, lop, rop)" 1947 . 1970)))
+          ("obj_lor" (spp-arg-list ("lop" "rop") 2299 . 2309) . ((symbol "obj_binop_cmp" 2310 . 2323) (semantic-list "(O_BINOP_LOR, lop, rop)" 2323 . 2346)))
+          ("obj_binop2str" (spp-arg-list ("__type") 322 . 330) . ((symbol "TOK_STR" 331 . 338) (semantic-list "[TOK_BINARY_MINUS + __type]" 338 . 365)))
+          ("obj_bor" (spp-arg-list ("lop" "rop") 1497 . 1507) . ((symbol "obj_binop_arith" 1508 . 1523) (semantic-list "(O_BINOP_BOR, lop, rop)" 1523 . 1546)))
+          ("obj_eq" (spp-arg-list ("lop" "rop") 1861 . 1871) . ((symbol "obj_binop_cmp" 1872 . 1885) (semantic-list "(O_BINOP_EQ, lop, rop)" 1885 . 1907)))
+          ("obj_binop_is_cmp" (spp-arg-list ("__type") 547 . 555) . ((semantic-list "((__type >= O_BINOP_LT) && (__type <= O_BINOP_LOR))" 562 . 613)))
+          ("obj_lnot" (spp-arg-list ("op") 746 . 750) . ((symbol "obj_unop" 751 . 759) (semantic-list "(O_UNOP_LNOT, op)" 759 . 776)))
+          ("obj_pow" (spp-arg-list ("lop" "rop") 1365 . 1375) . ((symbol "obj_binop_arith" 1376 . 1391) (semantic-list "(O_BINOP_POW, lop, rop)" 1391 . 1414)))
+          ("obj_bxor" (spp-arg-list ("lop" "rop") 1563 . 1573) . ((symbol "obj_binop_arith" 1574 . 1589) (semantic-list "(O_BINOP_BXOR, lop, rop)" 1589 . 1613)))
+          ("obj_lte" (spp-arg-list ("lop" "rop") 2108 . 2118) . ((symbol "obj_binop_cmp" 2119 . 2132) (semantic-list "(O_BINOP_LTE, lop, rop)" 2132 . 2155)))
+          ("obj_unop2str" (spp-arg-list ("__type") 386 . 394) . ((symbol "TOK_STR" 395 . 402) (semantic-list "[TOK_UNARY_PLUS + __type]" 402 . 427)))
+          ("obj_neg" (spp-arg-list ("op") 700 . 704) . ((symbol "obj_unop" 705 . 713) (semantic-list "(O_UNOP_NEG, op)" 713 . 729)))
+          ("obj_rs" (spp-arg-list ("lop" "rop") 1691 . 1701) . ((symbol "obj_binop_arith" 1702 . 1717) (semantic-list "(O_BINOP_RS, lop, rop)" 1717 . 1739)))
+          ("obj_bnot" (spp-arg-list ("op") 793 . 797) . ((symbol "obj_unop" 798 . 806) (semantic-list "(O_UNOP_BNOT, op)" 806 . 823)))
+          ("obj_decr" (spp-arg-list ("op") 887 . 891) . ((symbol "obj_unop" 892 . 900) (semantic-list "(O_UNOP_DECR, op)" 900 . 917)))
+          ("obj_div" (spp-arg-list ("lop" "rop") 1235 . 1245) . ((symbol "obj_binop_arith" 1246 . 1261) (semantic-list "(O_BINOP_DIV, lop, rop)" 1261 . 1284)))
+          ("obj_mul" (spp-arg-list ("lop" "rop") 1170 . 1180) . ((symbol "obj_binop_arith" 1181 . 1196) (semantic-list "(O_BINOP_MUL, lop, rop)" 1196 . 1219)))
+          ("obj_mod" (spp-arg-list ("lop" "rop") 1300 . 1310) . ((symbol "obj_binop_arith" 1311 . 1326) (semantic-list "(O_BINOP_MOD, lop, rop)" 1326 . 1349)))
+          )
+)
+    (semanticdb-table "ops.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("interpreter/object/ops.h" include nil nil [126 161])
+            ("math.h" include (:system-flag t) nil [163 180])
+            ("lib/types.h" include nil nil [182 204])
+            ("lib/macros.h" include nil nil [205 228])
+            ("lib/dbl.h" include nil nil [229 249])
+            ("interpreter/err.h" include nil nil [250 278])
+            ("interpreter/object/inum.h" include nil nil [279 315])
+            ("interpreter/object/dnum.h" include nil nil [316 352])
+            ("interpreter/object/str.h" include nil nil [353 388])
+            ("obj_binop_cmp_inum_dnum" function
+               (:pointer 1
+                :arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("GShObjectBinOpType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [552 587])
+                    ("lop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [592 614])
+                    ("rop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [619 641]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [505 1691])
+            ("obj_binop_cmp_inum" function
+               (:pointer 1
+                :arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("GShObjectBinOpType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [1735 1770])
+                    ("lop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1775 1797])
+                    ("rop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1802 1824]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [1693 2903])
+            ("obj_binop_cmp_dnum" function
+               (:pointer 1
+                :arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("GShObjectBinOpType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [2947 2982])
+                    ("lop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2987 3009])
+                    ("rop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3014 3036]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [2905 4245])
+            ("obj_binop_cmp_str" function
+               (:pointer 1
+                :arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("GShObjectBinOpType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [4288 4323])
+                    ("lop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4328 4350])
+                    ("rop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4355 4377]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [4247 5535])
+            ("obj_binop_cmp" function
+               (:pointer 1
+                :arguments 
+                  ( ("binop" variable
+                       (:constant-flag t
+                        :type ("GShObjectBinOpType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [5574 5610])
+                    ("lop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [5615 5637])
+                    ("rop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [5642 5664]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [5537 5998])
+            ("obj_binop_arith_inum_dnum" function
+               (:pointer 1
+                :arguments 
+                  ( ("binop" variable
+                       (:constant-flag t
+                        :type ("GShObjectBinOpType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [6170 6206])
+                    ("lop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [6211 6233])
+                    ("rop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [6238 6260]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [6121 6920])
+            ("obj_binop_arith_inum_str" function
+               (:pointer 1
+                :arguments 
+                  ( ("binop" variable
+                       (:constant-flag t
+                        :type ("GShObjectBinOpType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [6970 7006])
+                    ("lop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [7011 7033])
+                    ("rop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [7038 7060]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [6922 7501])
+            ("obj_binop_arith_inum" function
+               (:pointer 1
+                :arguments 
+                  ( ("binop" variable
+                       (:constant-flag t
+                        :type ("GShObjectBinOpType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [7547 7583])
+                    ("lop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [7588 7610])
+                    ("rop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [7615 7637]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [7503 8838])
+            ("obj_binop_arith_dnum" function
+               (:pointer 1
+                :arguments 
+                  ( ("binop" variable
+                       (:constant-flag t
+                        :type ("GShObjectBinOpType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [8884 8920])
+                    ("lop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [8925 8947])
+                    ("rop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [8952 8974]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [8840 9786])
+            ("obj_binop_arith_str" function
+               (:pointer 1
+                :arguments 
+                  ( ("binop" variable
+                       (:constant-flag t
+                        :type ("GShObjectBinOpType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [9831 9867])
+                    ("lop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [9872 9894])
+                    ("rop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [9899 9921]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [9788 10437])
+            ("obj_binop_arith" function
+               (:pointer 1
+                :arguments 
+                  ( ("binop" variable
+                       (:constant-flag t
+                        :type ("GShObjectBinOpType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [10478 10514])
+                    ("lop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [10519 10541])
+                    ("rop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [10546 10568]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [10439 10910])
+            ("obj_binop" function
+               (:pointer 1
+                :arguments 
+                  ( ("binop" variable
+                       (:constant-flag t
+                        :type ("GShObjectBinOpType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [11018 11054])
+                    ("lop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [11059 11081])
+                    ("rop" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [11086 11108]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [10985 11249])
+            ("obj_unop" function
+               (:pointer 1
+                :arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("GShObjectUnOpType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [11353 11387])
+                    ("obj" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [11392 11414]))                  
+                :type ("GShObject" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [11321 11629]))          
+      :file "ops.c"
+      :pointmax 11630
+      :fsize 11629
+      :lastmodtime '(22654 6790 839354 470000)
+      :unmatched-syntax nil))
+  :file "!home!wrongway4you!Projects!gsh!src!interpreter!object!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

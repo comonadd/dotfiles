@@ -1,0 +1,963 @@
+;; Object compiler/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "compiler/"
+  :tables
+  (list
+    (semanticdb-table "compiler.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("COMPILER_H" variable (:constant-flag t) nil [192 202])
+            ("interpreter/parser/ast.h" include nil nil [204 239])
+            ("interpreter/vm/bytecode.h" include nil nil [240 276])
+            ("compile" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("ast" variable
+                       (:pointer 1
+                        :type ("AST" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [303 319]))                  
+                :type ("ByteCode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [278 320]))          
+      :file "compiler.h"
+      :pointmax 346
+      :fsize 345
+      :lastmodtime '(22654 6386 406391 739000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("COMPILER_H")
+          )
+)
+    (semanticdb-table "compiler.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("lib/util.h" include nil nil [165 186])
+            ("lib/xstack.h" include nil nil [187 210])
+            ("lib/hash.h" include nil nil [211 232])
+            ("lib/bst.h" include nil nil [233 253])
+            ("interpreter/err.h" include nil nil [254 282])
+            ("interpreter/object/inum.h" include nil nil [283 319])
+            ("interpreter/object/dnum.h" include nil nil [320 356])
+            ("interpreter/parser/ast.h" include nil nil [357 392])
+            ("interpreter/vm/instruction.h" include nil nil [393 432])
+            ("interpreter/vm/vm.h" include nil nil [433 463])
+            ("interpreter/compiler/constant.h" include nil nil [464 506])
+            ("interpreter/compiler/consts_list.h" include nil nil [507 552])
+            ("interpreter/compiler/sym.h" include nil nil [553 590])
+            ("interpreter/compiler/symtable.h" include nil nil [591 633])
+            ("__compiler" variable (:type ("" type
+                 (:members 
+                    ( ("st" variable
+                         (:pointer 1
+                          :type ("SymbolTable" type
+                               (:prototype t
+                                :type "struct")
+                                nil nil))
+                          (reparse-symbol classsubparts) [911 934])
+                      ("cl" variable (:type ("ConstantsList" type (:type "class") nil nil)) (reparse-symbol classsubparts) [939 956])
+                      ("ip" variable (:type ("InstructionPosition" type (:type "class") nil nil)) (reparse-symbol classsubparts) [961 984])
+                      ("curr_rid" variable (:type ("RegisterID" type (:type "class") nil nil)) (reparse-symbol classsubparts) [989 1009])
+                      ("bc" variable
+                         (:pointer 1
+                          :type ("ByteCode" type
+                               (:prototype t
+                                :type "struct")
+                                nil nil))
+                          (reparse-symbol classsubparts) [1014 1034]))                    
+                  :type "struct")
+                  nil nil)) nil [898 1048])
+            ("compile_id_node" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("node" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1154 1175]))                  
+                :type "bool")
+                nil [1126 1176])
+            ("compile_binop_node" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("node" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1208 1229]))                  
+                :type "bool")
+                nil [1177 1230])
+            ("compile_unop_node" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("node" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1261 1282]))                  
+                :type "bool")
+                nil [1231 1283])
+            ("compile_func_def_node" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("node" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1318 1339]))                  
+                :type "bool")
+                nil [1284 1340])
+            ("compile_node" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("node" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1366 1387]))                  
+                :type "bool")
+                nil [1341 1388])
+            ("compile_ast" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("ast" variable
+                       (:pointer 1
+                        :type ("AST" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1413 1429]))                  
+                :type "bool")
+                nil [1389 1430])
+            ("__get_ip" variable (:constant-flag t) nil [1483 1491])
+            ("__compiler_reserve_ip" variable (:constant-flag t) nil [1516 1537])
+            ("__compiler_append_instr" variable (:constant-flag t) nil [1564 1587])
+            ("__compiler_insert_instr" variable (:constant-flag t) nil [1654 1677])
+            ("__compiler_init" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [1776 1781]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [1747 1941])
+            ("__compiler_get_free_reg" variable (:constant-flag t) nil [2024 2047])
+            ("__compiler_free_regs" variable (:constant-flag t) nil [2087 2107])
+            ("__compiler_st_insert" variable (:constant-flag t) nil [2235 2255])
+            ("__compiler_st_lookup" variable (:constant-flag t) nil [2306 2326])
+            ("__compiler_enter_scope" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [2408 2413]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [2372 2488])
+            ("__compiler_leave_scope" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [2526 2531]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [2490 2662])
+            ("__compiler_const_lookup" function
+               (:pointer 1
+                :typemodifiers ("static" "inline")
+                :arguments 
+                  ( ("name" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [2797 2808]))                  
+                :type ("Constant" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [2737 2868])
+            ("__compiler_const_insert" function
+               (:typemodifiers ("static" "inline")
+                :arguments 
+                  ( ("name" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [2919 2930])
+                    ("constant" variable
+                       (:pointer 1
+                        :type ("Constant" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2935 2961]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [2870 3025])
+            ("compile_id_node" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("node" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3672 3693]))                  
+                :type "bool")
+                nil [3644 5269])
+            ("compile_binop_node" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("node" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [5587 5608]))                  
+                :type "bool")
+                nil [5556 7103])
+            ("compile_unop_node" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("node" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [7241 7262]))                  
+                :type "bool")
+                nil [7211 8011])
+            ("compile_func_def_node" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("node" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [9291 9312]))                  
+                :type "bool")
+                nil [9257 10247])
+            ("compile_var_def_node" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("node" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [10282 10303]))                  
+                :type "bool")
+                nil [10249 11020])
+            ("compile_if_node" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("node" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [11050 11071]))                  
+                :type "bool")
+                nil [11022 13267])
+            ("compile_while_node" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("node" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [13300 13321]))                  
+                :type "bool")
+                nil [13269 14305])
+            ("compile_import_node" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("node" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [14375 14396]))                  
+                :type "bool")
+                nil [14343 14435])
+            ("compile_call_node" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("node" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [14503 14524]))                  
+                :type "bool")
+                nil [14473 14563])
+            ("compile_node" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("node" variable
+                       (:pointer 1
+                        :type ("ASTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [14590 14611]))                  
+                :type "bool")
+                nil [14565 16224])
+            ("compile_ast" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("ast" variable
+                       (:pointer 1
+                        :type ("AST" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [16250 16266]))                  
+                :type "bool")
+                nil [16226 16545])
+            ("compile" function
+               (:pointer 1
+                :arguments 
+                  ( ("ast" variable
+                       (:pointer 1
+                        :type ("AST" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [16572 16588]))                  
+                :type ("ByteCode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [16547 16758]))          
+      :file "compiler.c"
+      :pointmax 16759
+      :fsize 16758
+      :lastmodtime '(22655 15764 122533 47000)
+      :unmatched-syntax nil)
+    (semanticdb-table "symtable.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("SYMTABLE_H" variable (:constant-flag t) nil [655 665])
+            ("lib/types.h" include nil nil [667 689])
+            ("lib/macros.h" include nil nil [690 713])
+            ("lib/dict.h" include nil nil [714 735])
+            ("interpreter/compiler/sym.h" include nil nil [736 773])
+            ("SymbolTable" type
+               (:members 
+                  ( ("symbols" variable (:type ("Dictionary" type
+                         (:prototype t
+                          :type "struct")
+                          nil nil)) (reparse-symbol classsubparts) [800 826])
+                    ("prev" variable
+                       (:pointer 1
+                        :type ("SymbolTable" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [831 856]))                  
+                :type "struct")
+                nil [775 859])
+            ("st_init" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("st" variable
+                       (:pointer 1
+                        :type ("SymbolTable" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [918 941]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [904 942])
+            ("st_deinit" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("st" variable
+                       (:pointer 1
+                        :type ("SymbolTable" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [960 983]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [944 984])
+            ("st_new" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [1013 1018]))                  
+                :type ("SymbolTable" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [986 1019])
+            ("st_delete" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("st" variable
+                       (:pointer 1
+                        :type ("SymbolTable" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1037 1060]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [1021 1061])
+            ("st_insert" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("st" variable
+                       (:pointer 1
+                        :type ("SymbolTable" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1083 1106])
+                    ("sym" variable
+                       (:pointer 1
+                        :type ("Symbol" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1111 1130]))                  
+                :type "bool")
+                nil [1063 1131])
+            ("st_lookup" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("st" variable
+                       (:pointer 1
+                        :type ("SymbolTable" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1163 1186])
+                    ("name" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [1191 1202]))                  
+                :type ("Symbol" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [1133 1203]))          
+      :file "symtable.h"
+      :pointmax 1229
+      :fsize 1228
+      :lastmodtime '(22655 14760 336625 546000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("SYMTABLE_H")
+          )
+)
+    (semanticdb-table "symtable.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("symtable.h" include nil nil [172 193])
+            ("lib/types.h" include nil nil [195 217])
+            ("lib/hash.h" include nil nil [218 239])
+            ("interpreter/object/object.h" include nil nil [240 278])
+            ("interpreter/compiler/sym.h" include nil nil [279 316])
+            ("st_init" function
+               (:arguments 
+                  ( ("st" variable
+                       (:pointer 1
+                        :type ("SymbolTable" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [332 355]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [318 443])
+            ("st_deinit" function
+               (:arguments 
+                  ( ("st" variable
+                       (:pointer 1
+                        :type ("SymbolTable" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [461 484]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [445 519])
+            ("st_new" function
+               (:pointer 1
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [548 553]))                  
+                :type ("SymbolTable" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [521 663])
+            ("st_delete" function
+               (:arguments 
+                  ( ("st" variable
+                       (:pointer 1
+                        :type ("SymbolTable" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [681 704]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [665 742])
+            ("st_insert" function
+               (:arguments 
+                  ( ("st" variable
+                       (:pointer 1
+                        :type ("SymbolTable" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [764 787])
+                    ("sym" variable
+                       (:pointer 1
+                        :type ("Symbol" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [792 811]))                  
+                :type "bool")
+                nil [744 952])
+            ("st_lookup" function
+               (:pointer 1
+                :arguments 
+                  ( ("st" variable
+                       (:pointer 1
+                        :type ("SymbolTable" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [984 1007])
+                    ("name" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [1012 1023]))                  
+                :type ("Symbol" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [954 1242]))          
+      :file "symtable.c"
+      :pointmax 1243
+      :fsize 1242
+      :lastmodtime '(22653 5421 812988 908000)
+      :unmatched-syntax nil)
+    (semanticdb-table "sym.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("SYMBOL_H" variable (:constant-flag t) nil [170 178])
+            ("interpreter/object/object.h" include nil nil [180 218])
+            ("interpreter/vm/instruction.h" include nil nil [219 258])
+            ("SymbolID" type
+               (:typedef ("int64" type (:type "class") nil nil)
+                :type "typedef")
+                nil [260 283])
+            ("SymbolType" type
+               (:members 
+                  ( ("SYM_STR" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [307 315])
+                    ("SYM_INUM" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [320 329])
+                    ("SYM_DNUM" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [334 343])
+                    ("SYM_VAR" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [348 356])
+                    ("SYM_FUNC" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [361 371]))                  
+                :type "enum")
+                nil [285 372])
+            ("SymbolData" type
+               (:members 
+                  ( ("var_name_const_id" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol classsubparts) [397 422])
+                    ("func_ip" variable (:type ("InstructionPosition" type (:type "class") nil nil)) (reparse-symbol classsubparts) [427 455]))                  
+                :type "union")
+                nil [374 458])
+            ("Symbol" type
+               (:members 
+                  ( ("id" variable (:type ("SymbolID" type (:type "class") nil nil)) (reparse-symbol classsubparts) [480 492])
+                    ("name" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol classsubparts) [497 508])
+                    ("type" variable (:type ("SymbolType" type (:type "enum") nil nil)) (reparse-symbol classsubparts) [513 534])
+                    ("data" variable (:type ("SymbolData" type (:type "union") nil nil)) (reparse-symbol classsubparts) [539 561]))                  
+                :type "struct")
+                nil [460 564])
+            ("sym_new" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("SymbolType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [637 664])
+                    ("name" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [669 680]))                  
+                :type ("Symbol" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [609 681])
+            ("sym_var_new" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("name" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [715 726])
+                    ("name_const_id" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [731 752]))                  
+                :type ("Symbol" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [683 753])
+            ("sym_func_new" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("name" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [788 799])
+                    ("ip" variable (:type ("InstructionPosition" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [804 827]))                  
+                :type ("Symbol" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [755 828]))          
+      :file "sym.h"
+      :pointmax 852
+      :fsize 851
+      :lastmodtime '(22655 14770 240624 634000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("SYMBOL_H")
+          )
+)
+    (semanticdb-table "sym.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("lib/xmalloc.h" include nil nil [145 169])
+            ("interpreter/compiler/sym.h" include nil nil [170 207])
+            ("sym_new" function
+               (:pointer 1
+                :arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("SymbolType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [280 307])
+                    ("name" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [312 323]))                  
+                :type ("Symbol" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [252 471])
+            ("sym_var_new" function
+               (:pointer 1
+                :arguments 
+                  ( ("name" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [505 516])
+                    ("name_const_id" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [521 542]))                  
+                :type ("Symbol" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [473 669])
+            ("sym_func_new" function
+               (:pointer 1
+                :arguments 
+                  ( ("name" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [704 715])
+                    ("ip" variable (:type ("InstructionPosition" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [720 743]))                  
+                :type ("Symbol" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [671 850]))          
+      :file "sym.c"
+      :pointmax 851
+      :fsize 850
+      :lastmodtime '(22652 63782 312990 585000)
+      :unmatched-syntax nil)
+    (semanticdb-table "consts_list.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("CONSTS_LIST_H" variable (:constant-flag t) nil [163 176])
+            ("lib/types.h" include nil nil [178 200])
+            ("lib/bst.h" include nil nil [201 221])
+            ("interpreter/compiler/constant.h" include nil nil [222 264])
+            ("ConstantsList" type
+               (:typedef ("BST" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil)
+                :type "typedef")
+                nil [266 299])
+            ("consts_list_init" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("list" variable
+                       (:pointer 1
+                        :type ("ConstantsList" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [329 349]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [301 350])
+            ("consts_list_deinit" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("list" variable
+                       (:pointer 1
+                        :type ("ConstantsList" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [382 402]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [352 403])
+            ("consts_list_insert" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("list" variable
+                       (:pointer 1
+                        :type ("ConstantsList" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [435 455])
+                    ("name" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [460 471])
+                    ("constant" variable
+                       (:pointer 1
+                        :type ("Constant" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [476 502]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [405 503])
+            ("consts_list_lookup" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("list" variable
+                       (:pointer 1
+                        :type ("ConstantsList" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [546 566])
+                    ("name" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [571 582]))                  
+                :type ("Constant" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [505 583]))          
+      :file "consts_list.h"
+      :pointmax 612
+      :fsize 611
+      :lastmodtime '(22653 10858 503987 637000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("CONSTS_LIST_H")
+          )
+)
+    (semanticdb-table "consts_list.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("consts_list.h" include nil nil [133 157])
+            ("lib/types.h" include nil nil [159 181])
+            ("lib/macros.h" include nil nil [182 205])
+            ("lib/util.h" include nil nil [206 227])
+            ("lib/bst.h" include nil nil [228 248])
+            ("interpreter/compiler/constant.h" include nil nil [249 291])
+            ("consts_list_init" function
+               (:arguments 
+                  ( ("list" variable
+                       (:pointer 1
+                        :type ("ConstantsList" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [321 341]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [293 423])
+            ("consts_list_deinit" function
+               (:arguments 
+                  ( ("list" variable
+                       (:pointer 1
+                        :type ("ConstantsList" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [455 475]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [425 520])
+            ("consts_list_insert" function
+               (:arguments 
+                  ( ("list" variable
+                       (:pointer 1
+                        :type ("ConstantsList" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [552 572])
+                    ("name" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [577 588])
+                    ("constant" variable
+                       (:pointer 1
+                        :type ("Constant" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [593 619]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [522 840])
+            ("consts_list_lookup" function
+               (:pointer 1
+                :arguments 
+                  ( ("list" variable
+                       (:pointer 1
+                        :type ("ConstantsList" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [883 903])
+                    ("name" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [908 919]))                  
+                :type ("Constant" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [842 978]))          
+      :file "consts_list.c"
+      :pointmax 979
+      :fsize 978
+      :lastmodtime '(22654 6521 454379 294000)
+      :unmatched-syntax nil)
+    (semanticdb-table "constant.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("CONSTANT_H" variable (:constant-flag t) nil [157 167])
+            ("lib/types.h" include nil nil [169 191])
+            ("interpreter/object/object.h" include nil nil [192 230])
+            ("ConstantID" type
+               (:typedef ("uint64" type (:type "class") nil nil)
+                :type "typedef")
+                nil [232 258])
+            ("Constant" type
+               (:members 
+                  ( ("id" variable (:type ("ConstantID" type (:type "class") nil nil)) (reparse-symbol classsubparts) [282 296])
+                    ("obj" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [301 323]))                  
+                :type "struct")
+                nil [260 326])
+            ("constant_new" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("obj" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [363 385]))                  
+                :type ("Constant" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [328 386])
+            ("constant_free_f" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("ptr" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [410 420]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [388 421]))          
+      :file "constant.h"
+      :pointmax 447
+      :fsize 446
+      :lastmodtime '(22655 14781 608623 586000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("CONSTANT_H")
+          )
+)
+    (semanticdb-table "constant.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("constant.h" include nil nil [130 151])
+            ("lib/types.h" include nil nil [153 175])
+            ("lib/macros.h" include nil nil [176 199])
+            ("lib/xmalloc.h" include nil nil [200 224])
+            ("interpreter/object/object.h" include nil nil [225 263])
+            ("constant_new" function
+               (:pointer 1
+                :arguments 
+                  ( ("obj" variable
+                       (:pointer 1
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [300 322]))                  
+                :type ("Constant" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [265 439])
+            ("constant_free_f" function
+               (:arguments 
+                  ( ("ptr" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [463 473]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [441 551]))          
+      :file "constant.c"
+      :pointmax 552
+      :fsize 551
+      :lastmodtime '(22653 47586 620634 290000)
+      :unmatched-syntax nil))
+  :file "!home!wrongway4you!Projects!gsh!src!interpreter!compiler!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

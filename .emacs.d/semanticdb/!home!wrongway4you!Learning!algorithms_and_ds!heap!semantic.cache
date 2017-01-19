@@ -1,0 +1,122 @@
+;; Object heap/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "heap/"
+  :tables
+  (list
+    (semanticdb-table "main.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("stdint.h" include (:system-flag t) nil [312 331])
+            ("stdio.h" include (:system-flag t) nil [332 350])
+            ("MAX_SIZE" variable (:constant-flag t) nil [360 368])
+            ("swap" variable (:constant-flag t) nil [383 387])
+            ("BinaryHeap" type
+               (:members 
+                  ( ("elems" variable
+                       (:pointer 1
+                        :dereference 1
+                        :type "void")
+                        (reparse-symbol classsubparts) [495 517])
+                    ("elem_cmp_f" function
+                       (:prototype-flag t
+                        :function-pointer t
+                        :arguments 
+                          ( ("" variable
+                               (:pointer 1
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [543 549])
+                            ("" variable
+                               (:pointer 1
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [550 556]))                          
+                        :type ("int8_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [522 557])
+                    ("max_size" variable (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [562 580])
+                    ("size" variable (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [585 599]))                  
+                :type "struct")
+                nil [471 602])
+            ("bh_init" function
+               (:arguments 
+                  ( ("bh" variable
+                       (:pointer 1
+                        :type ("BinaryHeap" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [622 644])
+                    ("elem_cmp_f" function
+                       (:function-pointer t
+                        :arguments 
+                          ( ("" variable
+                               (:pointer 1
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [670 676])
+                            ("" variable
+                               (:pointer 1
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [677 683]))                          
+                        :type ("int8_t" type (:type "class") nil nil))
+                        nil nil))                  
+                :type "void")
+                nil [604 768])
+            ("get_lchild_index" function
+               (:arguments 
+                  ( ("i" variable (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [796 807]))                  
+                :type ("uint64_t" type (:type "class") nil nil))
+                nil [770 829])
+            ("get_rchild_index" function
+               (:arguments 
+                  ( ("i" variable (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [857 868]))                  
+                :type ("uint64_t" type (:type "class") nil nil))
+                nil [831 894])
+            ("get_parent_index" function
+               (:arguments 
+                  ( ("i" variable (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [922 933]))                  
+                :type ("uint64_t" type (:type "class") nil nil))
+                nil [896 990])
+            ("bh_insert" function
+               (:arguments 
+                  ( ("bh" variable
+                       (:pointer 1
+                        :type ("BinaryHeap" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1012 1034])
+                    ("elem" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [1039 1050]))                  
+                :type "void")
+                nil [992 1358])
+            ("elem_cmp_f" function
+               (:arguments 
+                  ( ("elem1" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [1383 1395])
+                    ("elem2" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [1400 1412]))                  
+                :type ("int8_t" type (:type "class") nil nil))
+                nil [1360 1525])
+            ("main" function
+               (:arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [1536 1541]))                  
+                :type "int")
+                nil [1527 1928]))          
+      :file "main.c"
+      :pointmax 1929
+      :fsize 1928
+      :lastmodtime '(22640 39358 502363 287000)
+      :unmatched-syntax '((semantic-list 1851 . 1894) (semantic-list 1816 . 1850) (FOR 1812 . 1815) (semantic-list 1851 . 1894) (semantic-list 1816 . 1850) (FOR 1812 . 1815))
+      :lexical-table 
+        '(("swap" (spp-arg-list ("arr" "i" "j") 387 . 398) . 
+              ((VOID "void" 405 . 409) (punctuation "*" 409 . 410) (symbol "temp" 411 . 415) (punctuation "=" 416 . 417) (symbol "arr" 418 . 421) (semantic-list "[i]" 421 . 424) (punctuation ";" 424 . 425) (symbol "arr" 432 . 435) (semantic-list "[i]" 435 . 438) (punctuation "=" 439 . 440) (symbol "arr" 441 . 444) (semantic-list "[j]" 444 . 447) (punctuation ";" 447 . 448) (symbol "arr" 455 . 458) (semantic-list "[j]" 458 . 461) (punctuation "=" 462 . 463) (symbol "temp" 464 . 468) (punctuation ";" 468 . 469)))
+          ("MAX_SIZE" . ((number "1024" 369 . 373)))
+          )
+))
+  :file "!home!wrongway4you!Learning!algorithms_and_ds!heap!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

@@ -1,0 +1,52 @@
+;; Object stdlib/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "stdlib/"
+  :tables
+  (list
+    (semanticdb-table "math.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("math.h" include (:system-flag t) nil [157 174]))          
+      :file "math.c"
+      :pointmax 1188
+      :fsize 1187
+      :lastmodtime '(22654 7935 550248 985000)
+      :unmatched-syntax nil)
+    (semanticdb-table "math.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("STDLIB_MATH_H" variable (:constant-flag t) nil [187 200]))          
+      :file "math.h"
+      :pointmax 324
+      :fsize 323
+      :lastmodtime '(22654 7972 502245 580000)
+      :unmatched-syntax '((punctuation 286 . 287))
+      :lexical-table 
+        '(("STDLIB_MATH_H")
+          )
+)
+    (semanticdb-table "io.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("string.h" include (:system-flag t) nil [124 143]))          
+      :file "io.c"
+      :pointmax 1008
+      :fsize 1007
+      :lastmodtime '(22654 8010 182242 107000)
+      :unmatched-syntax nil)
+    (semanticdb-table "io.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("IO_H" variable (:constant-flag t) nil [145 149]))          
+      :file "io.h"
+      :pointmax 262
+      :fsize 261
+      :lastmodtime '(22654 7992 686243 720000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("IO_H")
+          )
+))
+  :file "!home!wrongway4you!Projects!gsh!src!interpreter!stdlib!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

@@ -1,0 +1,220 @@
+;; Object trees/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "trees/"
+  :tables
+  (list
+    (semanticdb-table "main.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("stdlib.h" include (:system-flag t) nil [126 145])
+            ("stdio.h" include (:system-flag t) nil [146 164])
+            ("stdbool.h" include (:system-flag t) nil [165 185])
+            ("stdint.h" include (:system-flag t) nil [186 205])
+            ("string.h" include (:system-flag t) nil [206 225])
+            ("assert.h" include (:system-flag t) nil [226 245])
+            ("BTNode" type
+               (:members 
+                  ( ("key" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol classsubparts) [342 352])
+                    ("val" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol classsubparts) [357 367])
+                    ("left" variable
+                       (:pointer 1
+                        :type ("BTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [372 392])
+                    ("right" variable
+                       (:pointer 1
+                        :type ("BTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [397 418]))                  
+                :type "struct")
+                nil [322 421])
+            ("bt_node_free" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("node" variable
+                       (:pointer 1
+                        :type ("BTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [448 468]))                  
+                :type "void")
+                nil [423 582])
+            ("BinaryTree" type
+               (:members 
+                  ( ("key_cmp_f" function
+                       (:prototype-flag t
+                        :function-pointer t
+                        :arguments 
+                          ( ("" variable
+                               (:pointer 1
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [736 742])
+                            ("" variable
+                               (:pointer 1
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [743 749]))                          
+                        :type ("int8_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [716 750])
+                    ("root" variable
+                       (:pointer 1
+                        :type ("BTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [755 775]))                  
+                :type "struct")
+                nil [692 778])
+            ("binary_tree_init" function
+               (:arguments 
+                  ( ("tree" variable
+                       (:pointer 1
+                        :type ("BinaryTree" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [807 831])
+                    ("key_cmp_f" function
+                       (:function-pointer t
+                        :arguments 
+                          ( ("" variable
+                               (:pointer 1
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [836 842])
+                            ("" variable
+                               (:pointer 1
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [843 849]))                          
+                        :type ("int8_t" type (:type "class") nil nil))
+                        nil nil))                  
+                :type "void")
+                nil [780 930])
+            ("binary_tree_search" function
+               (:pointer 1
+                :arguments 
+                  ( ("tree" variable
+                       (:pointer 1
+                        :type ("BinaryTree" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [971 995])
+                    ("key" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [1000 1010]))                  
+                :type ("BTNode" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [932 1270])
+            ("bt_node_insert" function
+               (:arguments 
+                  ( ("tree" variable
+                       (:pointer 1
+                        :type ("BTNode" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1297 1317])
+                    ("key" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [1322 1332])
+                    ("val" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [1337 1347])
+                    ("key_cmp_f" function
+                       (:function-pointer t
+                        :arguments 
+                          ( ("" variable
+                               (:pointer 1
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [1352 1358])
+                            ("" variable
+                               (:pointer 1
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [1359 1365]))                          
+                        :type ("int8_t" type (:type "class") nil nil))
+                        nil nil))                  
+                :type "bool")
+                nil [1272 1883])
+            ("binary_tree_insert" function
+               (:arguments 
+                  ( ("tree" variable
+                       (:pointer 1
+                        :type ("BinaryTree" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1914 1938])
+                    ("key" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [1943 1953])
+                    ("val" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [1958 1968]))                  
+                :type "bool")
+                nil [1885 2227])
+            ("binary_tree_free" function
+               (:arguments 
+                  ( ("tree" variable
+                       (:pointer 1
+                        :type ("BinaryTree" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2251 2275]))                  
+                :type "void")
+                nil [2229 2309])
+            ("key_cmp_f" function
+               (:arguments 
+                  ( ("key1" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [2328 2339])
+                    ("key2" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [2340 2351]))                  
+                :type ("int8_t" type (:type "class") nil nil))
+                nil [2311 2386])
+            ("main" function
+               (:arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [2397 2402]))                  
+                :type "int")
+                nil [2388 3135]))          
+      :file "main.c"
+      :pointmax 3136
+      :fsize 3135
+      :lastmodtime '(22639 57953 335550 858000)
+      :unmatched-syntax nil)
+    (semanticdb-table "main.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("MAIN_H" variable (:constant-flag t) nil [149 155]))          
+      :file "main.h"
+      :pointmax 176
+      :fsize 175
+      :lastmodtime '(22639 55478 909778 877000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("MAIN_H")
+          )
+))
+  :file "!home!wrongway4you!Learning!algorithms_and_ds!trees!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

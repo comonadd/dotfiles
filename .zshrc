@@ -30,3 +30,5 @@ alias eV="$EDITOR ~/.vimrc"
 alias eZ="$EDITOR ~/.zshrc"
 
 alias uX="xrdb ~/.Xresources"
+
+alias make="make --warn-undefined-variables"

@@ -6,149 +6,88 @@
     (semanticdb-table "interpreter.h"
       :major-mode 'c-mode
       :tags 
-        '( ("INTERPRETER_H" variable (:constant-flag t) nil [163 176])
-            ("gsh.h" include nil nil [178 194])
-            ("lexer/lexer.h" include nil nil [196 220])
-            ("lexer/parser.h" include nil nil [221 246])
-            ("InterpreterErrCode" type
+        '( ("INTERPRETER_H" variable (:constant-flag t) nil [185 198])
+            ("lib/types.h" include nil nil [200 222])
+            ("Interpreter" type
                (:members 
-                  ( ("IEC_OK" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [278 285])
-                    ("IEC_SYNTAX" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [290 301])
-                    ("IEC_UEOF" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [306 316]))                  
-                :type "enum")
-                nil [248 317])
-            ("InterpreterSyntaxErrType" type
-               (:members 
-                  ( ("ISET_INVALID_SYNTAX" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [355 375])
-                    ("ISET_PAREN_MISMATCH" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [380 400])
-                    ("ISET_LITERAL_ASSIGN" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [405 426]))                  
-                :type "enum")
-                nil [319 427])
-            ("InterpreterState" type
-               (:members 
-                  ( ("ls" variable (:type ("LexerState" type
-                         (:prototype t
-                          :type "struct")
-                          nil nil)) (reparse-symbol classsubparts) [459 480])
-                    ("ps" variable (:type ("ParserState" type
-                         (:prototype t
-                          :type "struct")
-                          nil nil)) (reparse-symbol classsubparts) [485 507])
-                    ("ln" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol classsubparts) [512 522])
-                    ("input_text_len" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol classsubparts) [527 549])
-                    ("ec" variable (:type ("InterpreterErrCode" type (:type "enum") nil nil)) (reparse-symbol classsubparts) [554 581])
-                    ("syntax_err_type" variable (:type ("InterpreterSyntaxErrType" type (:type "enum") nil nil)) (reparse-symbol classsubparts) [586 632])
+                  ( ("input_text_len" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol classsubparts) [561 583])
                     ("input_name" variable
                        (:pointer 1
                         :type "char")
-                        (reparse-symbol classsubparts) [637 660])
+                        (reparse-symbol classsubparts) [588 611])
                     ("input_text" variable
                        (:pointer 1
                         :type "char")
-                        (reparse-symbol classsubparts) [665 688]))                  
+                        (reparse-symbol classsubparts) [616 639]))                  
                 :type "struct")
-                nil [429 691])
+                nil [536 642])
             ("interpreter_init" function
                (:prototype-flag t
                 :arguments 
-                  ( ("is" variable
+                  ( ("I" variable
                        (:pointer 1
-                        :type ("InterpreterState" type
+                        :type ("Interpreter" type
                              (:prototype t
                               :type "struct")
                               nil nil))
-                        (reparse-symbol arg-sub-list) [715 743]))                  
-                :type "void")
-                nil [693 744])
-            ("interpreter_err_syntax" function
-               (:prototype-flag t
-                :arguments 
-                  ( ("is" variable
-                       (:pointer 1
-                        :type ("InterpreterState" type
-                             (:prototype t
-                              :type "struct")
-                              nil nil))
-                        (reparse-symbol arg-sub-list) [1036 1064]))                  
-                :type "void")
-                nil [1008 1065])
-            ("interpreter_err_ueof" function
-               (:prototype-flag t
-                :type "void")
-                nil [1211 1239])
+                        (reparse-symbol arg-sub-list) [715 737]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [687 738])
             ("interpreter_set_input" function
                (:prototype-flag t
                 :arguments 
-                  ( ("is" variable
+                  ( ("I" variable
                        (:pointer 1
-                        :type ("InterpreterState" type
+                        :type ("Interpreter" type
                              (:prototype t
                               :type "struct")
                               nil nil))
-                        (reparse-symbol arg-sub-list) [1273 1301])
+                        (reparse-symbol arg-sub-list) [773 795])
                     ("input_name" variable
                        (:pointer 1
                         :constant-flag t
                         :type "char")
-                        (reparse-symbol arg-sub-list) [1306 1329])
+                        (reparse-symbol arg-sub-list) [800 829])
                     ("input_text" variable
                        (:pointer 1
                         :constant-flag t
                         :type "char")
-                        (reparse-symbol arg-sub-list) [1334 1357]))                  
-                :type "void")
-                nil [1241 1358])
+                        (reparse-symbol arg-sub-list) [834 863]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [740 864])
             ("interpreter_do" function
                (:prototype-flag t
                 :arguments 
-                  ( ("is" variable
+                  ( ("I" variable
                        (:pointer 1
-                        :type ("InterpreterState" type
+                        :type ("Interpreter" type
                              (:prototype t
                               :type "struct")
                               nil nil))
-                        (reparse-symbol arg-sub-list) [1524 1552]))                  
+                        (reparse-symbol arg-sub-list) [999 1021]))                  
                 :type "bool")
-                nil [1504 1553])
+                nil [974 1022])
             ("interpreter_do_file" function
                (:prototype-flag t
                 :arguments 
-                  ( ("is" variable
+                  ( ("I" variable
                        (:pointer 1
-                        :type ("InterpreterState" type
+                        :type ("Interpreter" type
                              (:prototype t
                               :type "struct")
                               nil nil))
-                        (reparse-symbol arg-sub-list) [1585 1613])
+                        (reparse-symbol arg-sub-list) [1054 1076])
                     ("filename" variable
-                       (:dereference 1
+                       (:pointer 1
                         :constant-flag t
                         :type "char")
-                        (reparse-symbol arg-sub-list) [1618 1640]))                  
+                        (reparse-symbol arg-sub-list) [1081 1108]))                  
                 :type "bool")
-                nil [1555 1641]))          
+                nil [1024 1109]))          
       :file "interpreter.h"
-      :pointmax 1667
-      :fsize 1666
-      :lastmodtime '(22631 47262 203116 44000)
+      :pointmax 1138
+      :fsize 1137
+      :lastmodtime '(22655 14961 872606 975000)
       :unmatched-syntax nil
       :lexical-table 
         '(("INTERPRETER_H")
@@ -157,726 +96,420 @@
     (semanticdb-table "interpreter.c"
       :major-mode 'c-mode
       :tags 
-        '( ("interpreter/interpreter.h" include nil nil [132 168])
-            ("string.h" include (:system-flag t) nil [170 189])
-            ("gsh.h" include nil nil [191 207])
-            ("types.h" include nil nil [208 226])
-            ("lib/xstr.h" include nil nil [227 248])
-            ("util/macros.h" include nil nil [249 273])
-            ("interpreter/lexer/lex.h" include nil nil [274 308])
-            ("interpreter/parser/parser.h" include nil nil [309 347])
-            ("interpreter/executor/executor.h" include nil nil [348 390])
+        '( ("interpreter.h" include nil nil [154 178])
+            ("string.h" include (:system-flag t) nil [180 199])
+            ("lib/types.h" include nil nil [201 223])
+            ("lib/macros.h" include nil nil [224 247])
+            ("lib/util.h" include nil nil [248 269])
+            ("lib/dict.h" include nil nil [270 291])
+            ("interpreter/err.h" include nil nil [292 320])
+            ("interpreter/object/str.h" include nil nil [321 356])
+            ("interpreter/lexer/lexer.h" include nil nil [357 393])
+            ("interpreter/parser/parser.h" include nil nil [394 432])
+            ("interpreter/compiler/compiler.h" include nil nil [433 475])
+            ("interpreter/vm/bytecode.h" include nil nil [476 512])
+            ("interpreter/vm/vm.h" include nil nil [513 543])
+            ("interpreter/module.h" include nil nil [544 575])
+            ("interpreter/stdlib/math.h" include nil nil [576 612])
+            ("interpreter/stdlib/io.h" include nil nil [613 647])
+            ("interpreter_err_report" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("I" variable
+                       (:pointer 1
+                        :type ("Interpreter" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1466 1488]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [1425 1588])
             ("interpreter_init" function
                (:arguments 
-                  ( ("is" variable
+                  ( ("I" variable
                        (:pointer 1
-                        :type ("InterpreterState" type
+                        :type ("Interpreter" type
                              (:prototype t
                               :type "struct")
                               nil nil))
-                        (reparse-symbol arg-sub-list) [414 442]))                  
-                :type "void")
-                nil [392 1798])
-            ("interpreter_err_syntax" function
-               (:arguments 
-                  ( ("is" variable
-                       (:pointer 1
-                        :type ("InterpreterState" type
-                             (:prototype t
-                              :type "struct")
-                              nil nil))
-                        (reparse-symbol arg-sub-list) [1895 1923]))                  
-                :type "void")
-                nil [1867 2676])
-            ("interpreter_err_ueof" function
-               (:arguments 
-                  ( ("is" variable
-                       (:pointer 1
-                        :type ("InterpreterState" type
-                             (:prototype t
-                              :type "struct")
-                              nil nil))
-                        (reparse-symbol arg-sub-list) [2704 2732]))                  
-                :type "void")
-                nil [2678 2883])
-            ("interpreter_incr_ln" function
-               (:arguments 
-                  ( ("is" variable
-                       (:pointer 1
-                        :type ("InterpreterState" type
-                             (:prototype t
-                              :type "struct")
-                              nil nil))
-                        (reparse-symbol arg-sub-list) [2910 2938]))                  
-                :type "void")
-                nil [2885 2956])
+                        (reparse-symbol arg-sub-list) [1618 1640]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [1590 1749])
             ("interpreter_set_input" function
                (:arguments 
-                  ( ("is" variable
+                  ( ("I" variable
                        (:pointer 1
-                        :type ("InterpreterState" type
+                        :type ("Interpreter" type
                              (:prototype t
                               :type "struct")
                               nil nil))
-                        (reparse-symbol arg-sub-list) [2990 3018])
+                        (reparse-symbol arg-sub-list) [1784 1806])
                     ("input_name" variable
                        (:pointer 1
                         :constant-flag t
                         :type "char")
-                        (reparse-symbol arg-sub-list) [3023 3046])
+                        (reparse-symbol arg-sub-list) [1811 1840])
                     ("input_text" variable
                        (:pointer 1
                         :constant-flag t
                         :type "char")
-                        (reparse-symbol arg-sub-list) [3051 3074]))                  
-                :type "void")
-                nil [2958 3221])
-            ("interpreter_clear" function
-               (:arguments 
-                  ( ("is" variable
-                       (:pointer 1
-                        :type ("InterpreterState" type
-                             (:prototype t
-                              :type "struct")
-                              nil nil))
-                        (reparse-symbol arg-sub-list) [3246 3274]))                  
-                :type "void")
-                nil [3223 3411])
+                        (reparse-symbol arg-sub-list) [1845 1874]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [1751 1986])
             ("interpreter_do" function
                (:arguments 
-                  ( ("is" variable
+                  ( ("I" variable
                        (:pointer 1
-                        :type ("InterpreterState" type
+                        :type ("Interpreter" type
                              (:prototype t
                               :type "struct")
                               nil nil))
-                        (reparse-symbol arg-sub-list) [3433 3461]))                  
+                        (reparse-symbol arg-sub-list) [3095 3117]))                  
                 :type "bool")
-                nil [3413 4349])
+                nil [3075 3987])
             ("interpreter_do_file" function
                (:arguments 
-                  ( ("is" variable
+                  ( ("I" variable
                        (:pointer 1
-                        :type ("InterpreterState" type
+                        :type ("Interpreter" type
                              (:prototype t
                               :type "struct")
                               nil nil))
-                        (reparse-symbol arg-sub-list) [4381 4409])
+                        (reparse-symbol arg-sub-list) [4019 4041])
                     ("filename" variable
                        (:pointer 1
                         :constant-flag t
                         :type "char")
-                        (reparse-symbol arg-sub-list) [4414 4441]))                  
+                        (reparse-symbol arg-sub-list) [4046 4073]))                  
                 :type "bool")
-                nil [4351 4985])
-            ("xstr_deinit" function
-               (:prototype-flag t
-                :arguments 
-                  ( ("" variable (:type ("text" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4896 4901]))                  
-                :type "int")
-                nil [4883 4902])
-            ("true" variable (:type "int") nil [4914 4919]))          
+                nil [3989 4785]))          
       :file "interpreter.c"
-      :pointmax 4986
-      :fsize 4985
-      :lastmodtime '(22631 43152 170494 785000)
+      :pointmax 4786
+      :fsize 4785
+      :lastmodtime '(22655 8858 520169 401000)
       :unmatched-syntax nil)
-    (semanticdb-table "token.h"
+    (semanticdb-table "api.h"
       :major-mode 'c-mode
       :tags 
-        '( ("TOK_H" variable (:constant-flag t) nil [130 135])
-            ("string.h" include (:system-flag t) nil [137 156])
-            ("gsh.h" include nil nil [158 174])
-            ("lib/xstr.h" include nil nil [175 196])
-            ("lib/xvec.h" include nil nil [197 218])
-            ("mm/memory.h" include nil nil [220 242])
-            ("KEYWORD_IF" variable (:constant-flag t) nil [252 262])
-            ("KEYWORD_ELIF" variable (:constant-flag t) nil [276 288])
-            ("KEYWORD_ELSE" variable (:constant-flag t) nil [304 316])
-            ("KEYWORD_WHILE" variable (:constant-flag t) nil [332 345])
-            ("KEYWORD_FOR" variable (:constant-flag t) nil [362 373])
-            ("KEYWORD_FUNCTION" variable (:constant-flag t) nil [388 404])
-            ("KEYWORD_IMPORT" variable (:constant-flag t) nil [424 438])
-            ("FIRST_RESERVED_TOK" variable (:constant-flag t) nil [457 475])
-            ("TokenType" type
-               (:members 
-                  ( ("TOK_INVALID" variable
-                       (:constant-flag t
-                        :default-value (575 593)
-                        :type "int")
-                        (reparse-symbol enumsubparts) [561 593])
-                    ("TOK_NEWLINE" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [595 607])
-                    ("TOK_SEMI" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [612 621])
-                    ("TOK_COMMA" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [622 632])
-                    ("TOK_LBRACKET" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [637 650])
-                    ("TOK_RBRACKET" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [651 664])
-                    ("TOK_LPAREN" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [665 676])
-                    ("TOK_RPAREN" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [677 688])
-                    ("TOK_LBRACE" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [693 704])
-                    ("TOK_RBRACE" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [705 716])
-                    ("TOK_BINARY_PLUS" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [717 733])
-                    ("TOK_UNARY_PLUS" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [734 749])
-                    ("TOK_BINARY_MINUS" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [754 771])
-                    ("TOK_UNARY_MINUS" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [772 788])
-                    ("TOK_STAR" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [793 802])
-                    ("TOK_SLASH" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [803 813])
-                    ("TOK_MODULUS" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [814 826])
-                    ("TOK_INCR" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [827 836])
-                    ("TOK_DECR" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [841 850])
-                    ("TOK_POW" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [851 859])
-                    ("TOK_EQ" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [860 867])
-                    ("TOK_NEQ" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [868 876])
-                    ("TOK_LT" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [877 884])
-                    ("TOK_GT" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [889 896])
-                    ("TOK_LTE" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [897 905])
-                    ("TOK_GTE" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [906 914])
-                    ("TOK_LOGICAL_AND" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [915 931])
-                    ("TOK_LOGICAL_NOT" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [936 952])
-                    ("TOK_LOGICAL_OR" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [953 968])
-                    ("TOK_BITWISE_AND" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [969 985])
-                    ("TOK_BITWISE_NOT" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [990 1006])
-                    ("TOK_BITWISE_OR" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [1007 1022])
-                    ("TOK_BITWISE_XOR" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [1027 1043])
-                    ("TOK_BITWISE_LS" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [1044 1059])
-                    ("TOK_BITWISE_RS" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [1064 1079])
-                    ("TOK_ASSIGN" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [1080 1091])
-                    ("TOK_ASSIGN_PLUS" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [1096 1112])
-                    ("TOK_ASSIGN_MINUS" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [1113 1130])
-                    ("TOK_ASSIGN_STAR" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [1135 1151])
-                    ("TOK_ASSIGN_SLASH" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [1152 1169])
-                    ("TOK_ASSIGN_MODULUS" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [1174 1193])
-                    ("TOK_ASSIGN_POW" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [1194 1209])
-                    ("TOK_ASSIGN_BITWISE_AND" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [1214 1237])
-                    ("TOK_ASSIGN_BITWISE_OR" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [1238 1260])
-                    ("TOK_ASSIGN_BITWISE_XOR" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [1265 1288])
-                    ("TOK_ASSIGN_BITWISE_LS" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [1289 1311])
-                    ("TOK_ASSIGN_BITWISE_RS" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [1316 1338])
-                    ("TOK_KEYWORD_IF" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [1339 1354])
-                    ("TOK_KEYWORD_ELIF" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [1359 1376])
-                    ("TOK_KEYWORD_ELSE" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [1377 1394])
-                    ("TOK_KEYWORD_WHILE" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [1399 1417])
-                    ("TOK_KEYWORD_FOR" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [1418 1434])
-                    ("TOK_KEYWORD_FUNCTION" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [1439 1460])
-                    ("TOK_KEYWORD_IMPORT" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [1461 1480])
-                    ("TOK_STRLIT" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [1509 1520])
-                    ("TOK_INUMLIT" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [1521 1533])
-                    ("TOK_DNUMLIT" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [1538 1550])
-                    ("TOK_COMMENT" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [1551 1563])
-                    ("TOK_ID" variable
-                       (:constant-flag t
-                        :type "int")
-                        (reparse-symbol enumsubparts) [1568 1576]))                  
-                :type "enum")
-                nil [521 1577])
-            ("TOKENS_RESERVED_NUM" variable (:constant-flag t) nil [1587 1606])
-            ("RESERVED_TOKENS" variable
-               (:pointer 1
-                :dereference 1
-                :type ("Token" type
-                     (:prototype t
-                      :type "struct")
-                      nil nil))
-                nil [1654 1707])
-            ("TokenData" type
-               (:members 
-                  ( ("str" variable (:type ("XString" type
-                         (:prototype t
-                          :type "struct")
-                          nil nil)) (reparse-symbol classsubparts) [1731 1750])
-                    ("dnum" variable (:type ("DNum" type
-                         (:prototype t
-                          :type "struct")
-                          nil nil)) (reparse-symbol classsubparts) [1755 1772])
-                    ("inum" variable (:type ("INum" type
-                         (:prototype t
-                          :type "struct")
-                          nil nil)) (reparse-symbol classsubparts) [1777 1794]))                  
-                :type "union")
-                nil [1709 1797])
-            ("Token" type
-               (:members 
-                  ( ("data" variable (:type ("TokenData" type (:type "union") nil nil)) (reparse-symbol classsubparts) [2001 2022])
-                    ("type" variable (:type ("TokenType" type (:type "enum") nil nil)) (reparse-symbol classsubparts) [2027 2047]))                  
-                :type "struct")
-                nil [1982 2050])
-            ("tok_init" function
-               (:prototype-flag t
-                :arguments 
-                  ( ("tok" variable
-                       (:pointer 1
-                        :type ("Token" type
-                             (:prototype t
-                              :type "struct")
-                              nil nil))
-                        (reparse-symbol arg-sub-list) [2071 2089])
-                    ("type" variable
-                       (:constant-flag t
-                        :type ("TokenType" type (:type "enum") nil nil))
-                        (reparse-symbol arg-sub-list) [2094 2120])
-                    ("len_in_text" variable
-                       (:constant-flag t
-                        :type ("uint64" type (:type "class") nil nil))
-                        (reparse-symbol arg-sub-list) [2125 2150])
-                    ("val" variable
-                       (:pointer 1
-                        :constant-flag t
-                        :type ("XString" type
-                             (:prototype t
-                              :type "struct")
-                              nil nil))
-                        (reparse-symbol arg-sub-list) [2155 2181]))                  
-                :type "void")
-                nil [2052 2182])
-            ("tok_deinit" function
-               (:prototype-flag t
-                :arguments 
-                  ( ("tok" variable
-                       (:pointer 1
-                        :type ("Token" type
-                             (:prototype t
-                              :type "struct")
-                              nil nil))
-                        (reparse-symbol arg-sub-list) [2228 2246]))                  
-                :type "void")
-                nil [2212 2247])
-            ("tok_xvec_deinit" function
-               (:prototype-flag t
-                :arguments 
-                  ( ("v" variable
-                       (:pointer 1
-                        :type ("XVector" type
-                             (:prototype t
-                              :type "struct")
-                              nil nil))
-                        (reparse-symbol arg-sub-list) [2309 2327]))                  
-                :type "void")
-                nil [2288 2328])
-            ("tok_is_id" function
-               (:prototype-flag t
-                :arguments 
-                  ( ("tok" variable
-                       (:pointer 1
-                        :constant-flag t
-                        :type ("Token" type
-                             (:prototype t
-                              :type "struct")
-                              nil nil))
-                        (reparse-symbol arg-sub-list) [2471 2495]))                  
-                :type "bool")
-                nil [2456 2496])
-            ("tok_is_cmd_separator" function
-               (:prototype-flag t
-                :arguments 
-                  ( ("tok" variable
-                       (:pointer 1
-                        :constant-flag t
-                        :type ("Token" type
-                             (:prototype t
-                              :type "struct")
-                              nil nil))
-                        (reparse-symbol arg-sub-list) [2524 2548]))                  
-                :type "bool")
-                nil [2498 2549])
-            ("tok_is_op" function
-               (:prototype-flag t
-                :arguments 
-                  ( ("tok" variable
-                       (:pointer 1
-                        :constant-flag t
-                        :type ("Token" type
-                             (:prototype t
-                              :type "struct")
-                              nil nil))
-                        (reparse-symbol arg-sub-list) [2644 2668]))                  
-                :type "bool")
-                nil [2629 2669])
-            ("tok_is_unop" function
-               (:prototype-flag t
-                :arguments 
-                  ( ("tok" variable
-                       (:pointer 1
-                        :constant-flag t
-                        :type ("Token" type
-                             (:prototype t
-                              :type "struct")
-                              nil nil))
-                        (reparse-symbol arg-sub-list) [2750 2774]))                  
-                :type "bool")
-                nil [2733 2775])
-            ("tok_is_binop" function
-               (:prototype-flag t
-                :arguments 
-                  ( ("tok" variable
-                       (:pointer 1
-                        :constant-flag t
-                        :type ("Token" type
-                             (:prototype t
-                              :type "struct")
-                              nil nil))
-                        (reparse-symbol arg-sub-list) [2858 2882]))                  
-                :type "bool")
-                nil [2840 2883])
-            ("tok_left_assoc" function
-               (:prototype-flag t
-                :arguments 
-                  ( ("tok" variable
-                       (:pointer 1
-                        :constant-flag t
-                        :type ("Token" type
-                             (:prototype t
-                              :type "struct")
-                              nil nil))
-                        (reparse-symbol arg-sub-list) [2990 3014]))                  
-                :type "bool")
-                nil [2970 3015])
-            ("tok_preced" function
-               (:prototype-flag t
-                :arguments 
-                  ( ("tok" variable
-                       (:pointer 1
-                        :constant-flag t
-                        :type ("Token" type
-                             (:prototype t
-                              :type "struct")
-                              nil nil))
-                        (reparse-symbol arg-sub-list) [3084 3108]))                  
-                :type ("uint8" type (:type "class") nil nil))
-                nil [3067 3109]))          
-      :file "token.h"
-      :pointmax 3253
-      :fsize 3252
-      :lastmodtime '(22631 51835 611694 603000)
+        '( ("API_H" variable (:constant-flag t) nil [163 168])
+            ("lib/xvec.h" include nil nil [170 191]))          
+      :file "api.h"
+      :pointmax 212
+      :fsize 211
+      :lastmodtime '(22655 14933 384609 600000)
       :unmatched-syntax nil
       :lexical-table 
-        '(("TOKENS_RESERVED_NUM" . ((semantic-list "(TOK_KEYWORD_IMPORT - FIRST_RESERVED_TOK + 1)" 1607 . 1652)))
-          ("KEYWORD_FOR" . ((string "\"for\"" 374 . 379)))
-          ("KEYWORD_FUNCTION" . ((string "\"function\"" 405 . 415)))
-          ("KEYWORD_WHILE" . ((string "\"while\"" 346 . 353)))
-          ("KEYWORD_IF" . ((string "\"if\"" 263 . 267)))
-          ("KEYWORD_ELIF" . ((string "\"elif\"" 289 . 295)))
-          ("KEYWORD_IMPORT" . ((string "\"import\"" 439 . 447)))
-          ("FIRST_RESERVED_TOK" . ((number "0" 476 . 477)))
-          ("TOK_H")
-          ("KEYWORD_ELSE" . ((string "\"else\"" 317 . 323)))
+        '(("API_H")
           )
 )
-    (semanticdb-table "token.c"
+    (semanticdb-table "api.c"
       :major-mode 'c-mode
       :tags 
-        '( ("interpreter/lexer/token.h" include nil nil [108 144])
-            ("stdio.h" include (:system-flag t) nil [146 164])
-            ("string.h" include (:system-flag t) nil [165 184])
-            ("gsh.h" include nil nil [186 202])
-            ("mm/memory.h" include nil nil [203 225])
-            ("util/io.h" include nil nil [226 246])
-            ("util/macros.h" include nil nil [247 271])
-            ("shell/shell.h" include nil nil [272 296])
-            ("tok_init" function
-               (:arguments 
-                  ( ("tok" variable
-                       (:pointer 1
-                        :type ("Token" type
-                             (:prototype t
-                              :type "struct")
-                              nil nil))
-                        (reparse-symbol arg-sub-list) [317 335])
-                    ("type" variable
+        '( ("api.h" include nil nil [141 157]))          
+      :file "api.c"
+      :pointmax 158
+      :fsize 157
+      :lastmodtime '(22647 44993 186990 828000)
+      :unmatched-syntax nil)
+    (semanticdb-table "module.h"
+      :major-mode 'c-mode
+      :tags nil
+      :file "module.h"
+      :pointmax 1777
+      :fsize 1776
+      :lastmodtime '(22655 14907 952611 943000)
+      :unmatched-syntax nil)
+    (semanticdb-table "module.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("string.h" include (:system-flag t) nil [161 180]))          
+      :file "module.c"
+      :pointmax 4062
+      :fsize 4061
+      :lastmodtime '(22654 6707 74362 189000)
+      :unmatched-syntax nil)
+    (semanticdb-table "err.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("ERR_H" variable (:constant-flag t) nil [189 194])
+            ("ERR_H" variable (:constant-flag t) nil [189 194])
+            ("ERR_H" variable (:constant-flag t) nil [189 194])
+            ("ERR_H" variable (:constant-flag t) nil [189 194])
+            ("lib/types.h" include nil nil [196 218])
+            ("interpreter/object/object.h" include nil nil [219 257])
+            ("interpreter/object/ops.h" include nil nil [258 293])
+            ("ErrorType" type
+               (:members 
+                  ( ("E_OK" variable
                        (:constant-flag t
-                        :type ("TokenType" type (:type "enum") nil nil))
-                        (reparse-symbol arg-sub-list) [340 366])
-                    ("len_in_text" variable
+                        :type "int")
+                        (reparse-symbol enumsubparts) [503 508])
+                    ("E_SYNTAX" variable
                        (:constant-flag t
-                        :type ("uint64" type (:type "class") nil nil))
-                        (reparse-symbol arg-sub-list) [371 396])
-                    ("val" variable
+                        :type "int")
+                        (reparse-symbol enumsubparts) [513 522])
+                    ("E_UEOF" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [527 534])
+                    ("E_NAME" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [539 546])
+                    ("E_TYPE" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [551 559]))                  
+                :type "enum")
+                nil [482 560])
+            ("err_set_ok" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [579 584]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [562 585])
+            ("err_is_ok" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [602 607]))                  
+                :type "bool")
+                nil [587 608])
+            ("err_set" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("ErrorType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [629 655])
+                    ("ln" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [660 670])
+                    ("msg" variable
                        (:pointer 1
-                        :constant-flag t
                         :type "char")
-                        (reparse-symbol arg-sub-list) [401 417]))                  
-                :type "void")
-                nil [298 783])
-            ("tok_deinit" function
-               (:arguments 
-                  ( ("tok" variable
+                        (reparse-symbol arg-sub-list) [675 685]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [610 686])
+            ("err_setf" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable
+                       (:constant-flag t
+                        :type ("ErrorType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [708 729])
+                    ("ln" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [734 744])
+                    ("frmt" variable
                        (:pointer 1
-                        :type ("Token" type
-                             (:prototype t
-                              :type "struct")
-                              nil nil))
-                        (reparse-symbol arg-sub-list) [801 819]))                  
-                :type "void")
-                nil [785 1299])
-            ("tok_xvec_deinit" function
-               (:arguments 
-                  ( ("v" variable
-                       (:pointer 1
-                        :type ("XVector" type
-                             (:prototype t
-                              :type "struct")
-                              nil nil))
-                        (reparse-symbol arg-sub-list) [1322 1340]))                  
-                :type "void")
-                nil [1301 1554])
-            ("tok_is_id" function
-               (:arguments 
-                  ( ("tok" variable
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [749 760])
+                    ("..." variable (:type "vararg") (reparse-symbol arg-sub-list) [765 769]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [688 770])
+            ("err_set_unsupported_binop" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("GShObjectBinOpType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [809 844])
+                    ("lop" variable
                        (:pointer 1
                         :constant-flag t
-                        :type ("Token" type
+                        :type ("GShObject" type
                              (:prototype t
                               :type "struct")
                               nil nil))
-                        (reparse-symbol arg-sub-list) [1641 1665]))                  
+                        (reparse-symbol arg-sub-list) [849 877])
+                    ("rop" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [882 910]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [772 911])
+            ("err_set_unsupported_unop" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("GShObjectUnOpType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [949 983])
+                    ("op" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("GShObject" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [988 1015]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [913 1016])
+            ("err_get_ln" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [1036 1041]))                  
+                :type ("uint64" type (:type "class") nil nil))
+                nil [1018 1042])
+            ("err_get_msg" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [1068 1073]))                  
+                :type "char")
+                nil [1044 1074]))          
+      :file "err.h"
+      :pointmax 1095
+      :fsize 1094
+      :lastmodtime '(22655 32423 435997 886000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("ERR_H")
+          )
+)
+    (semanticdb-table "err.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("_GNU_SOURCE" variable (:constant-flag t) nil [175 186])
+            ("interpreter/err.h" include nil nil [188 216])
+            ("stdarg.h" include (:system-flag t) nil [218 237])
+            ("stdio.h" include (:system-flag t) nil [238 256])
+            ("lib/types.h" include nil nil [258 280])
+            ("lib/macros.h" include nil nil [281 304])
+            ("lib/xmalloc.h" include nil nil [305 329])
+            ("interpreter/object/object.h" include nil nil [330 368])
+            ("interpreter/object/ops.h" include nil nil [369 404])
+            ("__err_msg" variable
+               (:pointer 1
+                :typemodifiers ("static")
+                :type "char")
+                nil [406 435])
+            ("__err_type" variable
+               (:typemodifiers ("static")
+                :type ("ErrorType" type (:type "enum") nil nil))
+                nil [436 469])
+            ("__err_ln" variable
+               (:typemodifiers ("static")
+                :type ("uint64" type (:type "class") nil nil))
+                nil [470 493])
+            ("SYNTAX_ERR_PREFIX" variable
+               (:pointer 1
+                :typemodifiers ("static")
+                :constant-flag t
+                :default-value "\"[!] Syntax Error: \""
+                :type "char")
+                nil [495 555])
+            ("NAME_ERR_PREFIX" variable
+               (:pointer 1
+                :typemodifiers ("static")
+                :constant-flag t
+                :default-value "\"[!] Name Error: \""
+                :type "char")
+                nil [628 684])
+            ("TYPE_ERR_PREFIX" variable
+               (:pointer 1
+                :typemodifiers ("static")
+                :constant-flag t
+                :default-value "\"[!] Type Error: \""
+                :type "char")
+                nil [755 811])
+            ("err_set_ok" function
+               (:arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [899 904]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [882 931])
+            ("err_is_ok" function
+               (:arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [948 953]))                  
                 :type "bool")
-                nil [1626 1758])
-            ("tok_is_cmd_separator" function
+                nil [933 988])
+            ("err_set" function
                (:arguments 
-                  ( ("tok" variable
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("ErrorType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [1009 1035])
+                    ("ln" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1040 1050])
+                    ("msg" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [1055 1065]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [990 1505])
+            ("err_setf" function
+               (:arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("ErrorType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [1527 1553])
+                    ("ln" variable (:type ("uint64" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1558 1568])
+                    ("frmt" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [1573 1584])
+                    ("..." variable (:type "vararg") (reparse-symbol arg-sub-list) [1589 1593]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [1507 2181])
+            ("err_set_unsupported_binop" function
+               (:arguments 
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("GShObjectBinOpType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [2220 2255])
+                    ("lop" variable
                        (:pointer 1
                         :constant-flag t
-                        :type ("Token" type
+                        :type ("GShObject" type
                              (:prototype t
                               :type "struct")
                               nil nil))
-                        (reparse-symbol arg-sub-list) [1786 1810]))                  
-                :type "bool")
-                nil [1760 1878])
-            ("tok_is_op" function
-               (:arguments 
-                  ( ("tok" variable
+                        (reparse-symbol arg-sub-list) [2260 2288])
+                    ("rop" variable
                        (:pointer 1
                         :constant-flag t
-                        :type ("Token" type
+                        :type ("GShObject" type
                              (:prototype t
                               :type "struct")
                               nil nil))
-                        (reparse-symbol arg-sub-list) [1895 1919]))                  
-                :type "bool")
-                nil [1880 1973])
-            ("tok_is_unop" function
+                        (reparse-symbol arg-sub-list) [2293 2321]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [2183 2492])
+            ("err_set_unsupported_unop" function
                (:arguments 
-                  ( ("tok" variable
+                  ( ("type" variable
+                       (:constant-flag t
+                        :type ("GShObjectUnOpType" type (:type "enum") nil nil))
+                        (reparse-symbol arg-sub-list) [2530 2564])
+                    ("op" variable
                        (:pointer 1
                         :constant-flag t
-                        :type ("Token" type
+                        :type ("GShObject" type
                              (:prototype t
                               :type "struct")
                               nil nil))
-                        (reparse-symbol arg-sub-list) [1992 2016]))                  
-                :type "bool")
-                nil [1975 2160])
-            ("tok_is_binop" function
+                        (reparse-symbol arg-sub-list) [2569 2596]))                  
+                :type ("NoRet" type (:type "class") nil nil))
+                nil [2494 2729])
+            ("err_get_ln" function
                (:arguments 
-                  ( ("tok" variable
-                       (:pointer 1
-                        :constant-flag t
-                        :type ("Token" type
-                             (:prototype t
-                              :type "struct")
-                              nil nil))
-                        (reparse-symbol arg-sub-list) [2180 2204]))                  
-                :type "bool")
-                nil [2162 2768])
-            ("tok_preced" function
-               (:arguments 
-                  ( ("tok" variable
-                       (:pointer 1
-                        :constant-flag t
-                        :type ("Token" type
-                             (:prototype t
-                              :type "struct")
-                              nil nil))
-                        (reparse-symbol arg-sub-list) [2787 2811]))                  
-                :type ("uint8" type (:type "class") nil nil))
-                nil [2770 3816])
-            ("tok_left_assoc" function
-               (:arguments 
-                  ( ("tok" variable
-                       (:pointer 1
-                        :constant-flag t
-                        :type ("Token" type
-                             (:prototype t
-                              :type "struct")
-                              nil nil))
-                        (reparse-symbol arg-sub-list) [3838 3862]))                  
-                :type "bool")
-                nil [3818 4705]))          
-      :file "token.c"
-      :pointmax 8374
-      :fsize 8373
-      :lastmodtime '(22631 49483 355911 364000)
-      :unmatched-syntax nil))
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [2749 2754]))                  
+                :type ("uint64" type (:type "class") nil nil))
+                nil [2731 2779])
+            ("err_get_msg" function
+               (:pointer 1
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [2805 2810]))                  
+                :type "char")
+                nil [2781 2836]))          
+      :file "err.c"
+      :pointmax 2837
+      :fsize 2836
+      :lastmodtime '(22655 32417 851998 400000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("_GNU_SOURCE")
+          )
+))
   :file "!home!wrongway4you!Projects!gsh!src!interpreter!semantic.cache"
   :semantic-tag-version "2.0"
   :semanticdb-version "2.2")
