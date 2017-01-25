@@ -1,0 +1,1 @@
+("~/Projects/gsh/src/" "~/Git/dotfiles/" "~/Projects/gsh/" "~/Temp/")

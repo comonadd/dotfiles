@@ -26,9 +26,6 @@
 (global-set-key (kbd "C-g") 'goto-line)
 (global-set-key (kbd "C-t") 'pop-global-mark)
 (global-set-key (kbd "RET") 'newline-and-indent)
-(global-set-key (kbd "C-S-b") 'compile-project-build)
-(global-set-key (kbd "C-S-t") 'compile-project-tests)
-(global-set-key (kbd "C-S-d") 'compile-project-debug)
 
 ;; Editing
 (global-set-key (kbd "C-y") 'kill-ring-save)
@@ -43,9 +40,6 @@
 (global-set-key (kbd "C-i") 'quoted-insert)
 (global-set-key (kbd "C-<backspace>") 'backward-kill-word)
 (global-set-key (kbd "C-<delete>") 'forward-kill-word)
-
-;; Refactoring
-(global-set-key (kbd "C-S-r") 'query-replace-in-project)
 
 ;; Folding
 (global-set-key (kbd "C-[") 'hs-show-block)

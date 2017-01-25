@@ -39,17 +39,14 @@
 ;; EDE
 (global-ede-mode t)
 
-(setq c-default-style "linux"
-      c-basic-offset 4)
-(c-set-offset 'comment-intro 0)
-(c-set-offset 'case-label '+)
-(setq undo-limit 16384)
-(setq undo-strong-limit 16384)
+;; Limits
+(setq undo-limit 2097152)
+(setq undo-strong-limit 2097152)
+
 (setq shift-select-mode t)
 (setq enable-local-variables nil)
 (setq inhibit-splash-screen t)
 (show-paren-mode t)
-(setq hs-hide-comments nil)
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (require 'util)
@@ -57,13 +54,11 @@
 (require 'packages)
 (require 'hooks)
 (require 'keybindings)
+(require 'ebnf-mode)
 
 (split-window-horizontally)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Auto-generated stuff;;
-;;;;;;;;;;;;;;;;;;;;;;;;;
-
+;; Auto-generated stuff
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

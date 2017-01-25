@@ -7,15 +7,11 @@
 
 (require 'use-package)
 
-;; BS Package
-;; (use-package bs
-;;     :bind ("<f2>" . bs-show)
-;;     :init)
-
-;; ibuffer Package
-;; (use-package ibuffer
-;;     :init
-;;     (defalias 'list-buffers 'ibuffer))
+(use-package hideshow
+  :init
+  (global-set-key (kbd  "<f9>") 'hs-toggle-hiding)
+  (global-set-key (kbd "C-<f9>") 'hs-hide-all)
+  (global-set-key (kbd "C-S-<f9>") 'hs-show-all))
 
 (use-package helm-gtags
   :init
@@ -25,8 +21,7 @@
     helm-gtags-use-input-at-cursor t
     helm-gtags-pulse-at-cursor t
     helm-gtags-prefix-key "\C-cg"
-    helm-gtags-suggested-key-mapping t
-))
+    helm-gtags-suggested-key-mapping t))
 
 ;; Imenu Package
 (use-package imenu
@@ -64,7 +59,7 @@
     :init)
 
 ;; Projectile package
-;; (use-package projectile)
+(use-package projectile)
 
 ;; ;; Flycheck Package
 (use-package flycheck
@@ -76,8 +71,6 @@
 (use-package srefactor
     :init
     (semantic-mode 1))
-
-;; (use-package srefactor-lisp)
 
 (provide 'packages)
 ;;; packages.el ends here

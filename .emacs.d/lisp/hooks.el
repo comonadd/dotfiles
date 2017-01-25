@@ -5,6 +5,7 @@
 
 (defun main-c-mode-hook ()
     "Main C Mode hook."
+
     (defun insert-file-top-comment ()
 	"Insert the top comment to the file."
 	(interactive)
@@ -56,7 +57,9 @@
 	;;
 	;; #include "some.h"
 	(interactive)
-	(setq base-file-name (file-name-sans-extension (file-name-nondirectory buffer-file-name)))
+	(setq
+	  base-file-name
+	  (file-name-sans-extension (file-name-nondirectory buffer-file-name)))
 	(insert-file-top-comment)
 	(insert "\n")
 	(defun insert-include-header ()
@@ -74,14 +77,14 @@
     (defun find-corresponding-file ()
 	"Find the file that corresponds to this one."
 	(interactive)
-	(setq CorrespondingFileName nil)
-	(setq BaseFileName (file-name-sans-extension buffer-file-name))
+	(setq corresponding-file-name nil)
+	(setq base-file-name (file-name-sans-extension buffer-file-name))
 	(if (string-match "\\.c" buffer-file-name)
-	    (setq CorrespondingFileName (concat BaseFileName ".h")))
+	    (setq corresponding-file-name (concat base-file-name ".h")))
 	(if (string-match "\\.h" buffer-file-name)
-	    (if (file-exists-p (concat BaseFileName ".c")) (setq CorrespondingFileName (concat BaseFileName ".c"))
-		(setq CorrespondingFileName (concat BaseFileName ".c"))))
-	(if CorrespondingFileName (find-file CorrespondingFileName)
+	    (if (file-exists-p (concat base-file-name ".c")) (setq corresponding-file-name (concat base-file-name ".c"))
+		(setq corresponding-file-name (concat base-file-name ".c"))))
+	(if corresponding-file-name (find-file corresponding-file-name)
 	    (error "Unable to find a corresponding file")))
 
     (defun find-corresponding-file-other-window ()
@@ -91,17 +94,31 @@
 	(find-corresponding-file)
 	(other-window -1))
 
+    (defun setup-flycheck-project-path ()
+	(add-to-list 'flycheck-gcc-include-path (projectile-project-root))
+	(add-to-list 'flycheck-gcc-include-path (concat (projectile-project-root) "/src"))
+	(add-to-list 'flycheck-gcc-include-path (concat (projectile-project-root) "/include")))
+
+    (setq
+      c-default-style "linux"
+      c-basic-offset 4)
+    (c-set-offset 'comment-intro 0)
+    (c-set-offset 'case-label '+)
+    (projectile-mode 1)
+    (setup-flycheck-project-path)
+    (electric-indent-mode 1)
     (ggtags-mode 1)
     (helm-gtags-mode 1)
     (define-key c-mode-map (kbd "<f12>") 'find-corresponding-file)
-    (define-key c-mode-map (kbd "S-<f12>") 'find-corresponding-file-other-window)
-    (setq flycheck-gcc-include-path (list (get-project-root-dir default-directory))))
+    (define-key c-mode-map (kbd "S-<f12>") 'find-corresponding-file-other-window))
+
+(defun main-python-mode-hook ()
+  (electric-indent-mode -1))
 
 (add-hook 'before-save-hook 'whitespace-cleanup)
-
 (add-hook 'c-mode-hook 'main-c-mode-hook)
-
 (add-hook 'c++-mode-hook 'main-c-mode-hook)
+(add-hook 'python-mode-hook 'main-python-mode-hook)
 
 (provide 'hooks)
 ;;; hooks.el ends here
