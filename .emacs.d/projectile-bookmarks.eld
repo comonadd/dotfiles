@@ -1,1 +1,1 @@
-("~/Projects/gsh/src/" "~/Git/dotfiles/" "~/Projects/gsh/" "~/Temp/")
+("~/Projects/taste/" "~/Git/dotfiles/" "~/Code/cpython-master/" "~/Projects/gsh/" "~/Git/8cc/" "~/Projects/sil/" "~/Projects/gsh/src/" "~/Temp/")

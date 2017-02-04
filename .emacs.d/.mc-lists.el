@@ -10,6 +10,7 @@
 	c-electric-semi&comma
 	c-electric-slash
 	c-indent-line-or-region
+	downcase-region
 	elpy-nav-forward-indent
 	find-corresponding-file
 	forward-kill-word

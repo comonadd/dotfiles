@@ -1,6 +1,6 @@
-;;; Keybindings --- Keybindings
+;;; keybindings.el --- Keybindings
 ;;; Commentary:
-;; This file defines all keybindings that don't depend on packages
+;;; This file defines all keybindings that don't depend on packages
 ;;; Code:
 
 ;; Unsets
@@ -26,6 +26,8 @@
 (global-set-key (kbd "C-g") 'goto-line)
 (global-set-key (kbd "C-t") 'pop-global-mark)
 (global-set-key (kbd "RET") 'newline-and-indent)
+(global-set-key (kbd "<f2>") 'neotree-toggle)
+(global-set-key (kbd "<f11>") 'open-same-file-other-window)
 
 ;; Editing
 (global-set-key (kbd "C-y") 'kill-ring-save)
@@ -51,6 +53,9 @@
 (define-key isearch-mode-map [escape] 'isearch-abort)
 (define-key isearch-mode-map "\e" 'isearch-abort)
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+
+;; Fix bad backspace
+(global-set-key [(control ?h)] 'delete-backward-char)
 
 (provide 'keybindings)
 ;;; keybindings.el ends here
