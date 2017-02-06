@@ -42,6 +42,8 @@
 (global-set-key (kbd "C-i") 'quoted-insert)
 (global-set-key (kbd "C-<backspace>") 'backward-kill-word)
 (global-set-key (kbd "C-<delete>") 'forward-kill-word)
+(global-set-key (kbd "<f10>") 'indent-region)
+(global-set-key (kbd "C-o") 'auto-insert)
 
 ;; Folding
 (global-set-key (kbd "C-[") 'hs-show-block)

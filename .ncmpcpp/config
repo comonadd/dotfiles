@@ -1,6 +1,6 @@
 mpd_host = "127.0.0.1"
 mpd_port = "6622"
-mpd_music_dir = "~/.mpd/music"
+mpd_music_dir = "/home/wrongway4you/Music"
 
 mpd_connection_timeout = "5"
 mpd_crossfade_time = "0"
@@ -20,3 +20,10 @@ statusbar_visibility = "no"
 # color definitions
 #main_window_color = "black"
 #main_window_highlight_color = "white"
+
+visualizer_fifo_path = "/tmp/mpd.fifo"
+visualizer_output_name = "my_fifo"
+visualizer_sync_interval = "30" 
+visualizer_in_stereo = "yes"
+# visualizer_type = "spectrum"
+visualizer_look = "+|"

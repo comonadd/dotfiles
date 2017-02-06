@@ -1,8 +1,7 @@
--- config.lua
+-- File: config.lua
+-- Creation date: 2017-02-06
+-- Creator: Dmitry Guzeev <dmitry.guzeev@yahoo.com>
 -- Description:
---  This file contains all the
---  variables that can be changed
---  for the user's purpose
 
 local m = {}
 
@@ -25,58 +24,49 @@ m.WIKIPEDIA_WIKI_URL = "https://en.wikipedia.org/wiki/"
 m.DEFAULT_SOUND_LEVEL = 80
 m.THEME_PATH = "~/.themes/new_year/theme.lua"
 m.TAGS = {" ➊ ", " ➋ ", " ➌ ", " ➍ ", " ➎ ", " ➏ ", " ➐ ", " ➑ "}
+
 m.LAYOUTS = {
-    awful.layout.suit.tile,
-    awful.layout.suit.fair,
-    awful.layout.suit.max.fullscreen
+   awful.layout.suit.tile,
+   awful.layout.suit.fair,
+   awful.layout.suit.max.fullscreen
 }
+
 m.ALIASES = {
-    term = m.TERMINAL,
-    uX = "xrdb ~/.Xresources"
+   term = m.TERMINAL,
+   uX = "xrdb ~/.Xresources"
 }
+
 m.ALIASES_NAMES = utils.keys(m.ALIASES)
 m.SOUND_LEVEL_STEP = 4
--- }}
 
 -- System-specific
 m.NETWORK_INTERFACE = "enp2s0"
--- }}
 
 -- MPD info widget
 m.MPD_INFO_W_TIMEOUT = 1       -- Update timeout, in seconds
--- }}
 
 -- Memory usage widget
 m.MEM_USAGE_W_TIMEOUT = 8      -- Update timout, in seconds
--- }}
 
 -- USB usage widget
 m.USB_USAGE_W_TIMEOUT = 16     -- Update timeout, in seconds
--- }}
 
 -- CPU usage widget
 m.CPU_USAGE_W_TIMEOUT = 1      -- Udate timeout, in seconds
--- }}
 
 -- Network usage widget
 m.NET_USAGE_W_TIMEOUT = 1      -- Update timeout, in seconds
--- }}
 
 -- Disk usage widget
 m.DISK_USAGE_W_TIMEOUT = 32    -- Update timeout, in seconds
--- }}
 
 -- Temperature widget
 m.TEMP_W_TIMEOUT = 8           -- Update timeout, in seconds
 m.TEMP_W_MAX_SYS_TEMP = 60     -- Max temperature
 m.TEMP_W_MAX_CPU_TEMP = 80     -- Max temperature
--- }}
 
 -- Portage info widget
 m.PORTAGE_INFO_W_TIMEOUT = 32  -- Update timeout, in seconds
--- }}
--- }
-
 
 m.theme.init(m.THEME_PATH)
 gears.wallpaper.maximized(m.theme.wallpaper, 1, true)
