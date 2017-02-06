@@ -22,7 +22,7 @@ m.SCREENSHOT_TOOL = "gnome-screenshot -p -f \"" .. m.SCREENSHOTS_FOLDER ..  "/$(
 m.GOOGLE_SEARCH_URL = "https://www.google.com.ua/search?q="
 m.WIKIPEDIA_WIKI_URL = "https://en.wikipedia.org/wiki/"
 m.DEFAULT_SOUND_LEVEL = 80
-m.THEME_PATH = "~/.themes/new_year/theme.lua"
+m.THEME_PATH = "~/.themes/default/theme.lua"
 m.TAGS = {" ➊ ", " ➋ ", " ➌ ", " ➍ ", " ➎ ", " ➏ ", " ➐ ", " ➑ "}
 
 m.LAYOUTS = {

@@ -58,14 +58,12 @@ local wibox_top = awful.wibox({
       fg = config.theme.fg_normal
 })
 
-wibox_tl_l = wibox.layout.fixed.horizontal()
-wibox_tr_l = wibox.layout.fixed.horizontal()
-wibox_top_l = wibox.layout.align.horizontal()
-
+local wibox_tl_l = wibox.layout.fixed.horizontal()
 wibox_tl_l:add(tag_list)
 wibox_tl_l:add(separator_w)
 wibox_tl_l:add(cli_w.widget)
 
+local wibox_tr_l = wibox.layout.fixed.horizontal()
 wibox_tr_l:add(separator_w)
 wibox_tr_l:add(portage_info_w.widget)
 wibox_tr_l:add(separator_w)
@@ -80,6 +78,7 @@ wibox_tr_l:add(separator_w)
 wibox_tr_l:add(datetime_w.time_widget)
 wibox_tr_l:add(wibox.widget.textbox("  "))
 
+local wibox_top_l = wibox.layout.align.horizontal()
 wibox_top_l:set_left(wibox_tl_l)
 wibox_top_l:set_right(wibox_tr_l)
 wibox_top:set_widget(wibox_top_l)
@@ -93,11 +92,7 @@ local wibox_bot = awful.wibox({
       fg = config.theme.fg_normal
 })
 
-wibox_bot_l = wibox.layout.align.horizontal()
-wibox_bl_l = wibox.layout.fixed.horizontal()
-wibox_bm_l = wibox.layout.fixed.horizontal()
-wibox_br_l = wibox.layout.fixed.horizontal()
-
+local wibox_bl_l = wibox.layout.fixed.horizontal()
 wibox_bl_l:add(wibox.widget.textbox("  "))
 wibox_bl_l:add(mem_usage_w.widget)
 wibox_bl_l:add(separator_w)
@@ -108,8 +103,10 @@ wibox_bl_l:add(separator_w)
 wibox_bl_l:add(usb_usage_w.widget)
 wibox_bl_l:add(separator_w)
 
+local wibox_bm_l = wibox.layout.fixed.horizontal()
 wibox_bm_l:add(mpd_info_w.widget)
 
+local wibox_br_l = wibox.layout.fixed.horizontal()
 wibox_br_l:add(separator_w)
 wibox_br_l:add(username_w)
 wibox_br_l:add(separator_w)
@@ -117,6 +114,8 @@ wibox_br_l:add(kernel_info_w)
 wibox_br_l:add(separator_w)
 wibox_br_l:add(uptime_w.widget)
 wibox_br_l:add(wibox.widget.textbox("  "))
+
+local wibox_bot_l = wibox.layout.align.horizontal()
 wibox_bot_l:set_left(wibox_bl_l)
 wibox_bot_l:set_middle(wibox_bm_l)
 wibox_bot_l:set_right(wibox_br_l)
