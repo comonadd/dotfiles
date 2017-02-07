@@ -2,8 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'util)
-
 ;; Constants
 
 (defvar author-info "Dmitry Guzeev <dmitry.guzeev@yahoo.com>")
@@ -25,6 +23,16 @@
    "-- Creation date: " (get-current-date) "\n"
    "-- Creator: " author-info "\n"
    "-- Description:\n"))
+
+(defun gen-elisp-file-top-comment ()
+  "Generate a Emacs Lisp file top comment."
+  (let ((file-name-nondir (buffer-file-name-nondir)))
+    (concat
+     ";;; " file-name-nondir " --- description\n"
+     ";;; Commentary:\n"
+     ";;; Code:\n\n\n"
+     "(provide '" (buffer-get-base-file-name) ")\n"
+     ";;; " file-name-nondir " ends here")))
 
 ;; "generate skeleton" functions
 
@@ -49,6 +57,10 @@
   "Generate a skeleton for the Lua file."
   (concat (gen-lua-file-top-comment) "\n"))
 
+(defun gen-elisp-file-skeleton ()
+  "Generate a skeleton for the Emacs Lisp file."
+  (gen-elisp-file-top-comment))
+
 ;; Definition of skeletons
 
 (define-auto-insert
@@ -65,6 +77,11 @@
   '("\\.lua" . "Lua file skeleton")
   '("Short description: "
     (gen-lua-file-skeleton)))
+
+(define-auto-insert
+  '("\\.el" . "Emacs Lisp file skeleton")
+  '("Short description: "
+    (gen-elisp-file-skeleton)))
 
 (provide 'auto-insert-skeletons)
 ;;; auto-insert-skeletons.el ends here
