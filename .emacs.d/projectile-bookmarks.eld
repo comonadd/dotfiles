@@ -1,1 +1,1 @@
-("~/Git/dotfiles/" "~/Projects/taste/" "~/Code/cpython-master/" "~/Projects/gsh/" "~/Git/8cc/" "~/Projects/sil/" "~/Projects/gsh/src/" "~/Temp/")
+("~/Git/dotfiles/" "~/Projects/awesome-manager/" "~/Projects/awesome-themes/" "~/Projects/taste/" "~/Projects/" "~/Git/lwan/" "~/Git/libuv/" "~/Git/redis/" "~/Code/cpython-master/" "~/Projects/gsh/" "~/Git/8cc/" "~/Projects/sil/" "~/Projects/gsh/src/" "~/Temp/")

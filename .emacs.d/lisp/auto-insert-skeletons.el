@@ -34,6 +34,14 @@
      "(provide '" (buffer-get-base-file-name) ")\n"
      ";;; " file-name-nondir " ends here")))
 
+(defun gen-python-file-top-comment ()
+  "Generate a Python file top comment."
+  (concat
+   "# File: " (buffer-file-name-nondir) "\n"
+   "# Creation date: " (get-current-date) "\n"
+   "# Creator: " author-info "\n"
+   "# Description:\n"))
+
 ;; "generate skeleton" functions
 
 (defun gen-c-source-file-skeleton ()
@@ -61,6 +69,10 @@
   "Generate a skeleton for the Emacs Lisp file."
   (gen-elisp-file-top-comment))
 
+(defun gen-python-file-skeleton ()
+  "Generate a skeleton for the Python file."
+  (gen-python-file-top-comment))
+
 ;; Definition of skeletons
 
 (define-auto-insert
@@ -82,6 +94,11 @@
   '("\\.el" . "Emacs Lisp file skeleton")
   '("Short description: "
     (gen-elisp-file-skeleton)))
+
+(define-auto-insert
+  '("\\.py" . "Emacs Lisp file skeleton")
+  '("Short description: "
+    (gen-python-file-skeleton)))
 
 (provide 'auto-insert-skeletons)
 ;;; auto-insert-skeletons.el ends here
