@@ -5,35 +5,17 @@
 
 ;; Navigation
 
-(defun c-mode-find-corresponding-file ()
-  "Find the file that corresponds to this one."
-  (interactive)
-  (let ((corresponding-file-name) (base-file-name (buffer-get-base-file-name)))
-    (progn
-      (if (string-match "\\.c" buffer-file-name)
-        (setq corresponding-file-name (concat base-file-name ".h"))
-        (setq corresponding-file-name (concat base-file-name ".c")))
-      (if corresponding-file-name
-          (find-file corresponding-file-name)
-          (error "Unable to find a corresponding C file")))))
-
-(defun c-mode-find-corresponding-file-other-window ()
-  "Find the file that corresponds to this one."
-  (interactive)
-  (find-file-other-window buffer-file-name)
-  (c-mode-find-corresponding-file)
-  (other-window -1))
-
 (defun c-mode-include-flycheck-paths ()
   "Include the paths for flycheck."
   (let ((root (projectile-project-root)))
-    (let ((src-dir-path (concat root "/src")) (include-dir-path (concat root "/include")))
-      (let ((paths (list root src-dir-path include-dir-path)))
+    (let ((src-dir-path (concat root "/src"))
+          (src-include-dir-path (concat root "/src/include"))
+          (include-dir-path (concat root "/include"))
+          (includes-dir-path (concat root "/includes")))
+      (let ((paths (list root src-dir-path src-include-dir-path include-dir-path includes-dir-path)))
         (progn
-          (defvar flycheck-gcc-include-path)
-          (setq flycheck-gcc-include-path paths)
-          (defvar flycheck-clang-include-path)
-          (setq flycheck-clang-include-path paths))))))
+          (defvar flycheck-gcc-include-path paths)
+          (defvar flycheck-clang-include-path paths))))))
 
 (defun c-mode-set-style ()
   "Set the style."

@@ -28,6 +28,8 @@
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "<f2>") 'neotree-toggle)
 (global-set-key (kbd "<f11>") 'open-same-file-other-window)
+(global-set-key (kbd "<f12>") 'find-corresponding-file)
+(global-set-key (kbd "S-<f12>") 'find-corresponding-file-other-window)
 
 ;; Editing
 (global-set-key (kbd "C-y") 'kill-ring-save)
@@ -42,7 +44,7 @@
 (global-set-key (kbd "C-i") 'quoted-insert)
 (global-set-key (kbd "C-<backspace>") 'backward-kill-word)
 (global-set-key (kbd "C-<delete>") 'forward-kill-word)
-(global-set-key (kbd "<f10>") 'indent-region)
+(global-set-key (kbd "<f9>") 'indent-region)
 (global-set-key (kbd "C-o") 'auto-insert)
 
 ;; Folding

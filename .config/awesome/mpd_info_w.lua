@@ -5,6 +5,8 @@
 
 local m = {}
 
+local socket = require("socket")
+
 local wibox = require("wibox")
 local config = require("config")
 local utils = require("utils")
