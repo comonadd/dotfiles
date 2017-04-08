@@ -1,9 +1,7 @@
-!#######################################################!
-!#######################################################!
-!### The X configuration file                        ###!
-!### Author: Dmitry Guzeev <dmitry.guzeev@yahoo.com> ###!
-!#######################################################!
-!#######################################################!
+!###
+!### The X configuration file
+!### Author: Dmitry Guzeev <dmitry.guzeev@yahoo.com>
+!###
 
 !###########!
 !### Xft ###!
@@ -14,12 +12,6 @@ Xft.antialias: true
 Xft.rgba: rgb
 Xft.hinting: true
 Xft.hintstyle: hintfull
-
-!###############!
-!### XCursor ###!
-!###############!
-
-Xcursor.theme: Vanilla-DMZ
 
 !#############!
 !### URxvt ###!
@@ -86,5 +78,3 @@ urxvt.color11: #ffff2f
 urxvt.color12: #5B5BC7
 urxvt.color13: #e628ba
 urxvt.color14: #7D7DFB
-
-urxvt.cursorColor: #DCDCCC

@@ -1,0 +1,19 @@
+Configuring stateref-0.3...
+Building stateref-0.3...
+Preprocessing library stateref-0.3...
+[ 1 of 10] Compiling Data.MRef.Types  ( src/Data/MRef/Types.hs, dist/dist-sandbox-f3c8fa0e/build/Data/MRef/Types.o )
+[ 2 of 10] Compiling Data.StateRef.Types ( src/Data/StateRef/Types.hs, dist/dist-sandbox-f3c8fa0e/build/Data/StateRef/Types.o )
+[ 3 of 10] Compiling Data.StateRef.Instances.STM ( src/Data/StateRef/Instances/STM.hs, dist/dist-sandbox-f3c8fa0e/build/Data/StateRef/Instances/STM.o )
+[ 4 of 10] Compiling Data.StateRef.Instances.Undecidable ( src/Data/StateRef/Instances/Undecidable.hs, dist/dist-sandbox-f3c8fa0e/build/Data/StateRef/Instances/Undecidable.o )
+[ 5 of 10] Compiling Data.StateRef.Instances ( src/Data/StateRef/Instances.hs, dist/dist-sandbox-f3c8fa0e/build/Data/StateRef/Instances.o )
+[ 6 of 10] Compiling Data.Accessor    ( src/Data/Accessor.hs, dist/dist-sandbox-f3c8fa0e/build/Data/Accessor.o )
+[ 7 of 10] Compiling Data.StateRef    ( src/Data/StateRef.hs, dist/dist-sandbox-f3c8fa0e/build/Data/StateRef.o )
+[ 8 of 10] Compiling Data.MRef.Instances.STM ( src/Data/MRef/Instances/STM.hs, dist/dist-sandbox-f3c8fa0e/build/Data/MRef/Instances/STM.o )
+[ 9 of 10] Compiling Data.MRef.Instances ( src/Data/MRef/Instances.hs, dist/dist-sandbox-f3c8fa0e/build/Data/MRef/Instances.o )
+[10 of 10] Compiling Data.MRef        ( src/Data/MRef.hs, dist/dist-sandbox-f3c8fa0e/build/Data/MRef.o )
+In-place registering stateref-0.3...
+Creating package registration file:
+/tmp/pkgConf-stateref-01194953865894429689.3
+Installing library in
+/home/wrongway4you/Git/dotfiles/.xmonad/.cabal-sandbox/lib/x86_64-linux-ghc-7.10.3/stateref-0.3-5jAaaHdW5OA1vaFjFiOp76
+Registering stateref-0.3...

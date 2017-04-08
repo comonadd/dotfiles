@@ -83,5 +83,9 @@
   (interactive)
   (switch-to-buffer-other-window (buffer-name)))
 
+(defun save-all-buffers ()
+  (interactive)
+  (save-some-buffers t))
+
 (provide 'util)
 ;;; util.el ends here

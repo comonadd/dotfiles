@@ -36,6 +36,9 @@ set backspace=indent,eol,start
 
 " Keys mapping BEG
 "" Navigation BEG
+nmap i w
+
+
 nnoremap <C-Up> {
 nnoremap <C-Down> }
 vnoremap <C-Up> {
@@ -58,6 +61,13 @@ nmap <C-_> <Leader>ci
 imap <C-_> <Esc><Leader>cia
 vmap <C-_> <Leader>ci
 "" Editing END
+
+
+
+
+
+
+
 
 "" Automatization BEG
 nmap <F7> gg=G

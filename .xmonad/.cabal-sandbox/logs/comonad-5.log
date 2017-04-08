@@ -1,0 +1,25 @@
+[1 of 1] Compiling Main             ( /tmp/cabal-tmp-16634/comonad-5/dist/dist-sandbox-f3c8fa0e/setup/setup.hs, /tmp/cabal-tmp-16634/comonad-5/dist/dist-sandbox-f3c8fa0e/setup/Main.o )
+Linking /tmp/cabal-tmp-16634/comonad-5/dist/dist-sandbox-f3c8fa0e/setup/setup ...
+Configuring comonad-5...
+Building comonad-5...
+Preprocessing library comonad-5...
+[ 1 of 15] Compiling Data.Functor.Composition ( src/Data/Functor/Composition.hs, dist/dist-sandbox-f3c8fa0e/build/Data/Functor/Composition.o )
+[ 2 of 15] Compiling Control.Comonad.Trans.Identity ( src/Control/Comonad/Trans/Identity.hs, dist/dist-sandbox-f3c8fa0e/build/Control/Comonad/Trans/Identity.o )
+[ 3 of 15] Compiling Control.Comonad  ( src/Control/Comonad.hs, dist/dist-sandbox-f3c8fa0e/build/Control/Comonad.o )
+[ 4 of 15] Compiling Control.Comonad.Trans.Class ( src/Control/Comonad/Trans/Class.hs, dist/dist-sandbox-f3c8fa0e/build/Control/Comonad/Trans/Class.o )
+[ 5 of 15] Compiling Control.Comonad.Hoist.Class ( src/Control/Comonad/Hoist/Class.hs, dist/dist-sandbox-f3c8fa0e/build/Control/Comonad/Hoist/Class.o )
+[ 6 of 15] Compiling Control.Comonad.Trans.Env ( src/Control/Comonad/Trans/Env.hs, dist/dist-sandbox-f3c8fa0e/build/Control/Comonad/Trans/Env.o )
+[ 7 of 15] Compiling Control.Comonad.Trans.Store ( src/Control/Comonad/Trans/Store.hs, dist/dist-sandbox-f3c8fa0e/build/Control/Comonad/Trans/Store.o )
+[ 8 of 15] Compiling Control.Comonad.Trans.Traced ( src/Control/Comonad/Trans/Traced.hs, dist/dist-sandbox-f3c8fa0e/build/Control/Comonad/Trans/Traced.o )
+[ 9 of 15] Compiling Control.Comonad.Env.Class ( src/Control/Comonad/Env/Class.hs, dist/dist-sandbox-f3c8fa0e/build/Control/Comonad/Env/Class.o )
+[10 of 15] Compiling Control.Comonad.Env ( src/Control/Comonad/Env.hs, dist/dist-sandbox-f3c8fa0e/build/Control/Comonad/Env.o )
+[11 of 15] Compiling Control.Comonad.Identity ( src/Control/Comonad/Identity.hs, dist/dist-sandbox-f3c8fa0e/build/Control/Comonad/Identity.o )
+[12 of 15] Compiling Control.Comonad.Store.Class ( src/Control/Comonad/Store/Class.hs, dist/dist-sandbox-f3c8fa0e/build/Control/Comonad/Store/Class.o )
+[13 of 15] Compiling Control.Comonad.Store ( src/Control/Comonad/Store.hs, dist/dist-sandbox-f3c8fa0e/build/Control/Comonad/Store.o )
+[14 of 15] Compiling Control.Comonad.Traced.Class ( src/Control/Comonad/Traced/Class.hs, dist/dist-sandbox-f3c8fa0e/build/Control/Comonad/Traced/Class.o )
+[15 of 15] Compiling Control.Comonad.Traced ( src/Control/Comonad/Traced.hs, dist/dist-sandbox-f3c8fa0e/build/Control/Comonad/Traced.o )
+In-place registering comonad-5...
+Creating package registration file: /tmp/pkgConf-comonad-510125029541272469786
+Installing library in
+/home/wrongway4you/Git/dotfiles/.xmonad/.cabal-sandbox/lib/x86_64-linux-ghc-7.10.3/comonad-5-4CPwZycrVvjKeSU50535bl
+Registering comonad-5...

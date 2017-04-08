@@ -1,8 +1,10 @@
 # Environment variables
-export ZSH=/home/wrongway4you/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 export UPDATE_ZSH_DAYS=16
 export LANG=en_US.UTF-8
 export EDITOR=vim
+
+source ~/.profile
 
 # ZSh options
 ZSH_THEME="af-magic"

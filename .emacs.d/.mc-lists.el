@@ -6,6 +6,7 @@
         autopair-insert-opening
         autopair-insert-or-skip-quote
         autopair-skip-close-maybe
+        c-electric-brace
         c-electric-lt-gt
         c-electric-pound
         c-electric-semi&comma
@@ -15,9 +16,11 @@
         elpy-nav-forward-indent
         find-corresponding-file
         forward-kill-word
+        haskell-indentation-common-electric-command
         indent-for-tab-command
         keyboard-escape-quit
         kill-region
+        save-all-buffers
         save-some-buffers
         upcase-region
         ))

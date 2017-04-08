@@ -14,5 +14,4 @@ if [[ $- != *i* ]] ; then
 	return
 fi
 
-
-# Put your fun stuff here.
+source ~/.profile

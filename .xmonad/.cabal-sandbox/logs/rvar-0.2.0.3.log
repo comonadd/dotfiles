@@ -1,0 +1,20 @@
+Configuring rvar-0.2.0.3...
+Building rvar-0.2.0.3...
+Preprocessing library rvar-0.2.0.3...
+[1 of 1] Compiling Data.RVar        ( src/Data/RVar.hs, dist/dist-sandbox-f3c8fa0e/build/Data/RVar.o )
+
+src/Data/RVar.hs:42:1: Warning:
+    The import of ‘Control.Applicative’ is redundant
+      except perhaps to import instances from ‘Control.Applicative’
+    To import instances alone, use: import Control.Applicative()
+
+src/Data/RVar.hs:47:1: Warning:
+    The qualified import of ‘Control.Monad.Identity’ is redundant
+      except perhaps to import instances from ‘Control.Monad.Identity’
+    To import instances alone, use: import Control.Monad.Identity()
+In-place registering rvar-0.2.0.3...
+Creating package registration file:
+/tmp/pkgConf-rvar-0.2.01544617505243268139.3
+Installing library in
+/home/wrongway4you/Git/dotfiles/.xmonad/.cabal-sandbox/lib/x86_64-linux-ghc-7.10.3/rvar-0.2.0.3-HelYtkCRB7b7YzE9Sb2ihy
+Registering rvar-0.2.0.3...

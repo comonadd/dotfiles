@@ -2,6 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
+;; Disable some UI unneeded stuff
 (tooltip-mode -1)
 (menu-bar-mode -1)
 (tool-bar-mode -1)
@@ -10,6 +11,10 @@
 (global-hl-line-mode 1)
 (setq use-dialog-box nil)
 (set-fringe-mode 0)
+(show-paren-mode t)
+
+;; Disable splash screen
+(setq inhibit-splash-screen t)
 
 ;; Font
 (require 'font-lock)
@@ -27,10 +32,10 @@
 (make-face 'font-lock-fixme-face)
 (make-face 'font-lock-note-face)
 (mapc (lambda (mode)
-	  (font-lock-add-keywords
-	   mode
-	   '(("\\<\\(TODO\\)" 1 'font-lock-fixme-face t)
-	     ("\\<\\(NOTE\\)" 1 'font-lock-note-face t))))
+      (font-lock-add-keywords
+       mode
+       '(("\\<\\(TODO\\)" 1 'font-lock-fixme-face t)
+         ("\\<\\(NOTE\\)" 1 'font-lock-note-face t))))
       fixme-modes)
 (modify-face 'font-lock-fixme-face "Red" nil nil t nil t nil nil)
 (modify-face 'font-lock-note-face "Dark Green" nil nil t nil t nil nil)

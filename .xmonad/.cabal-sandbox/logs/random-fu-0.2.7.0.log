@@ -1,0 +1,155 @@
+Configuring random-fu-0.2.7.0...
+Building random-fu-0.2.7.0...
+Preprocessing library random-fu-0.2.7.0...
+[ 1 of 30] Compiling Data.Random.Internal.Find ( src/Data/Random/Internal/Find.hs, dist/dist-sandbox-f3c8fa0e/build/Data/Random/Internal/Find.o )
+[ 2 of 30] Compiling Data.Random.Internal.Fixed ( src/Data/Random/Internal/Fixed.hs, dist/dist-sandbox-f3c8fa0e/build/Data/Random/Internal/Fixed.o )
+[ 3 of 30] Compiling Data.Random.Internal.TH ( src/Data/Random/Internal/TH.hs, dist/dist-sandbox-f3c8fa0e/build/Data/Random/Internal/TH.o )
+[ 4 of 30] Compiling Data.Random.Lift ( src/Data/Random/Lift.hs, dist/dist-sandbox-f3c8fa0e/build/Data/Random/Lift.o )
+[ 5 of 30] Compiling Data.Random.RVar ( src/Data/Random/RVar.hs, dist/dist-sandbox-f3c8fa0e/build/Data/Random/RVar.o )
+[ 6 of 30] Compiling Data.Random.Distribution ( src/Data/Random/Distribution.hs, dist/dist-sandbox-f3c8fa0e/build/Data/Random/Distribution.o )
+[ 7 of 30] Compiling Data.Random.Distribution.Uniform ( src/Data/Random/Distribution/Uniform.hs, dist/dist-sandbox-f3c8fa0e/build/Data/Random/Distribution/Uniform.o )
+[ 8 of 30] Compiling Data.Random.List ( src/Data/Random/List.hs, dist/dist-sandbox-f3c8fa0e/build/Data/Random/List.o )
+[ 9 of 30] Compiling Data.Random.Vector ( src/Data/Random/Vector.hs, dist/dist-sandbox-f3c8fa0e/build/Data/Random/Vector.o )
+
+src/Data/Random/Vector.hs:6:1: Warning:
+    The import of ‘Control.Applicative’ is redundant
+      except perhaps to import instances from ‘Control.Applicative’
+    To import instances alone, use: import Control.Applicative()
+
+src/Data/Random/Vector.hs:10:15: Warning:
+    This binding for ‘words’ shadows the existing binding
+      imported from ‘Prelude’ at src/Data/Random/Vector.hs:1:8-25
+      (and originally defined in ‘base-4.8.2.0:Data.OldList’)
+[10 of 30] Compiling Data.Random.Distribution.Bernoulli ( src/Data/Random/Distribution/Bernoulli.hs, dist/dist-sandbox-f3c8fa0e/build/Data/Random/Distribution/Bernoulli.o )
+[11 of 30] Compiling Data.Random.Distribution.Categorical ( src/Data/Random/Distribution/Categorical.hs, dist/dist-sandbox-f3c8fa0e/build/Data/Random/Distribution/Categorical.o )
+
+src/Data/Random/Distribution/Categorical.hs:24:1: Warning:
+    The import of ‘Control.Applicative’ is redundant
+      except perhaps to import instances from ‘Control.Applicative’
+    To import instances alone, use: import Control.Applicative()
+
+src/Data/Random/Distribution/Categorical.hs:25:1: Warning:
+    The import of ‘Data.Foldable’ is redundant
+      except perhaps to import instances from ‘Data.Foldable’
+    To import instances alone, use: import Data.Foldable()
+
+src/Data/Random/Distribution/Categorical.hs:27:1: Warning:
+    The import of ‘Data.Traversable’ is redundant
+      except perhaps to import instances from ‘Data.Traversable’
+    To import instances alone, use: import Data.Traversable()
+[12 of 30] Compiling Data.Random.Distribution.Exponential ( src/Data/Random/Distribution/Exponential.hs, dist/dist-sandbox-f3c8fa0e/build/Data/Random/Distribution/Exponential.o )
+[13 of 30] Compiling Data.Random.Distribution.StretchedExponential ( src/Data/Random/Distribution/StretchedExponential.hs, dist/dist-sandbox-f3c8fa0e/build/Data/Random/Distribution/StretchedExponential.o )
+[14 of 30] Compiling Data.Random.Distribution.Ziggurat ( src/Data/Random/Distribution/Ziggurat.hs, dist/dist-sandbox-f3c8fa0e/build/Data/Random/Distribution/Ziggurat.o )
+
+src/Data/Random/Distribution/Ziggurat.hs:102:1: Warning:
+    SPECIALISE pragma on INLINE function probably won't fire: ‘runZiggurat’
+
+src/Data/Random/Distribution/Ziggurat.hs:103:1: Warning:
+    SPECIALISE pragma on INLINE function probably won't fire: ‘runZiggurat’
+
+src/Data/Random/Distribution/Ziggurat.hs:104:1: Warning:
+    SPECIALISE pragma on INLINE function probably won't fire: ‘runZiggurat’
+
+src/Data/Random/Distribution/Ziggurat.hs:105:1: Warning:
+    SPECIALISE pragma on INLINE function probably won't fire: ‘runZiggurat’
+
+src/Data/Random/Distribution/Ziggurat.hs:169:1: Warning:
+    SPECIALISE pragma on INLINE function probably won't fire: ‘mkZiggurat_’
+
+src/Data/Random/Distribution/Ziggurat.hs:170:1: Warning:
+    SPECIALISE pragma on INLINE function probably won't fire: ‘mkZiggurat_’
+
+src/Data/Random/Distribution/Ziggurat.hs:171:1: Warning:
+    SPECIALISE pragma on INLINE function probably won't fire: ‘mkZiggurat_’
+
+src/Data/Random/Distribution/Ziggurat.hs:172:1: Warning:
+    SPECIALISE pragma on INLINE function probably won't fire: ‘mkZiggurat_’
+[15 of 30] Compiling Data.Random.Distribution.Normal ( src/Data/Random/Distribution/Normal.hs, dist/dist-sandbox-f3c8fa0e/build/Data/Random/Distribution/Normal.o )
+
+src/Data/Random/Distribution/Normal.hs:202:80: Warning:
+    Defaulting the following constraint(s) to type ‘Integer’
+      (Integral b0)
+        arising from a use of ‘^’
+        at src/Data/Random/Distribution/Normal.hs:202:80
+      (Num b0)
+        arising from the literal ‘2’
+        at src/Data/Random/Distribution/Normal.hs:202:81
+    In the expression: ((realToFrac x) - (realToFrac mu)) ^ 2
+    In the first argument of ‘(/)’, namely
+      ‘(- ((realToFrac x) - (realToFrac mu)) ^ 2)’
+    In the first argument of ‘exp’, namely
+      ‘((- ((realToFrac x) - (realToFrac mu)) ^ 2) / (2 * sigma2))’
+
+src/Data/Random/Distribution/Normal.hs:204:30: Warning:
+    Defaulting the following constraint(s) to type ‘Integer’
+      (Integral b0)
+        arising from a use of ‘^’
+        at src/Data/Random/Distribution/Normal.hs:204:30
+      (Num b0)
+        arising from the literal ‘2’
+        at src/Data/Random/Distribution/Normal.hs:204:31
+    In the expression: realToFrac sigma ^ 2
+    In an equation for ‘sigma2’: sigma2 = realToFrac sigma ^ 2
+    In an equation for ‘normalPdf’:
+        normalPdf mu sigma x
+          = (recip (sqrt (2 * pi * sigma2)))
+            * (exp ((- ((realToFrac x) - (realToFrac mu)) ^ 2) / (2 * sigma2)))
+          where
+              sigma2 = realToFrac sigma ^ 2
+
+src/Data/Random/Distribution/Normal.hs:209:40: Warning:
+    Defaulting the following constraint(s) to type ‘Integer’
+      (Integral b0)
+        arising from a use of ‘^’
+        at src/Data/Random/Distribution/Normal.hs:209:40
+      (Num b0)
+        arising from the literal ‘2’
+        at src/Data/Random/Distribution/Normal.hs:209:41
+    In the expression: ((realToFrac x) - (realToFrac mu)) ^ 2
+    In the first argument of ‘(/)’, namely
+      ‘(- ((realToFrac x) - (realToFrac mu)) ^ 2)’
+    In the second argument of ‘(+)’, namely
+      ‘((- ((realToFrac x) - (realToFrac mu)) ^ 2) / (2 * sigma2))’
+
+src/Data/Random/Distribution/Normal.hs:211:30: Warning:
+    Defaulting the following constraint(s) to type ‘Integer’
+      (Integral b0)
+        arising from a use of ‘^’
+        at src/Data/Random/Distribution/Normal.hs:211:30
+      (Num b0)
+        arising from the literal ‘2’
+        at src/Data/Random/Distribution/Normal.hs:211:31
+    In the expression: realToFrac sigma ^ 2
+    In an equation for ‘sigma2’: sigma2 = realToFrac sigma ^ 2
+    In an equation for ‘normalLogPdf’:
+        normalLogPdf mu sigma x
+          = log (recip (sqrt (2 * pi * sigma2)))
+            + ((- ((realToFrac x) - (realToFrac mu)) ^ 2) / (2 * sigma2))
+          where
+              sigma2 = realToFrac sigma ^ 2
+[16 of 30] Compiling Data.Random.Distribution.Gamma ( src/Data/Random/Distribution/Gamma.hs, dist/dist-sandbox-f3c8fa0e/build/Data/Random/Distribution/Gamma.o )
+[17 of 30] Compiling Data.Random.Distribution.Beta ( src/Data/Random/Distribution/Beta.hs, dist/dist-sandbox-f3c8fa0e/build/Data/Random/Distribution/Beta.o )
+[18 of 30] Compiling Data.Random.Distribution.Binomial ( src/Data/Random/Distribution/Binomial.hs, dist/dist-sandbox-f3c8fa0e/build/Data/Random/Distribution/Binomial.o )
+[19 of 30] Compiling Data.Random.Distribution.Multinomial ( src/Data/Random/Distribution/Multinomial.hs, dist/dist-sandbox-f3c8fa0e/build/Data/Random/Distribution/Multinomial.o )
+[20 of 30] Compiling Data.Random.Distribution.ChiSquare ( src/Data/Random/Distribution/ChiSquare.hs, dist/dist-sandbox-f3c8fa0e/build/Data/Random/Distribution/ChiSquare.o )
+[21 of 30] Compiling Data.Random.Distribution.Dirichlet ( src/Data/Random/Distribution/Dirichlet.hs, dist/dist-sandbox-f3c8fa0e/build/Data/Random/Distribution/Dirichlet.o )
+[22 of 30] Compiling Data.Random.Distribution.Poisson ( src/Data/Random/Distribution/Poisson.hs, dist/dist-sandbox-f3c8fa0e/build/Data/Random/Distribution/Poisson.o )
+[23 of 30] Compiling Data.Random.Distribution.Rayleigh ( src/Data/Random/Distribution/Rayleigh.hs, dist/dist-sandbox-f3c8fa0e/build/Data/Random/Distribution/Rayleigh.o )
+[24 of 30] Compiling Data.Random.Distribution.Simplex ( src/Data/Random/Distribution/Simplex.hs, dist/dist-sandbox-f3c8fa0e/build/Data/Random/Distribution/Simplex.o )
+
+src/Data/Random/Distribution/Simplex.hs:14:1: Warning:
+    The import of ‘Control.Applicative’ is redundant
+      except perhaps to import instances from ‘Control.Applicative’
+    To import instances alone, use: import Control.Applicative()
+[25 of 30] Compiling Data.Random.Distribution.T ( src/Data/Random/Distribution/T.hs, dist/dist-sandbox-f3c8fa0e/build/Data/Random/Distribution/T.o )
+[26 of 30] Compiling Data.Random.Distribution.Triangular ( src/Data/Random/Distribution/Triangular.hs, dist/dist-sandbox-f3c8fa0e/build/Data/Random/Distribution/Triangular.o )
+[27 of 30] Compiling Data.Random.Distribution.Weibull ( src/Data/Random/Distribution/Weibull.hs, dist/dist-sandbox-f3c8fa0e/build/Data/Random/Distribution/Weibull.o )
+[28 of 30] Compiling Data.Random.Sample ( src/Data/Random/Sample.hs, dist/dist-sandbox-f3c8fa0e/build/Data/Random/Sample.o )
+[29 of 30] Compiling Data.Random      ( src/Data/Random.hs, dist/dist-sandbox-f3c8fa0e/build/Data/Random.o )
+[30 of 30] Compiling Data.Random.Distribution.Pareto ( src/Data/Random/Distribution/Pareto.hs, dist/dist-sandbox-f3c8fa0e/build/Data/Random/Distribution/Pareto.o )
+In-place registering random-fu-0.2.7.0...
+Creating package registration file:
+/tmp/pkgConf-random-fu-0.2.71590079444434248626.0
+Installing library in
+/home/wrongway4you/Git/dotfiles/.xmonad/.cabal-sandbox/lib/x86_64-linux-ghc-7.10.3/random-fu-0.2.7.0-CJpqzboq4t76JU1lVc8sH7
+Registering random-fu-0.2.7.0...

@@ -1,0 +1,17 @@
+Configuring unordered-containers-0.2.8.0...
+Building unordered-containers-0.2.8.0...
+Preprocessing library unordered-containers-0.2.8.0...
+[1 of 8] Compiling Data.HashMap.UnsafeShift ( Data/HashMap/UnsafeShift.hs, dist/dist-sandbox-f3c8fa0e/build/Data/HashMap/UnsafeShift.o )
+[2 of 8] Compiling Data.HashMap.PopCount ( Data/HashMap/PopCount.hs, dist/dist-sandbox-f3c8fa0e/build/Data/HashMap/PopCount.o )
+[3 of 8] Compiling Data.HashMap.Unsafe ( Data/HashMap/Unsafe.hs, dist/dist-sandbox-f3c8fa0e/build/Data/HashMap/Unsafe.o )
+[4 of 8] Compiling Data.HashMap.Array ( Data/HashMap/Array.hs, dist/dist-sandbox-f3c8fa0e/build/Data/HashMap/Array.o )
+[5 of 8] Compiling Data.HashMap.Base ( Data/HashMap/Base.hs, dist/dist-sandbox-f3c8fa0e/build/Data/HashMap/Base.o )
+[6 of 8] Compiling Data.HashMap.Strict ( Data/HashMap/Strict.hs, dist/dist-sandbox-f3c8fa0e/build/Data/HashMap/Strict.o )
+[7 of 8] Compiling Data.HashMap.Lazy ( Data/HashMap/Lazy.hs, dist/dist-sandbox-f3c8fa0e/build/Data/HashMap/Lazy.o )
+[8 of 8] Compiling Data.HashSet     ( Data/HashSet.hs, dist/dist-sandbox-f3c8fa0e/build/Data/HashSet.o )
+In-place registering unordered-containers-0.2.8.0...
+Creating package registration file:
+/tmp/pkgConf-unordered-containers-0.2.81911165193269441500.0
+Installing library in
+/home/wrongway4you/Git/dotfiles/.xmonad/.cabal-sandbox/lib/x86_64-linux-ghc-7.10.3/unordered-containers-0.2.8.0-G3uGki3PjorGYHLAfqymmk
+Registering unordered-containers-0.2.8.0...

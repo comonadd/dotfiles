@@ -1,0 +1,26 @@
+Configuring random-shuffle-0.0.4...
+Building random-shuffle-0.0.4...
+Preprocessing library random-shuffle-0.0.4...
+[1 of 1] Compiling System.Random.Shuffle ( src/System/Random/Shuffle.hs, dist/dist-sandbox-f3c8fa0e/build/System/Random/Shuffle.o )
+
+src/System/Random/Shuffle.hs:59:1: Warning: Tab character
+
+src/System/Random/Shuffle.hs:70:1: Warning: Tab character
+
+src/System/Random/Shuffle.hs:71:1: Warning: Tab character
+
+src/System/Random/Shuffle.hs:74:1: Warning: Tab character
+
+src/System/Random/Shuffle.hs:77:1: Warning: Tab character
+
+src/System/Random/Shuffle.hs:78:1: Warning: Tab character
+
+src/System/Random/Shuffle.hs:79:1: Warning: Tab character
+
+src/System/Random/Shuffle.hs:80:1: Warning: Tab character
+In-place registering random-shuffle-0.0.4...
+Creating package registration file:
+/tmp/pkgConf-random-shuffle-0.019607098591760281936.4
+Installing library in
+/home/wrongway4you/Git/dotfiles/.xmonad/.cabal-sandbox/lib/x86_64-linux-ghc-7.10.3/random-shuffle-0.0.4-A0KGNSxJbtHLYO9xSb6l40
+Registering random-shuffle-0.0.4...
