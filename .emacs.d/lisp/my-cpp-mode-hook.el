@@ -39,7 +39,6 @@
 (defun my/c++-mode-bind-keys ()
   "Bind the keys for the C mode."
   (local-set-key (kbd "<f8>") 'clang-format-buffer)
-  (message "qwer")
   (local-set-key (kbd "<f9>") 'cmake-ide-compile))
 
 (defun my/c++-mode-hook ()

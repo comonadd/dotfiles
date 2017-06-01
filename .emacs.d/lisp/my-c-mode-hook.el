@@ -38,8 +38,8 @@
 
 (defun my/c-mode-bind-keys ()
   "Bind the keys for the C mode."
-  (when (projectile-project-p)
-    (local-set-key (kbd "<f9>") 'cmake-ide-compile)))
+  (local-set-key (kbd "<f8>") 'clang-format-buffer)
+  (local-set-key (kbd "<f9>") 'cmake-ide-compile))
 
 (defun my/c-mode-hook ()
   "C mode hook."
