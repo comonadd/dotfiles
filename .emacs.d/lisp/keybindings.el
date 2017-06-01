@@ -1,5 +1,5 @@
-;;; keybindings.el - The keybindings of the editor
-;;; Description:
+;;; keybindings --- The keybindings of the editor
+;;; Commentary:
 ;;; Code:
 
 (require 'undo-tree)
@@ -48,16 +48,15 @@
     (define-key map (kbd "M-l")    'forward-char)
     (define-key map (kbd "M-i")    'previous-line)
     (define-key map (kbd "M-k")    'next-line)
-    (define-key input-decode-map [?\C-i] [C-i])
+    (define-key input-decode-map [?\C-i]
+      [C-i])
     (define-key map (kbd "<C-i>")  'backward-paragraph)
     (define-key map (kbd "C-S-i")  'select-backward-paragraph)
     (define-key map (kbd "C-k")    'forward-paragraph)
     (define-key map (kbd "C-S-k")  'select-forward-paragraph)
-
     (define-key map (kbd "C-j")    'backward-word)
     (define-key map (kbd "C-l")    'forward-word)
     (define-key map (kbd "C-g")    'goto-line)
-
     (define-key map (kbd "M-o")    'newline)
 
     ;; Editing
@@ -82,7 +81,7 @@
     (define-key map (kbd "<escape>") 'keyboard-escape-quit)
 
     ;; Fix bad backspace
-;    (define-key map [(control ?h)] 'delete-backward-char)
+                                        ;    (define-key map [(control ?h)] 'delete-backward-char)
 
     ;; Undo Tree package
     (global-undo-tree-mode 1)
@@ -93,14 +92,14 @@
     ;; Multiple Cursors package
     (define-key map (kbd "C-.") 'mc/mark-next-like-this)
     (define-key map (kbd "C-,") 'mc/mark-previous-like-this)
-    (define-key input-decode-map [?\C-m] [C-m])
+    (define-key input-decode-map [?\C-m]
+      [C-m])
     (define-key map (kbd "<C-m>") 'mc/mark-all-like-this)
 
     ;; Expand-region package
     (define-key map (kbd "C-'") 'er/expand-region)
-
     map)
-  "my-keys-minor-mode keymap.")
+  "My minor mode keymap.")
 
 (define-minor-mode my-keys-minor-mode
   "A minor mode so that my key settings override annoying major modes."
@@ -109,44 +108,19 @@
 
 (my-keys-minor-mode 1)
 
-(add-hook 'after-load-functions 'my-keys-have-priority)
-
 (defun my-keys-have-priority (_file)
   "Try to ensure that my keybindings retain priority over other minor modes.
-   Called via the `after-load-functions' special hook."
+Called via the `after-load-functions' special hook."
   (unless (eq (caar minor-mode-map-alist) 'my-keys-minor-mode)
     (let ((mykeys (assq 'my-keys-minor-mode minor-mode-map-alist)))
       (assq-delete-all 'my-keys-minor-mode minor-mode-map-alist)
       (add-to-list 'minor-mode-map-alist mykeys))))
 
+(add-hook 'after-load-functions 'my-keys-have-priority)
 
 ;; Fix mouse
 (global-unset-key [mouse-2])
 (global-unset-key [mouse-1])
-
-;; WARN: Causes problems
-;; Folding
-                                        ;(define-key map (kbd "C-[") 'hs-show-block)
-                                        ;(define-key map (kbd "C-{") 'hs-show-all)
-                                        ;(define-key map (kbd "C-]") 'hs-hide-block)
-                                        ;(define-key map (kbd "C-}") 'hs-hide-all)
-
-
-;; OLD stuff
-;; (define-key map (kbd "C-h") 'kill-region)
-;; (define-key map (kbd "C-n") 'yank)
-;; (define-key map (kbd "C-y") 'kill-ring-save)
-;; (define-key map (kbd "C-v") 'yank)
-;; (define-key map (kbd "C-a") 'mark-whole-buffer)
-;; (define-key map (kbd "C-S-x") 'kill-region)
-;; (define-key map (kbd "C-z") 'undo)
-;; (define-key map (kbd "C-s") 'save-buffer)
-;; (define-key map (kbd "C-S-s") 'save-some-buffers)
-;; (define-key map (kbd "C-/") 'toggle-comment-region-or-line)
-;; (define-key map (kbd "<tab>") 'indent-for-tab-command)
-;; (define-key map (kbd "C-<backspace>") 'backward-kill-word)
-;; (define-key map (kbd "C-<delete>") 'forward-kill-word)
-;; (define-key map (kbd "<f9>") 'indent-region)
 
 (provide 'keybindings)
 ;;; keybindings.el ends here

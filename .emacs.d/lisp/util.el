@@ -8,29 +8,29 @@
 ;; Editing
 
 (defun my/insert-line-above (times)
-  "Insert line above the current one."
+  "Insert line above the current one TIMES times."
   (interactive "p")
   (save-excursion
     (move-beginning-of-line 1)
     (newline times)))
 
 (defun my/insert-line-below (times)
-  "Insert line below the current one."
+  "Insert line below the current one TIMES times."
   (interactive "p")
   (save-excursion
     (move-end-of-line 1)
     (newline times)))
 
-(defun my/backward-delete-word (times)
-  "Delete backward word."
+(defun my/backward-delete-word (N)
+  "Delete N backward words."
   (interactive "p")
   (delete-region (point)
                  (save-excursion
                    (backward-word 1)
                    (point))))
 
-(defun my/forward-delete-word (times)
-  "Delete forward word."
+(defun my/forward-delete-word (N)
+  "Delete N forward words."
   (interactive "p")
   (delete-region (point)
                  (save-excursion
@@ -108,16 +108,18 @@
   (switch-to-buffer-other-window (buffer-name)))
 
 (defun save-all-buffers ()
+  "Save all opened buffers."
   (interactive)
   (save-some-buffers t))
 
 (defun select-forward-paragraph (n)
+  "Select N forward paragraphs."
   (interactive "p")
   (set-mark-command nil)
   (forward-paragraph n))
 
 (defun select-backward-paragraph (n)
-  "Select the backward paragraph."
+  "Select N backward paragraphs."
   (interactive "p")
   (set-mark-command nil)
   (backward-paragraph n))

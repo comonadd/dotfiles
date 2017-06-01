@@ -1,3 +1,5 @@
 [user]
 	email = dmitry.guzeev@yahoo.com
-	name = Dmitry Guzeev
+    name = Dmitry Guzeev
+[core]
+    editor = emacs -nw
