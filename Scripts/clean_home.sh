@@ -4,21 +4,12 @@
 # Description:
 # The script for cleaning the home (~/) directory
 
-#################
-### Histories ###
-#################
-
+# Remove "history" files
 rm -rf ~/.bash_history ~/.zsh_history ~/.ghc/ghci_history ~/.python_history ~/.lesshst ~/.rediscli_history ~/.gmrun_history ~/.viminfo
 
-####################################
-### Cache/Downloads/Temp folders ###
-####################################
-
+# Remove Cache/Downloads/Temp folders
 rm -rf ~/.cache ~/Temp/* ~/Downloads/*
 rm -rf ~/.cgdb ~/.wget-hsts ~/.recently-used
 
-#######################
-### Log/Error files ###
-#######################
-
+# Remove log/error files
 rm -rf ~/.awesome-errors

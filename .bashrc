@@ -5,6 +5,7 @@
 # that can't tolerate any output.  So make sure this doesn't display
 # anything or bad things will happen !
 
+source ~/.profile
 
 # Test for an interactive shell.  There is no need to set anything
 # past this point for scp and rcp, and it's important to refrain from
@@ -14,4 +15,3 @@ if [[ $- != *i* ]] ; then
 	return
 fi
 
-source ~/.profile

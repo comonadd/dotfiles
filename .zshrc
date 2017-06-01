@@ -34,3 +34,9 @@ alias eZ="$EDITOR ~/.zshrc"
 alias uX="xrdb ~/.Xresources"
 
 alias make="make --warn-undefined-variables"
+
+unsetopt MULTIOS
+setopt MAGIC_EQUAL_SUBST
+setopt BSD_ECHO
+setopt INTERACTIVE_COMMENTS
+setopt PROMPT_SUBST

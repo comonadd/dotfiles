@@ -7,22 +7,42 @@
 
 ;; Editing
 
-(defun forward-kill-word ()
-  "If `point' is followed by whitespace kill that, otherwise call `kill-word'."
-  (interactive)
-  (if (looking-at "[ \t\n]")
-    (let ((pos (point)))
-      (re-search-forward "[^ \t\n]" nil t)
-      (backward-char)
-      (kill-region pos (point)))
-    (kill-word 1)))
+(defun my/insert-line-above (times)
+  "Insert line above the current one."
+  (interactive "p")
+  (save-excursion
+    (move-beginning-of-line 1)
+    (newline times)))
+
+(defun my/insert-line-below (times)
+  "Insert line below the current one."
+  (interactive "p")
+  (save-excursion
+    (move-end-of-line 1)
+    (newline times)))
+
+(defun my/backward-delete-word (times)
+  "Delete backward word."
+  (interactive "p")
+  (delete-region (point)
+                 (save-excursion
+                   (backward-word 1)
+                   (point))))
+
+(defun my/forward-delete-word (times)
+  "Delete forward word."
+  (interactive "p")
+  (delete-region (point)
+                 (save-excursion
+                   (forward-word 1)
+                   (point))))
 
 (defun toggle-comment-region-or-line ()
   "Comments or uncomments the region or the current line if there's no active region."
   (interactive)
   (let (beg end)
     (if (region-active-p)
-      (setq beg (region-beginning) end (region-end))
+        (setq beg (region-beginning) end (region-end))
       (setq beg (line-beginning-position) end (line-end-position)))
     (comment-or-uncomment-region beg end)))
 
@@ -36,21 +56,27 @@
     (switch-to-buffer oldbuf)))
 
 (defun find-corresponding-file ()
-  "Find the file that corresponds to this one."
+  "Find the file that corresponds to this one
+(header file to source file in C++, etc.), and open it in current window."
   (interactive)
   (let ((corresponding-file-name) (base-file-name (buffer-get-base-file-name)))
     (progn
       (cond
-       ((string-match "\\.cpp" buffer-file-name) (setq corresponding-file-name (concat base-file-name ".hpp")))
-       ((string-match "\\.hpp" buffer-file-name) (setq corresponding-file-name (concat base-file-name ".cpp")))
-       ((string-match "\\.c" buffer-file-name) (setq corresponding-file-name (concat base-file-name ".h")))
-       ((string-match "\\.h" buffer-file-name) (setq corresponding-file-name (concat base-file-name ".c"))))
+       ((string-match "\\.cpp
+" buffer-file-name) (setq corresponding-file-name (concat base-file-name ".hpp")))
+       ((string-match "\\.hpp
+" buffer-file-name) (setq corresponding-file-name (concat base-file-name ".cpp")))
+       ((string-match "\\.c
+" buffer-file-name) (setq corresponding-file-name (concat base-file-name ".h")))
+       ((string-match "\\.h
+" buffer-file-name) (setq corresponding-file-name (concat base-file-name ".c"))))
       (if corresponding-file-name
           (find-file corresponding-file-name)
-        (error "Unable to find a corresponding C file")))))
+        (error "Unable to find a corresponding C file"))))
+)
 
-(defun find-corresponding-file-other-window ()
-  "Find the file that corresponds to this one."
+(defun find-corresponding-file-other-window () "Find the file that corresponds to this one
+(header file to source file in C++, etc.), and open it in other window."
   (interactive)
   (find-file-other-window buffer-file-name)
   (find-corresponding-file)
@@ -58,17 +84,15 @@
 
 ;; Other
 
-(defun buffer-get-base-file-name ()
-  "Get the base file name of a current buffer."
-  (file-name-sans-extension
-    (file-name-nondirectory buffer-file-name)))
+(defun buffer-get-base-file-name () "Get the base file name of a current buffer."
+       (file-name-sans-extension (file-name-nondirectory buffer-file-name)))
 
 (defun buffer-file-name-nondir ()
   "Get the name of a buffer without directory path."
   (file-name-nondirectory buffer-file-name))
 
 (defun create-scratch-buffer ()
-  "Create a scratch buffer."
+  "Create a new scratch buffer."
   (interactive)
   (switch-to-buffer (get-buffer-create "*scratch*"))
   (lisp-interaction-mode))
@@ -86,6 +110,17 @@
 (defun save-all-buffers ()
   (interactive)
   (save-some-buffers t))
+
+(defun select-forward-paragraph (n)
+  (interactive "p")
+  (set-mark-command nil)
+  (forward-paragraph n))
+
+(defun select-backward-paragraph (n)
+  "Select the backward paragraph."
+  (interactive "p")
+  (set-mark-command nil)
+  (backward-paragraph n))
 
 (provide 'util)
 ;;; util.el ends here

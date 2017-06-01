@@ -6,7 +6,7 @@ Config {
   font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*",
   fgColor = "grey",
   bgColor = "black",
-  alpha = 128,
+  alpha = 255,
   position = Static {xpos = 0, ypos = 0, width = 1920, height = 24},
 
   lowerOnStart = True,    -- send to bottom of window stack on start

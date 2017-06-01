@@ -27,10 +27,13 @@ import           XMonad.Layout.NoBorders
 import qualified XMonad.StackSet             as StackSet
 import           XMonad.Util.Run
 import           XMonad.Util.SpawnOnce
+import           XMonad.Layout.ThreeColumns
+import           XMonad.Layout.Spiral
+import           XMonad.Layout.Tabbed
 
-  ------------------------
-  -- SH commands to use --
-  ------------------------
+------------------------
+-- SH commands to use --
+------------------------
 
 xmobarCmd :: String
 xmobarCmd = "xmobar ~/.xmonad/xmobar.hs"
@@ -48,10 +51,10 @@ reboot :: X()
 reboot = spawn "sudo reboot"
 
 takeScreenshot :: X()
-takeScreenshot = spawn "scrot"
+takeScreenshot = spawn "~/Scripts/make_screenshot.sh"
 
 openLauncher :: X()
-openLauncher = spawn "bash -ci \"gmrun\""
+openLauncher = spawn "synapse"
 
 openBrowser :: X()
 openBrowser = spawn "google-chrome-stable"
@@ -112,36 +115,40 @@ term3WorkspaceLabel = "[Terminal #3]"
 sysWorkspaceLabel :: WorkspaceId
 sysWorkspaceLabel = "[System]"
 
-myWorkspaces :: [(X11.KeySym, String)]
+myWorkspaces :: [(KeySym, String)]
 myWorkspaces = [
-  (X11.xK_1, devWorkspaceLabel),
-  (X11.xK_2, term1WorkspaceLabel),
-  (X11.xK_3, term2WorkspaceLabel),
-  (X11.xK_4, webWorkspaceLabel),
-  (X11.xK_5, musicWorkspaceLabel),
-  (X11.xK_6, chatWorkspaceLabel),
-  (X11.xK_7, emailWorkspaceLabel),
-  (X11.xK_8, term3WorkspaceLabel),
-  (X11.xK_9, sysWorkspaceLabel)
+  (xK_1, devWorkspaceLabel),
+  (xK_2, term1WorkspaceLabel),
+  (xK_3, term2WorkspaceLabel),
+  (xK_4, webWorkspaceLabel),
+  (xK_5, musicWorkspaceLabel),
+  (xK_6, chatWorkspaceLabel),
+  (xK_7, emailWorkspaceLabel),
+  (xK_8, term3WorkspaceLabel),
+  (xK_9, sysWorkspaceLabel)
   ]
-
--- termWorkspaceByNumber :: Int -> WorkspaceId
--- termWorkspaceByNumber n
---   | n == 1 = term1WorkspaceLabel
---   | n == 2 = term2WorkspaceLabel
---   | otherwise = term3WorkspaceLabel
-
--- selectRandomTermWorkspaceLabel :: IO WorkspaceId
--- selectRandomTermWorkspaceLabel = do
---   number <- randomRIO (1, 3) :: IO Int
---   let res = termWorkspaceByNumber $ number :: IO WorkspaceId
---   return res
 
 -----------------
 -- Layout hook --
 -----------------
 
-myLayoutHook = avoidStruts $ layoutHook def
+tabConfig = defaultTheme {
+    activeBorderColor = "#7C7C7C",
+    activeTextColor = "#CEFFAC",
+    activeColor = "#000000",
+    inactiveBorderColor = "#7C7C7C",
+    inactiveTextColor = "#EEEEEE",
+    inactiveColor = "#000000"
+}
+
+myLayoutHook = avoidStruts (
+  ThreeColMid 1 (3/100) (1/2) |||
+  Tall 1 (3/100) (1/2) |||
+  Mirror (Tall 1 (3/100) (1/2)) |||
+  tabbed shrinkText tabConfig |||
+  Full |||
+  spiral (6/7)) |||
+  noBorders (fullscreenFull Full)
 
 -----------------
 -- Manage hook --
@@ -172,16 +179,16 @@ myKeys XConfig {modMask = modm} = Map.fromList $
   wsManagementKeys ++ winManagementKeys ++ otherKeys
   where
     sysManagementKeys = [
-      ((modm, X11.xK_r), recompileAndRestart),
-      ((modm, X11.xK_c), kill),
-      ((modm .|. X11.shiftMask, X11.xK_q), shutdown),
-      ((modm .|. X11.shiftMask, X11.xK_r), reboot)
+      ((modm, xK_r), recompileAndRestart),
+      ((modm, xK_c), kill),
+      ((modm .|. shiftMask, xK_q), shutdown),
+      ((modm .|. shiftMask, xK_r), reboot)
       ]
 
     volManagementKeys = [
-      ((modm, X11.xK_equal), volUp),
-      ((modm, X11.xK_minus), volDown),
-      ((modm, X11.xK_m), volMute),
+      ((modm, xK_equal), volUp),
+      ((modm, xK_minus), volDown),
+      ((modm, xK_m), volMute),
       ((0, 0x1008FF12), volMute),
       ((0, 0x1008FF11), volDown),
       ((0, 0x1008FF13), volUp)
@@ -193,27 +200,30 @@ myKeys XConfig {modMask = modm} = Map.fromList $
           ((modm, key), windows $ StackSet.greedyView ws)
             | (key, ws) <- myWorkspaces]
         wsShiftKeys = [
-          ((modm .|. X11.shiftMask, key), windows $ StackSet.shift ws)
+          ((modm .|. shiftMask, key), windows $ StackSet.shift ws)
             | (key, ws) <- myWorkspaces]
 
     winManagementKeys = [
-      ((modm, X11.xK_l),                   windowGo R False),
-      ((modm, X11.xK_j),                   windowGo L False),
-      ((modm, X11.xK_i),                   windowGo U False),
-      ((modm, X11.xK_k),                   windowGo D False),
-      ((modm .|. X11.shiftMask, X11.xK_l), windowSwap R False),
-      ((modm .|. X11.shiftMask, X11.xK_j), windowSwap L False),
-      ((modm .|. X11.shiftMask, X11.xK_i), windowSwap U False),
-      ((modm .|. X11.shiftMask, X11.xK_k), windowSwap D False)
+      ((modm, xK_l),                   windowGo R False),
+      ((modm, xK_j),                   windowGo L False),
+      ((modm, xK_i),                   windowGo U False),
+      ((modm, xK_k),                   windowGo D False),
+      ((modm .|. shiftMask, xK_l), windowSwap R False),
+      ((modm .|. shiftMask, xK_j), windowSwap L False),
+      ((modm .|. shiftMask, xK_i), windowSwap U False),
+      ((modm .|. shiftMask, xK_k), windowSwap D False),
+      ((modm, xK_Tab),                 windows StackSet.focusDown),
+      ((modm .|. shiftMask, xK_Tab),   windows StackSet.focusUp)
       ]
 
     otherKeys = [
-      ((mod4Mask, xK_space),    sendMessage ToggleStruts),
-      ((modm, X11.xK_y),        takeScreenshot),
-      ((modm, X11.xK_p),        openLauncher),
-      ((modm, X11.xK_b),        openBrowser),
-      ((modm, X11.xK_Return),   openTerm),
-      ((0, X11.xK_Scroll_Lock), toggleKbdBacklight)
+      ((modm, xK_space),    sendMessage NextLayout),
+      ((modm, xK_t),         withFocused $ windows . StackSet.sink),
+      ((modm, xK_y),        takeScreenshot),
+      ((modm, xK_p),        openLauncher),
+      ((modm, xK_b),        openBrowser),
+      ((modm, xK_Return),   openTerm),
+      ((0, xK_Scroll_Lock), toggleKbdBacklight)
       ]
 
 -------------------
@@ -221,7 +231,7 @@ myKeys XConfig {modMask = modm} = Map.fromList $
 -------------------
 
 myConfig = def {
-  modMask = X11.mod4Mask,
+  modMask = mod4Mask,
   terminal = "urxvtc",
   focusFollowsMouse = False,
   keys = myKeys,

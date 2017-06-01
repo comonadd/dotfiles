@@ -1,105 +1,152 @@
-;; Fix mouse stuff
+;;; keybindings.el - The keybindings of the editor
+;;; Description:
+;;; Code:
+
+(require 'undo-tree)
+(require 'multiple-cursors)
+(require 'expand-region)
+(require 'util)
+
+(defvar my-keys-minor-mode-map
+  (let ((map (make-sparse-keymap)))
+    ;; Emacs-specific keybindings
+    (define-key map (kbd "C-q")     'save-buffers-kill-terminal)
+    (define-key map (kbd "C-p")     'execute-extended-command)
+    (define-key map (kbd "<f1>")    'eval-region)
+    (define-key map (kbd "<M-f1>")  'eval-last-sexp)
+
+    ;; Filesystem navigation
+    (define-key map (kbd "C-f")     'find-file)
+    (define-key map (kbd "C-S-f")   'find-file-other-window)
+    (define-key map (kbd "<f11>")   'open-same-file-other-window)
+    (define-key map (kbd "<f2>")    'neotree-toggle)
+
+    ;; In-file serch/replace
+    (define-key map (kbd "C-r")     'query-replace)
+    (define-key map (kbd "C-e")     'isearch-forward)
+    (define-key map (kbd "C-S-e")   'isearch-repeat-forward)
+
+    ;; Window manipulation
+    (define-key map (kbd "C-;")     'other-window)
+    (define-key map (kbd "C-w")     'kill-this-buffer)
+    (define-key map (kbd "C-S-w")   'kill-buffer-and-window)
+
+    ;; Save buffers
+    (define-key map (kbd "C-s")    'save-buffer)
+    (define-key map (kbd "C-S-s")  'save-all-buffers)
+
+    ;; Font size manipulation
+    (define-key map (kbd "C-=")    'text-scale-increase)
+    (define-key map (kbd "C--")    'text-scale-decrease)
+
+    ;; Buffer navigation
+    (define-key map (kbd "C-M-j")  nil)
+    (define-key map (kbd "C-M-l")  nil)
+    (define-key map (kbd "C-M-i")  nil)
+    (define-key map (kbd "C-M-k")  nil)
+    (define-key map (kbd "M-j")    'backward-char)
+    (define-key map (kbd "M-l")    'forward-char)
+    (define-key map (kbd "M-i")    'previous-line)
+    (define-key map (kbd "M-k")    'next-line)
+    (define-key input-decode-map [?\C-i] [C-i])
+    (define-key map (kbd "<C-i>")  'backward-paragraph)
+    (define-key map (kbd "C-S-i")  'select-backward-paragraph)
+    (define-key map (kbd "C-k")    'forward-paragraph)
+    (define-key map (kbd "C-S-k")  'select-forward-paragraph)
+
+    (define-key map (kbd "C-j")    'backward-word)
+    (define-key map (kbd "C-l")    'forward-word)
+    (define-key map (kbd "C-g")    'goto-line)
+
+    (define-key map (kbd "M-o")    'newline)
+
+    ;; Editing
+    (define-key map (kbd "C-S-p")    'kill-ring-save)
+    (define-key map (kbd "C-y")      'yank)
+    (define-key map (kbd "C-v")      'yank)
+    (define-key map (kbd "C-x")      'kill-region)
+    (define-key map (kbd "C-a")      'mark-whole-buffer)
+    (define-key map (kbd "C-o")      'my/insert-line-above)
+    (define-key map (kbd "C-S-o")    'my/insert-line-below)
+    (define-key map (kbd "M-h")      'delete-backward-char)
+    (define-key map (kbd "M-d")      'delete-forward-char)
+    (define-key map (kbd "C-h")      'my/backward-delete-word)
+    (define-key map (kbd "C-d")      'my/forward-delete-word)
+
+    ;; Comment/Uncomment
+    (define-key map (kbd "C-/")  'toggle-comment-region-or-line)
+
+    ;; Map escape to cancel (like C-g)...
+    (define-key isearch-mode-map [escape] 'isearch-abort)
+    (define-key isearch-mode-map "\e" 'isearch-abort)
+    (define-key map (kbd "<escape>") 'keyboard-escape-quit)
+
+    ;; Fix bad backspace
+;    (define-key map [(control ?h)] 'delete-backward-char)
+
+    ;; Undo Tree package
+    (global-undo-tree-mode 1)
+    (define-key map (kbd "C-z") 'undo)
+    (defalias 'redo 'undo-tree-redo)
+    (define-key map (kbd "C-S-z") 'redo)
+
+    ;; Multiple Cursors package
+    (define-key map (kbd "C-.") 'mc/mark-next-like-this)
+    (define-key map (kbd "C-,") 'mc/mark-previous-like-this)
+    (define-key input-decode-map [?\C-m] [C-m])
+    (define-key map (kbd "<C-m>") 'mc/mark-all-like-this)
+
+    ;; Expand-region package
+    (define-key map (kbd "C-'") 'er/expand-region)
+
+    map)
+  "my-keys-minor-mode keymap.")
+
+(define-minor-mode my-keys-minor-mode
+  "A minor mode so that my key settings override annoying major modes."
+  :init-value t
+  :lighter " my-keys")
+
+(my-keys-minor-mode 1)
+
+(add-hook 'after-load-functions 'my-keys-have-priority)
+
+(defun my-keys-have-priority (_file)
+  "Try to ensure that my keybindings retain priority over other minor modes.
+   Called via the `after-load-functions' special hook."
+  (unless (eq (caar minor-mode-map-alist) 'my-keys-minor-mode)
+    (let ((mykeys (assq 'my-keys-minor-mode minor-mode-map-alist)))
+      (assq-delete-all 'my-keys-minor-mode minor-mode-map-alist)
+      (add-to-list 'minor-mode-map-alist mykeys))))
+
+
+;; Fix mouse
 (global-unset-key [mouse-2])
 (global-unset-key [mouse-1])
 
-;; Emacs-specific keybindings
-(global-set-key (kbd "C-q")     'save-buffers-kill-terminal)
-(global-set-key (kbd "<f7>")    'execute-extended-command)
-(global-set-key (kbd "<f1>")    'eval-region)
-
-;; Find file
-(global-set-key (kbd "C-f")     'find-file)
-(global-set-key (kbd "<f11>")   'open-same-file-other-window)
-(global-set-key (kbd "<f12>")   'find-corresponding-file)
-(global-set-key (kbd "S-<f12>") 'find-corresponding-file-other-window)
-(global-set-key (kbd "C-S-f")   'find-file-other-window)
-
-;; Search in the file
-(global-set-key (kbd "C-r")     'query-replace)
-(global-set-key (kbd "C-e")     'isearch-forward)
-(global-set-key (kbd "C-S-e")   'isearch-repeat-forward)
-
-;; Window manipulation
-(global-set-key (kbd "C-;")     'other-window)
-(global-set-key (kbd "C-w")     'kill-this-buffer)
-(global-set-key (kbd "C-S-w")   'kill-buffer-and-window)
-(global-set-key (kbd "C-g")     'goto-line)
-(global-set-key (kbd "RET")     'newline-and-indent)
-(global-set-key (kbd "<f2>")    'neotree-toggle)
-
-;; Save buffers
-(global-set-key (kbd "C-s")    'save-buffer)
-(global-set-key (kbd "C-S-s")  'save-all-buffers)
-
-;; Font size manipulation
-(global-set-key (kbd "C-=")    'text-scale-increase)
-(global-set-key (kbd "C--")    'text-scale-decrease)
-
-;; Cursor navigation
-(global-set-key (kbd "C-M-j")  nil)
-(global-set-key (kbd "C-M-l")  nil)
-(global-set-key (kbd "C-M-i")  nil)
-(global-set-key (kbd "C-M-k")  nil)
-(global-set-key (kbd "M-j")    'backward-char)
-(global-set-key (kbd "M-l")    'forward-char)
-(global-set-key (kbd "M-i")    'previous-line)
-(global-set-key (kbd "M-k")    'next-line)
-(global-set-key (kbd "C-i")    'backward-paragraph)
-(global-set-key (kbd "C-k")    'forward-paragraph)
-(global-set-key (kbd "C-j")    'backward-word)
-(global-set-key (kbd "C-l")    'forward-word)
-
-;; Comment/Uncomment
-(global-set-key (kbd "C-/")  'comment-dwim)
-(global-set-key (kbd "C-_")  'comment-dwim)
-
+;; WARN: Causes problems
 ;; Folding
-;(global-set-key (kbd "C-[") 'hs-show-block)
-;(global-set-key (kbd "C-{") 'hs-show-all)
-;(global-set-key (kbd "C-]") 'hs-hide-block)
-;(global-set-key (kbd "C-}") 'hs-hide-all)
+                                        ;(define-key map (kbd "C-[") 'hs-show-block)
+                                        ;(define-key map (kbd "C-{") 'hs-show-all)
+                                        ;(define-key map (kbd "C-]") 'hs-hide-block)
+                                        ;(define-key map (kbd "C-}") 'hs-hide-all)
 
-;; Other stuff
-(global-set-key (kbd "C-S-p")   'kill-ring-save)
-(global-set-key (kbd "C-p")     'yank)
-(global-set-key (kbd "C-v")     'yank)
-(global-set-key (kbd "C-x")     'kill-region)
-
-;; Map escape to cancel (like C-g)...
-(define-key isearch-mode-map [escape] 'isearch-abort)
-(define-key isearch-mode-map "\e" 'isearch-abort)
-(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
-
-;; Fix bad backspace
-(global-set-key [(control ?h)] 'delete-backward-char)
-
-;; Undo Tree package
-;(require 'undo-tree)
-;(global-undo-tree-mode 1)
-;(global-set-key (kbd "C-z") 'undo)
-;(defalias 'redo 'undo-tree-redo)
-;(global-set-key (kbd "C-S-z") 'redo)
-
-;; Multiple Cursors package
-;(require 'multiple-cursors)
-;(global-set-key (kbd "C-.") 'mc/mark-next-like-this)
-;(global-set-key (kbd "C-,") 'mc/mark-previous-like-this)
 
 ;; OLD stuff
-;; (global-set-key (kbd "C-h") 'kill-region)
-;; (global-set-key (kbd "C-n") 'yank)
-;; (global-set-key (kbd "C-y") 'kill-ring-save)
-;; (global-set-key (kbd "C-v") 'yank)
-;; (global-set-key (kbd "C-a") 'mark-whole-buffer)
-;; (global-set-key (kbd "C-S-x") 'kill-region)
-;; (global-set-key (kbd "C-z") 'undo)
-;; (global-set-key (kbd "C-s") 'save-buffer)
-;; (global-set-key (kbd "C-S-s") 'save-some-buffers)
-;; (global-set-key (kbd "C-/") 'toggle-comment-region-or-line)
-(global-set-key (kbd "<tab>") 'indent-for-tab-command)
-;; (global-set-key (kbd "C-<backspace>") 'backward-kill-word)
-;; (global-set-key (kbd "C-<delete>") 'forward-kill-word)
-;; (global-set-key (kbd "<f9>") 'indent-region)
+;; (define-key map (kbd "C-h") 'kill-region)
+;; (define-key map (kbd "C-n") 'yank)
+;; (define-key map (kbd "C-y") 'kill-ring-save)
+;; (define-key map (kbd "C-v") 'yank)
+;; (define-key map (kbd "C-a") 'mark-whole-buffer)
+;; (define-key map (kbd "C-S-x") 'kill-region)
+;; (define-key map (kbd "C-z") 'undo)
+;; (define-key map (kbd "C-s") 'save-buffer)
+;; (define-key map (kbd "C-S-s") 'save-some-buffers)
+;; (define-key map (kbd "C-/") 'toggle-comment-region-or-line)
+;; (define-key map (kbd "<tab>") 'indent-for-tab-command)
+;; (define-key map (kbd "C-<backspace>") 'backward-kill-word)
+;; (define-key map (kbd "C-<delete>") 'forward-kill-word)
+;; (define-key map (kbd "<f9>") 'indent-region)
 
 (provide 'keybindings)
 ;;; keybindings.el ends here

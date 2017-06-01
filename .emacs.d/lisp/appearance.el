@@ -24,6 +24,13 @@
 (add-to-list 'default-frame-alist '(font . "Mono-10"))
 (set-face-attribute 'default t :font "Mono-10")
 
+;; Set default font
+(set-face-attribute 'default nil
+                    :family "Source Code Pro"
+                    :height 100
+                    :weight 'normal
+                    :width 'normal)
+
 (setq search-highlight t)
 (setq query-replace-highlight t)
 

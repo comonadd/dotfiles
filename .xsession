@@ -1,25 +1,21 @@
-###
-### The .xsession (.xinitrc) file
-### Created: 2017/03/03 at 20:03
-### Author: wrongway4you
-###
+# File: weather.sh
+# Creation date: 2017-03-03
+# Creator: Dmitry Guzeev <dmitry.guzeev@yahoo.com>
+# Description:
 
-xkbcomp $HOME/.config/xkb/my $DISPLAY
+WIN_MANAGER_CMD=xmonad
 
-#################
-### Variables ###
-#################
-
-WALLPAPER_PATH=$HOME/.config/wallpaper.jpg
-
-# Update the X configuration
-[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+# Load the XKB settings
+$HOME/Scripts/load_xkb_settings.sh
 
 # Set the default cursor
 xsetroot -cursor_name left_ptr
 
+# Update the X configuration
+$HOME/Scripts/update_x_config.sh
+
 # Set the wallpaper
-feh --bg-scale $WALLPAPER_PATH
+$HOME/Scripts/set_wallpaper.sh
 
 # Execute the window manager
-exec xmonad
+exec $WIN_MANAGER_CMD

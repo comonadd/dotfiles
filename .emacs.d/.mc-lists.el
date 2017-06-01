@@ -20,9 +20,12 @@
         indent-for-tab-command
         keyboard-escape-quit
         kill-region
+        markdown-exdent-or-delete
+        my/forward-delete-word
         save-all-buffers
         save-some-buffers
         upcase-region
+        yas-expand
         ))
 
 (setq mc/cmds-to-run-once
@@ -33,6 +36,7 @@
         dired-next-line
         dired-previous-line
         kill-this-buffer
+        my/backward-delete-word
         overwrite-mode
         toggle-comment-region-or-line
         ))

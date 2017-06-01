@@ -3,40 +3,32 @@
 ;;;   This file defines the C mode hook
 ;;; Code:
 
-;;;;;;;;;;
-;; Main ;;
-;;;;;;;;;;
+(require 'projectile)
 
-(defvar flycheck-gcc-args)
-(defvar flycheck-clang-args)
-(defvar flycheck-gcc-include-path)
-(defvar flycheck-clang-include-path)
-
-(defun c-mode-setup-flycheck-project-include-paths ()
+(defun my/c-mode-setup-flycheck-project-include-paths ()
   "Get the paths that we need to include in project environment."
   (let ((root (projectile-project-root)))
-    (let ((c-mode-include-paths (list root (concat root "/src") (concat root "/include"))))
+    (let ((c-mode-include-paths (list root (concat root "/src")
+                                      (concat root "/include"))))
       (progn
         (setq flycheck-gcc-include-path c-mode-include-paths)
         (setq flycheck-clang-include-path c-mode-include-paths)))))
 
-(defun c-mode-flycheck-setup ()
+(defun my/c-mode-flycheck-setup ()
   "Setup the flycheck package."
 
   ;; Include the project paths
   (when (projectile-project-p)
-    (c-mode-setup-flycheck-project-include-paths))
+    (my/c-mode-setup-flycheck-project-include-paths))
 
   ;; Set the flycheck additional arguments
-  (let ((args (split-string
-               (concat (shell-command-to-string "pkg-config --cflags --libs gtk+-3.0")
-                       "-std=c11"))))
+  (let ((args (split-string "-std=c11")))
     (progn
       (setq flycheck-gcc-args args)
       (setq flycheck-clang-args args))))
 
-(defun c-mode-set-style ()
-  "Set the style."
+(defun my/c-mode-set-style ()
+  "Set the style for the C mode."
   (setq c-default-style "linux")
   (setq c-basic-offset 4)
   (setq indent-tabs-mode nil)
@@ -44,11 +36,12 @@
   (c-set-offset 'comment-intro 0)
   (c-set-offset 'case-label '+))
 
-(defun c-mode-bind-keys ()
+(defun my/c-mode-bind-keys ()
   "Bind the keys for the C mode."
-  (defvar c-mode-map))
+  (when (projectile-project-p)
+    (local-set-key (kbd "<f9>") 'cmake-ide-compile)))
 
-(defun c-mode-main-hook ()
+(defun my/c-mode-hook ()
   "C mode hook."
 
   ;; Disable unneeded minor modes
@@ -60,17 +53,15 @@
 
   ;; Enable the projectile
   (projectile-mode 1)
-
   (when (projectile-project-p)
-    (c-mode-flycheck-setup)
+    (my/c-mode-flycheck-setup)
     (helm-gtags-mode 1)
     (ggtags-mode 1))
 
   ;; Set the style
-  (c-mode-set-style)
-
+  (my/c-mode-set-style)
   (electric-indent-mode 1)
-  (c-mode-bind-keys))
+  (my/c-mode-bind-keys))
 
-(provide 'c-mode-main-hook)
-;;; c-mode-main-hook.el ends here
+(provide 'my-c-mode-hook)
+;;; my-c-mode-hook.el ends here
