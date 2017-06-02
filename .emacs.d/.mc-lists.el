@@ -33,6 +33,7 @@
         c-electric-colon
         c-electric-paren
         c-electric-star
+        c-indent-new-comment-line
         dired-next-line
         dired-previous-line
         kill-this-buffer

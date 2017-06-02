@@ -55,33 +55,6 @@
     (sql-send-region)
     (switch-to-buffer oldbuf)))
 
-(defun find-corresponding-file ()
-  "Find the file that corresponds to this one
-(header file to source file in C++, etc.), and open it in current window."
-  (interactive)
-  (let ((corresponding-file-name) (base-file-name (buffer-get-base-file-name)))
-    (progn
-      (cond
-       ((string-match "\\.cpp
-" buffer-file-name) (setq corresponding-file-name (concat base-file-name ".hpp")))
-       ((string-match "\\.hpp
-" buffer-file-name) (setq corresponding-file-name (concat base-file-name ".cpp")))
-       ((string-match "\\.c
-" buffer-file-name) (setq corresponding-file-name (concat base-file-name ".h")))
-       ((string-match "\\.h
-" buffer-file-name) (setq corresponding-file-name (concat base-file-name ".c"))))
-      (if corresponding-file-name
-          (find-file corresponding-file-name)
-        (error "Unable to find a corresponding C file"))))
-)
-
-(defun find-corresponding-file-other-window () "Find the file that corresponds to this one
-(header file to source file in C++, etc.), and open it in other window."
-  (interactive)
-  (find-file-other-window buffer-file-name)
-  (find-corresponding-file)
-  (other-window -1))
-
 ;; Other
 
 (defun buffer-get-base-file-name () "Get the base file name of a current buffer."
