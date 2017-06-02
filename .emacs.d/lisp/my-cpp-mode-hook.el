@@ -23,7 +23,7 @@ and open it in current window."
   "Execute `my/c++-mode-find-corresponding-file` in other window."
   (interactive)
   (find-file-other-window buffer-file-name)
-  (find-corresponding-file)
+  (my/c++-mode-find-corresponding-file)
   (other-window -1))
 
 (defun my/c++-mode-setup-flycheck-project-include-paths ()
