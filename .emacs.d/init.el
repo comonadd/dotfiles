@@ -16,7 +16,6 @@
 (require 'aliases)
 (require 'auto-insert-skeletons)
 (require 'modes)
-(require 'markdown-highlight)
 
 ;; Auto-generated stuff
 (custom-set-variables
