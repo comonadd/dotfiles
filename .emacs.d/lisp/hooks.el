@@ -28,8 +28,13 @@
 (require 'my-rust-mode-hook)
 (add-hook 'rust-mode-hook 'my/rust-mode-hook)
 
+;; Cmake mode hook
 (require 'my-cmake-mode-hook)
 (add-hook 'cmake-mode-hook 'my/cmake-mode-hook)
+
+;; JavaScript mode hook
+(require 'my-js-mode-hook)
+(add-hook 'js-mode-hook 'my/js-mode-hook)
 
 ;; Other hooks
 (require 'my-before-save-hook)
