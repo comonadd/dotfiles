@@ -45,6 +45,15 @@
   "Generate a file top comment for the SCSS file."
   (gen-c-file-top-comment))
 
+(defun gen-html-file-top-comment ()
+  "Generate a file top comment for the HTML file."
+  (concat "<!--\n"
+          "  File: " (buffer-file-name-nondir) "\n"
+          "  Creation date: " (get-current-date) "\n"
+          "  Creator: " author-info "\n"
+          "  Description:\n"
+          "-->\n"))
+
 ;; "generate skeleton" functions
 
 (defun gen-c-source-file-skeleton ()
@@ -87,6 +96,10 @@
   "Generate a skeleton for the SCSS file."
   (gen-scss-file-top-comment))
 
+(defun gen-html-file-skeleton ()
+  "Generate a skeleton for the HTML file."
+  (gen-html-file-top-comment))
+
 ;; Definition of skeletons
 
 (define-auto-insert '("\\.c" . "C source file skeleton")
@@ -121,6 +134,9 @@
 
 (define-auto-insert '("\\.scss" . "SCSS file skeleton")
   '("Short description: " (gen-scss-file-skeleton)))
+
+(define-auto-insert '("\\.html" . "HTML file skeleton")
+  '("Short description: " (gen-html-file-skeleton)))
 
 (provide 'auto-insert-skeletons)
 ;;; auto-insert-skeletons.el ends here
