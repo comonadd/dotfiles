@@ -37,5 +37,8 @@
 (require 'cmake-ide)
 (cmake-ide-setup)
 
+;; indium package
+(require 'indium)
+
 (provide 'my/packages)
 ;;; packages.el ends here

@@ -60,8 +60,7 @@
     (define-key map (kbd "M-o")    'newline)
 
     ;; Editing
-    (define-key map (kbd "C-S-p")    'kill-ring-save)
-    (define-key map (kbd "C-y")      'yank)
+    (define-key map (kbd "C-y")      'kill-ring-save)
     (define-key map (kbd "C-v")      'yank)
     (define-key map (kbd "C-x")      'kill-region)
     (define-key map (kbd "C-a")      'mark-whole-buffer)
