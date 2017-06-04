@@ -1,21 +1,25 @@
+;;; init.el --- The main Emacs startup file
+;;; Commentary:
+;;; Code:
+
 (add-to-list 'load-path "~/.emacs.d/lisp")
-;
-; Require the configuration pieces
-(require 'disable-backup)
-(require 'disable-mods)
-(require 'disable-tabs)
-(require 'scroll-settings)
-(require 'clipboard-settings)
-(require 'gdb-settings)
-(require 'undo-limits)
-(require 'appearance)
-(require 'packages)
-(require 'keybindings)
-(require 'hooks)
-(require 'encoding)
-(require 'aliases)
-(require 'auto-insert-skeletons)
-(require 'modes)
+
+;; Require the configuration pieces
+(require 'my/disable-backup)
+(require 'my/disable-mods)
+(require 'my/disable-tabs)
+(require 'my/scroll-settings)
+(require 'my/clipboard-settings)
+(require 'my/gdb-settings)
+(require 'my/undo-limits)
+(require 'my/appearance)
+(require 'my/packages)
+(require 'my/keybindings)
+(require 'my/hooks)
+(require 'my/encoding)
+(require 'my/aliases)
+(require 'my/auto-insert-skeletons)
+(require 'my/modes)
 
 ;; Auto-generated stuff
 (custom-set-variables
@@ -126,7 +130,7 @@
  ;; If there is more than one, they won't work right.
  )
 (put 'downcase-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
 
 (provide 'init)
 ;;; init.el ends here
-(put 'upcase-region 'disabled nil)

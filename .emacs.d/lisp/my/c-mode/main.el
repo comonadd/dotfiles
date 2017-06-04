@@ -1,6 +1,5 @@
-;;; c-mode-main-hook.el --- C mode hook
+;;; my/c-mode/main.el --- C mode hook
 ;;; Commentary:
-;;;   This file defines the C mode hook
 ;;; Code:
 
 (require 'projectile)
@@ -87,5 +86,5 @@ and open it in current window."
   (electric-indent-mode 1)
   (my/c-mode-bind-keys))
 
-(provide 'my-c-mode-hook)
-;;; my-c-mode-hook.el ends here
+(provide 'my/c-mode/main)
+;;; main.el ends here

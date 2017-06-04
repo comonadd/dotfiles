@@ -1,4 +1,4 @@
-;;; Encoding --- Encoding configuration
+;;; my/encoding --- Package that setups the enconding
 ;;; Commentary:
 ;;; Code:
 
@@ -11,5 +11,5 @@
 (set-terminal-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
-(provide 'encoding)
+(provide 'my/encoding)
 ;;; encoding.el ends here

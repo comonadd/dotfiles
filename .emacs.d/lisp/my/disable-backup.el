@@ -1,4 +1,4 @@
-;;; disable-backup.el --- disable the Emacs backup files generation
+;;; my/disable-backup --- Package that disables the Emacs backup files generation
 ;;; Commentary:
 ;;; Code:
 
@@ -6,5 +6,5 @@
 (setq auto-save-default nil)
 (setq auto-save-list-file-name nil)
 
-(provide 'disable-backup)
+(provide 'my/disable-backup)
 ;;; disable-backup.el ends here
