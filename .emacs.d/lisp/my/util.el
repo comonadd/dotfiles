@@ -1,4 +1,4 @@
-;;; Util --- Main Emacs utility file
+;;; my/util --- Main Emacs utility file
 ;;; Commentary:
 ;;;   This file defines all utility-like functions
 ;;; Code:
@@ -97,5 +97,5 @@
   (set-mark-command nil)
   (backward-paragraph n))
 
-(provide 'util)
+(provide 'my/util)
 ;;; util.el ends here

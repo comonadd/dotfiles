@@ -1,4 +1,4 @@
-;;; Appearance --- Main Emacs appearance configuration file
+;;; my/appearance --- Main Emacs appearance configuration file
 ;;; Commentary:
 ;;; Code:
 
@@ -35,7 +35,16 @@
 (setq query-replace-highlight t)
 
 ;; Bright-red TODOs and green NOTEs
-(setq fixme-modes '(c++-mode c-mode emacs-lisp-mode))
+(setq fixme-modes
+      '(c++-mode
+        c-mode
+        emacs-lisp-mode
+        python-mode
+        rust-mode
+        html-mode
+        css-mode
+        scss-mode
+        js-mode))
 (make-face 'font-lock-fixme-face)
 (make-face 'font-lock-note-face)
 (mapc (lambda (mode)
@@ -47,5 +56,5 @@
 (modify-face 'font-lock-fixme-face "Red" nil nil t nil t nil nil)
 (modify-face 'font-lock-note-face "Dark Green" nil nil t nil t nil nil)
 
-(provide 'appearance)
+(provide 'my/appearance)
 ;;; appearance.el ends here
