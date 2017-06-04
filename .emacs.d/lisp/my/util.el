@@ -37,7 +37,7 @@
                    (forward-word 1)
                    (point))))
 
-(defun toggle-comment-region-or-line ()
+(defun my/toggle-comment-region-or-line ()
   "Comments or uncomments the region or the current line if there's no active region."
   (interactive)
   (let (beg end)
@@ -48,7 +48,7 @@
 
 ;; Navigation
 
-(defun ff-find-other-file-other-window ()
+(defun my/ff-find-other-file-other-window ()
   "Switch between file extensions in other window."
   (interactive "r")
   (let ((oldbuf (buffer-name)))
@@ -57,41 +57,42 @@
 
 ;; Other
 
-(defun buffer-get-base-file-name () "Get the base file name of a current buffer."
-       (file-name-sans-extension (file-name-nondirectory buffer-file-name)))
+(defun my/buffer-get-base-file-name ()
+  "Get the base file name of a current buffer."
+  (file-name-sans-extension (file-name-nondirectory buffer-file-name)))
 
-(defun buffer-file-name-nondir ()
+(defun my/buffer-file-name-nondir ()
   "Get the name of a buffer without directory path."
   (file-name-nondirectory buffer-file-name))
 
-(defun create-scratch-buffer ()
+(defun my/create-scratch-buffer ()
   "Create a new scratch buffer."
   (interactive)
   (switch-to-buffer (get-buffer-create "*scratch*"))
   (lisp-interaction-mode))
 
-(defun get-current-date ()
+(defun my/get-current-date ()
   "Insert current date."
   (interactive)
   (shell-command-to-string "echo -n $(date +%Y-%m-%d)"))
 
-(defun open-same-file-other-window ()
+(defun my/open-same-file-other-window ()
   "Open the same file in another window."
   (interactive)
   (switch-to-buffer-other-window (buffer-name)))
 
-(defun save-all-buffers ()
+(defun my/save-all-buffers ()
   "Save all opened buffers."
   (interactive)
   (save-some-buffers t))
 
-(defun select-forward-paragraph (n)
+(defun my/select-forward-paragraph (n)
   "Select N forward paragraphs."
   (interactive "p")
   (set-mark-command nil)
   (forward-paragraph n))
 
-(defun select-backward-paragraph (n)
+(defun my/select-backward-paragraph (n)
   "Select N backward paragraphs."
   (interactive "p")
   (set-mark-command nil)
