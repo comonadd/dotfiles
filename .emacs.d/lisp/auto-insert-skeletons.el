@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-;; Constants
+(require 'util)
 
 (defvar author-info "Dmitry Guzeev <dmitry.guzeev@yahoo.com>")
 
@@ -40,6 +40,10 @@
 (defun gen-cmake-file-top-comment ()
   "Generate a file top comment for the CMake file."
   (gen-sh-file-top-comment))
+
+(defun gen-scss-file-top-comment ()
+  "Generate a file top comment for the SCSS file."
+  (gen-c-file-top-comment))
 
 ;; "generate skeleton" functions
 
@@ -79,6 +83,10 @@
   "Generate a skeleton for the CMake file."
   (gen-cmake-file-top-comment))
 
+(defun gen-scss-file-skeleton ()
+  "Generate a skeleton for the SCSS file."
+  (gen-scss-file-top-comment))
+
 ;; Definition of skeletons
 
 (define-auto-insert '("\\.c" . "C source file skeleton")
@@ -110,6 +118,9 @@
 
 (define-auto-insert '("\\.cmake" . "CMake file skeleton")
   '("Short description: " (gen-cmake-file-skeleton)))
+
+(define-auto-insert '("\\.scss" . "SCSS file skeleton")
+  '("Short description: " (gen-scss-file-skeleton)))
 
 (provide 'auto-insert-skeletons)
 ;;; auto-insert-skeletons.el ends here
