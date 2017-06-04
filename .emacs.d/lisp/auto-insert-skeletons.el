@@ -54,6 +54,10 @@
           "  Description:\n"
           "-->\n"))
 
+(defun gen-js-file-top-comment ()
+  "Generate a file top comment for the JavaScript file."
+  (gen-c-file-top-comment))
+
 ;; "generate skeleton" functions
 
 (defun gen-c-source-file-skeleton ()
@@ -100,6 +104,10 @@
   "Generate a skeleton for the HTML file."
   (gen-html-file-top-comment))
 
+(defun gen-js-file-skeleton ()
+  "Generate a skeleton for the JavaScript file."
+  (gen-js-file-top-comment))
+
 ;; Definition of skeletons
 
 (define-auto-insert '("\\.c" . "C source file skeleton")
@@ -137,6 +145,9 @@
 
 (define-auto-insert '("\\.html" . "HTML file skeleton")
   '("Short description: " (gen-html-file-skeleton)))
+
+(define-auto-insert '("\\.js" . "JavaScript file skeleton")
+  '("Short description: " (gen-js-file-skeleton)))
 
 (provide 'auto-insert-skeletons)
 ;;; auto-insert-skeletons.el ends here
