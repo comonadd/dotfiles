@@ -40,5 +40,9 @@
 ;; indium package
 (require 'indium)
 
+;; jsx-mode package
+(require 'jsx-mode)
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . jsx-mode))
+
 (provide 'my/packages)
 ;;; packages.el ends here
