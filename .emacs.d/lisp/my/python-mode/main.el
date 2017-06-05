@@ -11,5 +11,8 @@
   (electric-indent-mode -1)
   (my/python-mode/bind-keys))
 
+;; Add the hook
+(add-hook 'python-mode-hook 'my/python-mode/hook)
+
 (provide 'my/python-mode/main)
 ;;; main.el ends here

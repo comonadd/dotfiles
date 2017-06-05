@@ -9,6 +9,17 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (package-initialize)
 
+;; Custom modes
+(require 'my/c-mode/main)
+(require 'my/cpp-mode/main)
+(require 'my/html-mode/main)
+(require 'my/rust-mode/main)
+(require 'my/lisp-mode/main)
+(require 'my/cmake-mode/main)
+(require 'my/python-mode/main)
+(require 'my/js-mode/main)
+(require 'my/jsx-mode/main)
+
 ;; Linum package
 (require 'linum)
 (line-number-mode 1)

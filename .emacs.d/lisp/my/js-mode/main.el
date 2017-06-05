@@ -4,6 +4,7 @@
 
 (require 'js-auto-beautify)
 (require 'web-beautify)
+(require 'js2-mode)
 
 (defun my/js-mode/set-style ()
   "Set the style for the JavaScript mode."
@@ -22,7 +23,13 @@
   (my/js-mode/set-style)
   (my/js-mode/bind-keys)
   (my/js-mode/add-hooks)
-  (js-auto-beautify-mode))
+  (js-auto-beautify-mode)
+  (setq js2-highlight-level 3)
+  (js2-mode)
+  (flycheck-mode t))
+
+;; Add the hook
+(add-hook 'js-mode-hook 'my/js-mode/hook)
 
 (provide 'my/js-mode/main)
 ;;; main.el ends here

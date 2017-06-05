@@ -12,5 +12,8 @@
   "The CMake mode hook."
   (my/cmake-mode/bind-keys))
 
+;; Add the hook
+(add-hook 'cmake-mode-hook 'my/cmake-mode/hook)
+
 (provide 'my/cmake-mode/main)
 ;;; main.el ends here

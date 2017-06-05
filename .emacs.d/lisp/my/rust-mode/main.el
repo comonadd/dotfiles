@@ -29,5 +29,8 @@
   (my/rust-mode/set-style)
   (my/rust-mode/bind-keys))
 
+;; Add the hook
+(add-hook 'rust-mode-hook 'my/rust-mode/hook)
+
 (provide 'my/rust-mode/main)
 ;;; main.el ends here
