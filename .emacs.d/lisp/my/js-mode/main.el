@@ -15,7 +15,7 @@
 
 (defun my/js-mode/add-hooks ()
   "Add hooks for the JavaScript mode."
-  (add-hook 'after-save-hook 'web-beautify-js nil 'make-it-local))
+  (add-hook 'before-save-hook 'web-beautify-js nil 'make-it-local))
 
 (defun my/js-mode/hook ()
   "The JavaScript mode hook."

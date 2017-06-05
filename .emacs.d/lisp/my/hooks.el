@@ -33,7 +33,9 @@
 
 ;; JavaScript mode hook
 (require 'my/js-mode/main)
+(require 'jsx-mode)
 (add-hook 'js-mode-hook 'my/js-mode/hook)
+(add-hook 'jsx-mode-hook 'my/js-mode/hook)
 
 ;; Other hooks
 (require 'my/before-save-hook)
