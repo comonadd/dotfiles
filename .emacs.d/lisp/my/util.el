@@ -21,7 +21,7 @@
     (move-end-of-line 1)
     (newline times)))
 
-(defun my/backward-delete-word (N)
+(defun my/backward-delete-word (n)
   "Delete N backward words."
   (interactive "p")
   (delete-region (point)
@@ -29,7 +29,7 @@
                    (backward-word 1)
                    (point))))
 
-(defun my/forward-delete-word (N)
+(defun my/forward-delete-word (n)
   "Delete N forward words."
   (interactive "p")
   (delete-region (point)
@@ -38,7 +38,7 @@
                    (point))))
 
 (defun my/toggle-comment-region-or-line ()
-  "Comments or uncomments the region or the current line if there's no active region."
+  "Comment or uncomment the region or the current line if there's no active region."
   (interactive)
   (let (beg end)
     (if (region-active-p)
