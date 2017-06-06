@@ -51,9 +51,9 @@
     (define-key input-decode-map [?\C-i]
       [C-i])
     (define-key map (kbd "<C-i>")  'backward-paragraph)
-    (define-key map (kbd "C-S-i")  'select-backward-paragraph)
+    (define-key map (kbd "C-S-i")  'my/util/select-backward-paragraph)
     (define-key map (kbd "C-k")    'forward-paragraph)
-    (define-key map (kbd "C-S-k")  'select-forward-paragraph)
+    (define-key map (kbd "C-S-k")  'my/util/select-forward-paragraph)
     (define-key map (kbd "C-j")    'backward-word)
     (define-key map (kbd "C-l")    'forward-word)
     (define-key map (kbd "C-g")    'goto-line)

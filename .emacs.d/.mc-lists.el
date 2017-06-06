@@ -22,6 +22,7 @@
         kill-region
         markdown-exdent-or-delete
         my/forward-delete-word
+        my/util/backward-delete-word
         save-all-buffers
         save-some-buffers
         upcase-region
