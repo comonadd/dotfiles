@@ -7,24 +7,24 @@
 
 (defun my/gen-c-file-top-comment ()
   "Generate a C file top comment."
-  (concat "/* File: " (my/buffer-file-name-nondir) " */\n" "/* Creation date: "
-          (my/get-current-date) " */\n" "/* Creator: " my/user-info/name-and-email " */\n"
+  (concat "/* File: " (my/util/buffer-file-name-nondir) " */\n" "/* Creation date: "
+          (my/util/get-current-date) " */\n" "/* Creator: " my/user-info/name-and-email " */\n"
           "/* Description: */\n"))
 
 (defun my/gen-lua-file-top-comment ()
   "Generate a Lua file top comment."
-  (concat "-- File: " (my/buffer-file-name-nondir) "\n" "-- Creation date: " (my/get-current-date)
+  (concat "-- File: " (my/util/buffer-file-name-nondir) "\n" "-- Creation date: " (my/util/get-current-date)
           "\n" "-- Creator: " my/user-info/name-and-email "\n" "-- Description:\n"))
 
 (defun my/gen-elisp-file-top-comment ()
   "Generate a Emacs Lisp file top comment."
-  (let ((file-name-nondir (my/buffer-file-name-nondir)))
+  (let ((file-name-nondir (my/util/buffer-file-name-nondir)))
     (concat ";;; " file-name-nondir " --- description\n" ";;; Commentary:\n" ";;; Code:\n\n\n"
-            "(provide '" (my/buffer-get-base-file-name) ")\n" ";;; " file-name-nondir " ends here")))
+            "(provide '" (my/util/buffer-get-base-file-name) ")\n" ";;; " file-name-nondir " ends here")))
 
 (defun my/gen-sh-file-top-comment ()
   "Generate a SH file top comment."
-  (concat "# File: " (my/buffer-file-name-nondir) "\n" "# Creation date: " (my/get-current-date)
+  (concat "# File: " (my/util/buffer-file-name-nondir) "\n" "# Creation date: " (my/util/get-current-date)
           "\n" "# Creator: " my/user-info/name-and-email "\n" "# Description:\n"))
 
 (defun my/gen-python-file-top-comment ()
@@ -59,12 +59,12 @@
 
 (defun my/gen-c-source-file-skeleton ()
   "Generate a skeleton for the C source file."
-  (let ((base-file-name (my/buffer-get-base-file-name)))
+  (let ((base-file-name (my/util/buffer-get-base-file-name)))
     (concat (my/gen-c-file-top-comment) "\n#include \"" base-file-name ".h\"\n")))
 
 (defun my/gen-c-header-file-skeleton ()
   "Generate a skeleton for the C header file."
-  (let ((base-file-name (my/buffer-get-base-file-name)))
+  (let ((base-file-name (my/util/buffer-get-base-file-name)))
     (let ((upcase-base-file-name (upcase base-file-name)))
       (concat (my/gen-c-file-top-comment) "\n" "#ifndef " upcase-base-file-name "_H\n" "#define "
               upcase-base-file-name "_H\n\n\n\n" "#endif /* " upcase-base-file-name "_H */"))))

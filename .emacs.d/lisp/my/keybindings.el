@@ -79,9 +79,6 @@
     (define-key isearch-mode-map "\e" 'isearch-abort)
     (define-key map (kbd "<escape>") 'keyboard-escape-quit)
 
-    ;; Fix bad backspace
-    (define-key map [(control ?h)] 'delete-backward-char)
-
     ;; Undo Tree package
     (global-undo-tree-mode 1)
     (define-key map (kbd "C-z") 'undo)
