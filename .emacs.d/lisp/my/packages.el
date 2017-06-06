@@ -19,6 +19,7 @@
 (require 'my/python-mode/main)
 (require 'my/js-mode/main)
 (require 'my/jsx-mode/main)
+(require 'my/css-mode/main)
 
 ;; Linum package
 (require 'linum)
