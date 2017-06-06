@@ -18,7 +18,7 @@
     ;; Filesystem navigation
     (define-key map (kbd "C-f")     'find-file)
     (define-key map (kbd "C-S-f")   'find-file-other-window)
-    (define-key map (kbd "<f11>")   'open-same-file-other-window)
+    (define-key map (kbd "<f11>")   'my/util/open-same-file-other-window)
     (define-key map (kbd "<f2>")    'neotree-toggle)
 
     ;; In-file serch/replace
@@ -33,7 +33,7 @@
 
     ;; Save buffers
     (define-key map (kbd "C-s")    'save-buffer)
-    (define-key map (kbd "C-S-s")  'save-all-buffers)
+    (define-key map (kbd "C-S-s")  'my/util/save-all-buffers)
 
     ;; Font size manipulation
     (define-key map (kbd "C-=")    'text-scale-increase)
@@ -64,15 +64,15 @@
     (define-key map (kbd "C-v")      'yank)
     (define-key map (kbd "C-x")      'kill-region)
     (define-key map (kbd "C-a")      'mark-whole-buffer)
-    (define-key map (kbd "C-o")      'my/insert-line-above)
-    (define-key map (kbd "C-S-o")    'my/insert-line-below)
+    (define-key map (kbd "C-o")      'my/util/insert-line-above)
+    (define-key map (kbd "C-S-o")    'my/util/insert-line-below)
     (define-key map (kbd "M-h")      'delete-backward-char)
     (define-key map (kbd "M-d")      'delete-forward-char)
-    (define-key map (kbd "C-h")      'my/backward-delete-word)
-    (define-key map (kbd "C-d")      'my/forward-delete-word)
+    (define-key map (kbd "C-h")      'my/util/backward-delete-word)
+    (define-key map (kbd "C-d")      'my/util/forward-delete-word)
 
     ;; Comment/Uncomment
-    (define-key map (kbd "C-/")  'toggle-comment-region-or-line)
+    (define-key map (kbd "C-/")  'my/util/toggle-comment-region-or-line)
 
     ;; Map escape to cancel (like C-g)...
     (define-key isearch-mode-map [escape] 'isearch-abort)
@@ -80,7 +80,7 @@
     (define-key map (kbd "<escape>") 'keyboard-escape-quit)
 
     ;; Fix bad backspace
-                                        ;    (define-key map [(control ?h)] 'delete-backward-char)
+    (define-key map [(control ?h)] 'delete-backward-char)
 
     ;; Undo Tree package
     (global-undo-tree-mode 1)
@@ -96,8 +96,7 @@
     (define-key map (kbd "<C-m>") 'mc/mark-all-like-this)
 
     ;; Expand-region package
-    (define-key map (kbd "C-'") 'er/expand-region)
-    map)
+    (define-key map (kbd "C-'") 'er/expand-region) map)
   "Minor mode keymap.")
 
 (define-minor-mode my/keys-minor-mode

@@ -53,6 +53,10 @@
   "Generate a file top comment for the JavaScript file."
   (my/gen-c-file-top-comment))
 
+(defun my/gen-yaml-file-top-comment ()
+  "Generate a file top comment for the YAML file."
+  (my/gen-sh-file-top-comment))
+
 (defun my/gen-c-source-file-skeleton ()
   "Generate a skeleton for the C source file."
   (let ((base-file-name (my/buffer-get-base-file-name)))
@@ -101,6 +105,10 @@
   "Generate a skeleton for the JavaScript file."
   (my/gen-js-file-top-comment))
 
+(defun my/gen-yaml-file-skeleton ()
+  "Generate a file top comment for the YAML file."
+  (my/gen-yaml-file-top-comment))
+
 ;; Definition of skeletons
 
 (define-auto-insert '("\\.c" . "C source file skeleton")
@@ -141,6 +149,9 @@
 
 (define-auto-insert '("\\.js" . "JavaScript file skeleton")
   '("Short description: " (my/gen-js-file-skeleton)))
+
+(define-auto-insert '("\\.yml" . "YAML file skeleton")
+  '("Short description: " (my/gen-yaml-file-skeleton)))
 
 (provide 'my/auto-insert-skeletons)
 ;;; auto-insert-skeletons.el ends here

@@ -3,8 +3,11 @@
 ;;; Code:
 
 (require 'flycheck)
+(require 'jsx-mode)
+(require 'web-mode)
 
-(flycheck-define-checker jsxhint-checker "A JSX syntax and style checker based on JSXHint."
+(flycheck-define-checker jsxhint-checker
+  "A JSX syntax and style checker based on JSXHint."
                          :command ("jsxhint" source)
                          :error-patterns ((error
                                            line-start
@@ -16,7 +19,7 @@
                                            ", "
                                            (message)
                                            line-end))
-                         :modes (web-mode))
+                         :modes (jsx-mode web-mode))
 
 (defun my/jsx-mode/set-style ()
   "Set the style for the JavaScript mode."
@@ -33,15 +36,15 @@
   (my/jsx-mode/set-style)
   (my/jsx-mode/bind-keys)
   (my/jsx-mode/add-hooks)
-  ;(flycheck-select-checker 'jsxhint-checker)
-  ;(flycheck-mode)
-  )
+  (flycheck-select-checker 'jsxhint-checker)
+  (flycheck-mode))
 
 (add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
 (defadvice web-mode-highlight-part (around tweak-jsx activate)
   (if (equal web-mode-content-type "jsx")
       (let ((web-mode-enable-part-face nil)) ad-do-it) ad-do-it))
 
+;; Add the hook
 (add-hook 'jsx-mode-hook 'my/jsx-mode/hook)
 
 (provide 'my/jsx-mode/main)
