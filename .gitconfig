@@ -2,4 +2,4 @@
 	email = dmitry.guzeev@yahoo.com
     name = Dmitry Guzeev
 [core]
-    editor = emacs -nw
+    editor = emacs-25 -nw

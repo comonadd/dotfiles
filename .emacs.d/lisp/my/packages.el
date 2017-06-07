@@ -50,7 +50,8 @@
 (cmake-ide-setup)
 
 ;; indium package
-(require 'indium)
+(when (display-graphic-p)
+  (require 'indium))
 
 ;; jsx-mode package
 (require 'jsx-mode)
