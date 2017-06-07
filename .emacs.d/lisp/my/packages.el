@@ -20,6 +20,7 @@
 (require 'my/js-mode/main)
 (require 'my/jsx-mode/main)
 (require 'my/css-mode/main)
+(require 'my/ebnf-mode)
 
 ;; Linum package
 (require 'linum)

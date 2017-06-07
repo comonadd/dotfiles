@@ -37,7 +37,8 @@
   (my/jsx-mode/bind-keys)
   (my/jsx-mode/add-hooks)
   (flycheck-select-checker 'jsxhint-checker)
-  (flycheck-mode))
+  (flycheck-mode)
+  (subword-mode))
 
 (add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
 (defadvice web-mode-highlight-part (around tweak-jsx activate)

@@ -26,7 +26,8 @@
   (js-auto-beautify-mode)
   (setq js2-highlight-level 3)
   (js2-mode)
-  (flycheck-mode t))
+  (flycheck-mode t)
+  (subword-mode))
 
 ;; Add the hook
 (add-hook 'js-mode-hook 'my/js-mode/hook)

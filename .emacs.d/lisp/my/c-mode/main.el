@@ -67,12 +67,13 @@ and open it in current window."
 (defun my/c-mode-hook ()
   "C mode hook."
 
-  ;; Disable unneeded minor modes
+  ;; Enable/disable minor modes
   (abbrev-mode -1)
   (auto-compression-mode -1)
   (auto-encryption-mode -1)
   (icomplete-mode -1)
   (mouse-wheel-mode -1)
+  (subword-mode)
 
   ;; Enable the projectile
   (projectile-mode 1)
@@ -81,7 +82,7 @@ and open it in current window."
     (helm-gtags-mode 1)
     (ggtags-mode 1))
 
-  ;; Set the style
+
   (my/c-mode-set-style)
   (electric-indent-mode 1)
   (my/c-mode-bind-keys))
