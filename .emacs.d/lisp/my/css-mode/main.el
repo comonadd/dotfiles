@@ -16,5 +16,5 @@
 (add-hook 'sass-mode 'my/css-mode/hook)
 (add-hook 'css-mode 'my/css-mode/hook)
 
-(provide 'main)
+(provide 'my/css-mode/main)
 ;;; main.el ends here
