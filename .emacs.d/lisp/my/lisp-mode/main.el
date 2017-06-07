@@ -12,5 +12,9 @@
   (my/lisp-mode/set-style)
   (local-set-key (kbd "<f8>") 'elisp-format-buffer))
 
+;; Add the hooks
+(add-hook 'lisp-mode-hook 'my/lisp-mode/hook)
+(add-hook 'emacs-lisp-mode-hook 'my/lisp-mode/hook)
+
 (provide 'my/lisp-mode/main)
 ;;; main.el ends here

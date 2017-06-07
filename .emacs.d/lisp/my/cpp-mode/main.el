@@ -27,5 +27,8 @@
   (electric-indent-mode 1)
   (my/cpp-mode-bind-keys))
 
+;; Add the hook
+(add-hook 'c++-mode-hook 'my/cpp-mode/hook)
+
 (provide 'my/cpp-mode/main)
 ;;; main.el ends here

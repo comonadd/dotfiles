@@ -86,5 +86,8 @@ and open it in current window."
   (electric-indent-mode 1)
   (my/c-mode-bind-keys))
 
+;; Add the hook
+(add-hook 'c-mode-hook 'my/c-mode/hook)
+
 (provide 'my/c-mode/main)
 ;;; main.el ends here

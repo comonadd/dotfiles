@@ -9,6 +9,18 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (package-initialize)
 
+;; Custom modes
+(require 'my/c-mode/main)
+(require 'my/cpp-mode/main)
+(require 'my/html-mode/main)
+(require 'my/rust-mode/main)
+(require 'my/lisp-mode/main)
+(require 'my/cmake-mode/main)
+(require 'my/python-mode/main)
+(require 'my/js-mode/main)
+(require 'my/jsx-mode/main)
+(require 'my/css-mode/main)
+
 ;; Linum package
 (require 'linum)
 (line-number-mode 1)
@@ -36,6 +48,14 @@
 ;; cmake-ide package
 (require 'cmake-ide)
 (cmake-ide-setup)
+
+;; indium package
+(when (display-graphic-p)
+  (require 'indium))
+
+;; jsx-mode package
+(require 'jsx-mode)
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . jsx-mode))
 
 (provide 'my/packages)
 ;;; packages.el ends here

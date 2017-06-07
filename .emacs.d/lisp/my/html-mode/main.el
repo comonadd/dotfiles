@@ -13,5 +13,8 @@
   (my/html-mode/set-style)
   (emmet-mode))
 
+;; Add the hook
+(add-hook 'html-mode-hook 'my/html-mode/hook)
+
 (provide 'my/html-mode/main)
 ;;; main.el ends here
