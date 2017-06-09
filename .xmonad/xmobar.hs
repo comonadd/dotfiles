@@ -54,6 +54,9 @@ Config {
     -- Volume
     Run Com "/home/wrongway4you/Scripts/volume.sh" [] "vol" 100,
 
+    -- System temperature
+    Run Com "/home/wrongway4you/Scripts/sys_temp.sh" [] "sys_temp" 50,
+
     -- Stdin
     Run StdinReader
   ],
@@ -62,7 +65,8 @@ Config {
   template = " \
              \%StdinReader% \
              \}{\
-             \%cpu% \
+             \ <fc=#ee9a00>System Temperature</fc>: %sys_temp% \
+             \| %cpu% \
              \| %memory% * %swap% \
              \| %mpd% \
              \| <fc=#ee9a00>Weather</fc>: %weather% \
