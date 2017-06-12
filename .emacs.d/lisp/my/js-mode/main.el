@@ -34,7 +34,6 @@
   (js-auto-beautify-mode)
   (setq js2-highlight-level 3)
   (flycheck-mode t)
-  (message "enable subword mode")
   (web-mode))
 
 (add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
