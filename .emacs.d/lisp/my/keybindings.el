@@ -70,6 +70,8 @@
     (define-key map (kbd "M-d")      'delete-forward-char)
     (define-key map (kbd "C-h")      'my/util/backward-delete-word)
     (define-key map (kbd "C-d")      'my/util/forward-delete-word)
+    (define-key map (kbd "M-n")      'my/util/delete-to-beginning-of-line)
+    (define-key map (kbd "M-m")      'my/util/delete-to-end-of-line)
 
     ;; Comment/Uncomment
     (define-key map (kbd "C-/")  'my/util/toggle-comment-region-or-line)

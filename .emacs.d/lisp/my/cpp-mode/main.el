@@ -8,12 +8,13 @@
 (defun my/cpp-mode/hook ()
   "C++ mode hook."
 
-  ;; Disable unneeded minor modes
+  ;; Disable/Enable minor modes
   (abbrev-mode -1)
   (auto-compression-mode -1)
   (auto-encryption-mode -1)
   (icomplete-mode -1)
   (mouse-wheel-mode -1)
+  (subword-mode)
 
   ;; Enable the projectile
   (projectile-mode 1)

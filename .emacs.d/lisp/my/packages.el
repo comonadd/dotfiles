@@ -9,6 +9,8 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (package-initialize)
 
+(global-subword-mode)
+
 ;; Custom modes
 (require 'my/c-mode/main)
 (require 'my/cpp-mode/main)
@@ -18,8 +20,8 @@
 (require 'my/cmake-mode/main)
 (require 'my/python-mode/main)
 (require 'my/js-mode/main)
-(require 'my/jsx-mode/main)
 (require 'my/css-mode/main)
+(require 'my/ebnf-mode)
 
 ;; Linum package
 (require 'linum)

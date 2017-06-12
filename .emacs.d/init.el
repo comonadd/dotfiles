@@ -26,7 +26,6 @@
 (require 'my/encoding)
 (require 'my/aliases)
 (require 'my/auto-insert-skeletons)
-(require 'my/modes)
 
 ;; Auto-generated stuff
 (custom-set-variables

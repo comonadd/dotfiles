@@ -26,6 +26,7 @@
         save-all-buffers
         save-some-buffers
         upcase-region
+        yaml-electric-dash-and-dot
         yas-expand
         ))
 
