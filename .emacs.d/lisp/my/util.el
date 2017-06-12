@@ -40,6 +40,18 @@
       (setq beg (line-beginning-position) end (line-end-position)))
     (comment-or-uncomment-region beg end)))
 
+(defun my/util/delete-to-beginning-of-line (n)
+  "Delete the text to the beginning of the current line N times."
+  (interactive "p")
+  (kill-line (- 1 n)))
+
+(defun my/util/delete-to-end-of-line (n)
+  "Delete the text to the end of the current line N times."
+  (interactive "p")
+  (delete-region (point)
+                 (save-excursion (move-end-of-line 1)
+                                 (point))))
+
 (defun my/util/ff-find-other-file-other-window ()
   "Switch between file extensions in other window."
   (interactive "r")
