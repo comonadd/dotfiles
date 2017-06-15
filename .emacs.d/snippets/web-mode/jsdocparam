@@ -1,0 +1,5 @@
+# -*- mode: web -*-
+# name: jsdocparam
+# key: jsdocparam
+# --
+param {$1} $2 - $3.

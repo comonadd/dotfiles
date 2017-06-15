@@ -1,0 +1,5 @@
+# -*- mode: web -*-
+# name: eslintoff
+# key: eslintoff
+# --
+/* eslint-disable */
