@@ -1,0 +1,13 @@
+# -*- mode: web -*-
+# name: jsdocf
+# key: jsdocf
+# --
+/**
+ * @summary
+ * $1
+ *
+ * @description
+ * $2
+ *
+ * @return {$3}
+ */
