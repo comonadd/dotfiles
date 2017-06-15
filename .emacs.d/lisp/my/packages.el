@@ -45,7 +45,8 @@
 
 ;; YASnippet package
 (require 'yasnippet)
-(yas-global-mode)
+(yas-global-mode 1)
+(yas-reload-all)
 
 ;; cmake-ide package
 (require 'cmake-ide)
