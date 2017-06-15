@@ -58,6 +58,7 @@
     (define-key map (kbd "C-l")    'forward-word)
     (define-key map (kbd "C-g")    'goto-line)
     (define-key map (kbd "M-o")    'newline)
+    (define-key map (kbd "C-t")    'ace-jump-mode)
 
     ;; Editing
     (define-key map (kbd "C-y")      'kill-ring-save)
