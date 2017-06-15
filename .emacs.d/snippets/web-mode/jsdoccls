@@ -1,0 +1,11 @@
+# -*- mode: web; require-final-newline: nil -*-
+# name: jsdoccls
+# key: jsdoccls
+# --
+/**
+ * @summary
+ * $1
+ *
+ * @classdesc
+ * $2
+ */
