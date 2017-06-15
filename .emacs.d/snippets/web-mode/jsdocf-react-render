@@ -1,0 +1,10 @@
+# -*- mode: web -*-
+# name: jsdocf-react-render
+# key: jsdocf-react-render
+# --
+/**
+ * @summary
+ * Render the component.
+ *
+ * @return {React.Component}
+ */

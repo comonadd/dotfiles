@@ -1,0 +1,10 @@
+# -*- mode: web -*-
+# name: jsdocf-react-did-mount
+# key: jsdocf-react-did-mount
+# --
+/**
+ * @summary
+ * Function that is invoked immediately after a component is mounted.
+ *
+ * @return {undefined}
+ */

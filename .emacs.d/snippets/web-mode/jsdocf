@@ -3,11 +3,11 @@
 # key: jsdocf
 # --
 /**
- * @summary
- * $1
- *
- * @description
- * $2
- *
- * @return {$3}
- */
+* @summary
+* $1
+*
+* @description
+* $2
+*
+* @return {$3}
+*/
