@@ -4,9 +4,9 @@
 [core]
     editor = emacs-25 -nw
 [alias]
-        co = commit
-        ck = checkout
-        a = add
-        s = status
+    co = commit
+    ck = checkout
+    a = add
+    s = status
 [credential]
     helper = cache --timeout=3600
