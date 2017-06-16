@@ -1,10 +1,12 @@
 [user]
-        email = dmitry.guzeev@yahoo.com
+    email = dmitry.guzeev@yahoo.com
     name = Dmitry Guzeev
 [core]
     editor = emacs-25 -nw
 [alias]
-        co = commit
-        ck = checkout
-        a = add
-        s = status
+    co = commit
+    ck = checkout
+    a = add
+    s = status
+[credential]
+    helper = cache --timeout=3600
