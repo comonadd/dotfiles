@@ -5,6 +5,7 @@
 (require 'undo-tree)
 (require 'multiple-cursors)
 (require 'expand-region)
+(require 'string-inflection)
 (require 'my/util)
 
 (defvar my/keys-minor-mode-map
@@ -73,6 +74,7 @@
     (define-key map (kbd "C-d")      'my/util/forward-delete-word)
     (define-key map (kbd "M-n")      'my/util/delete-to-beginning-of-line)
     (define-key map (kbd "M-m")      'my/util/delete-to-end-of-line)
+    (define-key map (kbd "<f6>")     'string-inflection-all-cycle)
 
     ;; Comment/Uncomment
     (define-key map (kbd "C-/")  'my/util/toggle-comment-region-or-line)
