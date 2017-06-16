@@ -1,5 +1,10 @@
 [user]
-	email = dmitry.guzeev@yahoo.com
+        email = dmitry.guzeev@yahoo.com
     name = Dmitry Guzeev
 [core]
     editor = emacs-25 -nw
+[alias]
+        co = commit
+        ck = checkout
+        a = add
+        s = status
