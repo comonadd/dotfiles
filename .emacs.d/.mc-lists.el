@@ -25,6 +25,7 @@
         my/util/backward-delete-word
         save-all-buffers
         save-some-buffers
+        string-inflection-all-cycle
         upcase-region
         yaml-electric-dash-and-dot
         yas-expand
