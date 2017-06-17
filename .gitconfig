@@ -8,6 +8,7 @@
     ck = checkout
     a = add
     s = status
+    b = branch
 [credential]
     helper = cache --timeout=3600
 [color]
