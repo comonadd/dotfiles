@@ -39,8 +39,8 @@
   "Generate a file top comment for the CMake file."
   (my/gen-sh-file-top-comment))
 
-(defun my/gen-scss-file-top-comment ()
-  "Generate a file top comment for the SCSS file."
+(defun my/gen-sass-file-top-comment ()
+  "Generate a file top comment for the SASS file."
   (my/gen-c-file-top-comment))
 
 (defun my/gen-html-file-top-comment ()
@@ -51,7 +51,10 @@
 
 (defun my/gen-js-file-top-comment ()
   "Generate a file top comment for the JavaScript file."
-  (my/gen-c-file-top-comment))
+  (concat "/**\n"
+          " * @file " (my/util/buffer-file-name-nondir) "\n"
+          " * @author " my/user-info/name-and-email "\n"
+          " */\n"))
 
 (defun my/gen-yaml-file-top-comment ()
   "Generate a file top comment for the YAML file."
@@ -93,9 +96,9 @@
   "Generate a skeleton for the CMake file."
   (my/gen-cmake-file-top-comment))
 
-(defun my/gen-scss-file-skeleton ()
-  "Generate a skeleton for the SCSS file."
-  (my/gen-scss-file-top-comment))
+(defun my/gen-sass-file-skeleton ()
+  "Generate a skeleton for the SASS file."
+  (my/gen-sass-file-top-comment))
 
 (defun my/gen-html-file-skeleton ()
   "Generate a skeleton for the HTML file."
@@ -142,7 +145,10 @@
   '("Short description: " (my/gen-cmake-file-skeleton)))
 
 (define-auto-insert '("\\.scss" . "SCSS file skeleton")
-  '("Short description: " (my/gen-scss-file-skeleton)))
+  '("Short description: " (my/gen-sass-file-skeleton)))
+
+(define-auto-insert '("\\.sass" . "SASS file skeleton")
+  '("Short description: " (my/gen-sass-file-skeleton)))
 
 (define-auto-insert '("\\.html" . "HTML file skeleton")
   '("Short description: " (my/gen-html-file-skeleton)))
