@@ -60,6 +60,12 @@
   "Generate a file top comment for the YAML file."
   (my/gen-sh-file-top-comment))
 
+(defun my/gen-dart-file-top-comment ()
+  "Generate a file top comment for the Dart file."
+  (concat "// File: " (my/util/buffer-file-name-nondir) "\n"
+          "// Creation date: " (my/util/get-current-date) "\n"
+          "// Creator: " my/user-info/name-and-email))
+
 (defun my/gen-c-source-file-skeleton ()
   "Generate a skeleton for the C source file."
   (let ((base-file-name (my/util/buffer-get-base-file-name)))
@@ -112,6 +118,10 @@
   "Generate a file top comment for the YAML file."
   (my/gen-yaml-file-top-comment))
 
+(defun my/gen-dart-file-skeleton ()
+  "Generate a file top comment for the Dart file."
+  (my/gen-dart-file-top-comment))
+
 ;; Definition of skeletons
 
 (define-auto-insert '("\\.c" . "C source file skeleton")
@@ -158,6 +168,9 @@
 
 (define-auto-insert '("\\.yml" . "YAML file skeleton")
   '("Short description: " (my/gen-yaml-file-skeleton)))
+
+(define-auto-insert '("\\.dart" . "Dart file skeleton")
+  '("Short description: " (my/gen-dart-file-skeleton)))
 
 (provide 'my/auto-insert-skeletons)
 ;;; auto-insert-skeletons.el ends here
