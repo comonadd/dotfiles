@@ -39,6 +39,7 @@
         c-indent-new-comment-line
         dired-next-line
         dired-previous-line
+        goto-line
         kill-this-buffer
         my/backward-delete-word
         overwrite-mode

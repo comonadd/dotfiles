@@ -40,3 +40,7 @@ setopt MAGIC_EQUAL_SUBST
 setopt BSD_ECHO
 setopt INTERACTIVE_COMMENTS
 setopt PROMPT_SUBST
+
+__git_files () {
+    _wanted files expl 'local files' _files
+}
