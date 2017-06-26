@@ -26,8 +26,11 @@
 
 (defun my/gen-lua-file-top-comment ()
   "Generate a Lua file top comment."
-  (concat "-- File: " (my/util/buffer-file-name-nondir) "\n" "-- Creation date: " (my/util/get-current-date)
-          "\n" "-- Creator: " my/user-info/name-and-email "\n" "-- Description:\n"))
+  (concat
+   "-- File: " (my/util/buffer-file-name-nondir) "\n"
+   "-- Creation date: " (my/util/get-current-date) "\n"
+   "-- Creator: " my/user-info/name-and-email "\n"
+   "-- Description:\n"))
 
 (defun my/gen-elisp-file-top-comment ()
   "Generate a Emacs Lisp file top comment."
@@ -37,8 +40,11 @@
 
 (defun my/gen-sh-file-top-comment ()
   "Generate a SH file top comment."
-  (concat "# File: " (my/util/buffer-file-name-nondir) "\n" "# Creation date: " (my/util/get-current-date)
-          "\n" "# Creator: " my/user-info/name-and-email "\n" "# Description:\n"))
+  (concat
+   "# File: " (my/util/buffer-file-name-nondir) "\n"
+   "# Creation date: " (my/util/get-current-date) "\n"
+   "# Creator: " my/user-info/name-and-email "\n"
+   "# Description:\n"))
 
 (defun my/gen-python-file-top-comment ()
   "Generate a Python file top comment."
@@ -58,9 +64,11 @@
 
 (defun my/gen-html-file-top-comment ()
   "Generate a file top comment for the HTML file."
-  (concat "<!--\n" "  File: " (my/util/buffer-file-name-nondir) "\n" "  Creation date: "
-          (my/util/get-current-date) "\n" "  Creator: " my/user-info/name-and-email "\n"
-          "  Description:\n" "-->\n"))
+  (concat
+   "<!--\n" "  File: " (my/util/buffer-file-name-nondir) "\n"
+   "  Creation date: " (my/util/get-current-date) "\n"
+   "  Creator: " my/user-info/name-and-email "\n"
+   "  Description:\n" "-->\n"))
 
 (defun my/gen-js-file-top-comment ()
   "Generate a file top comment for the JavaScript file."
