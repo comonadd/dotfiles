@@ -75,7 +75,7 @@
 (defun my/util/get-current-date ()
   "Insert current date."
   (interactive)
-  (shell-command-to-string "echo -n $(date +%Y-%m-%d)"))
+  (shell-command-to-string "echo -n $(date +\"%d %b %Y\")"))
 
 (defun my/util/open-same-file-other-window ()
   "Open the same file in another window."
