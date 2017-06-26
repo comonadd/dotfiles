@@ -5,8 +5,8 @@
 (require 'my/util)
 (require 'my/user-info)
 
-(defun my/gen-c-file-top-comment ()
-  "Generate a C file top comment."
+(defun my/gen-doxygen-file-top-comment ()
+  "Generate a Doxygen top comment."
   (concat "/**\n"
           " * @file " (my/util/buffer-file-name-nondir) "\n"
           " * @author " my/user-info/name-and-email "\n"
@@ -15,6 +15,14 @@
           " *\n"
           " * The long description of the file.\n"
           " */\n"))
+
+(defun my/gen-c-file-top-comment ()
+  "Generate a C file top comment."
+  (my/gen-doxygen-file-top-comment))
+
+(defun my/gen-cpp-file-top-comment ()
+  "Generate a C++ file top comment."
+  (my/gen-doxygen-file-top-comment))
 
 (defun my/gen-lua-file-top-comment ()
   "Generate a Lua file top comment."
@@ -76,12 +84,21 @@
   (let ((base-file-name (my/util/buffer-get-base-file-name)))
     (concat (my/gen-c-file-top-comment) "\n#include \"" base-file-name ".h\"\n")))
 
+(defun my/gen-cpp-source-file-skeleton ()
+  "Generate a skeleton for the C++ source file."
+  (let ((base-file-name (my/util/buffer-get-base-file-name)))
+    (concat (my/gen-c-file-top-comment) "\n#include \"" base-file-name ".hpp\"\n")))
+
 (defun my/gen-c-header-file-skeleton ()
   "Generate a skeleton for the C header file."
   (let ((base-file-name (my/util/buffer-get-base-file-name)))
     (let ((upcase-base-file-name (upcase base-file-name)))
       (concat (my/gen-c-file-top-comment) "\n" "#ifndef " upcase-base-file-name "_H\n" "#define "
               upcase-base-file-name "_H\n\n\n\n" "#endif /* " upcase-base-file-name "_H */"))))
+
+(defun my/gen-cpp-header-file-skeleton ()
+  "Generate a skeleton for the C++ header file."
+  (my/gen-c-header-file-skeleton))
 
 (defun my/gen-lua-file-skeleton ()
   "Generate a skeleton for the Lua file."
@@ -134,6 +151,12 @@
 
 (define-auto-insert '("\\.h" . "C header file skeleton")
   '("Short description: " (my/gen-c-header-file-skeleton)))
+
+(define-auto-insert '("\\.cpp" . "C++ source file skeleton")
+  '("Short description: " (my/gen-cpp-source-file-skeleton)))
+
+(define-auto-insert '("\\.hpp" . "C++ header file skeleton")
+  '("Short description: " (my/gen-cpp-header-file-skeleton)))
 
 (define-auto-insert '("\\.lua" . "Lua file skeleton")
   '("Short description: " (my/gen-lua-file-skeleton)))
