@@ -7,9 +7,14 @@
 
 (defun my/gen-c-file-top-comment ()
   "Generate a C file top comment."
-  (concat "/* File: " (my/util/buffer-file-name-nondir) " */\n" "/* Creation date: "
-          (my/util/get-current-date) " */\n" "/* Creator: " my/user-info/name-and-email " */\n"
-          "/* Description: */\n"))
+  (concat "/**\n"
+          " * @file " (my/util/buffer-file-name-nondir) "\n"
+          " * @author " my/user-info/name-and-email "\n"
+          " * @date " (my/util/get-current-date) "\n"
+          " * @brief Brief file description.\n"
+          " *\n"
+          " * The long description of the file.\n"
+          " */\n"))
 
 (defun my/gen-lua-file-top-comment ()
   "Generate a Lua file top comment."
