@@ -58,9 +58,30 @@
   "Generate a file top comment for the CMake file."
   (my/gen-sh-file-top-comment))
 
+(defun my/gen-css-file-top-comment ()
+  "Generate a file top comment for the CSS file."
+  (concat
+   "/**\n"
+   " * The style brief description.\n"
+   " *\n"
+   " * The style long description.\n"
+   " *\n"
+   " * @author " my/user-info/name-and-email "\n"
+   " * @copyright " (my/util/get-current-year) "\n"
+   " * @license MIT\n"
+   " */"))
+
 (defun my/gen-sass-file-top-comment ()
   "Generate a file top comment for the SASS file."
-  (my/gen-c-file-top-comment))
+  (my/gen-css-file-top-comment))
+
+(defun my/gen-scss-file-top-comment ()
+  "Generate a file top comment for the SCSS file."
+  (my/gen-css-file-top-comment))
+
+(defun my/gen-stylus-file-top-comment ()
+  "Generate a file top comment for the Stylus file."
+  (my/gen-css-file-top-comment))
 
 (defun my/gen-html-file-top-comment ()
   "Generate a file top comment for the HTML file."
@@ -132,9 +153,21 @@
   "Generate a skeleton for the CMake file."
   (my/gen-cmake-file-top-comment))
 
+(defun my/gen-css-file-skeleton ()
+  "Generate a skeleton for the CSS file."
+  (my/gen-css-file-top-comment))
+
 (defun my/gen-sass-file-skeleton ()
   "Generate a skeleton for the SASS file."
   (my/gen-sass-file-top-comment))
+
+(defun my/gen-scss-file-skeleton ()
+  "Generate a skeleton for the SCSS file."
+  (my/gen-scss-file-top-comment))
+
+(defun my/gen-stylus-file-skeleton ()
+  "Generate a skeleton for the Stylus file."
+  (my/gen-stylus-file-top-comment))
 
 (defun my/gen-html-file-skeleton ()
   "Generate a skeleton for the HTML file."
@@ -142,7 +175,10 @@
 
 (defun my/gen-js-file-skeleton ()
   "Generate a skeleton for the JavaScript file."
-  (my/gen-js-file-top-comment))
+  (concat
+   (my/gen-js-file-top-comment)
+   "\n"
+   "\'use strict\';"))
 
 (defun my/gen-yaml-file-skeleton ()
   "Generate a file top comment for the YAML file."
@@ -190,11 +226,17 @@
 (define-auto-insert '("\\.cmake" . "CMake file skeleton")
   '("Short description: " (my/gen-cmake-file-skeleton)))
 
+(define-auto-insert '("\\.css" . "CSS file skeleton")
+  '("Short description: " (my/gen-css-file-skeleton)))
+
 (define-auto-insert '("\\.scss" . "SCSS file skeleton")
-  '("Short description: " (my/gen-sass-file-skeleton)))
+  '("Short description: " (my/gen-scss-file-skeleton)))
 
 (define-auto-insert '("\\.sass" . "SASS file skeleton")
   '("Short description: " (my/gen-sass-file-skeleton)))
+
+(define-auto-insert '("\\.styl" . "Stylus file skeleton")
+  '("Short description: " (my/gen-stylus-file-skeleton)))
 
 (define-auto-insert '("\\.html" . "HTML file skeleton")
   '("Short description: " (my/gen-html-file-skeleton)))
