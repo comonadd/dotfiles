@@ -73,7 +73,7 @@
   (lisp-interaction-mode))
 
 (defun my/util/get-current-date ()
-  "Insert current date."
+  "Get the current date."
   (interactive)
   (shell-command-to-string "echo -n $(date +\"%d %b %Y\")"))
 
