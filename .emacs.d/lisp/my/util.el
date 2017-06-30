@@ -72,6 +72,11 @@
   (switch-to-buffer (get-buffer-create "*scratch*"))
   (lisp-interaction-mode))
 
+(defun my/util/get-current-year ()
+  "Get the current year."
+  (interactive)
+  (shell-command-to-string "echo -n $(date +%Y)"))
+
 (defun my/util/get-current-date ()
   "Get the current date."
   (interactive)
