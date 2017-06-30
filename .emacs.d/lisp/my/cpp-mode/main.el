@@ -18,7 +18,6 @@
 
   ;; Enable the projectile
   (projectile-mode 1)
-  (my/cpp-mode-flycheck-setup)
   (when (projectile-project-p)
     (helm-gtags-mode 1)
     (ggtags-mode 1))

@@ -92,12 +92,20 @@
     ("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198" "#d33682" "#6c71c4")))
  '(package-selected-packages
    (quote
-    (php-mode dart-mode string-inflection ace-jump-mode coffee-mode sass-mode css-eldoc jsx-mode js-auto-beautify indium zenburn-theme yoshi-theme yaml-mode web-mode web-beautify undo-tree ujelly-theme toml-mode tidy tangotango-theme tango-2-theme sublimity subatomic-theme srefactor soothe-theme solarized-theme seoul256-theme scss-mode racer qml-mode pylint py-autopep8 projectile pdb-mode paganini-theme obsidian-theme noctilux-theme neotree multiple-cursors moe-theme mmm-mode material-theme markdown-mode magit lua-mode leuven-theme kooten-theme json-mode jekyll-modes hemisu-theme helm-rtags helm-gtags hamburg-theme gruber-darker-theme gotham-theme glsl-mode ggtags function-args foggy-night-theme flymake-lua flycheck-rust flycheck-pyflakes flycheck-haskell flycheck-bashate flx-ido flatland-theme firebelly-theme expand-region ess espresso-theme emmet-mode elpy elisp-format dracula-theme distinguished-theme diminish darkburn-theme dakrone-theme csharp-mode company-rtags commenter comment-dwim-2 color-theme-sanityinc-tomorrow cmake-mode cmake-ide clues-theme clang-format busybee-theme bubbleberry-theme blackboard-theme bind-key badger-theme autopair auto-complete ample-zen-theme ample-theme afternoon-theme)))
+    (dockerfile-mode stylus-mode php-mode dart-mode string-inflection ace-jump-mode coffee-mode sass-mode css-eldoc jsx-mode js-auto-beautify indium zenburn-theme yoshi-theme yaml-mode web-mode web-beautify undo-tree ujelly-theme toml-mode tidy tangotango-theme tango-2-theme sublimity subatomic-theme srefactor soothe-theme solarized-theme seoul256-theme scss-mode racer qml-mode pylint py-autopep8 projectile pdb-mode paganini-theme obsidian-theme noctilux-theme neotree multiple-cursors moe-theme mmm-mode material-theme markdown-mode magit lua-mode leuven-theme kooten-theme json-mode jekyll-modes hemisu-theme helm-rtags helm-gtags hamburg-theme gruber-darker-theme gotham-theme glsl-mode ggtags function-args foggy-night-theme flymake-lua flycheck-rust flycheck-pyflakes flycheck-haskell flycheck-bashate flx-ido flatland-theme firebelly-theme expand-region ess espresso-theme emmet-mode elpy elisp-format dracula-theme distinguished-theme diminish darkburn-theme dakrone-theme csharp-mode company-rtags commenter comment-dwim-2 color-theme-sanityinc-tomorrow cmake-mode cmake-ide clues-theme clang-format busybee-theme bubbleberry-theme blackboard-theme bind-key badger-theme autopair auto-complete ample-zen-theme ample-theme afternoon-theme)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(pos-tip-background-color "#eee8d5")
  '(pos-tip-foreground-color "#586e75")
  '(powerline-color1 "#3d3d68")
  '(powerline-color2 "#292945")
+ '(safe-local-variable-values
+   (quote
+    ((flycheck-clang-include-path quote
+                                  ("src"))
+     (flycheck-gcc-include-path quote
+                                ("src"))
+     (flycheck-clang-include-path list "/src")
+     (flycheck-gcc-include-path list "/src"))))
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
  '(term-default-bg-color "#fdf6e3")
  '(term-default-fg-color "#657b83")
