@@ -2,6 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 
+;; Start the Emacs server
+(server-start)
+
 ;; Include other scripts
 (require 'my/disable-backup)
 (require 'my/disable-mods)
