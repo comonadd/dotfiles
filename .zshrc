@@ -35,6 +35,11 @@ alias uX="xrdb ~/.Xresources"
 
 alias make="make --warn-undefined-variables"
 
+alias rr="clear && printf '\e[3J'"
+
+alias cclip='xclip -selection clipboard'
+alias clipp='xclip -selection clipboard -o'
+
 unsetopt MULTIOS
 setopt MAGIC_EQUAL_SUBST
 setopt BSD_ECHO
@@ -45,4 +50,5 @@ __git_files () {
     _wanted files expl 'local files' _files
 }
 
-alias rr="clear && printf '\e[3J'"
+
+
