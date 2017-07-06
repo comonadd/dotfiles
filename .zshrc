@@ -7,7 +7,7 @@ export EDITOR=vim
 source ~/.profile
 
 # ZSh options
-ZSH_THEME="af-magic"
+ZSH_THEME="agnoster"
 CASE_SENSITIVE="false"
 HYPHEN_INSENSITIVE="true"
 DISABLE_AUTO_UPDATE="true"
@@ -44,3 +44,5 @@ setopt PROMPT_SUBST
 __git_files () {
     _wanted files expl 'local files' _files
 }
+
+alias rr="clear && printf '\e[3J'"
