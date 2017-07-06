@@ -1,0 +1,5 @@
+# -*- mode: web-mode -*-
+# name: fn
+# key: fn
+# --
+const $1 = ($2) => $3;
