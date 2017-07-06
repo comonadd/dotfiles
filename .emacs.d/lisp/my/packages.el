@@ -2,63 +2,145 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'package)
-
 ;; Update packages list
-(setq package-check-signature nil)
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (package-initialize)
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
-(global-subword-mode)
+(dolist (package
+         '(use-package))
+  (unless (package-installed-p package)
+    (package-install package)))
 
-;; Custom modes
-(require 'my/c-mode/main)
-(require 'my/cpp-mode/main)
-(require 'my/html-mode/main)
-(require 'my/rust-mode/main)
-(require 'my/lisp-mode/main)
-(require 'my/cmake-mode/main)
-(require 'my/python-mode/main)
-(require 'my/js-mode/main)
-(require 'my/css-mode/main)
-(require 'my/ebnf-mode)
+;; "magit" package
+(use-package magit
+  :ensure t)
+
+;; "json-mode" package
+(use-package json-mode
+  :ensure t)
+
+;; "lorem-ipsum" package
+(use-package lorem-ipsum
+  :ensure t)
+
+;; "sass-mode" package
+(use-package sass-mode
+  :ensure t)
+
+;; "dockerfile-mode" package
+(use-package dockerfile-mode
+  :ensure t)
+
+;; "helm" package
+(use-package helm
+  :ensure t)
+
+;; "clang-format" package
+(use-package clang-format
+  :ensure t)
+
+;; "elisp-format" package
+(use-package elisp-format
+  :ensure t)
+
+;; "ace-jump-mode" package
+(use-package
+  ace-jump-mode
+  :ensure t)
+
+;; "ample-theme" package
+(use-package
+  ample-theme
+  :ensure t)
+
+;; "string-inflection"
+(use-package
+  string-inflection
+  :ensure t)
+
+;; "emmet-mode" package
+(use-package
+  emmet-mode
+  :ensure t)
+
+;; "racer" package
+(use-package
+  racer
+  :ensure t)
+
+;; "js-auto-beautify" package
+(use-package
+  js-auto-beautify
+  :ensure t)
+
+;; "undo-tree" package
+(use-package
+  undo-tree
+  :ensure t)
+
+;; "expand-region" package
+(use-package
+  expand-region
+  :ensure t)
 
 ;; Linum package
-(require 'linum)
-(line-number-mode 1)
-(global-linum-mode 1)
-(column-number-mode 1)
-(setq linum-format " %d ")
+(use-package
+  linum
+  :ensure t
+  :init (progn (line-number-mode 1)
+               (global-linum-mode 1)
+               (column-number-mode 1)
+               (setq linum-format " %d ")))
 
 ;; Multiple-Cursors package
-(require 'multiple-cursors)
+(use-package
+  multiple-cursors
+  :ensure t)
 
 ;; Neotree package
-(require 'neotree)
-(setq neo-smart-open t)
-;; (setq projectile-switch-project-action 'neotree-projectile-action)
+(use-package
+  neotree
+  :ensure t
+  :init (setq neo-smart-open t))
 
 ;; Flycheck package
-(require 'flycheck)
-(setq flycheck-gcc-language-standard "c11")
-(global-flycheck-mode)
+(use-package
+  flycheck
+  :ensure t
+  :init (progn
+          (setq flycheck-gcc-language-standard "c11")
+          (global-flycheck-mode)))
 
 ;; YASnippet package
-(require 'yasnippet)
-(yas-global-mode 1)
-(yas-reload-all)
+(use-package
+  yasnippet
+  :ensure t
+  :init (progn (yas-global-mode 1)
+               (yas-reload-all)))
 
 ;; cmake-ide package
-(require 'cmake-ide)
-(cmake-ide-setup)
+(use-package
+  cmake-ide
+  :ensure t
+  :init (cmake-ide-setup))
 
 ;; indium package
 (when (display-graphic-p)
-  (require 'indium))
+  (use-package
+    indium
+    :ensure t))
 
 ;; jsx-mode package
-(require 'jsx-mode)
-(add-to-list 'auto-mode-alist '("\\.jsx\\'" . jsx-mode))
+(use-package
+  jsx-mode
+  :ensure t
+  :init (add-to-list 'auto-mode-alist '("\\.jsx\\'" . jsx-mode)))
+
+;; "projectile" package
+(use-package
+  projectile
+  :ensure t)
 
 (provide 'my/packages)
 ;;; packages.el ends here
