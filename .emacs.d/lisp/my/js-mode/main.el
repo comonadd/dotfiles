@@ -33,17 +33,23 @@
   (my/js-mode/add-hooks)
   (js-auto-beautify-mode)
   (setq js2-highlight-level 3)
-  (flycheck-mode t)
-  (web-mode))
+  (flycheck-mode t))
 
-(add-to-list 'auto-mode-alist '("\\.jsx$" . js-mode))
+(add-to-list 'auto-mode-alist '("\\.js$" .  web-mode))
+(add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.ts$" .  web-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx$" . web-mode))
+
 (defadvice web-mode-highlight-part (around tweak-jsx activate)
   (if (equal web-mode-content-type "jsx")
       (let ((web-mode-enable-part-face nil)) ad-do-it) ad-do-it))
 
+(defadvice web-mode-highlight-part (around tweak-tsx activate)
+  (if (equal web-mode-content-type "tsx")
+      (let ((web-mode-enable-part-face nil)) ad-do-it) ad-do-it))
+
 ;; Add the hooks
-(add-hook 'js-mode-hook 'my/js-mode/hook)
-(add-hook 'js2-mode-hook 'my/js-mode/hook)
+(add-hook 'web-mode-hook 'my/js-mode/hook)
 (add-hook 'web-mode-hook (lambda ()
                            ;; short circuit js mode and just do everything in jsx-mode
                            (if (equal web-mode-content-type "javascript")
