@@ -12,21 +12,7 @@
 (add-to-list 'load-path "~/.emacs.d/lisp")
 
 ;; Require the configuration pieces
-(require 'my/disable-backup)
-(require 'my/disable-mods)
-(require 'my/disable-tabs)
-(require 'my/scroll-settings)
-(require 'my/clipboard-settings)
-(require 'my/gdb-settings)
-(require 'my/undo-limits)
-(require 'my/appearance)
-(require 'my/packages)
-(require 'my/keybindings)
-(require 'my/hooks)
-(require 'my/encoding)
-(require 'my/aliases)
-(require 'my/auto-insert-skeletons)
-(require 'my/modes)
+(require 'my/init)
 
 ;; Auto-generated stuff
 (custom-set-variables
