@@ -19,7 +19,7 @@ Xft.hintstyle: hintfull
 
 ! General
 urxvt.loginShell: true
-urxvt.saveLines: 65536
+urxvt.saveLines: 32768
 urxvt.urgentOnBell: true
 urxvt.override-redirect: false
 urxvt.iso14755: False
@@ -60,21 +60,21 @@ urxvt.letterSpace: -2
 urxvt.font: xft:monaco:size=7:antialias=true
 urxvt.boldFont: xft:monaco:bold:size=7:antialias=true
 
-urxvt.background: #000000
-urxvt.foreground: #FFFFFF
+! urxvt.background: #000000
+! urxvt.foreground: #FFFFFF
 
-urxvt.color0: #000000
-urxvt.color1: #e01010
-urxvt.color2: #00AA00
-urxvt.color3: #FFFF00
-urxvt.color4: #112037
-urxvt.color5: #A020F0
-urxvt.color6: #5B5BC7
-urxvt.color7: #fefefe
-urxvt.color8: #6a6a6a
-urxvt.color9: #FF5555
-urxvt.color10: #90EE90
-urxvt.color11: #ffff2f
-urxvt.color12: #5B5BC7
-urxvt.color13: #e628ba
-urxvt.color14: #7D7DFB
+! urxvt.color0: #000000
+! urxvt.color1: #e01010
+! urxvt.color2: #00AA00
+! urxvt.color3: #FFFF00
+! urxvt.color4: #112037
+! urxvt.color5: #A020F0
+! urxvt.color6: #5B5BC7
+! urxvt.color7: #fefefe
+! urxvt.color8: #6a6a6a
+! urxvt.color9: #FF5555
+! urxvt.color10: #90EE90
+! urxvt.color11: #ffff2f
+! urxvt.color12: #5B5BC7
+! urxvt.color13: #e628ba
+! urxvt.color14: #7D7DFB

@@ -1,48 +1,17 @@
-{- |
-Module        :  hs
-Description   :  The XMonad WM main configuration file
-Copyright     :  (c) Dmitry Guzeev <dmitry.guzeev@yahoo.com>
-License       :  MIT license
+import qualified Data.Map as Map
+import qualified Data.Monoid as Monoid
 
-Maintainer    :  dmitry.guzeev@yahoo.com
-Stability     :  unstable
-Portability   :  non-portable (XMonad only works on X11)
--}
-
-module Main where
-
-import qualified Data.Map                    as Map
-import qualified Graphics.X11                as X11
-import qualified System.Cmd
-import           System.Random
-
-import           XMonad
+import XMonad
+import XMonad.Config.Kde
 import           XMonad.Actions.Navigation2D
-import           XMonad.Hooks.DynamicLog
-import           XMonad.Hooks.ManageDocks
-import           XMonad.Hooks.ManageHelpers
-import           XMonad.Hooks.SetWMName
-import           XMonad.Layout.Fullscreen
-import           XMonad.Layout.NoBorders
-import qualified XMonad.StackSet             as StackSet
-import           XMonad.Util.Run
-import           XMonad.Util.SpawnOnce
-import           XMonad.Layout.ThreeColumns
-import           XMonad.Layout.Spiral
-import           XMonad.Layout.Tabbed
+import qualified XMonad.StackSet as W -- to shift and float windows
 
 ------------------------
 -- SH commands to use --
 ------------------------
 
-xmobarCmd :: String
-xmobarCmd = "xmobar ~/.xmonad/xmobar.hs"
-
 recompileAndRestart :: X()
 recompileAndRestart = spawn "xmonad --recompile && xmonad --restart"
-
-logout :: X()
-logout = spawn "killall -9 -u $USER"
 
 shutdown :: X()
 shutdown = spawn "sudo shutdown -h now"
@@ -52,9 +21,6 @@ reboot = spawn "sudo reboot"
 
 takeScreenshot :: X()
 takeScreenshot = spawn "~/Scripts/make_screenshot.sh"
-
-openLauncher :: X()
-openLauncher = spawn "synapse"
 
 openBrowser :: X()
 openBrowser = spawn "google-chrome-stable"
@@ -73,16 +39,6 @@ volMute = spawn "amixer sset Master toggle"
 
 toggleKbdBacklight :: X()
 toggleKbdBacklight = spawn "~/Scripts/toggle_kbd_backlight.sh"
-
----------------------------
--- Configuration options --
----------------------------
-
-xmobarTitleColor :: String
-xmobarTitleColor = "green"
-
-xmobarCurrentWorkspaceColor :: String
-xmobarCurrentWorkspaceColor = "orange"
 
 ----------------
 -- Workspaces --
@@ -128,50 +84,6 @@ myWorkspaces = [
   (xK_9, sysWorkspaceLabel)
   ]
 
------------------
--- Layout hook --
------------------
-
-tabConfig = defaultTheme {
-    activeBorderColor = "#7C7C7C",
-    activeTextColor = "#CEFFAC",
-    activeColor = "#000000",
-    inactiveBorderColor = "#7C7C7C",
-    inactiveTextColor = "#EEEEEE",
-    inactiveColor = "#000000"
-}
-
-myLayoutHook = avoidStruts (
-  ThreeColMid 1 (3/100) (1/2) |||
-  Tall 1 (3/100) (1/2) |||
-  Mirror (Tall 1 (3/100) (1/2)) |||
-  tabbed shrinkText tabConfig |||
-  Full |||
-  spiral (6/7)) |||
-  noBorders (fullscreenFull Full)
-
------------------
--- Manage hook --
------------------
-
-myManageHook = composeAll . concat $ [
-  [manageDocks],
-  [isFullscreen --> doFullFloat],
-  [manageHook def]
-  ]
-
-------------------
--- Startup hook --
-------------------
-
-myStartupHook :: X()
-myStartupHook = do
-  setWMName "LG3D"
-  spawnOnce "urxvtd -o -f -q"
-
-----------
--- Keys --
-----------
 
 myKeys :: XConfig Layout -> Map.Map (ButtonMask, KeySym) (X())
 myKeys XConfig {modMask = modm} = Map.fromList $
@@ -197,10 +109,10 @@ myKeys XConfig {modMask = modm} = Map.fromList $
     wsManagementKeys = wsSwitchKeys ++ wsShiftKeys
       where
         wsSwitchKeys = [
-          ((modm, key), windows $ StackSet.greedyView ws)
+          ((modm, key), windows $ W.greedyView ws)
             | (key, ws) <- myWorkspaces]
         wsShiftKeys = [
-          ((modm .|. shiftMask, key), windows $ StackSet.shift ws)
+          ((modm .|. shiftMask, key), windows $ W.shift ws)
             | (key, ws) <- myWorkspaces]
 
     winManagementKeys = [
@@ -208,29 +120,35 @@ myKeys XConfig {modMask = modm} = Map.fromList $
       ((modm, xK_j),                   windowGo L False),
       ((modm, xK_i),                   windowGo U False),
       ((modm, xK_k),                   windowGo D False),
-      ((modm .|. shiftMask, xK_l), windowSwap R False),
-      ((modm .|. shiftMask, xK_j), windowSwap L False),
-      ((modm .|. shiftMask, xK_i), windowSwap U False),
-      ((modm .|. shiftMask, xK_k), windowSwap D False),
-      ((modm, xK_Tab),                 windows StackSet.focusDown),
-      ((modm .|. shiftMask, xK_Tab),   windows StackSet.focusUp)
+      ((modm .|. shiftMask, xK_l),     windowSwap R False),
+      ((modm .|. shiftMask, xK_j),     windowSwap L False),
+      ((modm .|. shiftMask, xK_i),     windowSwap U False),
+      ((modm .|. shiftMask, xK_k),     windowSwap D False),
+      ((modm, xK_Tab),                 windows W.focusDown),
+      ((modm .|. shiftMask, xK_Tab),   windows W.focusUp)
       ]
 
     otherKeys = [
       ((modm, xK_space),    sendMessage NextLayout),
-      ((modm, xK_t),         withFocused $ windows . StackSet.sink),
+      ((modm, xK_t),         withFocused $ windows . W.sink),
       ((modm, xK_y),        takeScreenshot),
-      ((modm, xK_p),        openLauncher),
+      --((modm, xK_p),        openLauncher),
       ((modm, xK_b),        openBrowser),
       ((modm, xK_Return),   openTerm),
       ((0, xK_Scroll_Lock), toggleKbdBacklight)
       ]
 
--------------------
--- Configuration --
--------------------
+myManageHook :: Query (Monoid.Endo WindowSet)
+myManageHook = composeAll . concat $
+    [ [ className   =? c --> doFloat           | c <- myFloats]
+    , [ title       =? t --> doFloat           | t <- myOtherFloats]
+    ]
+  where myFloats      = ["MPlayer", "Gimp", "krunner", "plasmashell"]
+        myOtherFloats = ["alsamixer"]
 
-myConfig = def {
+main :: IO()
+main = xmonad kdeConfig
+  {
   modMask = mod4Mask,
   terminal = "urxvtc",
   focusFollowsMouse = False,
@@ -240,25 +158,11 @@ myConfig = def {
   -- Border
   borderWidth = 0,
   focusedBorderColor = "#2E9AFE",
-  normalBorderColor = "#000000",
+  normalBorderColor = "#000000"
 
   -- Hooks
-  layoutHook = myLayoutHook,
-  handleEventHook = fullscreenEventHook,
-  manageHook = myManageHook,
-  startupHook = myStartupHook
+  --manageHook = myManageHook
+  -- layoutHook = myLayoutHook,
+  -- handleEventHook = fullscreenEventHook,
+  -- startupHook = myStartupHook
   }
-
------------------------
--- The main function --
------------------------
-
-main :: IO()
-main = do
-  xmproc <- spawnPipe xmobarCmd
-  xmonad $ myConfig {
-  logHook = dynamicLogWithPP xmobarPP {
-              ppOutput = hPutStrLn xmproc,
-              ppTitle = xmobarColor "darkgreen"  "" . shorten 32
-            }
-          }

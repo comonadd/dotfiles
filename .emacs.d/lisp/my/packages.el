@@ -12,6 +12,13 @@
   (unless (package-installed-p package)
     (package-install package)))
 
+(use-package haskell-mode
+  :ensure t)
+
+;; "markdown-mode" package
+(use-package markdown-mode
+  :ensure t)
+
 ;; "magit" package
 (use-package magit
   :ensure t)

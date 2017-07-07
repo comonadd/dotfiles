@@ -7,6 +7,7 @@
 (require 'web-beautify)
 (require 'js2-mode)
 (require 'web-mode)
+(require 'emmet-mode)
 
 (defun my/js-mode/set-style ()
   "Set the style for the JavaScript mode."
@@ -20,7 +21,8 @@
                  (lambda ()
                    (interactive)
                    (indent-region (point-min)
-                                  (point-max)))))
+                                  (point-max))))
+  (local-set-key (kbd "<tab>") 'emmet-expand-yas))
 
 (defun my/js-mode/add-hooks ()
   "Add hooks for the JavaScript mode."
@@ -29,6 +31,7 @@
 (defun my/js-mode/hook ()
   "The JavaScript mode hook."
   (my/js-mode/set-style)
+  (emmet-mode)
   (my/js-mode/bind-keys)
   (my/js-mode/add-hooks)
   (js-auto-beautify-mode)
