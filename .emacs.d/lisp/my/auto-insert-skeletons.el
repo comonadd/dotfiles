@@ -241,7 +241,7 @@
 (define-auto-insert '("\\.html" . "HTML file skeleton")
   '("Short description: " (my/gen-html-file-skeleton)))
 
-(define-auto-insert '("\\.js" . "JavaScript file skeleton")
+(define-auto-insert '("\\.\\(js?\\|jsx\\|ts\\|tsx\\)\\'" . "JavaScript file skeleton")
   '("Short description: " (my/gen-js-file-skeleton)))
 
 (define-auto-insert '("\\.yml" . "YAML file skeleton")
