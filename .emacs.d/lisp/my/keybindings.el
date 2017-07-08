@@ -76,6 +76,9 @@
     (define-key map (kbd "M-m")      'my/util/delete-to-end-of-line)
     (define-key map (kbd "<f6>")     'string-inflection-all-cycle)
 
+    ;; Company completion
+    (define-key map (kbd "C-SPC") 'company-complete)
+
     ;; Comment/Uncomment
     (define-key map (kbd "C-/")  'my/util/toggle-comment-region-or-line)
 
