@@ -5,6 +5,7 @@ import XMonad
 import XMonad.Config.Kde
 import           XMonad.Actions.Navigation2D
 import qualified XMonad.StackSet as W -- to shift and float windows
+import XMonad.Hooks.ManageHelpers
 
 ------------------------
 -- SH commands to use --
@@ -140,8 +141,10 @@ myKeys XConfig {modMask = modm} = Map.fromList $
 
 myManageHook :: Query (Monoid.Endo WindowSet)
 myManageHook = composeAll . concat $
-    [ [ className   =? c --> doFloat           | c <- myFloats]
-    , [ title       =? t --> doFloat           | t <- myOtherFloats]
+    [
+      [ isFullscreen --> doFullFloat ],
+      [ className   =? c --> doFloat           | c <- myFloats ],
+      [ title       =? t --> doFloat           | t <- myOtherFloats ]
     ]
   where myFloats      = ["MPlayer", "Gimp", "krunner", "plasmashell"]
         myOtherFloats = ["alsamixer"]

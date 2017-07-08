@@ -4,6 +4,8 @@
 
 ;; Modes
 (global-subword-mode)
+(global-company-mode)
+
 (require 'my/c-mode/main)
 (require 'my/cpp-mode/main)
 (require 'my/html-mode/main)

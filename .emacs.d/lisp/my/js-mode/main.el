@@ -22,7 +22,8 @@
                    (interactive)
                    (indent-region (point-min)
                                   (point-max))))
-  (local-set-key (kbd "<tab>") 'emmet-expand-yas))
+  (local-set-key (kbd "<tab>") 'indent-for-tab-command)
+  (local-set-key (kbd "C-<tab>") 'emmet-expand-yas))
 
 (defun my/js-mode/add-hooks ()
   "Add hooks for the JavaScript mode."

@@ -3,6 +3,7 @@
 ;;; Code:
 
 ;; Update packages list
+(setq package-check-signature nil)
 (package-initialize)
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
@@ -12,6 +13,11 @@
   (unless (package-installed-p package)
     (package-install package)))
 
+;; "lua-mode" package
+(use-package lua-mode
+  :ensure t)
+
+;; "haskell-mode" package
 (use-package haskell-mode
   :ensure t)
 

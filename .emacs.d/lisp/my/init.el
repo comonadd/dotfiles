@@ -2,8 +2,12 @@
 ;;; Commentary:
 ;;; Code:
 
+(require 'tramp)
+
 ;; Start the Emacs server
 (server-start)
+
+(setq tramp-default-method "ssh")
 
 ;; Include other scripts
 (require 'my/disable-backup)
