@@ -3,6 +3,7 @@
 ;;; Code:
 
 ;; Update packages list
+(setq package-check-signature nil)
 (package-initialize)
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
