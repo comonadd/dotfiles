@@ -50,5 +50,4 @@ __git_files () {
     _wanted files expl 'local files' _files
 }
 
-
-
+[[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
