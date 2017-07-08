@@ -13,6 +13,11 @@
   (unless (package-installed-p package)
     (package-install package)))
 
+;; "lua-mode" package
+(use-package lua-mode
+  :ensure t)
+
+;; "haskell-mode" package
 (use-package haskell-mode
   :ensure t)
 
