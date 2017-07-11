@@ -26,5 +26,5 @@
 (require 'my/auto-insert-skeletons)
 (require 'my/modes)
 
-(provide 'init)
+(provide 'my/init)
 ;;; init.el ends here
