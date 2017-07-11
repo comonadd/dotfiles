@@ -142,7 +142,7 @@ myKeys XConfig {modMask = modm} = Map.fromList $
 myManageHook :: Query (Monoid.Endo WindowSet)
 myManageHook = composeAll . concat $
     [
-      [ isFullscreen --> doFullFloat ],
+      [ composeOne [ isFullscreen -?> doFullFloat ] ],
       [ className   =? c --> doFloat           | c <- myFloats ],
       [ title       =? t --> doFloat           | t <- myOtherFloats ]
     ]
@@ -161,10 +161,10 @@ main = xmonad kdeConfig
   -- Border
   borderWidth = 0,
   focusedBorderColor = "#2E9AFE",
-  normalBorderColor = "#000000"
+  normalBorderColor = "#000000",
 
   -- Hooks
-  --manageHook = myManageHook
+  manageHook = manageHook kdeConfig <+> myManageHook
   -- layoutHook = myLayoutHook,
   -- handleEventHook = fullscreenEventHook,
   -- startupHook = myStartupHook

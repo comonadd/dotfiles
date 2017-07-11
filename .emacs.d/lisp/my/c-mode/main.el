@@ -4,7 +4,9 @@
 
 (require 'projectile)
 (require 'clang-format)
+(require 'ggtags)
 (require 'helm)
+(require 'cc-mode)
 
 (defun my/c-mode-find-corresponding-file ()
   "Find the file that corresponds to this one
@@ -31,12 +33,10 @@ and open it in current window."
 
 (defun my/c-mode-set-style ()
   "Set the style for the C mode."
-  (setq c-default-style "linux")
-  (setq c-basic-offset 2)
-  (setq indent-tabs-mode nil)
-  (setq tab-width 2)
+  (setq c-default-style "linux" c-basic-offset 2 indent-tabs-mode nil tab-width 2)
   (c-set-offset 'comment-intro 0)
-  (c-set-offset 'case-label '+))
+  (c-set-offset 'case-label '+)
+  (c-set-offset 'arglist-intro '+))
 
 (defun my/c-mode-bind-keys ()
   "Bind the keys for the C mode."

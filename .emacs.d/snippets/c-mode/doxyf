@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: doxyf
+# key: doxyf
+# --
+/**
+ * @brief $1.
+ *
+ * $2.
+ *
+ * @code
+ * $3
+ * @endcode
+ *
+ * @return $4.
+ */
