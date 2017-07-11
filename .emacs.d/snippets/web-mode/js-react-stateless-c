@@ -1,0 +1,8 @@
+# -*- mode: web-mode -*-
+# name: js-react-stateless-c
+# key: js-react-stateless-c
+# --
+const $1 = ($2) =>
+  <div className="$3">
+    $4
+  </div>;
