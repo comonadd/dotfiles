@@ -9,11 +9,12 @@
     a = add
     s = status
     b = branch
+    mff = merge --no-ff --no-edit
 [credential]
     helper = cache --timeout=3600
 [color]
-	ui = true
+    ui = true
 [push]
-	default = current
+    default = current
 [diff]
-	tool = meld
+    tool = meld
