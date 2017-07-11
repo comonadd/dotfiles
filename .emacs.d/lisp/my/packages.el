@@ -13,6 +13,14 @@
   (unless (package-installed-p package)
     (package-install package)))
 
+;; "gtags" package
+(use-package ggtags
+  :ensure t)
+
+;; "helm-gtags" package
+(use-package helm-gtags
+  :ensure t)
+
 ;; "lua-mode" package
 (use-package lua-mode
   :ensure t)

@@ -4,7 +4,9 @@
 
 (require 'projectile)
 (require 'clang-format)
+(require 'ggtags)
 (require 'helm)
+(require 'cc-mode)
 
 (defun my/c-mode-find-corresponding-file ()
   "Find the file that corresponds to this one
