@@ -40,6 +40,8 @@ alias rr="clear && printf '\e[3J'"
 alias cclip='xclip -selection clipboard'
 alias clipp='xclip -selection clipboard -o'
 
+alias vi='vim'
+
 unsetopt MULTIOS
 setopt MAGIC_EQUAL_SUBST
 setopt BSD_ECHO
