@@ -14,7 +14,7 @@ interface $1State {
 class $1 extends React.Component<$1Props, $1State> {
     constructor(...args: any[]) {
         // Call the parent class constructor
-        super(...args)
+        super(...args);
 
         // Initialize the state
         this.state = {
