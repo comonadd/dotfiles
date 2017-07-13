@@ -13,6 +13,9 @@
   (unless (package-installed-p package)
     (package-install package)))
 
+(use-package flyspell
+  :ensure t)
+
 ;; "gtags" package
 (use-package ggtags
   :ensure t)
