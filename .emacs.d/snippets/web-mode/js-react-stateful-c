@@ -1,0 +1,27 @@
+# -*- mode: web-mode -*-
+# name: js-react-stateful-c
+# key: js-react-stateful-c
+# --
+class $1 extends React.Component {
+  static propTypes = {
+    $2
+  };
+
+  constructor(...args) {
+    // Call the parent class constructor
+    super(...args);
+
+    // Initialize the state
+    this.state = {
+      $3
+    };
+  }
+
+  render() {
+    return (
+      <div className="$4">
+        $5
+      </div>
+    );
+  }
+}

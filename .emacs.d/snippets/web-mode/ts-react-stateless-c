@@ -1,0 +1,13 @@
+# -*- mode: web-mode -*-
+# name: ts-react-stateless-c
+# key: ts-react-stateless-c
+# --
+
+interface $1Props {
+    $2
+}
+
+const $1 = (props: $1Props) =>
+    <div className="$3">
+        $4
+    </div>;
