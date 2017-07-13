@@ -3,11 +3,11 @@
 # key: ts-react-stateless-c
 # --
 
-interface $1Props {
+type $1Props = {
     $2
 }
 
-const $1 = (props: $1Props) =>
-    <div className="$3">
+const $1 = (props: $1Props): React.SFC<$1Props> =>
+    <div className=$3>
         $4
     </div>;
