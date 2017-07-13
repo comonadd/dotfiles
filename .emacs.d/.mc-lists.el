@@ -18,6 +18,7 @@
         forward-kill-word
         haskell-indentation-common-electric-command
         indent-for-tab-command
+        js-auto-beautify-when-branck
         keyboard-escape-quit
         kill-region
         markdown-exdent-or-delete
