@@ -5,7 +5,7 @@
 
 type $1Props = {
     $2
-}
+};
 
 const $1 = (props: $1Props): React.SFC<$1Props> =>
     <div className=$3>
