@@ -19,7 +19,7 @@ class $1 extends React.Component<$1Props, $1State> {
         $4
     };
 
-    render() {
+    render(): JSX.Element {
         return (
             <div className=$5>
                  $6

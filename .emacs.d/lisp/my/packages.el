@@ -13,6 +13,11 @@
   (unless (package-installed-p package)
     (package-install package)))
 
+;; "toml-mode" package
+(use-package toml-mode
+  :ensure t)
+
+;; "flyspell" package
 (use-package flyspell
   :ensure t)
 

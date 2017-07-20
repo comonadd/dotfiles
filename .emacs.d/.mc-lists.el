@@ -12,6 +12,7 @@
         c-electric-semi&comma
         c-electric-slash
         c-indent-line-or-region
+        company-complete
         downcase-region
         elpy-nav-forward-indent
         find-corresponding-file
@@ -41,9 +42,11 @@
         c-indent-new-comment-line
         dired-next-line
         dired-previous-line
+        emmet-expand-line
         goto-line
         kill-this-buffer
         my/backward-delete-word
+        my/util/delete-to-beginning-of-line
         overwrite-mode
         toggle-comment-region-or-line
         ))
