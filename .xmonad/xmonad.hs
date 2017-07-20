@@ -6,6 +6,7 @@ import XMonad.Config.Kde
 import           XMonad.Actions.Navigation2D
 import qualified XMonad.StackSet as W -- to shift and float windows
 import XMonad.Hooks.ManageHelpers
+import XMonad.Hooks.SetWMName
 
 ------------------------
 -- SH commands to use --
@@ -85,7 +86,7 @@ myWorkspaces = [
   (xK_9, sysWorkspaceLabel)
   ]
 
-
+-- The keys
 myKeys :: XConfig Layout -> Map.Map (ButtonMask, KeySym) (X())
 myKeys XConfig {modMask = modm} = Map.fromList $
   sysManagementKeys ++ volManagementKeys ++
@@ -139,6 +140,7 @@ myKeys XConfig {modMask = modm} = Map.fromList $
       ((0, xK_Scroll_Lock), toggleKbdBacklight)
       ]
 
+-- The manage hook
 myManageHook :: Query (Monoid.Endo WindowSet)
 myManageHook = composeAll . concat $
     [
@@ -149,6 +151,12 @@ myManageHook = composeAll . concat $
   where myFloats      = ["MPlayer", "Gimp", "krunner", "plasmashell"]
         myOtherFloats = ["alsamixer"]
 
+-- The startup hook
+myStartupHook :: X()
+myStartupHook = do
+  setWMName "LG3D"
+
+-- The main function
 main :: IO()
 main = xmonad kdeConfig
   {
@@ -164,8 +172,8 @@ main = xmonad kdeConfig
   normalBorderColor = "#000000",
 
   -- Hooks
-  manageHook = manageHook kdeConfig <+> myManageHook
+  manageHook = manageHook kdeConfig <+> myManageHook,
+  startupHook = myStartupHook
   -- layoutHook = myLayoutHook,
   -- handleEventHook = fullscreenEventHook,
-  -- startupHook = myStartupHook
   }
