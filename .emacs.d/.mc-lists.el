@@ -26,6 +26,7 @@
         my/forward-delete-word
         my/util/backward-delete-word
         my/util/delete-to-end-of-line
+        my/util/toggle-comment-region-or-line
         save-all-buffers
         save-some-buffers
         string-inflection-all-cycle

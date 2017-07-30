@@ -21,9 +21,6 @@
 (global-font-lock-mode t)
 (setq font-lock-maximum-decoration t)
 
-(add-to-list 'default-frame-alist '(font . "Mono-10"))
-(set-face-attribute 'default t :font "Mono-10")
-
 ;; Set default font
 (set-face-attribute 'default nil
                     :family "Source Code Pro"
