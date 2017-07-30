@@ -13,6 +13,10 @@
   (unless (package-installed-p package)
     (package-install package)))
 
+;; "tidy" package
+(use-package tidy
+  :ensure t)
+
 ;; "toml-mode" package
 (use-package toml-mode
   :ensure t)
