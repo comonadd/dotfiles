@@ -7,6 +7,7 @@ import           XMonad.Actions.Navigation2D
 import qualified XMonad.StackSet as W -- to shift and float windows
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.SetWMName
+import XMonad.Hooks.EwmhDesktops
 
 ------------------------
 -- SH commands to use --
@@ -153,8 +154,7 @@ myManageHook = composeAll . concat $
 
 -- The startup hook
 myStartupHook :: X()
-myStartupHook = do
-  setWMName "LG3D"
+myStartupHook = setWMName "LG3D"
 
 -- The main function
 main :: IO()
@@ -173,7 +173,7 @@ main = xmonad kdeConfig
 
   -- Hooks
   manageHook = manageHook kdeConfig <+> myManageHook,
-  startupHook = myStartupHook
+  startupHook = startupHook kdeConfig <+> myStartupHook,
+  handleEventHook = fullscreenEventHook
   -- layoutHook = myLayoutHook,
-  -- handleEventHook = fullscreenEventHook,
   }
