@@ -13,6 +13,9 @@
   (unless (package-installed-p package)
     (package-install package)))
 
+(use-package graphql-mode
+  :ensure t)
+
 (use-package foggy-night-theme
   :ensure t)
 
