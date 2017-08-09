@@ -16,6 +16,10 @@
 (use-package foggy-night-theme
   :ensure t)
 
+;; "yaml-mode"
+(use-package yaml-mode
+  :ensure t)
+
 ;; "tidy" package
 (use-package tidy
   :ensure t)
