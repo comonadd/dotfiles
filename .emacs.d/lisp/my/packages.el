@@ -13,6 +13,16 @@
   (unless (package-installed-p package)
     (package-install package)))
 
+(use-package graphql-mode
+  :ensure t)
+
+(use-package foggy-night-theme
+  :ensure t)
+
+;; "yaml-mode"
+(use-package yaml-mode
+  :ensure t)
+
 ;; "tidy" package
 (use-package tidy
   :ensure t)

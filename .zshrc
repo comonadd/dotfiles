@@ -7,7 +7,7 @@ export EDITOR=vim
 source ~/.profile
 
 # ZSh options
-ZSH_THEME="agnoster"
+ZSH_THEME="af-magic"
 CASE_SENSITIVE="false"
 HYPHEN_INSENSITIVE="true"
 DISABLE_AUTO_UPDATE="true"
