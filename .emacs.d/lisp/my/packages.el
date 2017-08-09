@@ -13,6 +13,9 @@
   (unless (package-installed-p package)
     (package-install package)))
 
+(use-package foggy-night-theme
+  :ensure t)
+
 ;; "tidy" package
 (use-package tidy
   :ensure t)
