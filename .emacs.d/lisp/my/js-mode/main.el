@@ -29,6 +29,11 @@
   "Add hooks for the JavaScript mode."
   (add-hook 'before-save-hook 'web-beautify-js nil 'make-it-local))
 
+(defun my/js-mode/update-for-typescript ()
+  (setq js-indent-level 4)
+  (setq web-mode-code-indent-offset 4)
+  (setq web-mode-markup-indent-offset 4))
+
 (defun my/js-mode/hook ()
   "The JavaScript mode hook."
   (my/js-mode/set-style)
@@ -37,7 +42,11 @@
   (my/js-mode/add-hooks)
   (js-auto-beautify-mode)
   (setq js2-highlight-level 3)
-  (flycheck-mode t))
+  (flycheck-mode t)
+
+  (if (or (string-equal (file-name-extension buffer-file-name) "ts")
+           (string-equal (file-name-extension buffer-file-name) "tsx"))
+      (my/js-mode/update-for-typescript)))
 
 (add-to-list 'auto-mode-alist '("\\.js$" .  web-mode))
 (add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
