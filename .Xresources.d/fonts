@@ -1,0 +1,10 @@
+!###
+!### The X fonts configuration file
+!### Author: Dmitry Guzeev <dmitry.guzeev@yahoo.com>
+!###
+
+Xft.dpi: 96
+Xft.antialias: true
+Xft.rgba: rgb
+Xft.hinting: true
+Xft.hintstyle: hintfull

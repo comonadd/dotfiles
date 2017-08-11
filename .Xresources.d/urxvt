@@ -1,0 +1,85 @@
+!###
+!### The X URxvt configuration file
+!### Author: Dmitry Guzeev <dmitry.guzeev@yahoo.com>
+!###
+
+! General
+
+urxvt.loginShell: true
+urxvt.saveLines: 32768
+urxvt.urgentOnBell: true
+urxvt.override-redirect: false
+urxvt.iso14755: False
+
+! Moving
+
+urxvt.keysym.Control-Up: \033[1;5A
+urxvt.keysym.Control-i: \033[1;5A
+urxvt.keysym.M-i: \033[A
+
+urxvt.keysym.Control-Down: \033[1;5B
+urxvt.keysym.Control-k: \033[1;5B
+urxvt.keysym.M-k: \033[B
+
+urxvt.keysym.Control-Left: \033[1;5D
+urxvt.keysym.Control-j: \033[1;5D
+urxvt.keysym.M-j: \033[D
+
+urxvt.keysym.Control-Right: \033[1;5C
+urxvt.keysym.Control-l: \033[1;5C
+urxvt.keysym.M-l: \033[C
+
+! Extensions
+urxvt.perl-lib: /usr/lib/urxvt/perl
+urxvt.perl-ext-common: searchable-scrollback,clipboard,font-size,selection-to-clipboard,url-select,resize-font
+
+! Font-resizer
+urxvt.resize-font.smaller: C-minus
+urxvt.resize-font.bigger: C-equal
+
+! URL Launcher
+urxvt.keysym.M-u: perl:url-select:select_next
+urxvt.url-select.launcher: /usr/bin/xdg-open
+urxvt.url-select.underline: true
+
+! Matcher
+urxvt.matcher.button: 1
+
+! Copy/Paste
+urxvt.clipboard.copycmd: xclip -i -selection clipboard
+urxvt.clipboard.pastecmd: xclip -o -selection clipboard
+urxvt.keysym.C-y: perl:clipboard:copy
+urxvt.keysym.C-p: perl:clipboard:paste
+
+! Appearance
+urxvt.scrollBar: false
+urxvt.secondaryScroll: true
+urxvt.borderLess: false
+urxvt.internalBorder: 0
+urxvt.externalBorder: 0
+urxvt.cursorBlink: false
+urxvt.transparent: false
+
+! Font
+urxvt.font:     xft:bitstream vera sans mono:size=12:antialias=true
+urxvt.boldFont: xft:bitstream vera sans mono:bold:size=12:antialias=true
+
+! Colors
+urxvt.foreground: white
+urxvt.background: black
+urxvt.color0:  #2E3436
+urxvt.color1:  #a40000
+urxvt.color2:  #4E9A06
+urxvt.color3:  #C4A000
+urxvt.color4:  #3465A4
+urxvt.color5:  #75507B
+urxvt.color6:  #ce5c00
+urxvt.color7:  #babdb9
+urxvt.color8:  #555753
+urxvt.color9:  #EF2929
+urxvt.color10: #8AE234
+urxvt.color11: #FCE94F
+urxvt.color12: #729FCF
+urxvt.color13: #AD7FA8
+urxvt.color14: #fcaf3e
+urxvt.color15: #EEEEEC
