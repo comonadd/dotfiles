@@ -53,27 +53,3 @@ __git_files () {
 }
 
 [[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
-
-function docker-compose-watch() {
-  local args;
-  local watch_dir;
-
-  if [[ $1 == "help" ]] || [[ $1 = "--help" ]]; then
-    watchexec --help | grep -A 3 "OPTIONS:";
-    return;
-  else
-    if [[ $1 == "-w" ]]; then
-      watch_dir=$(readlink -f $2);
-    else
-      watch_dir=$(pwd);
-    fi
-
-    args='--filter "*/docker-compose.yml"' && [[ $1 ]] && args=$@;
-  fi
-
-  echo "Watching for changes in " $watch_dir;
-
-  eval watchexec --restart $args -w $watch_dir "docker-compose up"
-}
-
-alias docker-compose-reload=docker-compose-watch;
