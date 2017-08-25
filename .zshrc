@@ -1,3 +1,17 @@
+# Some functions
+shift-arrow() {
+  ((REGION_ACTIVE)) || zle set-mark-command
+  zle $1
+}
+shift-left() shift-arrow backward-char
+shift-right() shift-arrow forward-char
+shift-up() shift-arrow up-line-or-history
+shift-down() shift-arrow down-line-or-history
+zle -N shift-left
+zle -N shift-right
+zle -N shift-up
+zle -N shift-down
+
 # Environment variables
 export ZSH=~/.oh-my-zsh
 export UPDATE_ZSH_DAYS=16
@@ -53,3 +67,15 @@ __git_files () {
 }
 
 [[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
+
+# Keybindings
+bindkey "^[h" backward-delete-char
+bindkey "^[d" delete-char
+
+bindkey "^H" backward-kill-word
+bindkey "^D" kill-word
+
+bindkey "^[J" shift-left
+bindkey "^[L" shift-right
+bindkey "^[I" shift-up
+bindkey "^[K" shift-down
