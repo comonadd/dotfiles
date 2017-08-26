@@ -7,6 +7,7 @@
 (require 'expand-region)
 (require 'string-inflection)
 (require 'my/util)
+(require 'expand-region)
 
 (defvar my/keys-minor-mode-map
   (let ((map (make-sparse-keymap)))
@@ -75,6 +76,8 @@
     (define-key map (kbd "M-n")      'my/util/delete-to-beginning-of-line)
     (define-key map (kbd "M-m")      'my/util/delete-to-end-of-line)
     (define-key map (kbd "<f6>")     'string-inflection-all-cycle)
+    (define-key map (kbd "C-n")      'er/mark-word)
+    (define-key map (kbd "C-S-n")    'er/mark-symbol)
 
     ;; Company completion
     (define-key map (kbd "C-SPC") 'company-complete)

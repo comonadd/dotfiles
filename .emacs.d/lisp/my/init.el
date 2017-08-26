@@ -3,11 +3,16 @@
 ;;; Code:
 
 (require 'tramp)
+(require 'ido)
 
 ;; Start the Emacs server
 (server-start)
 
+;; Configure tramp
 (setq tramp-default-method "ssh")
+
+;; Enable IDO mode
+(ido-mode t)
 
 ;; Include other scripts
 (require 'my/disable-backup)

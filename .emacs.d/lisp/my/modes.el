@@ -16,6 +16,7 @@
 (require 'my/js-mode/main)
 (require 'my/css-mode/main)
 (require 'my/ebnf-mode)
+(require 'my/json-mode/main)
 
 (provide 'my/modes)
 ;;; modes.el ends here
