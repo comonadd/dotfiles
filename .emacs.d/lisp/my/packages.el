@@ -13,78 +13,101 @@
   (unless (package-installed-p package)
     (package-install package)))
 
-(use-package graphql-mode
+(use-package
+  apache-mode
   :ensure t)
 
-(use-package foggy-night-theme
+(use-package
+  graphql-mode
+  :ensure t)
+
+(use-package
+  foggy-night-theme
   :ensure t)
 
 ;; "yaml-mode"
-(use-package yaml-mode
+(use-package
+  yaml-mode
   :ensure t)
 
 ;; "tidy" package
-(use-package tidy
+(use-package
+  tidy
   :ensure t)
 
 ;; "toml-mode" package
-(use-package toml-mode
+(use-package
+  toml-mode
   :ensure t)
 
 ;; "flyspell" package
-(use-package flyspell
+(use-package
+  flyspell
   :ensure t)
 
 ;; "gtags" package
-(use-package ggtags
+(use-package
+  ggtags
   :ensure t)
 
 ;; "helm-gtags" package
-(use-package helm-gtags
+(use-package
+  helm-gtags
   :ensure t)
 
 ;; "lua-mode" package
-(use-package lua-mode
+(use-package
+  lua-mode
   :ensure t)
 
 ;; "haskell-mode" package
-(use-package haskell-mode
+(use-package
+  haskell-mode
   :ensure t)
 
 ;; "markdown-mode" package
-(use-package markdown-mode
+(use-package
+  markdown-mode
   :ensure t)
 
 ;; "magit" package
-(use-package magit
+(use-package
+  magit
   :ensure t)
 
 ;; "json-mode" package
-(use-package json-mode
+(use-package
+  json-mode
   :ensure t)
 
 ;; "lorem-ipsum" package
-(use-package lorem-ipsum
+(use-package
+  lorem-ipsum
   :ensure t)
 
 ;; "sass-mode" package
-(use-package sass-mode
+(use-package
+  sass-mode
   :ensure t)
 
 ;; "dockerfile-mode" package
-(use-package dockerfile-mode
+(use-package
+  dockerfile-mode
   :ensure t)
 
 ;; "helm" package
-(use-package helm
+(use-package
+  helm
   :ensure t)
 
 ;; "clang-format" package
-(use-package clang-format
+(use-package
+  clang-format
   :ensure t)
 
 ;; "elisp-format" package
-(use-package elisp-format
+(use-package
+  elisp-format
   :ensure t)
 
 ;; "ace-jump-mode" package
@@ -110,11 +133,6 @@
 ;; "racer" package
 (use-package
   racer
-  :ensure t)
-
-;; "js-auto-beautify" package
-(use-package
-  js-auto-beautify
   :ensure t)
 
 ;; "undo-tree" package
