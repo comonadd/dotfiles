@@ -33,6 +33,7 @@
 
 (defun my/js-mode/hook ()
   "The JavaScript mode hook."
+  (projectile-mode)
   (my/js-mode/set-style)
   (emmet-mode)
   (my/js-mode/bind-keys)
