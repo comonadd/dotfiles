@@ -25,7 +25,10 @@
         markdown-exdent-or-delete
         my/forward-delete-word
         my/util/backward-delete-word
+        my/util/backward-word
         my/util/delete-to-end-of-line
+        my/util/forward-delete-word
+        my/util/forward-word
         my/util/toggle-comment-region-or-line
         save-all-buffers
         save-some-buffers
