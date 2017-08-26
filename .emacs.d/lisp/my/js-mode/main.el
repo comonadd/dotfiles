@@ -3,8 +3,6 @@
 ;;; Code:
 
 (require 'flycheck)
-(require 'js-auto-beautify)
-(require 'web-beautify)
 (require 'js2-mode)
 (require 'web-mode)
 (require 'emmet-mode)
@@ -26,8 +24,7 @@
   (local-set-key (kbd "C-<tab>") 'emmet-expand-yas))
 
 (defun my/js-mode/add-hooks ()
-  "Add hooks for the JavaScript mode."
-  (add-hook 'before-save-hook 'web-beautify-js nil 'make-it-local))
+  "Add hooks for the JavaScript mode.")
 
 (defun my/js-mode/update-for-typescript ()
   (setq js-indent-level 4)
@@ -40,7 +37,6 @@
   (emmet-mode)
   (my/js-mode/bind-keys)
   (my/js-mode/add-hooks)
-  (js-auto-beautify-mode)
   (setq js2-highlight-level 3)
   (flycheck-mode t)
 
