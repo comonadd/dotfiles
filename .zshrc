@@ -56,6 +56,9 @@ alias clipp='xclip -selection clipboard -o'
 
 alias vi='vim'
 
+alias gits='git status'
+alias gitc='git commit'
+
 unsetopt MULTIOS
 setopt MAGIC_EQUAL_SUBST
 setopt BSD_ECHO
