@@ -14,6 +14,27 @@
     (package-install package)))
 
 (use-package
+  sublimity
+  :ensure t
+  :init (progn
+          (require 'sublimity)
+          (require 'sublimity-scroll)
+          (require 'sublimity-map)
+          (require 'sublimity-attractive)
+          (setq sublimity-scroll-weight 10)
+          (setq sublimity-scroll-drift-length 5)
+          (setq sublimity-map-size 20)
+          (setq sublimity-map-fraction 0.3)
+          (setq sublimity-map-text-scale -4)
+          (sublimity-map-set-delay 4)
+          (setq sublimity-attractive-centering-width 256)
+          (sublimity-attractive-hide-bars)
+          (sublimity-attractive-hide-vertical-border)
+          (sublimity-attractive-hide-fringes)
+          (sublimity-attractive-hide-modelines)
+          (sublimity-mode 1)))
+
+(use-package
   apache-mode
   :ensure t)
 
