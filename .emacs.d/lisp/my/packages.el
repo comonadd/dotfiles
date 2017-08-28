@@ -14,6 +14,13 @@
     (package-install package)))
 
 (use-package
+  smex
+  :ensure t
+  :init (progn
+          (require 'smex)
+          (smex-initialize)))
+
+(use-package
   sublimity
   :ensure t
   :init (progn

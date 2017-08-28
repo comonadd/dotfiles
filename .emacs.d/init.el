@@ -125,7 +125,7 @@ static char *gnus-pointer[] = {
     ("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198" "#d33682" "#6c71c4")))
  '(package-selected-packages
    (quote
-    (sublimity apache-mode solarized-theme leuven-theme monokai-theme cherry-blossom-theme darkroom flatland-theme flatland-black-theme gruber-darker-theme alect-themes graphql-mode foggy-night-theme yaml-mode tidy toml-mode haskell-mode markdown-mode json-mode magit lorem-ipsum sass-mode dockerfile-mode helm clang-format ample-theme elisp-format js-auto-beautify yasnippet use-package undo-tree string-inflection racer projectile neotree multiple-cursors jsx-mode indium flycheck expand-region emmet-mode cmake-ide)))
+    (smex sublimity apache-mode solarized-theme leuven-theme monokai-theme cherry-blossom-theme darkroom flatland-theme flatland-black-theme gruber-darker-theme alect-themes graphql-mode foggy-night-theme yaml-mode tidy toml-mode haskell-mode markdown-mode json-mode magit lorem-ipsum sass-mode dockerfile-mode helm clang-format ample-theme elisp-format js-auto-beautify yasnippet use-package undo-tree string-inflection racer projectile neotree multiple-cursors jsx-mode indium flycheck expand-region emmet-mode cmake-ide)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(pos-tip-background-color "#eee8d5")
  '(pos-tip-foreground-color "#586e75")

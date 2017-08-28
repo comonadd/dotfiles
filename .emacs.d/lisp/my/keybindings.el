@@ -8,12 +8,13 @@
 (require 'string-inflection)
 (require 'my/util)
 (require 'expand-region)
+(require 'smex)
 
 (defvar my/keys-minor-mode-map
   (let ((map (make-sparse-keymap)))
     ;; Emacs-specific keybindings
     (define-key map (kbd "C-q")     'save-buffers-kill-terminal)
-    (define-key map (kbd "C-p")     'execute-extended-command)
+    (define-key map (kbd "C-p")     'smex)
     (define-key map (kbd "<f1>")    'eval-region)
     (define-key map (kbd "<M-f1>")  'eval-last-sexp)
 
