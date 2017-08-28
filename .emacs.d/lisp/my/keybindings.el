@@ -9,6 +9,7 @@
 (require 'my/util)
 (require 'expand-region)
 (require 'smex)
+(require 'ido)
 
 (defvar my/keys-minor-mode-map
   (let ((map (make-sparse-keymap)))
@@ -19,7 +20,7 @@
     (define-key map (kbd "<M-f1>")  'eval-last-sexp)
 
     ;; Filesystem navigation
-    (define-key map (kbd "C-f")     'find-file)
+    (define-key map (kbd "C-f")     'ido-find-file)
     (define-key map (kbd "C-S-f")   'find-file-other-window)
     (define-key map (kbd "<f11>")   'my/util/open-same-file-other-window)
     (define-key map (kbd "<f2>")    'neotree-toggle)
