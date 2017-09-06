@@ -21,7 +21,7 @@ export EDITOR=vim
 source ~/.profile
 
 # ZSh options
-ZSH_THEME="af-magic"
+ZSH_THEME="awesomepanda"
 CASE_SENSITIVE="false"
 HYPHEN_INSENSITIVE="true"
 DISABLE_AUTO_UPDATE="true"
