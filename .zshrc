@@ -1,7 +1,7 @@
 # Some functions
 shift-arrow() {
-  ((REGION_ACTIVE)) || zle set-mark-command
-  zle $1
+    ((REGION_ACTIVE)) || zle set-mark-command
+    zle $1
 }
 shift-left() shift-arrow backward-char
 shift-right() shift-arrow forward-char
@@ -21,7 +21,7 @@ export EDITOR=vim
 source ~/.profile
 
 # ZSh options
-ZSH_THEME="af-magic"
+ZSH_THEME="awesomepanda"
 CASE_SENSITIVE="false"
 HYPHEN_INSENSITIVE="true"
 DISABLE_AUTO_UPDATE="true"
@@ -82,3 +82,7 @@ bindkey "^[J" shift-left
 bindkey "^[L" shift-right
 bindkey "^[I" shift-up
 bindkey "^[K" shift-down
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

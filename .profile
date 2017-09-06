@@ -12,3 +12,6 @@ export PATH=$PATH:$HOME/Scripts
 
 # The language
 export LANG=en_US.UTF-8
+
+# NVM
+export PATH=$PATH:/usr/share/nvm
