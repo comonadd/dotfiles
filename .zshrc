@@ -1,7 +1,7 @@
 # Some functions
 shift-arrow() {
-  ((REGION_ACTIVE)) || zle set-mark-command
-  zle $1
+    ((REGION_ACTIVE)) || zle set-mark-command
+    zle $1
 }
 shift-left() shift-arrow backward-char
 shift-right() shift-arrow forward-char
