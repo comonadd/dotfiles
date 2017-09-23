@@ -1,0 +1,9 @@
+source ~/.vim/scripts/functions.vimrc
+source ~/.vim/scripts/bundles.vimrc
+source ~/.vim/scripts/appearance.vimrc
+source ~/.vim/scripts/autocomplete.vimrc
+source ~/.vim/scripts/folding.vimrc
+source ~/.vim/scripts/settings.vimrc
+source ~/.vim/scripts/keybindings.vimrc
+source ~/.vim/scripts/hooks.vimrc
+source ~/.vim/scripts/plugin-settings.vimrc
