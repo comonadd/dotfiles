@@ -1,0 +1,3 @@
+function! SwitchBuffer()
+  b#
+endfunction

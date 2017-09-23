@@ -2,7 +2,7 @@
     email = dmitry.guzeev@yahoo.com
     name = Dmitry Guzeev
 [core]
-    editor = emacs -nw
+    editor = nvim
 [alias]
     co = commit
     ck = checkout

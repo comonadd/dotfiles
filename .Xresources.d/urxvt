@@ -4,7 +4,6 @@
 !###
 
 ! General
-
 urxvt.loginShell: true
 urxvt.saveLines: 32768
 urxvt.urgentOnBell: true
@@ -12,7 +11,6 @@ urxvt.override-redirect: false
 urxvt.iso14755: False
 
 ! Moving
-
 urxvt.keysym.Control-Up: \033[1;5A
 urxvt.keysym.Control-i: \033[1;5A
 urxvt.keysym.M-i: \033[A
@@ -61,8 +59,8 @@ urxvt.cursorBlink: false
 urxvt.transparent: false
 
 ! Font
-urxvt.font: xft:Source Code Pro:pixelsize=14:antialias=true
-urxvt.boldFont: xft:Source Code Pro:pixelsize=14:bold=true:antialias=true
+urxvt.font: xft:Source\ Code\ Pro\ Medium:pixelsize=13:antialias=true:hinting=true,xft:Source\ Code\ Pro\ Medium:pixelsize=13:antialias=true:hinting=true
+urxvt.boldFont: xft:Source\ Code\ Pro\ Medium:bold=true:pixelsize=13:antialias=true:hinting=true,xft:Source\ Code\ Pro\ Medium:pixelsize=13:antialias=true:hinting=true
 
 ! Colors
 urxvt.foreground: white
