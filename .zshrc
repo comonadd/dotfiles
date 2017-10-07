@@ -59,6 +59,8 @@ alias vi='vim'
 alias gits='git status'
 alias gitc='git commit'
 
+alias neovim='nvim'
+
 unsetopt MULTIOS
 setopt MAGIC_EQUAL_SUBST
 setopt BSD_ECHO
@@ -71,18 +73,8 @@ __git_files () {
 
 [[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
 
-# Keybindings
-bindkey "^[h" backward-delete-char
-bindkey "^[d" delete-char
+# Enable Vim mode
+bindkey -v
 
-bindkey "^H" backward-kill-word
-bindkey "^D" kill-word
-
-bindkey "^[J" shift-left
-bindkey "^[L" shift-right
-bindkey "^[I" shift-up
-bindkey "^[K" shift-down
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# Initialize NVM
+source /usr/share/nvm/init-nvm.sh

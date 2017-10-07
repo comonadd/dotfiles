@@ -10,4 +10,5 @@ augroup myvimrc
   au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
 augroup END
 
-autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
+" Enable directory auto-change
+autocmd BufEnter * silent! lcd %:p:h
