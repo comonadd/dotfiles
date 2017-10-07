@@ -59,6 +59,8 @@ alias vi='vim'
 alias gits='git status'
 alias gitc='git commit'
 
+alias neovim='nvim'
+
 unsetopt MULTIOS
 setopt MAGIC_EQUAL_SUBST
 setopt BSD_ECHO
