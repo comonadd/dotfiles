@@ -5,7 +5,7 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
 endif
 
 set background=dark
-colorscheme PaperColor
+colorscheme gruvbox
 
 " Always display the statusline in all windows
 set laststatus=2
