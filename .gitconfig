@@ -10,6 +10,9 @@
     s = status
     b = branch
     mff = merge --no-ff --no-edit
+    sync = "!sh -c 'git checkout --quiet --detach HEAD && \
+            git fetch origin master:master dev:dev; \
+            git checkout --quiet -'"
 [credential]
     helper = cache --timeout=3600
 [color]
