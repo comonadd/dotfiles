@@ -17,6 +17,10 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 
+" Highlight the columns which are out of possible position
+set colorcolumn=110
+highlight ColorColumn ctermbg=darkgray
+
 " Automatically write before executing commands
 set autowrite
 
@@ -47,3 +51,11 @@ set cursorline
 set list
 set listchars=tab:>-,trail:~
 set backspace=indent,eol,start
+
+" Make so that the VIM executes VIM configuration files in the CWD
+" with secure mode enabled.
+set exrc
+set secure
+
+" Make VIM file-under-the-cursor search in common directories
+let &path.="src/include,/usr/include/AL,"

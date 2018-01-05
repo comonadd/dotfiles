@@ -28,6 +28,11 @@ Plugin 'ianks/vim-tsx'
 Plugin 'jreybert/vimagit'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'vim-scripts/Conque-GDB'
 
 " Colorscheme plugins
 Plugin 'flazz/vim-colorschemes'
