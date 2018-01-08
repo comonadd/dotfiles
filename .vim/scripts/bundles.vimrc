@@ -33,6 +33,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'vim-scripts/Conque-GDB'
+Plugin 'mattn/emmet-vim'
 
 " Colorscheme plugins
 Plugin 'flazz/vim-colorschemes'
