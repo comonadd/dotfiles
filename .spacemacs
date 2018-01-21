@@ -399,6 +399,10 @@ you should place your code here."
              ("iterator" . #x1d50a)
              ))))
 
+  ;; Configure the margin line
+  (setq-default fill-column 100)
+  (add-hook 'markdown-mode-hook 'turn-on-fci-mode))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
