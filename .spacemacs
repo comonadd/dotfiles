@@ -47,9 +47,9 @@ values."
      ;;        shell-default-position 'bottom)
      ;; spell-checking
      ;; syntax-checking
-     ;; version-control
      org
      (markdown :variables markdown-live-preview-engine 'vmd)
+     version-control
      themes-megapack
      )
    ;; List of additional packages that will be installed without being
