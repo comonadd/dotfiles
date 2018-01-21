@@ -61,6 +61,7 @@ values."
             shell-default-height 30
             shell-default-position 'bottom)
      syntax-checking
+     semantic
      themes-megapack
      )
    ;; List of additional packages that will be installed without being
@@ -326,6 +327,14 @@ you should place your code here."
   ;; Set safe local variables
   (put 'helm-make-build-dir 'safe-local-variable 'stringp)
 
+  ;; [Semantic bug fix](https://github.com/company-mode/company-mode/issues/525)
+  (eval-after-load 'semantic
+    (add-hook 'semantic-mode-hook
+              (lambda ()
+                (dolist (x (default-value 'completion-at-point-functions))
+                  (when (string-prefix-p "semantic-" (symbol-name x))
+                    (remove-hook 'completion-at-point-functions x))))))
+
   ;; Configure projectile "other file" feature
   (with-eval-after-load 'projectile
     (push '("C" "h") projectile-other-file-alist)
@@ -346,6 +355,7 @@ you should place your code here."
                   (c . 1)
                   (arglist-close . 0))))
   (push '(other . "bb") c-default-style)
+
   ;; Bind keys
   (define-key evil-normal-state-map (kbd "C-c =") 'evil-numbers/inc-at-pt)
   (define-key evil-normal-state-map (kbd "C-c -") 'evil-numbers/dec-at-pt)
