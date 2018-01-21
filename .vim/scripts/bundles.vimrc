@@ -34,6 +34,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'vim-scripts/Conque-GDB'
 Plugin 'mattn/emmet-vim'
+Plugin 'vim-scripts/Conque-Shell'
 
 " Colorscheme plugins
 Plugin 'flazz/vim-colorschemes'
