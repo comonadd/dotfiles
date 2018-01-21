@@ -56,7 +56,8 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(pretty-mode
+                                      glsl-mode)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -334,6 +335,70 @@ you should place your code here."
                   (c . 1)
                   (arglist-close . 0))))
   (push '(other . "bb") c-default-style)
+  ;; Make faces in company tooltips look better
+  (custom-set-faces
+   '(company-tooltip-common
+     ((t (:inherit company-tooltip :weight bold :underline nil))))
+   '(company-tooltip-common-selection
+     ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
+
+  ;; Configure auto-mode-alist
+  (add-to-list 'auto-mode-alist '("\\.shader\\'" . glsl-mode))
+
+  ;; Configure fonts
+  (require 'pretty-mode)
+  (global-pretty-mode t)
+  (pretty-activate-groups
+   '(:sub-and-superscripts :greek :arithmetic-nary))
+  (global-prettify-symbols-mode 1)
+  (add-hook
+   'python-mode-hook
+   (lambda ()
+     (mapc (lambda (pair) (push pair prettify-symbols-alist))
+           '(;; Syntax
+             ("def" .      #x2131)
+             ("not" .      #x2757)
+             ("in" .       #x2208)
+             ("not in" .   #x2209)
+             ("return" .   #x27fc)
+             ("yield" .    #x27fb)
+             ("for" .      #x2200)
+             ;; Base Types
+             ("int" .      #x2124)
+             ("float" .    #x211d)
+             ("str" .      #x1d54a)
+             ("True" .     #x1d54b)
+             ("False" .    #x1d53d)
+             ;; Mypy
+             ("Dict" .     #x1d507)
+             ("List" .     #x2112)
+             ("Tuple" .    #x2a02)
+             ("Set" .      #x2126)
+             ("Iterable" . #x1d50a)
+             ("Any" .      #x2754)
+             ("Union" .    #x22c3)))))
+  (add-hook
+   'c++-mode-hook
+   (lambda ()
+     (mapc (lambda (pair) (push pair prettify-symbols-alist))
+           '(;; Syntax
+             ("not" .      #x2757)
+             ("return" .   #x27fc)
+             ("yield" .    #x27fb)
+             ("for" .      #x2200)
+             ("union" .    #x22c3)
+             ;; Base Types
+             ("string" .   #x1d54a)
+             ("true" .     #x1d54b)
+             ("false" .    #x1d53d)
+             ;; Mypy
+             ("map" .     #x1d507)
+             ("list" .     #x2112)
+             ("tuple" .    #x2a02)
+             ("set" .      #x2126)
+             ("iterator" . #x1d50a)
+             ))))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
