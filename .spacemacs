@@ -38,7 +38,6 @@ values."
      ;; ----------------------------------------------------------------
      typescript
      ivy
-     ;; auto-completion
      better-defaults
      emacs-lisp
      git
@@ -51,6 +50,14 @@ values."
      (markdown :variables markdown-live-preview-engine 'vmd)
      version-control
      (c-c++ :variables c-c++-enable-clang-support t)
+     (auto-completion :variables
+                      auto-completion-return-key-behavior 'complete
+                      auto-completion-tab-key-behavior 'cycle
+                      auto-completion-complete-with-key-sequence nil
+                      auto-completion-complete-with-key-sequence-delay 0.1
+                      auto-completion-private-snippets-directory nil
+                      auto-completion-enable-help-tooltip t
+                      auto-completion-enable-sort-by-usage t)
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
