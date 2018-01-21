@@ -45,7 +45,6 @@ values."
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
      ;; spell-checking
-     ;; syntax-checking
      org
      (markdown :variables markdown-live-preview-engine 'vmd)
      version-control
@@ -61,6 +60,7 @@ values."
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
+     syntax-checking
      themes-megapack
      )
    ;; List of additional packages that will be installed without being
