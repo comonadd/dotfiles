@@ -42,7 +42,6 @@ values."
      ;; better-defaults
      emacs-lisp
      git
-     ;; markdown
      ;; org
      ;; (shell :variables
      ;;        shell-default-height 30
@@ -50,6 +49,7 @@ values."
      ;; spell-checking
      ;; syntax-checking
      ;; version-control
+     (markdown :variables markdown-live-preview-engine 'vmd)
      themes-megapack
      )
    ;; List of additional packages that will be installed without being
