@@ -310,10 +310,21 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  )
 
-;; Do not write anything past this comment. This is where Emacs will
-;; auto-generate custom variable definitions.
+
+  ;; Configure C Default Style
+  (c-add-style "bb"
+               '((indent-tabs-mode . nil)
+                 (c-basic-offset . 2)
+                 (c-offsets-alist
+                  (substatement-open . 0)
+                  (inline-open . 0)
+                  (innamespace . 0)
+                  (inextern-lang . 0)
+                  (string . 0)
+                  (c . 1)
+                  (arglist-close . 0))))
+  (push '(other . "bb") c-default-style)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
