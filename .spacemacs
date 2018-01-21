@@ -335,6 +335,10 @@ you should place your code here."
                   (c . 1)
                   (arglist-close . 0))))
   (push '(other . "bb") c-default-style)
+  ;; Bind keys
+  (define-key evil-normal-state-map (kbd "C-c =") 'evil-numbers/inc-at-pt)
+  (define-key evil-normal-state-map (kbd "C-c -") 'evil-numbers/dec-at-pt)
+
   ;; Make faces in company tooltips look better
   (custom-set-faces
    '(company-tooltip-common
