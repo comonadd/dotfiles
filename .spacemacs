@@ -50,6 +50,7 @@ values."
      org
      (markdown :variables markdown-live-preview-engine 'vmd)
      version-control
+     (c-c++ :variables c-c++-enable-clang-support t)
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
