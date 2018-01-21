@@ -42,13 +42,13 @@ values."
      better-defaults
      emacs-lisp
      git
-     ;; org
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
      ;; spell-checking
      ;; syntax-checking
      ;; version-control
+     org
      (markdown :variables markdown-live-preview-engine 'vmd)
      themes-megapack
      )
