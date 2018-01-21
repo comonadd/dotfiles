@@ -50,6 +50,9 @@ values."
      org
      (markdown :variables markdown-live-preview-engine 'vmd)
      version-control
+     (shell :variables
+            shell-default-height 30
+            shell-default-position 'bottom)
      themes-megapack
      )
    ;; List of additional packages that will be installed without being
