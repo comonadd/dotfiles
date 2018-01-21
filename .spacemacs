@@ -314,6 +314,12 @@ you should place your code here."
   ;; Set safe local variables
   (put 'helm-make-build-dir 'safe-local-variable 'stringp)
 
+  ;; Configure projectile "other file" feature
+  (with-eval-after-load 'projectile
+    (push '("C" "h") projectile-other-file-alist)
+    (push '("c" "h") projectile-other-file-alist)
+    (push '("cpp" "hpp") projectile-other-file-alist)
+    (push '("cxx" "hxx") projectile-other-file-alist))
 
   ;; Configure C Default Style
   (c-add-style "bb"
