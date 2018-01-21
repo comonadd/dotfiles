@@ -39,7 +39,7 @@ values."
      ;; ----------------------------------------------------------------
      ivy
      ;; auto-completion
-     ;; better-defaults
+     better-defaults
      emacs-lisp
      git
      ;; org
