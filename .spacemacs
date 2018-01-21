@@ -41,10 +41,6 @@ values."
      better-defaults
      emacs-lisp
      git
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
-     ;; spell-checking
      org
      (markdown :variables markdown-live-preview-engine 'vmd)
      version-control
