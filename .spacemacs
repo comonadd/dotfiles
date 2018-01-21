@@ -357,6 +357,7 @@ you should place your code here."
   (push '(other . "bb") c-default-style)
 
   ;; Bind keys
+  (define-key evil-normal-state-map (kbd "<f8>") 'clang-format-buffer)
   (define-key evil-normal-state-map (kbd "C-c =") 'evil-numbers/inc-at-pt)
   (define-key evil-normal-state-map (kbd "C-c -") 'evil-numbers/dec-at-pt)
 
