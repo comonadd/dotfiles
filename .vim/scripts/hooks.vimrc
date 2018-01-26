@@ -25,6 +25,9 @@ augroup project
   autocmd BufRead,BufNewFile *.hpp,*.cpp set filetype=cpp.doxygen
 augroup END
 
+" Enable tabs in Makefiles
+autocmd FileType make setlocal noexpandtab
+
 if exists("b:did_ftplugin")
   finish
 endif
