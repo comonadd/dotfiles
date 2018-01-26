@@ -164,6 +164,7 @@ you should place your code here."
   (define-key evil-normal-state-map (kbd "<f8>") 'clang-format-buffer)
   (define-key evil-normal-state-map (kbd "C-c =") 'evil-numbers/inc-at-pt)
   (define-key evil-normal-state-map (kbd "C-c -") 'evil-numbers/dec-at-pt)
+  (define-key evil-normal-state-map (kbd "<f9>") 'fill-region)
 
   ;; Make faces in company tooltips look better
   (custom-set-faces
