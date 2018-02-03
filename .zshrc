@@ -21,7 +21,7 @@ export EDITOR=vim
 source ~/.profile
 
 # ZSh options
-ZSH_THEME="awesomepanda"
+ZSH_THEME="af-magic"
 CASE_SENSITIVE="false"
 HYPHEN_INSENSITIVE="true"
 DISABLE_AUTO_UPDATE="true"
@@ -60,6 +60,8 @@ alias gits='git status'
 alias gitc='git commit'
 
 alias neovim='nvim'
+
+alias pip='pip3'
 
 unsetopt MULTIOS
 setopt MAGIC_EQUAL_SUBST
