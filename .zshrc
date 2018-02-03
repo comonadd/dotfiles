@@ -61,6 +61,8 @@ alias gitc='git commit'
 
 alias neovim='nvim'
 
+alias pip='pip3'
+
 unsetopt MULTIOS
 setopt MAGIC_EQUAL_SUBST
 setopt BSD_ECHO
