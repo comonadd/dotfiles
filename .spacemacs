@@ -167,6 +167,9 @@ you should place your code here."
   ;; Configure auto-mode-alist
   (add-to-list 'auto-mode-alist '("\\.shader\\'" . glsl-mode))
 
+  ;; Configure GIT symlinks behaviour
+  (setq-default vc-follow-symlinks t)
+
   ;; Configure fonts
   (require 'pretty-mode)
   (global-pretty-mode t)
