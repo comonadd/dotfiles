@@ -11,6 +11,7 @@ values."
    dotspacemacs-configuration-layer-path '()
    dotspacemacs-configuration-layers
    '(
+     python
      typescript
      ivy
      better-defaults
