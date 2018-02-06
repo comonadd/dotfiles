@@ -12,6 +12,16 @@ zle -N shift-right
 zle -N shift-up
 zle -N shift-down
 
+# Pull all remote Git branches
+# NOTE: This function is based on [this](https://stackoverflow.com/questions/10312521/how-to-fetch-all-git-branches)
+#       StackOverflow answer.
+pull-all-git-branches() {
+    git branch -r | grep -v '\->' | while read remote; do git branch --track "${remote#origin/}" "$remote"; done
+    git fetch --all
+    git pull --all
+    for remote in `git branch -r`; do git branch --track ${remote#origin/} $remote; done
+}
+
 # Environment variables
 export ZSH=~/.oh-my-zsh
 export UPDATE_ZSH_DAYS=16
@@ -56,6 +66,7 @@ alias make="make --warn-undefined-variables"
 # Git aliases
 alias gits='git status'
 alias gitc='git commit'
+alias gitpab=pull-all-git-branches
 
 # Other aliases
 alias uX="xrdb ~/.Xresources"
