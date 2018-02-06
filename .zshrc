@@ -1,4 +1,4 @@
-# Some functions
+# Movement functions
 shift-arrow() {
     ((REGION_ACTIVE)) || zle set-mark-command
     zle $1
@@ -36,31 +36,32 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 stty -ixon
 
-# Aliases
+# CD Aliases
 alias cdA="cd ~/.config/awesome"
 alias cdV="cd ~/.vim"
 
+# EDIT aliases
 alias eX="$EDITOR ~/.Xresources"
 alias eA="$EDITOR ~/.config/awesome/rc.lua"
 alias eV="$EDITOR ~/.vimrc"
 alias eZ="$EDITOR ~/.zshrc"
 
-alias uX="xrdb ~/.Xresources"
-
-alias make="make --warn-undefined-variables"
-
-alias rr="clear && printf '\e[3J'"
-
+# Clipboard management aliases
 alias cclip='xclip -selection clipboard'
 alias clipp='xclip -selection clipboard -o'
 
-alias vi='vim'
+# Command flag modification aliases
+alias make="make --warn-undefined-variables"
 
+# Git aliases
 alias gits='git status'
 alias gitc='git commit'
 
+# Other aliases
+alias uX="xrdb ~/.Xresources"
+alias rr="clear && printf '\e[3J'"
+alias vi='vim'
 alias neovim='nvim'
-
 alias pip='pip3'
 
 unsetopt MULTIOS
