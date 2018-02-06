@@ -59,3 +59,6 @@ set secure
 
 " Make VIM file-under-the-cursor search in common directories
 let &path.="src/include,/usr/include/AL,"
+
+" Make it possible to use MacOS default system keyboard ring
+set clipboard=unnamed
