@@ -1,3 +1,7 @@
+#!/usr/bin/env sh
+
+get_abs_path() { echo "$(cd "$(dirname "$1")"; pwd)/$(basename "$1")"; }
+
 args="";
 watch_dir="";
 
@@ -6,7 +10,7 @@ if [[ $1 == "help" ]] || [[ $1 = "--help" ]]; then
   return;
 else
   if [[ $1 == "-w" ]]; then
-    watch_dir=$(readlink -f $2);
+    watch_dir=get_abs_path $2;
   else
     watch_dir=$(pwd);
   fi
@@ -15,4 +19,4 @@ fi
 
 echo "Watching for changes in " $watch_dir;
 
-eval watchexec --restart $args -w $watch_dir "docker-compose up"
+eval watchexec --restart $args -w $watch_dir "docker-compose up";
