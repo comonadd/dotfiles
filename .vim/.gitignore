@@ -1,2 +1,4 @@
-/bundle/
-.netrwhist
+temp_dirs/undodir/*
+bundle/
+tags
+.DS_Store

@@ -1,3 +1,0 @@
-function! SwitchBuffer()
-  b#
-endfunction
