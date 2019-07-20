@@ -1,23 +1,33 @@
 [user]
-    email = dmitry.guzeev@yahoo.com
-    name = Dmitry Guzeev
+	email = dmitri.guzeev@gmail.com
+	name = Dmitry Guzeev
 [core]
     editor = nvim
+	excludesfile = /Users/wrongway4you/.gitignore_global
 [alias]
     co = commit
     ck = checkout
     a = add
     s = status
     b = branch
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     mff = merge --no-ff --no-edit
-    sync = "!sh -c 'git checkout --quiet --detach HEAD && \
-            git fetch origin master:master dev:dev; \
-            git checkout --quiet -'"
-[credential]
-    helper = cache --timeout=3600
 [color]
     ui = true
 [push]
     default = current
 [diff]
     tool = meld
+[difftool "sourcetree"]
+	cmd = /Applications/kdiff3.app/Contents/MacOS/kdiff3 \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/kdiff3.app/Contents/MacOS/kdiff3 \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/wrongway4you/.stCommitMsg
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
