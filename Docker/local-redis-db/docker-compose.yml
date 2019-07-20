@@ -1,0 +1,10 @@
+version: '3'
+services:
+  db:
+    image: 'redis:latest'
+    ports:
+    - "6379:6379"
+    volumes:
+    - ./data:/data
+    - ./logs:/var/log
+    - ./redis.conf:/usr/local/etc/redis/redis.conf
