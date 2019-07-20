@@ -35,7 +35,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 HIST_STAMPS="mm/dd/yyyy"
 
 # Plugins
-plugins=()
+plugins=(osx)
 
 # Execute main oh-my-zsh script
 source $ZSH/oh-my-zsh.sh
@@ -49,6 +49,13 @@ __git_files () {
 }
 
 autoload -U add-zsh-hook
+
+update-terminal-pwd-title() {
+  echo -ne "\033]0;$PWD\007"
+}
+
+add-zsh-hook chpwd update-terminal-pwd-title
+update-terminal-pwd-title
 
 ###################################################
 ### Setup terminal options
@@ -82,6 +89,13 @@ if [ $USE_FAST_NVM_LOAD_METHOD -eq "1" ]; then
   for cmd in "${NODE_GLOBALS[@]}"; do
       eval "${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; ${cmd} \$@ }"
   done
+  check-for-new-nvmrc-configs() {
+    if [[ -a .nvmrc ]]; then
+      nvm use
+    fi
+  }
+  add-zsh-hook chpwd check-for-new-nvmrc-configs
+  check-for-new-nvmrc-configs
 else
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
@@ -161,9 +175,11 @@ alias docker-rm-all-containers="docker rm \$(docker ps -aq)"
 alias docker-rm-all-images="docker rmi \$(docker images -q)"
 
 function docker-run-mysql-dev-container() {
-  name='dev-mysql-db';
-
   echo "Starting MySQL development database";
+	cd ~/Docker/local-mysql-db && docker-compose up
+}
 
-	cd /Docker/local-mysql-db && docker-compose up
+function docker-run-redis-dev-container() {
+  echo "Starting Redis development database";
+	cd ~/Docker/local-redis-db && docker-compose up
 }
