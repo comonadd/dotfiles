@@ -13,6 +13,9 @@ export PATH=$PATH:$HOME/.cabal/bin
 
 # Custom scripts
 export PATH=$PATH:$HOME/Scripts
+export PATH=$PATH:$HOME/Scripts/android
+export PATH=$PATH:$HOME/Scripts/macos
+export PATH=$PATH:$HOME/Scripts/python-projects
 
 # System folders
 export PATH=$PATH:/opt/local/bin
@@ -33,6 +36,9 @@ export PATH="$PATH:./node_modules/.bin"
 # Local virtualenv (python) modules
 export PATH="$PATH:./venv/bin"
 
+# Make
+export PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
+
 ###################################################
 ### Other variables
 ###################################################
@@ -46,7 +52,7 @@ export ZSH=~/.oh-my-zsh
 export UPDATE_ZSH_DAYS=16
 
 # Editor
-export EDITOR=vim
+export EDITOR=code
 
 # C/C++ Compilers
 export CC="/usr/local/opt/llvm/bin/clang"
