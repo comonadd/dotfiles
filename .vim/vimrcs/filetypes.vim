@@ -79,9 +79,20 @@ if exists('$TMUX')
     endif
 endif
 
-
 """"""""""""""""""""""""""""""
 " => Twig section
 """"""""""""""""""""""""""""""
 
 autocmd BufRead *.twig set syntax=html filetype=html
+
+""""""""""""""""""""""""""""""
+" => Markdown
+""""""""""""""""""""""""""""""
+
+autocmd BufEnter *.md exe 'noremap <C-t> :!open -a "Google Chrome" %:p<CR>'
+
+""""""""""""""""""""""""""""""
+" => CSS
+""""""""""""""""""""""""""""""
+
+autocmd FileType html,htmldjango,css,scss,sass imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")

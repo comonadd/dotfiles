@@ -35,6 +35,8 @@ set mouse=
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+set complete=.,w,b,u,t,i,kspell
+
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
 
@@ -46,13 +48,14 @@ source $VIMRUNTIME/menu.vim
 
 " Turn on the Wild menu (VIM command tab completion, etc.)
 set wildmenu
+set wildmode=longest,list
 
-" Ignore compiled files
-set wildignore=*.o,*~,*.pyc
-if has("win16") || has("win32")
-    set wildignore+=.git\*,.hg\*,.svn\*
-else
-    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
+" Setup wildignore
+if has("wildmenu")
+  set wildignore+=*.a,*.o
+  set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png
+  set wildignore+=.DS_Store,.git,.hg,.svn,tags,ctags
+  set wildignore+=*~,*.swp,*.tmp
 endif
 
 " Always show current position
@@ -88,6 +91,7 @@ set magic
 
 " Show matching brackets when text indicator is over them
 set showmatch
+
 " How many tenths of a second to blink when matching brackets
 set mat=2
 
@@ -104,7 +108,6 @@ endif
 
 " Add a bit extra margin to the left
 set foldcolumn=1
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
@@ -139,7 +142,6 @@ set encoding=utf8
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -148,7 +150,6 @@ set ffs=unix,dos,mac
 set nobackup
 set nowb
 set noswapfile
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
@@ -212,6 +213,10 @@ nmap <Tab> :call SwitchBuffer()<CR>
 " Disable Shift-k help
 nmap <S-k> <nop>
 
+" Redraw the screen
+nmap <C-S-r> :redraw!<cr>
+
+" Fast saving
 nnoremap <space> :w<cr>
 
 " Visual mode pressing * or # searches for the current selection
@@ -287,9 +292,16 @@ map <leader>sx :e ~/buffer<cr>
 " Quickly open a markdown buffer for scribble
 map <leader>x :e ~/buffer.md<cr>
 
+" Color schemes navigation
+nnoremap <leader>cc :Colors<cr>
+
+set shell=bash\ -i
+
 """"""""""""""""""""""""""""""
 " => Other
 """"""""""""""""""""""""""""""
+
+set tags=tags;
 
 " Specify the behavior when switching between buffers
 try

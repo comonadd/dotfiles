@@ -51,9 +51,13 @@ Plugin 'https://github.com/plasticboy/vim-markdown'
 Plugin 'https://github.com/airblade/vim-gitgutter'
 Plugin 'https://github.com/tpope/vim-fugitive'
 Plugin 'https://github.com/Konfekt/vim-scratchpad'
-Plugin 'https://github.com/ervandew/supertab'
 Plugin 'https://github.com/vim-scripts/ZoomWin'
 Plugin 'mattn/emmet-vim'
+Plugin 'https://github.com/dag/vim-fish'
+Plugin 'https://github.com/majutsushi/tagbar'
+Plugin 'andymass/vim-matchup'
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'keith/swift.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -67,13 +71,6 @@ let g:bufExplorerShowRelativePath=1
 let g:bufExplorerFindActive=1
 let g:bufExplorerSortBy='mru'
 map <leader>o :BufExplorer<cr>
-
-""""""""""""""""""""""""""""""
-" => MRU plugin
-""""""""""""""""""""""""""""""
-
-let MRU_Max_Entries = 400
-map <leader>f :MRU<CR>
 
 """"""""""""""""""""""""""""""
 " => YankStack
@@ -93,6 +90,9 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 let g:ctrlp_max_height = 20
 
 map <leader>j :CtrlP<cr>
+
+" CTags navigation
+nnoremap <leader>t :CtrlPTag<cr>
 
 """"""""""""""""""""""""""""""
 " => Vim grep
@@ -191,7 +191,7 @@ autocmd BufNewFile,BufRead *.jsx set syntax=javascript
 
 autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>FormatCode clang-format<CR>
 autocmd FileType python nnoremap <buffer><Leader>cf :<C-u>FormatCode yapf<CR>
-autocmd FileType javascript,css,scss nnoremap <buffer><Leader>cf :<C-u>FormatCode prettier<CR>
+autocmd FileType javascript,css,scss,less,html nnoremap <buffer><Leader>cf :<C-u>FormatCode prettier<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => RootIgnore
@@ -233,3 +233,9 @@ nmap <leader>s <Plug>(ToggleScratchPad)
 nmap <leader>tr :RandomColorScheme<cr>
 nmap <leader>tn :NextColorScheme<cr>
 nmap <leader>tp :PrevColorScheme<cr>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Tagbar
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+nmap <leader>b :TagbarToggle<CR>
