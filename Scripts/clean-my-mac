@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-# Get rid of the trash
-rm -rf ~/.Trash/*
