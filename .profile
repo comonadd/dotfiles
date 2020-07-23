@@ -39,9 +39,15 @@ export PATH="$PATH:./venv/bin"
 # Make
 export PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
 
+# Python bins
+export PATH="$PATH:/Users/wrongway4you/.asdf/installs/python/3.6.0/bin"
+
 ###################################################
 ### Other variables
 ###################################################
+
+# Python startup
+PYTHONSTARTUP=~/.pystartup.py
 
 # Locale settings
 export LC_ALL=en_US.UTF-8

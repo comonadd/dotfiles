@@ -1,6 +1,7 @@
 #!/usr/local/bin/fish
 
-fish_vi_key_bindings
+# fish_vi_key_bindings
+fish_default_key_bindings
 
 # Git abbreviations
 abbr gita "git add"
@@ -14,12 +15,16 @@ abbr find "fd"
 
 # Docker abbreviations
 abbr docker-ls-all-containers "docker ps -aq"
-abbr docker-stop-all-containers "docker stop \$(docker ps -aq)"
+abbr docker-stop-all-containers "docker stop (docker ps -aq)"
 abbr docker-rm-all-containers "docker rm \$(docker ps -aq)"
 abbr docker-rm-all-images "docker rmi \$(docker images -q)"
 function docker-run-mysql-dev-container
   echo "Starting MySQL development database Docker container";
 	cd ~/Docker/local-mysql-db && docker-compose up
+end
+function docker-run-rabbitmq-dev-container
+  echo "Starting RabbitMQ development Docker container";
+	cd ~/Docker/local-rabbitmq && docker-compose up
 end
 function docker-run-postgres-dev-container
   echo "Starting PostgreSQL development database Docker container";
@@ -38,15 +43,51 @@ end
 abbr yt "youtube-dl --add-metadata -ic"
 abbr yta "youtube-dl --add-metadata -xic --audio-format mp3 --audio-quality 0"
 
-# Other abbreviations
+# CD
+abbr -a -- - 'cd -'
+
+# Brew
+function brew-cleanup
+  brew cleanup
+end
+function brew-upgrade
+  brew upgrade
+end
+
+# Cleanup
+function kill-adobe
+  pgrep -i adobe | sudo xargs kill -9
+  pgrep -i "Core Sync" | sudo xargs kill -9
+  pgrep -i "ACCFinderSync" | sudo xargs kill -9
+  pgrep -i "AGSService" | sudo xargs kill -9
+  pgrep -i "AGMService" | sudo xargs kill -9
+end
+function cleanup
+  printf "Killing all adobe processes..."
+  kill-adobe
+  printf "Done\n"
+  printf "Cleaning up brewmaster packages..."
+  brew-cleanup
+  printf "Done\n"
+end
+
+# System
+abbr restart-touchbar "pgrep -i touchbar | xargs sudo kill -9"
+abbr kill-all-node-processes "pgrep -i node | xargs kill -9"
+abbr kill-all-python-processes "pgrep -i python | xargs kill -9"
+
+# Other
 abbr ka "killall"
 abbr lsl "sudo cat /var/log/system.log"
 abbr mkd "mkdir -pv"
 abbr r "ranger"
-abbr ls "ls"
+abbr ls "exa"
+abbr la "exa -la"
+abbr ll "exa -l"
 abbr transform-all-flv-to-mp4 "python -c \"import os; [os.system('ffmpeg -i \'{a}\' -c:v libx264 -crf 19 -strict experimental \'{b}\''.format(a=f, b=f.replace('.flv', '.mp4'))) if f.endswith('.flv') else '' for f in os.listdir('./')]\""
-abbr transform-all-webm-to-mp4 "python -c \"import os; [os.system('ffmpeg -fflags +genpts -i \'{a}\' -r 24 \'{b}\''.format(a=f, b=f.replace('.webm', '.mp4'))) if f.endswith('.flv') else '' for f in os.listdir('./')]\""
+abbr transform-all-webm-to-mp4 "python -c \"import os; [os.system('ffmpeg -fflags +genpts -i \'{a}\' -r 24 \'{b}\''.format(a=f, b=f.replace('.webm', '.mp4'))) if f.endswith('.webm') else '' for f in os.listdir('./')]\""
 abbr clear-fish-history "builtin history clear"
+
 
 # Use .profile defined PATH modifications
 egrep "^export " ~/.profile | while read e
