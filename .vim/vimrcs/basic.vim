@@ -109,6 +109,7 @@ endif
 " Add a bit extra margin to the left
 set foldcolumn=1
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -392,3 +393,8 @@ function! VisualSelection(direction, extra_filter) range
     let @/ = l:pattern
     let @" = l:saved_reg
 endfunction
+
+
+" Do not fold by default
+set foldlevel=99
+

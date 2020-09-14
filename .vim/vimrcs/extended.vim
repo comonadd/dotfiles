@@ -26,7 +26,7 @@ set guioptions-=L
 " - afterglow
 " - alduin
 set background=dark
-colorscheme alduin
+colorscheme afterglow
 
 " Configure cursor line
 set cursorline
