@@ -75,6 +75,9 @@ end
 abbr restart-touchbar "pgrep -i touchbar | xargs sudo kill -9"
 abbr kill-all-node-processes "pgrep -i node | xargs kill -9"
 abbr kill-all-python-processes "pgrep -i python | xargs kill -9"
+function kill-port-user
+  lsof -t -i tcp:$argv | xargs kill
+end
 
 # Other
 abbr ka "killall"
@@ -113,7 +116,8 @@ egrep "^export " ~/.profile | while read e
     set -xg $var $value
 end
 
-stty -ixon
+# Had to comment this out because Emacs doesn't process this very well
+#stty -ixon
 
 export HISTSIZE=
 export HISTFILESIZE=
