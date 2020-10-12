@@ -122,6 +122,9 @@ end
 export HISTSIZE=
 export HISTFILESIZE=
 
+# Set editor
+set -gx EDITOR emacs
+
 ##################################
 ### AUTOENV
 ##################################
