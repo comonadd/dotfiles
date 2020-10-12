@@ -12,18 +12,19 @@
  "C-k"      #'evil-window-up
  "C-l"      #'evil-window-right
  "<C-tab>"  #'+popup/other
- "<f8>"     #'lsp-execute-code-action
  :n "M-."   nil
  :n "M-."   #'lsp-execute-code-action
- "<f2>"     #'lsp-rename
- "<f7>"     #'lsp-find-references
  "M-b"      #'xref-find-definitions
- "<f11>"    #'calc
  "M-v"      nil
  "M-H-l"    nil
  "A-d"      #'evil-delete-whole-line
  "M-`"      nil
  "M-/"      #'evilnc-comment-or-uncomment-lines
+ "<f2>"     #'lsp-rename
+ "<f6>"     #'+make/run
+ "<f7>"     #'lsp-find-references
+ "<f8>"     #'lsp-execute-code-action
+ "<f11>"    #'calc
 
  ;; Leader Configs
  (:leader
@@ -127,6 +128,7 @@
 ;; Rust
 (map! :map rust-mode-map :n "A-M-l" #'rust-format-buffer)
 (map! :map rustic-mode-map :n "A-M-l" #'rustic-format-buffer)
+(map! :map rustic-mode-map :n "M-b" #'racer-find-definition)
 
 (after! magit
   :map magit-blame-mode-map

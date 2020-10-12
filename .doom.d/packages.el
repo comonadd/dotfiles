@@ -14,5 +14,6 @@
 (package! dockerfile-mode)
 (package! aggressive-indent)
 (package! blacken)
-(package! company-box)
+(package! lsp-python-ms :disable t)
+;;(package! company-box)
 ;(package! ob-ipython)

@@ -20,9 +20,9 @@
        ;;layout           ; auie,ctsrnm is the superior home row
 
        :completion
-;;       (company           ; the ultimate code completion backend
-         ;+auto            ; as-you-type code completion
-;;         +childframe)     ; a nicer company UI. Emacs +26 only!
+       (company           ; the ultimate code completion backend
+        ;+auto            ; as-you-type code completion
+        +childframe)      ; a nicer company UI. Emacs +26 only!
        (ivy
          +childframe
          +icons)          ; a search engine for love and life
@@ -94,7 +94,7 @@
        :tools
        (eval +overlay)     ; run code, run (also, repls)
        lookup              ; navigate your code and its documentation
-       (lsp +peek)
+       lsp
        magit             ; a git porcelain for Emacs
        make              ; run make tasks from Emacs
        upload            ; map local to remote projects via ssh/ftp

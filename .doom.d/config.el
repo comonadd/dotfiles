@@ -32,9 +32,8 @@
             (concat (getenv "HOME") "/Scripts")))
 (setenv "PATH" (string-join exec-path ":"))
 (setq lsp-pyls-plugins-flake8-filename (concat (getenv "HOME") "/.asdf.shims"))
-(setq racer-rust-src-path (concat (string-trim (shell-command-to-string "rustc --print sysroot")) "/lib/rustlib/src/rust"))
+(setq racer-rust-src-path (concat (string-trim (shell-command-to-string "rustc --print sysroot")) "/lib/rustlib/src/rust/src"))
 (setenv "RUST_SRC_PATH" racer-rust-src-path)
-
 
 ;; ???
 (setq-default
@@ -104,28 +103,49 @@
   '("*.svn-base" "*.o" "*.pyc" "package-lock.json" "yarn.lock")
   projectile-globally-ignored-files))
 
-;; lsp
-;; (use-package! lsp-mode
-;;   :hook ((c-mode          ; clangd
-;;         c++-mode        ; clangd
-;;         c-or-c++-mode   ; clangd
-;;         python-mode     ; mspyls
-;;         js-mode         ; ts-ls (tsserver wrapper)
-;;         js-jsx-mode     ; ts-ls (tsserver wrapper)
-;;         typescript-mode ; ts-ls (tsserver wrapper)
-;;         js2-mode
-;;         typescript-tsx-mode
-;;         javascript-tsx-mode
-;;         web-mode
-;;         ) . lsp)
-;;   :commands lsp
-;;   :config
-;;   (setq lsp-auto-guess-root t)
-;;   (setq lsp-idle-delay 0.5)
-;; ;;  (setq lsp-prefer-capf t)
-;;   (add-to-list 'lsp-language-id-configuration '(js-jsx-mode . "javascriptreact")))
-;; (use-package! lsp-ui
-;;   :commands lsp-ui-mode)
+;; Language Server
+(use-package! lsp
+  :init
+  (setq lsp-pyls-plugins-pylint-enabled t)
+  (setq lsp-pyls-plugins-autopep8-enabled nil)
+  (setq lsp-pyls-plugins-yapf-enabled t)
+  (setq lsp-pyls-plugins-pyflakes-enabled nil))
+
+(use-package! lsp-mode
+  :hook ((c-mode          ; clangd
+          c++-mode        ; clangd
+          c-or-c++-mode   ; clangd
+          python-mode     ; mspyls
+          js-mode         ; ts-ls (tsserver wrapper)
+          js-jsx-mode     ; ts-ls (tsserver wrapper)
+          typescript-mode ; ts-ls (tsserver wrapper)
+          js2-mode
+          typescript-tsx-mode
+          javascript-tsx-mode
+          web-mode
+          ) . lsp)
+  :commands lsp
+  :init
+  (setq lsp-keep-workspace-alive nil
+        lsp-auto-guess-root t
+        lsp-idle-delay 0.5
+        lsp-client-packages nil
+        lsp-eldoc-hook nil
+        )
+  :config
+  (advice-add #'lsp--auto-configure :override #'ignore)
+  ;;(add-to-list 'lsp-language-id-configuration '(js-jsx-mode . "javascriptreact"))
+  )
+(use-package! lsp-ui
+  :commands lsp-ui-mode)
+
+
+;; (use-package lsp-python-ms
+;;   :ensure t
+;;   :init (setq lsp-python-ms-auto-install-server t)
+;;   :hook (python-mode . (lambda ()
+;;                           (require 'lsp-python-ms)
+;;                           (lsp))))
 
 ;; company
 ;; (use-package company
@@ -232,6 +252,7 @@
   (add-hook hook (lambda ()
                    (setup-js-indentation)
                    (setup-prettier-js)
+                   (disable-smartparens)
                    ;; (setq company-backends
                    ;;       '(
                    ;;         company-keywords       ; keywords
@@ -245,12 +266,21 @@
                    ))
   )
 (add-hook! 'web-mode-hook
-  (setup-prettier-js))
+  (setup-prettier-js)
+  (disable-smartparens))
 
 ;; Python
 (add-hook! 'python-mode-hook
-  ;; nothing yet
-  )
+  (disable-smartparens)
+  (lsp-workspace-folders-add (projectile-project-root))
+  (setq flycheck-python-pylint-executable (concat (getenv "HOME") "/.asdf/shims/pylint"))
+  (setq flycheck-pylintrc (concat (projectile-project-root) ".pylintrc")))
+
+;; Rust
+(add-hook! 'rustic-mode-hook
+  (disable-smartparens)
+  (setq lsp-rust-server 'rust-analyzer)
+  (setq rustic-lsp-server 'rust-analyzer))
 
 ;; Org
 (setq org-directory "~/org/")

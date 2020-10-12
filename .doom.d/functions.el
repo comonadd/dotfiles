@@ -24,3 +24,10 @@
                           (projectile-project-p))
                  (call-interactively #'projectile-invalidate-cache))
                (message "File '%s' successfully renamed to '%s'" name (file-name-nondirectory new-name))))))))
+
+;; Disable smartparens
+(defun disable-smartparens ()
+  (smartparens-global-mode 0)
+  (smartparens-mode 0)
+  (turn-off-smartparens-mode)
+  (turn-off-show-smartparens-mode))
