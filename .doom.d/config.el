@@ -197,7 +197,8 @@
          ("\\.css\\'"   . web-mode)
 ;;         ("\\.jsx?\\'"  . web-mode)
 ;;         ("\\.tsx?\\'"  . web-mode)
-         ("\\.json\\'"  . web-mode))
+;;         ("\\.json\\'"  . web-mode)
+         )
   :config
   (setq web-mode-markup-indent-offset 4)
   (setq web-mode-code-indent-offset 4)
