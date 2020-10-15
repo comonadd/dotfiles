@@ -1,0 +1,14 @@
+[MASTER]
+disable=
+    C0111,
+    C0114,
+    C0115,
+    C0116,
+    R0903,
+    C0411,
+    W0621,
+    C0103,
+    E0401,
+    W1113,
+[FORMAT]
+max-line-length=160
