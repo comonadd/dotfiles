@@ -1,0 +1,83 @@
+{
+  "Enum string option": {
+    "prefix": "ensop",
+    "body": [
+      "$1 = \"$1\"" //
+    ],
+    "description": "Enum string option"
+  },
+
+  "reduce": {
+    "prefix": "reduce",
+    "body": [
+      "$1.reduce((acc: $2, currVal: $3) => $4, $5)" //
+    ],
+    "description": "Reduce"
+  },
+
+  "react-mouse": {
+    "prefix": "reactmouse",
+    "body": [
+      "React.MouseEvent<HTMLButtonElement>" //
+    ],
+    "description": "react mouse event"
+  },
+
+  "react-change": {
+    "prefix": "reactchange",
+    "body": [
+      "React.ChangeEvent<HTMLInputElement>" //
+    ],
+    "description": "react change event"
+  },
+
+  "ctypes": {
+    "prefix": "ctypes",
+    "body": [
+      "interface $1ConnectedProps {$2}", //
+      "", //
+      "interface $1OwnProps {$3}", //
+      "", //
+      "type $1Props = $1ConnectedProps & $1OwnProps;", //
+      "", //
+      "interface $1State {$4}" //
+    ],
+    "description": "component typings"
+  },
+
+  "comp-state": {
+    "prefix": "cstate",
+    "body": [
+      "interface $1ConnectedProps {$2}", //
+      "", //
+      "interface $1OwnProps {$3}", //
+      "", //
+      "type $1Props = $1ConnectedProps & $1OwnProps;" //
+    ],
+    "description": "component props"
+  },
+
+  "keyboardev": {
+    "prefix": "keyboardev",
+    "body": [
+      "React.KeyboardEvent" //
+    ],
+    "description": "react keyboard event"
+  },
+
+  "reactform": {
+    "prefix": "reactform",
+    "body": [
+      "React.FormEvent<HTMLFormElement>" //
+    ],
+    "description": "react form submit event"
+  },
+
+  "cleanup": {
+    "prefix": "cleanup",
+    "body": [
+      "// CLEANUP: $1" //
+    ],
+    "description": "cleanup comment"
+  },
+}

@@ -1,0 +1,133 @@
+{
+  "Redux action": {
+    "prefix": "raction",
+    "body": [
+      "export interface $1Action extends Action {", //
+      "  payload: {", //
+      "    $2",
+      "  }", //
+      "};", //
+      "export const $1 = ($2): $1Action => ({", //
+      "  type: $3,", //
+      "  payload: {",
+      "    $4",
+      "  }", //
+      "});" //
+    ],
+    "description": "Redux thunk action"
+  },
+
+  "Redux fail action": {
+    "prefix": "ractionf",
+    "body": [
+      "export interface $1FailAction extends Action {", //
+      "  payload: {", //
+      "    error: string | Error;", //
+      "    $2",
+      "  }", //
+      "};", //
+      "export const $3Fail = ($4error: Error | string): $1FailAction => ({", //
+      "  type: Actions.$5,",
+      "  payload: {",
+      "    error,",
+      "    $6",
+      "  }", //
+      "});" //
+    ],
+    "description": "Redux thunk action"
+  },
+
+  "Redux start action": {
+    "prefix": "ractionst",
+    "body": [
+      "export interface $1StartAction extends Action {", //
+      "  payload: {", //
+      "    $2",
+      "  }", //
+      "};", //
+      "export const $3Start = ($4): $1StartAction => ({", //
+      "  type: Actions.$5,",
+      "  payload: {",
+      "    $6",
+      "  }", //
+      "});" //
+    ],
+    "description": "Redux start action"
+  },
+
+  "Redux succeed action": {
+    "prefix": "ractionsd",
+    "body": [
+      "export interface $1SucceedAction extends Action {", //
+      "  payload: {", //
+      "    $2",
+      "  }", //
+      "};", //
+      "export const $3Succeed = ($4): $1SucceedAction => ({", //
+      "  type: Actions.$5,",
+      "  payload: {",
+      "    $6",
+      "  }", //
+      "});" //
+    ],
+    "description": "Redux succeed action"
+  },
+
+  "Thunk redux action": {
+    "prefix": "thunkr",
+    "body": [
+      "export const $1 = ($2) => (dispatch: Dispatch, getState: any) => {",
+      "$3",
+      "};"
+    ],
+    "description": "Redux thunk action"
+  },
+
+  "Api Post Request": {
+    "prefix": "apip",
+    "body": [
+      "apiPost($1)",
+      ".then((json: any) => {",
+      "$2",
+      "})",
+      ".catch((error: Error) => {",
+      "$3",
+      "});"
+    ],
+    "description": "Redux thunk action"
+  },
+
+  "Enum string option": {
+    "prefix": "ensop",
+    "body": [
+      "$1 = \"$1\"" //
+    ],
+    "description": "Enum string option"
+  },
+
+  "reduce": {
+    "prefix": "reduce",
+    "body": [
+      "$1.reduce((acc: $2, currVal: $3) => $4, $5)" //
+    ],
+    "description": "Reduce"
+  },
+
+  "cleanup": {
+    "prefix": "cleanup",
+    "body": [
+      "// CLEANUP: $1" //
+    ],
+    "description": "cleanup comment"
+  },
+
+  "cloud": {
+    "prefix": "cloud",
+    "body": [
+      "//////////////////////////////////////////////", //
+      "// $1", //
+      "//////////////////////////////////////////////" //
+    ],
+    "description": "cloud"
+  },
+}

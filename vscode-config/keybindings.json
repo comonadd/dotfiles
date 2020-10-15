@@ -1,1 +1,93 @@
-/Users/wrongway4you/Projects/vscode-settings/keybindings.json
+[
+  // Tabs
+  {
+    "key": "ctrl+tab",
+    "command": "workbench.action.nextEditor"
+  },
+  {
+    "key": "ctrl+shift+tab",
+    "command": "workbench.action.previousEditor"
+  },
+  {
+    "key": "ctrl+9",
+    "command": "extensions.goto-previous-buffer"
+  },
+
+  // Editing
+  {
+    "key": "cmd+b",
+    "command": "editor.action.revealDefinition"
+  },
+  {
+    "key": "cmd+shift+r",
+    "command": "editor.action.rename"
+  },
+  {
+    "key": "ctrl+cmd+space",
+    "command": "editor.action.triggerSuggest",
+    "when": "editorHasCompletionItemProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "cmd+alt+l",
+    "command": "editor.action.formatDocument"
+  },
+  {
+    "key": "cmd+e",
+    "command": "workbench.action.quickOpen"
+  },
+
+  // Explorer
+  {
+    "key": "cmd+n",
+    "command": "explorer.newFile"
+  },
+  {
+    "key": "cmd+shift+n",
+    "command": "explorer.newFolder"
+  },
+  {
+    "key": "cmd+enter",
+    "command": "renameFile",
+    "when": "explorerViewletVisible && filesExplorerFocus"
+  },
+  {
+    "key": "enter",
+    "command": "-renameFile",
+    "when": "explorerViewletVisible && filesExplorerFocus"
+  },
+  {
+    "key": "enter",
+    "command": "list.select",
+    "when": "listFocus && !inputFocus"
+  },
+
+  // Window Navigation
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.navigateLeft"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.navigateRight"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.navigateUp"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.navigateDown"
+  },
+  {
+    "key": "shift+cmd+b",
+    "command": "-workbench.action.tasks.build"
+  },
+  {
+    "key": "shift+cmd+b",
+    "command": "workbench.action.toggleSidebarVisibility"
+  },
+  {
+    "key": "cmd+b",
+    "command": "-workbench.action.toggleSidebarVisibility"
+  }
+]

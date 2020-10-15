@@ -1,0 +1,9 @@
+{
+  "cleanup": {
+    "prefix": "cleanup",
+    "body": [
+      "// CLEANUP: $1" //
+    ],
+    "description": "cleanup comment"
+  },
+}
