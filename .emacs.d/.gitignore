@@ -1,0 +1,8 @@
+.cache
+elpa
+.lsp-session*
+.mc-lists.el
+auto-save-list/ 
+*.cache 
+recentf
+*.eld 
