@@ -15,5 +15,6 @@
 (package! aggressive-indent)
 (package! blacken)
 (package! lsp-python-ms :disable t)
+(package! all-the-icons)
 ;;(package! company-box)
 ;(package! ob-ipython)

@@ -21,6 +21,10 @@
                           (eq buffer-file-coding-system 'utf-8)))))
 (add-hook 'after-change-major-mode-hook #'doom-modeline-conditional-buffer-encoding)
 
+;; Borders
+(set-frame-parameter (selected-frame) 'internal-border-width 0)
+(setq ivy-posframe-border-width 0)
+
 ;; Theme
 (setq doom-theme 'whatever)
 
