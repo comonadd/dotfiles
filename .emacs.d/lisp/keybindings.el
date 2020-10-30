@@ -19,16 +19,15 @@
 
 ;; Files
 (evil-define-key 'normal 'global (kbd "<leader>ff") 'find-file)
+(evil-define-key 'normal 'global (kbd "<leader>fo") 'find-file-other-window)
 (evil-define-key 'normal 'global (kbd "<leader>fs") 'save-buffer)
 (evil-define-key 'normal 'global (kbd "<leader>fa") 'save-all)
+(evil-define-key 'normal 'global (kbd "M-s") 'my/switch-to-alt-file)
 
 ;; Windows
-(evil-define-key 'normal 'global (kbd "<leader><tab>")
-  (lambda ()
-    (interactive)
-    (my/switch-to-previous-buffer)))
+(evil-define-key 'normal 'global (kbd "<leader><tab>") 'evil-switch-to-windows-last-buffer)
 (evil-define-key 'normal 'global (kbd "<leader>wh") 'windmove-left)
-(evil-define-key  'normal 'global (kbd "<leader>wl") 'windmove-right)
+(evil-define-key 'normal 'global (kbd "<leader>wl") 'windmove-right)
 (evil-define-key 'normal 'global (kbd "<leader>wj") 'windmove-down)
 (evil-define-key 'normal 'global (kbd "<leader>wk") 'windmove-up)
 (evil-define-key 'normal 'global (kbd "<leader>wv") 'evil-window-vsplit)

@@ -1,9 +1,3 @@
-(defun my/switch-to-previous-buffer ()
-  "Switch to previously open buffer.
-Repeated invocations toggle between the two most recently open buffers."
-  (interactive)
-  (switch-to-buffer (other-buffer (current-buffer) 1)))
-
 (defun lispy-format-buffer ()
   (interactive)
   (mark-whole-buffer)
@@ -28,7 +22,29 @@ Repeated invocations toggle between the two most recently open buffers."
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
   (eldoc-mode +1)
   (tide-hl-identifier-mode +1)
-  ;; company is an optional dependency. You have to
-  ;; install it separately via package-install
-  ;; `M-x package-install [ret] company`
   (company-mode +1))
+
+(setq alt-ext-mapping (make-hash-table :test 'equal))
+(puthash "c" '("h") alt-ext-mapping)
+(puthash "h" '("c" "cpp") alt-ext-mapping)
+(puthash "cpp" '("hpp" "hxx" "h") alt-ext-mapping)
+(puthash "hpp" '("cpp") alt-ext-mapping)
+(puthash "hxx" '("cpp") alt-ext-mapping)
+(puthash "js" '("css" "scss") alt-ext-mapping)
+(puthash "jsx" '("css" "scss") alt-ext-mapping)
+(puthash "css" '("js" "jsx") alt-ext-mapping)
+(puthash "scss" '("js" "jsx") alt-ext-mapping)
+(defun my/switch-to-alt-file ()
+  "Switch to an alternative version of the current file.
+cpp -> hpp, hpp -> cpp, index.js -> index.scss"
+  (interactive)
+  (setq file-extension (file-name-extension buffer-file-name))
+  (setq file-base-name (file-name-sans-extension buffer-file-name))
+  (setq file-alt-extension-variants (gethash file-extension alt-ext-mapping))
+  (while file-alt-extension-variants
+    (setq possible-alt-ext (car file-alt-extension-variants))
+    (setq possible-alt-file (concat file-base-name "." possible-alt-ext))
+    (if (file-exists-p possible-alt-file)
+        (progn (find-file possible-alt-file)
+               (setq file-alt-extension-variants '()))
+      (setq file-alt-extension-variants (cdr file-alt-extension-variants)))))
