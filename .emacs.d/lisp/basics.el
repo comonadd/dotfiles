@@ -3,6 +3,7 @@
 (setq inhibit-startup-screen t)
 (setq inhibit-splash-screen t)
 (setq inhibit-startup-message t)
+(split-window-horizontally)
 
 ;;
 ;;; Disable annoying temporary files
