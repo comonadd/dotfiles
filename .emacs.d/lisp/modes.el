@@ -13,9 +13,3 @@
                                          '("tsx" "jsx" "js" "ts"))
                              (company-mode +1)
                              (lsp))))
-;; (when (string-equal "tsx" (file-name-extension buffer-file-name))
-;;   (setup-tide-mode))
-
-;; JavaScript
-;; (add-hook 'js2-mode (lambda ()
-;; 			 (company-mode +1)))
