@@ -87,13 +87,13 @@
   :config
   (projectile-mode +1)
   (setq projectile-project-search-path '("~/Projects" "~/Work"))
-  (setq projectile-globally-ignored-directories (append projectile-globally-ignored-directories '("node_modules" ".venv" "venv" "build" "output" "target" ".git" ".vs")))
-  (setq projectile-globally-ignored-files (append projectile-globally-ignored-files '("package-lock.json" "*.vcxproj*")))
+  (setq projectile-globally-ignored-directories (append projectile-globally-ignored-directories '("node_modules" ".venv" "venv" "build" "output" "target" ".git" ".vs" "CMakeFiles")))
+  (setq projectile-globally-ignored-files (append projectile-globally-ignored-files '("package-lock.json" "*.vcxproj*" "CMakeCache.txt")))
   (setq projectile-globally-ignored-file-suffixes (append projectile-globally-ignored-file-suffixes '("dll" "lock" "exe" "out" "lib" "so" "dll" "vcxproj" "sqlite3" "bin")))
+  (setq compilation-read-command nil) ;; Do not prompt for a compilation command
   (evil-define-key 'normal 'global (kbd "<leader>pr") 'projectile-discover-projects-in-search-path)
   (evil-define-key 'normal 'global (kbd "<leader>ps") 'projectile-switch-project)
-  (evil-define-key 'normal 'global (kbd "<leader>pf") 'projectile-find-file)
-  (evil-define-key 'normal 'global (kbd "<f6>") 'projectile-compile-project))
+  (evil-define-key 'normal 'global (kbd "<leader>pf") 'projectile-find-file))
 
 ;; Elisp-format
 (load "third-party/elisp-format.el")
@@ -113,9 +113,9 @@
    company-tooltip-align-annotations t
    company-selection-wrap-around t
    company-show-numbers t)
-  (global-set-key (kbd "TAB") 'company-complete)
-  (define-key company-active-map (kbd "TAB") 'company-select-next-or-abort)
-  (define-key company-active-map (kbd "S-TAB") 'company-select-previous-or-abort))
+  (global-set-key (kbd "C-SPC") 'company-complete)
+  (define-key company-active-map (kbd "C-SPC") 'company-select-next-or-abort)
+  (define-key company-active-map (kbd "S-C-SPC") 'company-select-previous-or-abort))
 (unless (package-installed-p 'company-box)
   (package-install 'company-box))
 (use-package company-box
@@ -157,7 +157,16 @@
   (package-install 'lsp-mode))
 (use-package lsp-mode
   :ensure t
-  :commands lsp)
+  :commands lsp
+  :init
+  (setq lsp-keymap-prefix "s-m"
+        lsp-prefer-capf t
+        lsp-print-performance t
+        ;; lsp-log-io t ; enable debug log - can be a huge performance hit
+        lsp-disabled-clients '(eslint)
+        lsp-treemacs-sync-mode 1)
+  (setq lsp-clients-javascript-typescript-server "C:\\Program Files\\nodejs\\node.exe")
+  (setq lsp-clients-typescript-javascript-server-args "C:\\Program Files\\nodejs\\javascript-typescript-langserver"))
 (unless (package-installed-p 'lsp-ivy)
   (package-install 'lsp-ivy))
 (use-package lsp-ivy
@@ -190,7 +199,10 @@
          ("\\.tsx\\'" . web-mode)
          ("\\.jsx\\'" . web-mode)
          ("\\.js\\'" . web-mode)
-         ("\\.ts\\'" . web-mode))
+         ("\\.ts\\'" . web-mode)
+         ("\\.scss\\'" . web-mode)
+         ("\\.sass\\'" . web-mode)
+         ("\\.less\\'" . web-mode))
   :config
   (setq web-mode-markup-indent-offset 2
         web-mode-css-indent-offset 2
@@ -209,19 +221,76 @@
   :ensure t
   :hook (rust-mode . lsp))
 
-;; Doom themes
-(use-package doom-themes
+;; Some themes
+(unless (package-installed-p 'busybee-theme)
+  (package-install 'busybee-theme))
+;; (unless (package-installed-p 'darkburn-theme)
+;;   (package-install 'darkburn-theme))
+;; (unless (package-installed-p 'minimal-theme)
+;;   (package-install 'minimal-theme))
+;; (unless (package-installed-p 'monochrome-theme)
+;;   (package-install 'monochrome-theme))
+;; (unless (package-installed-p 'doom-themes)
+;;   (package-install 'doom-themes))
+;; (use-package doom-themes
+;;   :ensure t
+;;   :config
+;;   ;; Global settings (defaults)
+;;   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+;;         doom-themes-enable-italic t) ; if nil, italics is universally disabled
+;;   ;; Enable flashing mode-line on errors
+;;   (doom-themes-visual-bell-config)
+;;   ;; Enable custom neotree theme (all-the-icons must be installed!)
+;;   (doom-themes-neotree-config)
+;;   ;; or for treemacs users
+;;   (setq doom-themes-treemacs-theme "doom-colors") ; use the colorful treemacs theme
+;;   (doom-themes-treemacs-config)
+;;   ;; Corrects (and improves) org-mode's native fontification.
+;;   (doom-themes-org-config))
+
+;; hl-todo (Keyword highlight)
+(unless (package-installed-p 'hl-todo)
+  (package-install 'hl-todo))
+(use-package hl-todo
   :ensure t
   :config
-  ;; Global settings (defaults)
-  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-        doom-themes-enable-italic t) ; if nil, italics is universally disabled
-  ;; Enable flashing mode-line on errors
-  (doom-themes-visual-bell-config)
-  ;; Enable custom neotree theme (all-the-icons must be installed!)
-  (doom-themes-neotree-config)
-  ;; or for treemacs users
-  (setq doom-themes-treemacs-theme "doom-colors") ; use the colorful treemacs theme
-  (doom-themes-treemacs-config)
-  ;; Corrects (and improves) org-mode's native fontification.
-  (doom-themes-org-config))
+  (setq hl-todo-keyword-faces
+        '(("TODO"   . "#FF0000")
+          ("FIXME"  . "#FF0000")
+          ("DEBUG"  . "#A020F0")
+          ("GOTCHA" . "#FF4500")
+          ("STUB"   . "#1E90FF"))))
+
+;; powerline
+;; (unless (package-installed-p 'telephone-line)
+;;   (package-install 'telephone-line))
+;; (use-package telephone-line
+;;   :ensure t
+;;   :config
+;;   (telephone-line-mode 1))
+;; (use-package doom-modeline
+;;   :ensure t
+;;   :init (doom-modeline-mode 1)
+;;   :config
+;;   (setq doom-modeline-height 20)
+;;   (setq doom-modeline-bar-width 3)
+;;   (setq doom-modeline-project-detection 'projectile))
+(use-package spaceline
+  :ensure t
+  :init
+  (require 'spaceline-config)
+  (spaceline-emacs-theme))
+
+;; glsl-mode
+(use-package glsl-mode
+  :ensure t
+  :mode "\\.rb\\'")
+
+;; prettier
+(use-package prettier-js
+  :ensure t
+  :after web-mode
+  :init
+  (require 'web-mode)
+  (define-key html-mode-map (kbd "<M-lwindow> M-l") 'prettier-js)
+  (define-key web-mode-map (kbd "<M-lwindow> M-l") 'prettier-js))
