@@ -48,3 +48,17 @@ cpp -> hpp, hpp -> cpp, index.js -> index.scss"
         (progn (find-file possible-alt-file)
                (setq file-alt-extension-variants '()))
       (setq file-alt-extension-variants (cdr file-alt-extension-variants)))))
+
+(defun my/rename-current-file ()
+  (interactive)
+  (setq new-file-name (read-string "New file name: "))
+  (rename-file buffer-file-name new-file-name))
+
+(defun my/delete-current-file ()
+  (interactive)
+  (if (y-or-n-p (concat "Delete " buffer-file-name "?"))
+      (progn (delete-file buffer-file-name)
+             (kill-buffer))
+    (progn
+      ;; do nothing
+      )))

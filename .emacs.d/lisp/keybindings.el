@@ -3,7 +3,7 @@
 
 ;; Basics
 (evil-set-leader 'normal (kbd "SPC"))
-(evil-define-key 'visual 'global (kbd "<leader>mer") 'eval-region)
+(evil-define-key 'visual 'global (kbd "<f1>") 'eval-region)
 (evil-define-key 'normal 'global (kbd "<leader>meb") 'eval-buffer)
 (evil-define-key 'normal 'global (kbd "<leader>ee") 'open-config)
 (evil-define-key 'normal 'global (kbd "<leader>er") 'reload-config)
@@ -11,6 +11,8 @@
 (if (eq system-type 'windows-nt)
     (evil-define-key 'normal 'global (kbd "<M-f4>") 'kill-emacs))
 (evil-define-key 'normal 'global (kbd "<leader>qr") 'restart-emacs)
+;; no screwing with my middle mouse button
+(global-unset-key [mouse-2])
 
 ;; Help
 (evil-define-key 'normal 'global (kbd "<leader>hv") 'describe-variable)
@@ -23,6 +25,8 @@
 (evil-define-key 'normal 'global (kbd "<leader>fs") 'save-buffer)
 (evil-define-key 'normal 'global (kbd "<leader>fa") 'save-all)
 (evil-define-key 'normal 'global (kbd "M-s") 'my/switch-to-alt-file)
+(evil-define-key 'normal 'global (kbd "<leader>fr") 'my/rename-current-file)
+(evil-define-key 'normal 'global (kbd "<leader>fd") 'my/delete-current-file)
 
 ;; Windows
 (evil-define-key 'normal 'global (kbd "<leader><tab>") 'evil-switch-to-windows-last-buffer)
@@ -36,12 +40,15 @@
 
 ;; File navigation
 (evil-define-key 'normal 'global (kbd "<leader>/") 'swiper)
+(evil-define-key 'normal 'global (kbd "<leader>p/") 'swiper-all)
 
 ;; Editing
 (global-set-key (kbd "M-d") 'kill-whole-line)
 
 ;; Navigation
 (evil-define-key 'normal 'global (kbd "C-b") 'evil-goto-definition)
+(evil-define-key 'normal 'global (kbd "C-j") 'imenu)
+(evil-define-key 'normal 'global (kbd "C-r") 'query-replace)
 
 ;; Formatting
 (when (eq system-type 'windows-nt)
@@ -53,3 +60,7 @@
 ;; buffers
 (evil-define-key 'normal 'global (kbd "<leader>bb") 'switch-to-buffer)
 (evil-define-key 'normal 'global (kbd "<leader>bk") 'kill-buffer)
+(evil-define-key 'normal 'global (kbd "M-k") 'kill-current-buffer)
+
+;; Project
+(evil-define-key 'normal 'global (kbd "<f6>") 'projectile-compile-project)
