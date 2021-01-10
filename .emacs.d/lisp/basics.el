@@ -3,7 +3,6 @@
 (setq inhibit-startup-screen t)
 (setq inhibit-splash-screen t)
 (setq inhibit-startup-message t)
-(split-window-horizontally)
 
 ;;
 ;;; Disable annoying temporary files
@@ -13,6 +12,13 @@
 
 ;; Language environment
 (set-language-environment "utf-8")
+
+;; Turn off the bell on Mac OS X
+(defun nil-bell ())
+(setq ring-bell-function 'nil-bell)
+
+;; Do not require last line to be a newline
+(setq require-final-newline nil)
 
 ;;
 ;;; Editing
@@ -24,4 +30,10 @@
   python-indent-offset 4
   js-indent-level 2
   js2-basic-offset 2
-  javascript-indent-level 2)
+  javascript-indent-level 2
+  evil-shift-width 2
+  css-indent-offset 2)
+
+(setq compilation-scroll-output t)
+
+(add-to-list 'auto-mode-alist '("\\.jpg$" . text-mode))
