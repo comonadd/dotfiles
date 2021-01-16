@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <key name="Software">
 	<key name="ConEmu">
-		<key name=".Vanilla" modified="2021-01-09 00:28:42" build="191012">
-			<value name="ColorTable00" type="dword" data="00222827"/>
-			<value name="ColorTable01" type="dword" data="009e5401"/>
-			<value name="ColorTable02" type="dword" data="0004aa74"/>
-			<value name="ColorTable03" type="dword" data="00a6831a"/>
-			<value name="ColorTable04" type="dword" data="003403a7"/>
-			<value name="ColorTable05" type="dword" data="009c5689"/>
-			<value name="ColorTable06" type="dword" data="0049b6b6"/>
-			<value name="ColorTable07" type="dword" data="00cacaca"/>
-			<value name="ColorTable08" type="dword" data="007c7c7c"/>
-			<value name="ColorTable09" type="dword" data="00f58303"/>
-			<value name="ColorTable10" type="dword" data="0006d08d"/>
-			<value name="ColorTable11" type="dword" data="00e5c258"/>
-			<value name="ColorTable12" type="dword" data="004b04f3"/>
-			<value name="ColorTable13" type="dword" data="00b87da8"/>
-			<value name="ColorTable14" type="dword" data="0081cccc"/>
-			<value name="ColorTable15" type="dword" data="00ffffff"/>
+		<key name=".Vanilla" modified="2021-01-15 12:57:14" build="191012">
+			<value name="ColorTable00" type="dword" data="00000000"/>
+			<value name="ColorTable01" type="dword" data="00ff5555"/>
+			<value name="ColorTable02" type="dword" data="003bd01d"/>
+			<value name="ColorTable03" type="dword" data="00fae36a"/>
+			<value name="ColorTable04" type="dword" data="000000ff"/>
+			<value name="ColorTable05" type="dword" data="00ff55ff"/>
+			<value name="ColorTable06" type="dword" data="0009c8ed"/>
+			<value name="ColorTable07" type="dword" data="00ffffff"/>
+			<value name="ColorTable08" type="dword" data="00555555"/>
+			<value name="ColorTable09" type="dword" data="00d26014"/>
+			<value name="ColorTable10" type="dword" data="0021de38"/>
+			<value name="ColorTable11" type="dword" data="00bbbb00"/>
+			<value name="ColorTable12" type="dword" data="00170ef4"/>
+			<value name="ColorTable13" type="dword" data="005d00ff"/>
+			<value name="ColorTable14" type="dword" data="000ae5ff"/>
+			<value name="ColorTable15" type="dword" data="00bbbbbb"/>
 			<value name="ColorTable16" type="dword" data="00222827"/>
 			<value name="ColorTable17" type="dword" data="009e5401"/>
 			<value name="ColorTable18" type="dword" data="0004aa74"/>
@@ -73,7 +73,7 @@
 			<value name="StartType" type="hex" data="02"/>
 			<value name="CmdLine" type="string" data=""/>
 			<value name="StartTasksFile" type="string" data=""/>
-			<value name="StartTasksName" type="string" data="{cmd::Cmder}"/>
+			<value name="StartTasksName" type="string" data="{bash::bash as Admin}"/>
 			<value name="StartFarFolders" type="hex" data="00"/>
 			<value name="StartFarEditors" type="hex" data="00"/>
 			<value name="StoreTaskbarkTasks" type="hex" data="00"/>
@@ -127,8 +127,8 @@
 			<value name="ConWnd Width" type="dword" data="000000b3"/>
 			<value name="ConWnd Height" type="dword" data="00000034"/>
 			<value name="Cascaded" type="hex" data="01"/>
-			<value name="ConWnd X" type="long" data="139"/>
-			<value name="ConWnd Y" type="long" data="80"/>
+			<value name="ConWnd X" type="long" data="349"/>
+			<value name="ConWnd Y" type="long" data="99"/>
 			<value name="16bit Height" type="ulong" data="0"/>
 			<value name="AutoSaveSizePos" type="hex" data="01"/>
 			<value name="IntegralSize" type="hex" data="00"/>
@@ -541,14 +541,14 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd2" type="string" data='"%CMDER_ROOT%vendor\git-for-windows\usr\bin\mintty.exe" /bin/bash -l'/>
 				</key>
-				<key name="Task7" modified="2018-02-22 06:05:13" build="171109">
+				<key name="Task7" modified="2021-01-16 11:44:44" build="191012">
 					<value name="Name" type="string" data="{bash::bash as Admin}"/>
 					<value name="Flags" type="dword" data="00000000"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
 					<value name="GuiArgs" type="string" data=' /icon "%CMDER_ROOT%\icons\cmder.ico"'/>
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
-					<value name="Cmd1" type="string" data='*cmd /c ""%ConEmuDir%\..\git-for-windows\bin\bash" --login -i"'/>
+					<value name="Cmd1" type="string" data='-new_console:d:C:\Users\Dmitry *cmd /c ""%ConEmuDir%\..\git-for-windows\bin\bash" --login -i"'/>
 				</key>
 				<key name="Task8" modified="2018-02-22 06:05:13" build="171109">
 					<value name="Name" type="string" data="{bash::bash}"/>
