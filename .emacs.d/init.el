@@ -103,7 +103,7 @@
  '(lsp-ui-doc-border "#9eacac")
  '(objed-cursor-color "#955f5f")
  '(package-selected-packages
-   '(prettier-js php-mode glsl-mode naysayer-theme busybee-theme nordless-theme solarized-theme spaceline spaceline-config monochrome-theme eltbus darkburn-theme hl-todo rust-mode treemacs-all-the-icons treemacs-projectile treemacs-evil lsp-treemacs all-the-icons zzz-to-char company-box elisp-format lsp-ivy company projectile evil-nerd-commenter bm evil-mc evil-magit magit counsel evil-collection use-package))
+   '(emmet-mode prettier-js php-mode glsl-mode naysayer-theme busybee-theme nordless-theme solarized-theme spaceline spaceline-config monochrome-theme eltbus darkburn-theme hl-todo rust-mode treemacs-all-the-icons treemacs-projectile treemacs-evil lsp-treemacs all-the-icons zzz-to-char company-box elisp-format lsp-ivy company projectile evil-nerd-commenter bm evil-mc evil-magit magit counsel evil-collection use-package))
  '(pdf-view-midnight-colors (cons "#605a52" "#f7f3ee"))
  '(pos-tip-background-color "#01323d")
  '(pos-tip-foreground-color "#9eacac")

@@ -295,3 +295,17 @@
   (require 'web-mode)
   (define-key html-mode-map (kbd "<M-lwindow> M-l") 'prettier-js)
   (define-key web-mode-map (kbd "<M-lwindow> M-l") 'prettier-js))
+
+;; emmet
+(use-package emmet-mode
+  :ensure t
+  :mode (("\\.html?\\'" . emmet-mode)
+         ("\\.css\\'" . emmet-mode)
+         ("\\.scss\\'" . emmet-mode)
+         ("\\.sass\\'" . emmet-mode)
+         ("\\.less\\'" . emmet-mode)
+         )
+  :init
+  (require 'emmet-mode)
+  (define-key web-mode-map (kbd "<tab>") 'emmet-expand-yas)
+  )

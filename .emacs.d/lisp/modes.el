@@ -12,10 +12,15 @@
 ;; Web-mode
 (add-hook 'web-mode-hook (lambda ()
                            (hl-todo-mode)
+                           ;; Enable company & LSP for JS files
                            (when (member (file-name-extension buffer-file-name)
                                          '("tsx" "jsx" "js" "ts"))
                              (company-mode +1)
-                             (lsp))))
+                             (lsp))
+                           ;; Use CSS Emmet mode for stylesheet files
+                           (when (member (file-name-extension buffer-file-name)
+                                         '("css" "scss" "sass" "less"))
+                             (setq emmet-use-css-transform t))))
 
 ;; C/C++
 (add-hook 'c-mode-common-hook '(lambda ()
