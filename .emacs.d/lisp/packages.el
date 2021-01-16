@@ -87,9 +87,9 @@
   :config
   (projectile-mode +1)
   (setq projectile-project-search-path '("~/Projects" "~/Work"))
-  (setq projectile-globally-ignored-directories (append projectile-globally-ignored-directories '("node_modules" ".venv" "venv" "build" "output" "target" ".git" ".vs" "CMakeFiles")))
+  (setq projectile-globally-ignored-directories (append projectile-globally-ignored-directories '("node_modules" ".venv" "venv" "build" "output" "target" ".git" ".vs" "CMakeFiles" ".log")))
   (setq projectile-globally-ignored-files (append projectile-globally-ignored-files '("package-lock.json" "*.vcxproj*" "CMakeCache.txt")))
-  (setq projectile-globally-ignored-file-suffixes (append projectile-globally-ignored-file-suffixes '("dll" "lock" "exe" "out" "lib" "so" "dll" "vcxproj" "sqlite3" "bin")))
+  (setq projectile-globally-ignored-file-suffixes (append projectile-globally-ignored-file-suffixes '("dll" "lock" "exe" "out" "lib" "so" "dll" "vcxproj" "sqlite3" "bin" "log")))
   (setq compilation-read-command nil) ;; Do not prompt for a compilation command
   (evil-define-key 'normal 'global (kbd "<leader>pr") 'projectile-discover-projects-in-search-path)
   (evil-define-key 'normal 'global (kbd "<leader>ps") 'projectile-switch-project)
