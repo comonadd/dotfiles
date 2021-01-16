@@ -23,6 +23,8 @@
 (evil-define-key 'normal 'global (kbd "<leader>ff") 'find-file)
 (evil-define-key 'normal 'global (kbd "<leader>fo") 'find-file-other-window)
 (evil-define-key 'normal 'global (kbd "<leader>fs") 'save-buffer)
+(global-set-key (kbd "C-s") 'save-buffer)
+(global-set-key (kbd "C-S-s") 'save-all)
 (evil-define-key 'normal 'global (kbd "<leader>fa") 'save-all)
 (evil-define-key 'normal 'global (kbd "M-s") 'my/switch-to-alt-file)
 (evil-define-key 'normal 'global (kbd "<leader>fr") 'my/rename-current-file)
@@ -30,10 +32,17 @@
 
 ;; Windows
 (evil-define-key 'normal 'global (kbd "<leader><tab>") 'evil-switch-to-windows-last-buffer)
+
 (evil-define-key 'normal 'global (kbd "<leader>wh") 'windmove-left)
 (evil-define-key 'normal 'global (kbd "<leader>wl") 'windmove-right)
 (evil-define-key 'normal 'global (kbd "<leader>wj") 'windmove-down)
 (evil-define-key 'normal 'global (kbd "<leader>wk") 'windmove-up)
+
+(global-set-key (kbd "C-h") 'windmove-left)
+(global-set-key (kbd "C-l") 'windmove-right)
+(global-set-key (kbd "C-j") 'windmove-down)
+(global-set-key (kbd "C-k") 'windmove-up)
+
 (evil-define-key 'normal 'global (kbd "<leader>wv") 'evil-window-vsplit)
 (evil-define-key 'normal 'global (kbd "<leader>ws") 'evil-window-split)
 (evil-define-key 'normal 'global (kbd "<leader>wd") 'delete-window)
