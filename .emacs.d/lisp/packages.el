@@ -202,7 +202,8 @@
          ("\\.ts\\'" . web-mode)
          ("\\.scss\\'" . web-mode)
          ("\\.sass\\'" . web-mode)
-         ("\\.less\\'" . web-mode))
+         ("\\.less\\'" . web-mode)
+         ("\\.json\\'" . web-mode))
   :config
   (setq web-mode-markup-indent-offset 2
         web-mode-css-indent-offset 2
