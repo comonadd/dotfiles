@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: int
+# --
+interface $1 {
+  $2
+}

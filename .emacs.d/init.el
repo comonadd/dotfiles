@@ -1,16 +1,21 @@
 ;;
 ;;; Global variables
 (setq-default my/user-root (file-name-as-directory (getenv "HOME")))
-(setq-default my/emacs-root (file-name-as-directory (concat my/user-root ".emacs.d")))
-(setq-default my/config-root (file-name-as-directory (concat my/user-root ".emacs.d/lisp")))
-(setq-default my/third-party-root (file-name-as-directory (concat my/config-root "third-party")))
+(setq-default my/emacs-root
+  (file-name-as-directory (concat my/user-root ".emacs.d")))
+(setq-default my/config-root
+  (file-name-as-directory (concat my/user-root ".emacs.d/lisp")))
+(setq-default my/third-party-root
+  (file-name-as-directory (concat my/config-root "third-party")))
 (setq-default my/config-file (concat my/emacs-root "init.el"))
 (setq-default my/projects-root (concat my/user-root "Projects"))
 
 ;;
 ;;; Initialize the package manager
 (require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives
+  '("melpa" . "https://melpa.org/packages/")
+  t)
 (package-initialize)
 
 ;;
@@ -19,39 +24,49 @@
 
 ;;
 ;;; OS path configuration
+
+;; MacOS
 (if (eq system-type 'darwin)
-    (setq exec-path
-          (list (concat (getenv "HOME") "/.asdf/shims")
-                "/usr/local/bin/"
-                "/usr/bin/"
-                "/bin/"
-                "/usr/sbin/"
-                "/sbin/"
-                (concat (getenv "HOME") "/.cargo/bin")
-                (concat (getenv "HOME") "/.local/bin")
-                (concat (getenv "HOME") "/Scripts")))
-  (setq lsp-pyls-plugins-flake8-filename (concat (getenv "HOME") "/.asdf.shims"))
-  (setq racer-rust-src-path (concat (string-trim (shell-command-to-string "rustc --print sysroot")) "/lib/rustlib/src/rust/src"))
+  (setq exec-path
+    (list
+      (concat (getenv "HOME") "/.asdf/shims")
+      "/usr/local/bin/"
+      "/usr/bin/"
+      "/bin/"
+      "/usr/sbin/"
+      "/sbin/"
+      (concat (getenv "HOME") "/.cargo/bin")
+      (concat (getenv "HOME") "/.local/bin")
+      (concat (getenv "HOME") "/Scripts")))
+  (setq lsp-pyls-plugins-flake8-filename
+    (concat (getenv "HOME") "/.asdf.shims"))
+  (setq racer-rust-src-path
+    (concat
+      (string-trim (shell-command-to-string "rustc --print sysroot"))
+      "/lib/rustlib/src/rust/src"))
   (setq flycheck-python-pylint-executable
-        (expand-file-name (concat (file-name-as-directory (getenv "HOME")) ".asdf/shims/pylint")))
-  )
+    (expand-file-name
+      (concat
+        (file-name-as-directory (getenv "HOME"))
+        ".asdf/shims/pylint"))))
+
+;; Windows
 (if (eq system-type 'windows-nt)
-    (setq exec-path
-          ;; (append
-          ;;  exec-path
-           (list
-            "C:\\Windows\\System32"
-            "C:\\Program Files\\Git\\bin"
-            "C:\\ProgramData\\chocolatey\\bin"
-            "C:\\Program Files\\nodejs"
-            (concat (getenv "HOME") ".pyenv\\pyenv-win\\shims")
-            ;; )
-           ))
-  (setq-default flycheck-python-pylint-executable
-                (concat (file-name-as-directory (getenv "HOME")) ".pyenv\\pyenv-win\\shims\\pylint"))
-  )
-(setenv "PATH" (string-join exec-path ":"))
-(setq default-directory "C:\\Users\\Dmitry")
+  (defun set-exec-path-from-shell-PATH ()
+    "Set up Emacs' `exec-path' and PATH environment variable to match that used by the user's shell.
+This is particularly useful under Mac OSX, where GUI apps are not started from a shell."
+    (interactive)
+    (let
+      (
+        (path-from-shell
+          (replace-regexp-in-string
+            "[ \t\n]*$" ""
+            (shell-command-to-string
+              "$SHELL --login -i -c 'echo $PATH'"))))
+      (setenv "PATH" path-from-shell)
+      (setq exec-path (split-string path-from-shell path-separator))))
+  (setq default-directory "C:\\Users\\Dmitry")
+  (set-exec-path-from-shell-PATH))
 
 ;;
 ;;; Require other configuration parts
@@ -96,6 +111,12 @@
  '(hl-fg-colors
    '("#002732" "#002732" "#002732" "#002732" "#002732" "#002732" "#002732" "#002732"))
  '(hl-paren-colors '("#3cafa5" "#c49619" "#3c98e0" "#7a7ed2" "#93a61a"))
+ '(hl-todo-keyword-faces
+   '(("TODO" . "#FF0000")
+     ("FIXME" . "#FF0000")
+     ("DEBUG" . "#A020F0")
+     ("\\@PERFORMANCE" . "#FF4500")
+     ("\\@ROBUSTNESS" . "#1E90FF")))
  '(initial-frame-alist '((fullscreen . maximized)))
  '(jdee-db-active-breakpoint-face-colors (cons "#f1ece4" "#7382a0"))
  '(jdee-db-requested-breakpoint-face-colors (cons "#f1ece4" "#81895d"))
@@ -103,7 +124,7 @@
  '(lsp-ui-doc-border "#9eacac")
  '(objed-cursor-color "#955f5f")
  '(package-selected-packages
-   '(emmet-mode prettier-js php-mode glsl-mode naysayer-theme busybee-theme nordless-theme solarized-theme spaceline spaceline-config monochrome-theme eltbus darkburn-theme hl-todo rust-mode treemacs-all-the-icons treemacs-projectile treemacs-evil lsp-treemacs all-the-icons zzz-to-char company-box elisp-format lsp-ivy company projectile evil-nerd-commenter bm evil-mc evil-magit magit counsel evil-collection use-package))
+   '(flycheck hl-todo string-inflection yasnippet cmake-mode ag emmet-mode prettier-js php-mode glsl-mode naysayer-theme busybee-theme nordless-theme solarized-theme spaceline spaceline-config monochrome-theme eltbus darkburn-theme rust-mode treemacs-all-the-icons treemacs-projectile treemacs-evil lsp-treemacs all-the-icons zzz-to-char company-box elisp-format lsp-ivy company projectile evil-nerd-commenter bm evil-mc evil-magit magit counsel evil-collection use-package))
  '(pdf-view-midnight-colors (cons "#605a52" "#f7f3ee"))
  '(pos-tip-background-color "#01323d")
  '(pos-tip-foreground-color "#9eacac")

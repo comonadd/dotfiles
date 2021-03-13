@@ -8,15 +8,13 @@
   :init
   (setq evil-want-integration t)
   (setq evil-want-keybinding nil)
-  :config
-  (evil-mode 1))
+  :config (evil-mode 1))
 (unless (package-installed-p 'evil-collection)
   (package-install 'evil-collection))
 (use-package evil-collection
   :after evil
   :ensure t
-  :config
-  (evil-collection-init))
+  :config (evil-collection-init))
 
 ;; Counsel, Ivy, Swiper
 (unless (package-installed-p 'counsel)
@@ -33,8 +31,7 @@
   (package-install 'magit))
 (use-package magit
   :ensure t
-  :config
-  (evil-define-key 'normal 'global (kbd "<leader>gs") 'magit-status))
+  :config (evil-define-key 'normal 'global (kbd "<leader>gs") 'magit-status))
 (unless (package-installed-p 'evil-magit)
   (package-install 'evil-magit))
 (use-package evil-magit
@@ -52,12 +49,23 @@
   :ensure t
   :config
   (global-evil-mc-mode 1)
-  (evil-define-key 'normal 'global (kbd "C-n") 'evil-mc-make-and-goto-next-match)
-  (evil-define-key 'normal 'global (kbd "C-p") 'evil-mc-make-and-goto-previous-match)
-  (add-hook
-   'evil-mc-mode-hook
-   (lambda ()
-     (evil-define-key 'normal 'local (kbd "<escape>") 'evil-mc-undo-all-cursors))))
+  (evil-define-key
+    'normal
+    'global
+    (kbd "C-n")
+    'evil-mc-make-and-goto-next-match)
+  (evil-define-key
+    'normal
+    'global
+    (kbd "C-p")
+    'evil-mc-make-and-goto-previous-match)
+  (add-hook 'evil-mc-mode-hook
+    (lambda ()
+      (evil-define-key
+        'normal
+        'local
+        (kbd "<escape>")
+        'evil-mc-undo-all-cursors))))
 
 ;; bm (Bookmarks)
 (unless (package-installed-p 'bm)
@@ -65,11 +73,8 @@
 (use-package bm
   :ensure t
   :demand t
-  :config
-  (setq bm-repository-file "~/.emacs.d/bm-repository")
-  :bind (("<f2>" . bm-next)
-	 ("S-<f2>" . bm-previous)
-	 ("C-<f2>" . bm-toggle)))
+  :config (setq bm-repository-file "~/.emacs.d/bm-repository")
+  :bind (("<f2>" . bm-next) ("S-<f2>" . bm-previous) ("C-<f2>" . bm-toggle)))
 
 ;; evil-nerd-commenters (Comments)
 (unless (package-installed-p 'evil-nerd-commenter)
@@ -77,7 +82,11 @@
 (use-package evil-nerd-commenter
   :ensure t
   :config
-  (evil-define-key 'normal 'global (kbd "C-/") 'evilnc-comment-or-uncomment-lines))
+  (evil-define-key
+    'normal
+    'global
+    (kbd "C-/")
+    'evilnc-comment-or-uncomment-lines))
 
 ;; Projectile
 (unless (package-installed-p 'projectile)
@@ -87,16 +96,84 @@
   :config
   (projectile-mode +1)
   (setq projectile-project-search-path '("~/Projects" "~/Work"))
-  (setq projectile-globally-ignored-directories (append projectile-globally-ignored-directories '("node_modules" ".venv" "venv" "build" "output" "target" ".git" ".vs" "CMakeFiles" ".log")))
-  (setq projectile-globally-ignored-files (append projectile-globally-ignored-files '("package-lock.json" "*.vcxproj*" "CMakeCache.txt")))
-  (setq projectile-globally-ignored-file-suffixes (append projectile-globally-ignored-file-suffixes '("dll" "lock" "exe" "out" "lib" "so" "dll" "vcxproj" "sqlite3" "bin" "log")))
+  (setq git-exec-full-path "\"C:\\Program Files\\Git\\bin\\git.exe\"")
+  (setq projectile-git-command
+    (concat git-exec-full-path " ls-files -zco --exclude-standard"))
+  (setq projectile-git-ignored-command
+    (concat git-exec-full-path " ls-files -zcoi --exclude-standard"))
+  (setq projectile-git-submodule-command
+    (concat
+      git-exec-full-path
+      " submodule --quiet foreach 'echo $displaypath' | tr '\\n' '\\0'"))
+  (setq projectile-indexing-method 'hybrid)
+  (setq projectile-globally-ignored-directories
+    (append
+      projectile-globally-ignored-directories
+      '
+      ("*node_modules"
+        "*.venv"
+        "*venv"
+        "*build"
+        "*output"
+        "*target"
+        "*.git"
+        "*.vs"
+        "*CMakeFiles"
+        "*.log"
+        "*fontawesome"
+        "*dist")))
+  (setq projectile-globally-ignored-files
+    (append
+      projectile-globally-ignored-files
+      '
+      ("package-lock.json"
+        "manifest.json"
+        "*.vcxproj*"
+        "CMakeCache.txt"
+        "*.min.js"
+        "*.min.css")))
+  (setq projectile-globally-ignored-file-suffixes
+    (append
+      projectile-globally-ignored-file-suffixes
+      '
+      ("dll"
+        "lock"
+        "exe"
+        "out"
+        "lib"
+        "dll"
+        "vcxproj"
+        "sqlite3"
+        "bin"
+        "log"
+        "min.js"
+        "min.css"
+        "svg"
+        "png"
+        "jpeg"
+        "jpg"
+        "gif")))
   (setq compilation-read-command nil) ;; Do not prompt for a compilation command
-  (evil-define-key 'normal 'global (kbd "<leader>pr") 'projectile-discover-projects-in-search-path)
-  (evil-define-key 'normal 'global (kbd "<leader>ps") 'projectile-switch-project)
-  (evil-define-key 'normal 'global (kbd "<leader>pf") 'projectile-find-file))
+  (setq projectile-git-submodule-command nil) ;; Fixes the issue with "tr" not being found
+  (evil-define-key
+    'normal
+    'global
+    (kbd "<leader>pr")
+    'projectile-discover-projects-in-search-path)
+  (evil-define-key
+    'normal
+    'global
+    (kbd "<leader>ps")
+    'projectile-switch-project)
+  (evil-define-key
+    'normal
+    'global
+    (kbd "<leader>pf")
+    'projectile-find-file))
 
 ;; Elisp-format
-(load "third-party/elisp-format.el")
+;; (load "third-party/elisp-format.el")
+(load "third-party/emacs-elisp-autofmt/elisp-autofmt.el")
 
 ;; clang-format
 (load "third-party/clang-format.el")
@@ -108,19 +185,29 @@
   :ensure t
   :config
   (setq
-   company-idle-delay nil                     ; Do not show completions automatically
-   company-tooltip-flip-when-above t
-   company-tooltip-align-annotations t
-   company-selection-wrap-around t
-   company-show-numbers t)
+    company-idle-delay
+    nil ; Do not show completions automatically
+    company-tooltip-flip-when-above t
+    company-tooltip-align-annotations t
+    company-selection-wrap-around t
+    company-show-numbers t)
   (global-set-key (kbd "C-SPC") 'company-complete)
-  (define-key company-active-map (kbd "C-SPC") 'company-select-next-or-abort)
-  (define-key company-active-map (kbd "S-C-SPC") 'company-select-previous-or-abort))
+  (define-key company-active-map (kbd "C-SPC")
+    'company-select-next-or-abort)
+  (define-key company-active-map (kbd "S-C-SPC")
+    'company-select-previous-or-abort))
 (unless (package-installed-p 'company-box)
   (package-install 'company-box))
 (use-package company-box
   :ensure t
   :hook (company-mode . company-box-mode))
+
+;; Flycheck
+(use-package flycheck
+  :ensure t
+  :config
+  (flycheck-add-mode 'javascript-eslint 'web-mode)
+  (setq flycheck-check-syntax-automatically '(mode-enabled save)))
 
 ;; all-the-icons
 (unless (package-installed-p 'all-the-icons)
@@ -136,15 +223,16 @@
   :config
   (global-set-key (kbd "<f8>") 'treemacs)
   (setq
-   treemacs-indentation 2
-   treemacs-indentation-string            " "
-   treemacs-position                      'left
-   treemacs-show-cursor                   nil
-   treemacs-show-hidden-files             t
-   treemacs-silent-filewatch              nil
-   treemacs-silent-refresh                nil
-   treemacs-sorting                       'alphabetic-asc
-   treemacs-width                         35))
+    treemacs-indentation
+    2
+    treemacs-indentation-string " "
+    treemacs-position 'left
+    treemacs-show-cursor nil
+    treemacs-show-hidden-files t
+    treemacs-silent-filewatch nil
+    treemacs-silent-refresh nil
+    treemacs-sorting 'alphabetic-asc
+    treemacs-width 35))
 (use-package treemacs-evil
   :ensure t)
 (use-package treemacs-projectile
@@ -159,14 +247,18 @@
   :ensure t
   :commands lsp
   :init
-  (setq lsp-keymap-prefix "s-m"
-        lsp-prefer-capf t
-        lsp-print-performance t
-        ;; lsp-log-io t ; enable debug log - can be a huge performance hit
-        lsp-disabled-clients '(eslint)
-        lsp-treemacs-sync-mode 1)
-  (setq lsp-clients-javascript-typescript-server "C:\\Program Files\\nodejs\\node.exe")
-  (setq lsp-clients-typescript-javascript-server-args "C:\\Program Files\\nodejs\\javascript-typescript-langserver"))
+  (setq
+    lsp-keymap-prefix
+    "s-m"
+    lsp-prefer-capf t
+    lsp-print-performance t
+    ;; lsp-log-io t ; enable debug log - can be a huge performance hit
+    lsp-disabled-clients '(eslint)
+    lsp-treemacs-sync-mode 1)
+  (setq lsp-clients-javascript-typescript-server
+    "C:\\Program Files\\nodejs\\node.exe")
+  (setq lsp-clients-typescript-javascript-server-args
+    "C:\\Program Files\\nodejs\\javascript-typescript-langserver"))
 (unless (package-installed-p 'lsp-ivy)
   (package-install 'lsp-ivy))
 (use-package lsp-ivy
@@ -225,45 +317,18 @@
   :ensure t
   :hook (rust-mode . lsp))
 
-;; Some themes
-(unless (package-installed-p 'busybee-theme)
-  (package-install 'busybee-theme))
-;; (unless (package-installed-p 'darkburn-theme)
-;;   (package-install 'darkburn-theme))
-;; (unless (package-installed-p 'minimal-theme)
-;;   (package-install 'minimal-theme))
-;; (unless (package-installed-p 'monochrome-theme)
-;;   (package-install 'monochrome-theme))
-;; (unless (package-installed-p 'doom-themes)
-;;   (package-install 'doom-themes))
-;; (use-package doom-themes
-;;   :ensure t
-;;   :config
-;;   ;; Global settings (defaults)
-;;   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-;;         doom-themes-enable-italic t) ; if nil, italics is universally disabled
-;;   ;; Enable flashing mode-line on errors
-;;   (doom-themes-visual-bell-config)
-;;   ;; Enable custom neotree theme (all-the-icons must be installed!)
-;;   (doom-themes-neotree-config)
-;;   ;; or for treemacs users
-;;   (setq doom-themes-treemacs-theme "doom-colors") ; use the colorful treemacs theme
-;;   (doom-themes-treemacs-config)
-;;   ;; Corrects (and improves) org-mode's native fontification.
-;;   (doom-themes-org-config))
-
-;; hl-todo (Keyword highlight)
-(unless (package-installed-p 'hl-todo)
-  (package-install 'hl-todo))
 (use-package hl-todo
   :ensure t
-  :config
+  :init
   (setq hl-todo-keyword-faces
-        '(("TODO"   . "#FF0000")
-          ("FIXME"  . "#FF0000")
-          ("DEBUG"  . "#A020F0")
-          ("GOTCHA" . "#FF4500")
-          ("STUB"   . "#1E90FF"))))
+    '
+    (("TODO" . "#FF0000")
+      ("FIXME" . "#FF0000")
+      ("NOTE" . "#FF0000")
+      ("DEBUG" . "#A020F0")
+      ("PERFORMANCE" . "#FF4500")
+      ("ROBUSTNESS" . "#1E90FF")
+      ("HACK" . "#1E90FF"))))
 
 ;; powerline
 ;; (unless (package-installed-p 'telephone-line)
@@ -302,13 +367,25 @@
 ;; emmet
 (use-package emmet-mode
   :ensure t
-  :mode (("\\.html?\\'" . emmet-mode)
-         ("\\.css\\'" . emmet-mode)
-         ("\\.scss\\'" . emmet-mode)
-         ("\\.sass\\'" . emmet-mode)
-         ("\\.less\\'" . emmet-mode)
-         )
   :init
   (require 'emmet-mode)
-  (define-key web-mode-map (kbd "<tab>") 'emmet-expand-yas)
-  )
+  (require 'web-mode)
+  (define-key web-mode-map (kbd "<tab>") 'emmet-expand-yas))
+
+;; ag
+(use-package ag
+  :ensure t
+  :init
+  (require 'ag)
+  (setq ag-executable "C:/ProgramData/Chocolatey/bin/ag.exe"))
+
+;; cmake-mode
+(use-package cmake-mode
+  :ensure t)
+
+;; yasnippet
+(use-package yasnippet
+  :ensure t
+  :init
+  (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
+  (global-set-key (kbd "<f8>") 'yas-expand))
