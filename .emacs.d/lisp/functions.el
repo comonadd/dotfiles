@@ -49,10 +49,20 @@ cpp -> hpp, hpp -> cpp, index.js -> index.scss"
                (setq file-alt-extension-variants '()))
       (setq file-alt-extension-variants (cdr file-alt-extension-variants)))))
 
-(defun my/rename-current-file ()
-  (interactive)
-  (setq new-file-name (read-string "New file name: "))
-  (rename-file buffer-file-name new-file-name))
+(defun my/rename-current-file (new-name)
+  "Renames both current buffer and file it's visiting to NEW-NAME."
+  (interactive "sNew name: ")
+  (let ((name (buffer-name))
+        (filename (buffer-file-name)))
+    (if (not filename)
+        (message "Buffer '%s' is not visiting a file!" name)
+      (if (get-buffer new-name)
+          (message "A buffer named '%s' already exists!" new-name)
+        (progn
+          (rename-file filename new-name 1)
+          (rename-buffer new-name)
+          (set-visited-file-name new-name)
+          (set-buffer-modified-p nil))))))
 
 (defun my/delete-current-file ()
   (interactive)
