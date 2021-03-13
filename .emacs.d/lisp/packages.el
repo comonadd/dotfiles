@@ -191,29 +191,32 @@
   :ensure t)
 
 ;; Web-mode
-(unless (package-installed-p 'web-mode)
-  (package-install 'web-mode))
 (use-package web-mode
   :ensure t
-  :mode (("\\.html?\\'" . web-mode)
-         ("\\.tsx\\'" . web-mode)
-         ("\\.jsx\\'" . web-mode)
-         ("\\.js\\'" . web-mode)
-         ("\\.ts\\'" . web-mode)
-         ("\\.scss\\'" . web-mode)
-         ("\\.sass\\'" . web-mode)
-         ("\\.less\\'" . web-mode)
-         ("\\.json\\'" . web-mode))
+  :mode
+  (("\\.html?\\'" . web-mode)
+    ("\\.tsx\\'" . web-mode)
+    ("\\.jsx\\'" . web-mode)
+    ("\\.js\\'" . web-mode)
+    ("\\.ts\\'" . web-mode)
+    ("\\.scss\\'" . web-mode)
+    ("\\.sass\\'" . web-mode)
+    ("\\.svg\\'" . web-mode)
+    ("\\.less\\'" . web-mode)
+    ("\\.json\\'" . web-mode))
   :config
-  (setq web-mode-markup-indent-offset 2
-        web-mode-css-indent-offset 2
-        web-mode-code-indent-offset 2
-        web-mode-block-padding 2
-        web-mode-comment-style 2
-        web-mode-enable-css-colorization t
-        web-mode-enable-auto-pairing t
-        web-mode-enable-comment-keywords t
-        web-mode-enable-current-element-highlight t))
+  (setq
+    web-mode-markup-indent-offset
+    2
+    web-mode-css-indent-offset 2
+    web-mode-code-indent-offset 2
+    web-mode-block-padding 2
+    web-mode-comment-style 2
+    web-mode-enable-css-colorization t
+    web-mode-enable-auto-pairing t
+    web-mode-enable-comment-keywords t
+    web-mode-enable-current-element-highlight t
+    web-mode-enable-auto-quoting nil))
 
 ;; Rust-mode
 (unless (package-installed-p 'rust-mode)
