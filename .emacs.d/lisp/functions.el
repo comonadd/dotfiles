@@ -72,3 +72,13 @@ cpp -> hpp, hpp -> cpp, index.js -> index.scss"
     (progn
       ;; do nothing
       )))
+
+(defun my/executable-find ()
+  "Search for COMMAND in `exec-path' and return the absolute file name.
+Return nil if COMMAND is not found anywhere in `exec-path'."
+  (interactive)
+  (setq command (read-string "Name: "))
+  (message (concat "Searching for \"" command "\" in exec-path"))
+  ;; Use 1 rather than file-executable-p to better match the behavior of
+  ;; call-process.
+  (message (concat "Result: " (locate-file command exec-path exec-suffixes 1))))
