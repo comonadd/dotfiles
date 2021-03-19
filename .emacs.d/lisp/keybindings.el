@@ -57,15 +57,10 @@
   (kbd "<leader><tab>")
   'evil-switch-to-windows-last-buffer)
 
-(evil-define-key 'normal 'global (kbd "<leader>wh") 'windmove-left)
-(evil-define-key 'normal 'global (kbd "<leader>wl") 'windmove-right)
-(evil-define-key 'normal 'global (kbd "<leader>wj") 'windmove-down)
-(evil-define-key 'normal 'global (kbd "<leader>wk") 'windmove-up)
-
-(global-set-key (kbd "C-h") 'windmove-left)
-(global-set-key (kbd "C-l") 'windmove-right)
-(global-set-key (kbd "C-j") 'windmove-down)
-(global-set-key (kbd "C-k") 'windmove-up)
+(global-set-key (kbd "C-h") 'evil-window-left)
+(global-set-key (kbd "C-l") 'evil-window-right)
+(global-set-key (kbd "C-j") 'evil-window-down)
+(global-set-key (kbd "C-k") 'evil-window-up)
 
 (evil-define-key
   'normal
@@ -80,7 +75,7 @@
 (evil-define-key 'normal 'global (kbd "<leader>wd") 'delete-window)
 
 ;; File navigation
-(evil-define-key 'normal 'global (kbd "<leader>/") 'swiper)
+(evil-define-key 'normal 'global (kbd "/") 'swiper)
 (evil-define-key 'normal 'global (kbd "<leader>p/") 'projectile-ag)
 (global-set-key (kbd "M-n") 'flycheck-next-error)
 (global-set-key (kbd "M-p") 'flycheck-previous-error)

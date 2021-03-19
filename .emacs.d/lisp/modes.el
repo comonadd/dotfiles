@@ -1,34 +1,24 @@
 (require 'emmet-mode)
 
-;; ELisp
-(add-hook 'emacs-lisp-mode
-  (lambda ()
-    (hl-todo-mode)
-    (local-set-key (kbd "M-d") 'kill-whole-line)))
-
 ;; Python
 (add-hook 'python-mode
-  (lambda ()
-    (hl-todo-mode)
-    (company-mode +1)
-    (lsp)
-    (turn-on-fic-ext-mode)))
+  (lambda () (company-mode +1) (lsp) (turn-on-fic-ext-mode)))
 
 ;; Web-mode
 (add-hook 'web-mode-hook
   (lambda ()
-    (hl-todo-mode)
     ;; Enable company & LSP for JS files
     (when
       (member
         (file-name-extension buffer-file-name)
         '("tsx" "jsx" "js" "ts"))
-      (company-mode +1)
+      ;; (company-mode +1)
       (setq web-mode-markup-indent-offset 4)
-      (lsp)
+      ;; (lsp)
       ;; Enable flycheck
-      (flycheck-mode)
-      (flycheck-select-checker javascript-eslint))
+      ;; (flycheck-mode)
+      ;; (flycheck-select-checker 'javascript-eslint)
+      )
     ;; Use CSS Emmet mode for stylesheet files
     (when
       (member
@@ -39,16 +29,11 @@
     ;; Use CSS Emmet mode for stylesheet files
     (when
       (member (file-name-extension buffer-file-name) '("html" "ejs"))
-      (emmet-mode))
-    ;; Enable YASnippet
-    (yas-reload-all)
-    (yas-minor-mode)))
+      (emmet-mode))))
 
 ;; C/C++
 (add-hook 'c-mode-common-hook
-  '
   (lambda ()
-    (hl-todo-mode)
     (unless
       (or
         (file-exists-p

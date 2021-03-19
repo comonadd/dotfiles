@@ -2,8 +2,9 @@
 elpa
 .lsp-session*
 .mc-lists.el
-auto-save-list/ 
-*.cache 
+auto-save-list/
+*.cache
 recentf
-*.eld 
+*.eld
 server
+transient

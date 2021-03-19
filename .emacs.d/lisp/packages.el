@@ -24,7 +24,34 @@
   :config
   (setq ivy-use-virtual-buffers t)
   (setq ivy-count-format "(%d/%d) ")
+  (setq ivy-ignore-buffers
+    '
+    ("^/var/folders\\.*"
+      "COMMIT_EDITMSG\\'"
+      ".*-autoloads\\.el\\'"
+      ".*\\.emacs\\.d/elpa/.*\\.el\\'"
+      "[/\\]\\.elpa/"))
   (ivy-mode 1))
+(use-package ivy
+  :ensure t
+  :custom
+  (ivy-count-format "(%d/%d) ")
+  (ivy-use-virtual-buffers t)
+  :config (ivy-mode))
+(use-package all-the-icons-ivy-rich
+  :ensure t)
+(use-package ivy-rich
+  :ensure t
+  :after counsel
+  :init
+  (setq
+    ivy-rich-path-style
+    'abbrev
+    ivy-virtual-abbreviate 'full)
+  :config
+  (ivy-rich-mode)
+  (setcdr (assq t ivy-format-functions-alist)
+    #'ivy-format-function-line))
 
 ;; Magit
 (unless (package-installed-p 'magit)
@@ -32,11 +59,6 @@
 (use-package magit
   :ensure t
   :config (evil-define-key 'normal 'global (kbd "<leader>gs") 'magit-status))
-(unless (package-installed-p 'evil-magit)
-  (package-install 'evil-magit))
-(use-package evil-magit
-  :after magit
-  :ensure t)
 
 ;; restart-emacs
 (unless (package-installed-p 'restart-emacs)
@@ -98,7 +120,7 @@
   (setq projectile-project-search-path '("~/Projects" "~/Work"))
   (setq git-exec-full-path "\"C:\\Program Files\\Git\\bin\\git.exe\"")
   (setq projectile-git-command
-    (concat git-exec-full-path " ls-files -zco --exclude-standard"))
+    "fd . -0 --type f --hidden --color=never")
   (setq projectile-git-ignored-command
     (concat git-exec-full-path " ls-files -zcoi --exclude-standard"))
   (setq projectile-git-submodule-command
@@ -277,8 +299,6 @@
   (lsp-treemacs-sync-mode 1)
   (global-set-key (kbd "<leader>te") 'lsp-treemacs-errors-list)
   (global-set-key (kbd "<leader>ts") 'lsp-treemacs-symbols))
-(unless (package-installed-p 'lsp-ui)
-  (package-install 'lsp-ui))
 (use-package lsp-ui
   :ensure t)
 
@@ -319,36 +339,31 @@
 
 (use-package hl-todo
   :ensure t
-  :init
-  (setq hl-todo-keyword-faces
-    '
-    (("TODO" . "#FF0000")
-      ("FIXME" . "#FF0000")
-      ("NOTE" . "#FF0000")
-      ("DEBUG" . "#A020F0")
-      ("PERFORMANCE" . "#FF4500")
-      ("ROBUSTNESS" . "#1E90FF")
-      ("HACK" . "#1E90FF"))))
+  :hook
+  ((web-mode . hl-todo-mode)
+    (python-mode . hl-todo-mode)
+    (c-mode-common-hook . hl-todo-mode)
+    (emacs-lisp-mode . hl-todo-mode))
+  :config
+  (setq
+    hl-todo-highlight-punctuation
+    ":"
+    hl-todo-keyword-faces
+    `
+    (("TODO" warning bold)
+      ("FIXME" error bold)
+      ("HACK" font-lock-constant-face bold)
+      ("REVIEW" font-lock-keyword-face bold)
+      ("NOTE" success bold)
+      ("DEBUG" success bold)
+      ("PERFORMANCE" warning bold)
+      ("ROBUSTNESS" warning bold)
+      ("DEPRECATED" font-lock-doc-face bold))))
 
 ;; powerline
-;; (unless (package-installed-p 'telephone-line)
-;;   (package-install 'telephone-line))
-;; (use-package telephone-line
-;;   :ensure t
-;;   :config
-;;   (telephone-line-mode 1))
-;; (use-package doom-modeline
-;;   :ensure t
-;;   :init (doom-modeline-mode 1)
-;;   :config
-;;   (setq doom-modeline-height 20)
-;;   (setq doom-modeline-bar-width 3)
-;;   (setq doom-modeline-project-detection 'projectile))
 (use-package spaceline
   :ensure t
-  :init
-  (require 'spaceline-config)
-  (spaceline-emacs-theme))
+  :config (spaceline-emacs-theme))
 
 ;; glsl-mode
 (use-package glsl-mode
@@ -384,8 +399,8 @@
   :ensure t)
 
 ;; yasnippet
-(use-package yasnippet
-  :ensure t
-  :init
-  (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
-  (global-set-key (kbd "<f8>") 'yas-expand))
+;; (use-package yasnippet
+;;   :ensure t
+;;   :init
+;;   (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
+;;   (global-set-key (kbd "<f8>") 'yas-expand))

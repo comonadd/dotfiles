@@ -37,3 +37,10 @@
 (setq compilation-scroll-output t)
 
 (add-to-list 'auto-mode-alist '("\\.jpg$" . text-mode))
+
+(setq recentf-exclude
+  '
+  ("^/var/folders\\.*"
+    "COMMIT_EDITMSG\\'"
+    ".*-autoloads\\.el\\'"
+    "[/\\]\\.elpa/"))
