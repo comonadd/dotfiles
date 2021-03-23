@@ -1,6 +1,13 @@
 ;; Evil
 (unless (package-installed-p 'undo-tree)
   (package-install 'undo-tree))
+(use-package undo-tree
+  :ensure t
+  :hook
+  ((web-mode . undo-tree-mode)
+    (emacs-lisp-mode . undo-tree-mode)
+    (json-mode . undo-tree-mode)
+    (c-mode-common-hook . undo-tree-mode)))
 (unless (package-installed-p 'evil)
   (package-install 'evil))
 (use-package evil
@@ -162,6 +169,7 @@
         "lock"
         "exe"
         "out"
+        "obj"
         "lib"
         "dll"
         "vcxproj"
@@ -358,7 +366,8 @@
       ("DEBUG" success bold)
       ("PERFORMANCE" warning bold)
       ("ROBUSTNESS" warning bold)
-      ("DEPRECATED" font-lock-doc-face bold))))
+      ("DEPRECATED" font-lock-doc-face bold)))
+  (global-hl-todo-mode))
 
 ;; powerline
 (use-package spaceline
@@ -368,7 +377,12 @@
 ;; glsl-mode
 (use-package glsl-mode
   :ensure t
-  :mode "\\.rb\\'")
+  :mode "\\.glsl\\'")
+
+;; yaml-mode
+(use-package yaml-mode
+  :ensure t
+  :mode (("\\.yml?\\'" . yaml-mode) ("\\.yaml\\'" . yaml-mode)))
 
 ;; prettier
 (use-package prettier-js
