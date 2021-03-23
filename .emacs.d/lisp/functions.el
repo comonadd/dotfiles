@@ -49,6 +49,12 @@ cpp -> hpp, hpp -> cpp, index.js -> index.scss"
                (setq file-alt-extension-variants '()))
       (setq file-alt-extension-variants (cdr file-alt-extension-variants)))))
 
+(defun my/view-current-file-other-window ()
+  "Views current file in other window"
+  (interactive)
+  (let ((filename (buffer-file-name)))
+        (find-file-other-window filename)))
+
 (defun my/rename-current-file (new-name)
   "Renames both current buffer and file it's visiting to NEW-NAME."
   (interactive "sNew name: ")

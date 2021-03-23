@@ -108,6 +108,7 @@
 (evil-define-key 'normal 'global (kbd "M-b") 'switch-to-buffer)
 (evil-define-key 'normal 'global (kbd "<leader>bk") 'kill-buffer)
 (evil-define-key 'normal 'global (kbd "M-k") 'kill-current-buffer)
+(global-set-key (kbd "M-o") 'my/view-current-file-other-window)
 
 ;; Project
 (evil-define-key
