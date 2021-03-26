@@ -13,6 +13,9 @@
 (evil-define-key 'normal 'global (kbd "<leader>qr") 'restart-emacs)
 ;; no screwing with my middle mouse button
 (global-unset-key [mouse-2])
+(require 'face-remap)
+(global-set-key (kbd "C-=") 'text-scale-increase)
+(global-set-key (kbd "C--") 'text-scale-decrease)
 
 ;; Help
 (evil-define-key
