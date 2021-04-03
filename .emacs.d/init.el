@@ -133,7 +133,8 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
  '(rustic-ansi-faces
    ["#f7f3ee" "#955f5f" "#81895d" "#957f5f" "#7382a0" "#9c739c" "#5f8c7d" "#605a52"])
  '(safe-local-variable-values
-   '((projectile-project-compilation-cmd . "npm run-script build-examples")))
+   '((projectile-project-compilation-cmd . "cd build && make")
+     (projectile-project-compilation-cmd . "npm run-script build-examples")))
  '(smartrep-mode-line-active-bg (solarized-color-blend "#93a61a" "#01323d" 0.2))
  '(telephone-line-mode t)
  '(term-default-bg-color "#002732")

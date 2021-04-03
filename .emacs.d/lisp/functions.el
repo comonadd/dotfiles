@@ -40,30 +40,36 @@ cpp -> hpp, hpp -> cpp, index.js -> index.scss"
   (interactive)
   (setq file-extension (file-name-extension buffer-file-name))
   (setq file-base-name (file-name-sans-extension buffer-file-name))
-  (setq file-alt-extension-variants (gethash file-extension alt-ext-mapping))
+  (setq file-alt-extension-variants
+    (gethash file-extension alt-ext-mapping))
   (while file-alt-extension-variants
     (setq possible-alt-ext (car file-alt-extension-variants))
-    (setq possible-alt-file (concat file-base-name "." possible-alt-ext))
+    (setq possible-alt-file
+      (concat file-base-name "." possible-alt-ext))
     (if (file-exists-p possible-alt-file)
-        (progn (find-file possible-alt-file)
-               (setq file-alt-extension-variants '()))
-      (setq file-alt-extension-variants (cdr file-alt-extension-variants)))))
+      (progn
+        (find-file possible-alt-file)
+        (setq file-alt-extension-variants '()))
+      (setq file-alt-extension-variants
+        (cdr file-alt-extension-variants)))))
 
 (defun my/view-current-file-other-window ()
   "Views current file in other window"
   (interactive)
   (let ((filename (buffer-file-name)))
-        (find-file-other-window filename)))
+    (find-file-other-window filename)))
 
 (defun my/rename-current-file (new-name)
   "Renames both current buffer and file it's visiting to NEW-NAME."
   (interactive "sNew name: ")
-  (let ((name (buffer-name))
-        (filename (buffer-file-name)))
+  (let
+    (
+      (name (buffer-name))
+      (filename (buffer-file-name)))
     (if (not filename)
-        (message "Buffer '%s' is not visiting a file!" name)
+      (message "Buffer '%s' is not visiting a file!" name)
       (if (get-buffer new-name)
-          (message "A buffer named '%s' already exists!" new-name)
+        (message "A buffer named '%s' already exists!" new-name)
         (progn
           (rename-file filename new-name 1)
           (rename-buffer new-name)
@@ -73,8 +79,9 @@ cpp -> hpp, hpp -> cpp, index.js -> index.scss"
 (defun my/delete-current-file ()
   (interactive)
   (if (y-or-n-p (concat "Delete " buffer-file-name "?"))
-      (progn (delete-file buffer-file-name)
-             (kill-buffer))
+    (progn
+      (delete-file buffer-file-name)
+      (kill-buffer))
     (progn
       ;; do nothing
       )))
@@ -87,4 +94,24 @@ Return nil if COMMAND is not found anywhere in `exec-path'."
   (message (concat "Searching for \"" command "\" in exec-path"))
   ;; Use 1 rather than file-executable-p to better match the behavior of
   ;; call-process.
-  (message (concat "Result: " (locate-file command exec-path exec-suffixes 1))))
+  (message
+    (concat
+      "Result: "
+      (locate-file command exec-path exec-suffixes 1))))
+
+
+(defun my/read-dir-locals-for-current-buffer ()
+  "reload dir locals for the current buffer"
+  (interactive)
+  (let ((enable-local-variables :all))
+    (hack-dir-local-variables-non-file-buffer)))
+
+(defun my/read-dir-locals ()
+  "For every buffer with the same `default-directory` as the
+current buffer's, reload dir-locals."
+  (interactive)
+  (let ((dir default-directory))
+    (dolist (buffer (buffer-list))
+      (with-current-buffer buffer
+        (when (equal default-directory dir))
+        (my/read-dir-locals-for-current-buffer)))))
