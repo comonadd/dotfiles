@@ -1,13 +1,4 @@
 ;; Evil
-(unless (package-installed-p 'undo-tree)
-  (package-install 'undo-tree))
-(use-package undo-tree
-  :ensure t
-  :hook
-  ((web-mode . undo-tree-mode)
-    (emacs-lisp-mode . undo-tree-mode)
-    (json-mode . undo-tree-mode)
-    (c-mode-common-hook . undo-tree-mode)))
 (unless (package-installed-p 'evil)
   (package-install 'evil))
 (use-package evil
@@ -15,7 +6,9 @@
   :init
   (setq evil-want-integration t)
   (setq evil-want-keybinding nil)
-  :config (evil-mode 1))
+  :config
+  (evil-mode 1)
+  (setq evil-undo-system 'undo-fu))
 (unless (package-installed-p 'evil-collection)
   (package-install 'evil-collection))
 (use-package evil-collection

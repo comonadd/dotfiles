@@ -79,7 +79,7 @@
 (evil-define-key 'normal 'global (kbd "<leader>wd") 'delete-window)
 
 ;; File navigation
-(evil-define-key 'normal 'global (kbd "/") 'swiper)
+(evil-define-key 'normal 'global (kbd "/") 'swiper-isearch)
 (evil-define-key 'normal 'global (kbd "<leader>p/") 'projectile-ag)
 (global-set-key (kbd "M-n") 'flycheck-next-error)
 (global-set-key (kbd "M-p") 'flycheck-previous-error)
@@ -93,7 +93,8 @@
 (evil-define-key 'normal 'global (kbd "C-b") 'evil-goto-definition)
 (evil-define-key 'normal 'global (kbd "C-j") 'imenu)
 (evil-define-key 'normal 'global (kbd "C-r") 'query-replace)
-(evil-define-key 'normal 'global (kbd "M-r") 'undo-tree-redo)
+(evil-define-key 'normal 'global (kbd "n") 'evil-search-previous) ;; Switch the two operations back to normal since swiper integration somehow makes it backwards
+(evil-define-key 'normal 'global (kbd "N") 'evil-search-next)
 
 (global-unset-key (kbd "M-l"))
 (global-unset-key (kbd "M-h"))
