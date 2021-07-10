@@ -18,6 +18,9 @@
 (global-set-key (kbd "C--") 'text-scale-decrease)
 (global-set-key (kbd "<f8>") 'my/read-dir-locals)
 
+(evil-define-key 'normal 'global (kbd "u") 'undo)
+(global-set-key (kbd "M-r") 'undo-redo)
+
 ;; Help
 (evil-define-key
   'normal

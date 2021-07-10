@@ -1,3 +1,7 @@
+(use-package undo-tree
+  :ensure t
+  :init
+  (global-undo-tree-mode))
 ;; Evil
 (unless (package-installed-p 'evil)
   (package-install 'evil))
@@ -8,7 +12,7 @@
   (setq evil-want-keybinding nil)
   :config
   (evil-mode 1)
-  (setq evil-undo-system 'undo-fu))
+  (evil-set-undo-system 'undo-tree))
 (unless (package-installed-p 'evil-collection)
   (package-install 'evil-collection))
 (use-package evil-collection
