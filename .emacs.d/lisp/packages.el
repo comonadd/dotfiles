@@ -163,7 +163,7 @@
       projectile-globally-ignored-file-suffixes
       '
       ("dll"
-        "lock"
+        "lock.json"
         "exe"
         "out"
         "obj"
@@ -204,6 +204,9 @@
 
 ;; clang-format
 (load "third-party/clang-format.el")
+
+;; tidy formatter
+(load "third-party/tidy.el")
 
 ;; Company
 (unless (package-installed-p 'company)
@@ -415,3 +418,7 @@
 ;;   :init
 ;;   (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
 ;;   (global-set-key (kbd "<f8>") 'yas-expand))
+
+;; dockerfile
+(use-package dockerfile-mode
+  :ensure t)

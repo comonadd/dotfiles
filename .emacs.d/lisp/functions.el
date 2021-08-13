@@ -115,3 +115,56 @@ current buffer's, reload dir-locals."
       (with-current-buffer buffer
         (when (equal default-directory dir))
         (my/read-dir-locals-for-current-buffer)))))
+
+(defun my/next-theme ()
+  ;; Load next theme in the custom-available-themes list
+  (interactive)
+
+  (defun my/load-theme (all-themes themes curr-theme theme-to-load)
+    ;; Load a theme with error handling
+    (message (concatenate 'string "Loading :: " (format "%s" theme-to-load)))
+    ;; Disable previous theme settings
+    (disable-theme curr-theme)
+    ;; If we fail to load the next theme, try loading the one after that
+    (let ((loaded (condition-case nil
+              (load-theme theme-to-load t)
+              (error 0))))
+      (if (eq loaded 0)
+        (progn
+          (message (format "Failed to load %s, skipping..." theme-to-load))
+          (message (format "Length of themes left: %s" (length themes)))
+          (consider-theme all-themes (cdr themes) theme-to-load)
+          )
+        (message (concatenate 'string "Loaded :: " (format "%s" theme-to-load))))))
+
+  (defun consider-theme (all-themes themes theme)
+    (cond
+     ((null themes) (message "Error: Couldn't find current theme in the list"))
+     ((and (eq (car themes) theme) (eq (length themes) 1))
+      (progn
+        (message (concatenate 'string "Wrapping around..."))
+        ;; Load the first theme
+        (my/load-theme all-themes all-themes theme (car all-themes))))
+     ((eq (car themes) theme)
+      (my/load-theme all-themes themes theme (cadr themes)))
+     (t (consider-theme all-themes (cdr themes) theme))))
+  (let ((themes (custom-available-themes))
+        (curr-theme (car custom-enabled-themes)))
+    (progn
+      (if (null curr-theme)
+          (progn
+            (message "Failed to detect current theme. Switching to the first one.")
+            (load-theme (car themes)))
+          (consider-theme themes themes curr-theme)))))
+
+(defun my/reset-themes ()
+  (interactive)
+  ;; Disable all enabled themes
+  (defun rec (themes-to-disable theme)
+    (disable-theme theme)
+    (if (null themes-to-disable)
+      nil
+      (rec (cdr themes-to-disable) (car themes-to-disable))))
+  (rec custom-enabled-themes (car custom-enabled-themes))
+  ;; Enable the first one in the list
+  (load-theme (car (custom-available-themes))))

@@ -124,3 +124,8 @@
   'global
   (kbd "<f6>")
   'projectile-compile-project)
+
+;; Configuration
+(evil-define-key 'normal 'global (kbd "<leader>tt") 'load-theme)
+(evil-define-key 'normal 'global (kbd "<leader>tt") 'my/reset-themes)
+(evil-define-key 'normal 'global (kbd "C-<f8>") 'my/next-theme)
