@@ -18,8 +18,9 @@
 (global-set-key (kbd "C--") 'text-scale-decrease)
 (global-set-key (kbd "<f8>") 'my/read-dir-locals)
 
-(evil-define-key 'normal 'global (kbd "u") 'undo)
-(global-set-key (kbd "M-r") 'undo-redo)
+;; Remove unused annoying keybindings
+(global-unset-key (kbd "M-l"))
+(global-unset-key (kbd "M-h"))
 
 ;; Help
 (evil-define-key
@@ -41,10 +42,8 @@
   'global
   (kbd "<leader>fo")
   'find-file-other-window)
-(evil-define-key 'normal 'global (kbd "<leader>fs") 'save-buffer)
 (global-set-key (kbd "C-s") 'save-buffer)
 (global-set-key (kbd "C-S-s") 'save-all)
-(evil-define-key 'normal 'global (kbd "<leader>fa") 'save-all)
 (evil-define-key 'normal 'global (kbd "M-s") 'my/switch-to-alt-file)
 (evil-define-key
   'normal
@@ -61,14 +60,17 @@
 (evil-define-key
   'normal
   'global
-  (kbd "<leader><tab>")
+  (kbd "<leader>TAB")
   'evil-switch-to-windows-last-buffer)
-
-(global-set-key (kbd "C-h") 'evil-window-left)
-(global-set-key (kbd "C-l") 'evil-window-right)
-(global-set-key (kbd "C-j") 'evil-window-down)
-(global-set-key (kbd "C-k") 'evil-window-up)
-
+;; (evil-define-key
+;;   'normal
+;;   'global
+;;   (kbd "TAB")
+;;   'evil-switch-to-windows-last-buffer)
+(evil-define-key 'normal 'global (kbd "C-h") 'evil-window-left)
+(evil-define-key 'normal 'global (kbd "C-l") 'evil-window-right)
+(evil-define-key 'normal 'global (kbd "C-j") 'evil-window-down)
+(evil-define-key 'normal 'global (kbd "C-k") 'evil-window-up)
 (evil-define-key
   'normal
   'global
@@ -82,39 +84,38 @@
 (evil-define-key 'normal 'global (kbd "<leader>wd") 'delete-window)
 
 ;; File navigation
-(evil-define-key 'normal 'global (kbd "/") 'swiper-isearch)
+;; (evil-define-key 'normal 'global (kbd "/") 'swiper-isearch)
+;; (evil-define-key 'normal 'global (kbd "/") 'isearch)
 (evil-define-key 'normal 'global (kbd "<leader>p/") 'projectile-ag)
 (global-set-key (kbd "M-n") 'flycheck-next-error)
 (global-set-key (kbd "M-p") 'flycheck-previous-error)
 
 ;; Editing
 (global-set-key (kbd "M-d") 'kill-whole-line)
-(global-set-key (kbd "C-c C-u") 'string-inflection-all-cycle)
-(global-set-key (kbd "C-c C-k") 'string-inflection-kebab-case)
+(evil-define-key 'normal 'global (kbd "C-_") 'evilnc-comment-or-uncomment-lines)
+(evil-define-key 'normal 'global (kbd "u") 'undo)
+(evil-define-key 'normal 'global (kbd "M-r") 'undo-tree-redo)
+(evil-define-key 'insert 'global (kbd "C-<SPC>") 'completion-at-point)
 
 ;; Navigation
 (evil-define-key 'normal 'global (kbd "C-b") 'evil-goto-definition)
-(evil-define-key 'normal 'global (kbd "C-j") 'imenu)
+(evil-define-key 'normal 'global (kbd "<leader>j") 'imenu)
 (evil-define-key 'normal 'global (kbd "C-r") 'query-replace)
-(evil-define-key 'normal 'global (kbd "n") 'evil-search-previous) ;; Switch the two operations back to normal since swiper integration somehow makes it backwards
-(evil-define-key 'normal 'global (kbd "N") 'evil-search-next)
-
-(global-unset-key (kbd "M-l"))
-(global-unset-key (kbd "M-h"))
+;; Switch the two operations back to normal since swiper integration somehow makes it backwards
+;; (evil-define-key 'normal 'global (kbd "N") 'evil-search-next)
+;; (evil-define-key 'normal 'global (kbd "n") 'evil-search-previous)
+;; (evil-define-key 'normal 'global (kbd "N") 'ivy-next-line)
+;; (evil-define-key 'normal 'global (kbd "n") 'ivy-previous-line)
 
 ;; Formatting
-(when (eq system-type 'windows-nt)
-  (global-set-key (kbd "<M-lwindow> M-l") 'lsp-format-buffer)
-  (define-key emacs-lisp-mode-map (kbd "<M-lwindow> M-l")
-    'elisp-autofmt-buffer)
-  (require 'cc-mode)
-  (define-key c-mode-base-map (kbd "<M-lwindow> M-l")
-    'clang-format-buffer))
+(setq fmt-kbd (kbd "C-M-l"))
+(define-key web-mode-map fmt-kbd 'prettier-js)
+(define-key emacs-lisp-mode-map fmt-kbd 'elisp-autofmt-buffer)
+(require 'cc-mode)
+(define-key c-mode-base-map fmt-kbd 'clang-format-buffer)
 
-;; buffers
-(evil-define-key 'normal 'global (kbd "<leader>bb") 'switch-to-buffer)
-(evil-define-key 'normal 'global (kbd "M-b") 'switch-to-buffer)
-(evil-define-key 'normal 'global (kbd "<leader>bk") 'kill-buffer)
+;; Buffers
+(evil-define-key 'normal 'global (kbd "`") 'switch-to-buffer)
 (evil-define-key 'normal 'global (kbd "M-k") 'kill-current-buffer)
 (global-set-key (kbd "M-o") 'my/view-current-file-other-window)
 
@@ -125,7 +126,7 @@
   (kbd "<f6>")
   'projectile-compile-project)
 
-;; Configuration
+;; Themes
 (evil-define-key 'normal 'global (kbd "<leader>tt") 'load-theme)
-(evil-define-key 'normal 'global (kbd "<leader>tt") 'my/reset-themes)
+(evil-define-key 'normal 'global (kbd "<leader>tr") 'my/reset-themes)
 (evil-define-key 'normal 'global (kbd "C-<f8>") 'my/next-theme)

@@ -9,4 +9,10 @@
 
 (show-paren-mode 1)
 
-(setq default-frame-alist '((font . "Consolas-12")))
+;(setq default-frame-alist '((font . "SourceCodePro-12")))
+
+(set-face-attribute 'default nil
+                    :family "Source Code Pro"
+                    :height 110
+                    :weight 'normal
+                    :width 'normal)
