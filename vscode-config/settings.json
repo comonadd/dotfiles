@@ -93,7 +93,7 @@
       "commands": [":w"]
     },
     {
-      "before": ["`"],
+      "before": ["<tab>"],
       "commands": ["extension.goto-previous-buffer"]
     },
 
@@ -136,7 +136,7 @@
 
   // Typescript-React
   "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.typescript-language-features"
   },
 
   // Javascript
@@ -248,5 +248,6 @@
   "[c]": {
     "editor.defaultFormatter": "ms-vscode.cpptools"
   },
-  "C_Cpp.clang_format_path": "/usr/local/bin/clang-format"
+  "C_Cpp.clang_format_path": "/usr/local/bin/clang-format",
+  "extensions.ignoreRecommendations": true
 }

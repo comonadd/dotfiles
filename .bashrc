@@ -46,4 +46,8 @@ alias yta="youtube-dl --add-metadata -xic --audio-format mp3 --audio-quality 0"
 
 alias killbg="kill $(jobs -p)"
 
+# fnm
+export PATH=/home/dmitry/.fnm:$PATH
+eval "`fnm env`"
+
 eval "$(starship init bash)"

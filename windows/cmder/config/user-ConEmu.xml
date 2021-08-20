@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <key name="Software">
 	<key name="ConEmu">
-		<key name=".Vanilla" modified="2021-07-26 23:21:29" build="191012">
+		<key name=".Vanilla" modified="2021-08-18 01:20:45" build="191012">
 			<value name="ColorTable00" type="dword" data="00151515"/>
 			<value name="ColorTable01" type="dword" data="004a4a4a"/>
 			<value name="ColorTable02" type="dword" data="008de8c3"/>
@@ -123,12 +123,12 @@
 			<value name="ColorKeyTransparent" type="hex" data="00"/>
 			<value name="ColorKeyValue" type="dword" data="00010101"/>
 			<value name="UseCurrentSizePos" type="hex" data="01"/>
-			<value name="WindowMode" type="dword" data="0000051f"/>
-			<value name="ConWnd Width" type="dword" data="00000087"/>
-			<value name="ConWnd Height" type="dword" data="00000029"/>
+			<value name="WindowMode" type="dword" data="00000520"/>
+			<value name="ConWnd Width" type="dword" data="0000005c"/>
+			<value name="ConWnd Height" type="dword" data="0000002e"/>
 			<value name="Cascaded" type="hex" data="01"/>
-			<value name="ConWnd X" type="long" data="142"/>
-			<value name="ConWnd Y" type="long" data="62"/>
+			<value name="ConWnd X" type="long" data="883"/>
+			<value name="ConWnd Y" type="long" data="50"/>
 			<value name="16bit Height" type="ulong" data="0"/>
 			<value name="AutoSaveSizePos" type="hex" data="01"/>
 			<value name="IntegralSize" type="hex" data="00"/>
@@ -1412,7 +1412,7 @@
 			<value name="StatusBar.Hide.Dpi" type="hex" data="01"/>
 			<value name="TabFlashChanged" type="long" data="8"/>
 			<value name="TabModifiedSuffix" type="string" data="[*]"/>
-			<key name="HotKeys" modified="2020-12-10 19:26:56" build="191012">
+			<key name="HotKeys" modified="2021-08-13 16:51:47" build="191012">
 				<value name="KeyMacroVersion" type="hex" data="02"/>
 				<value name="Multi.Modifier" type="dword" data="00000011"/>
 				<value name="Multi.ArrowsModifier" type="dword" data="0000005b"/>
@@ -1433,7 +1433,7 @@
 				<value name="Multi.NewConsolePopup2" type="dword" data="00000000"/>
 				<value name="Multi.NewAttach" type="dword" data="00000000"/>
 				<value name="Multi.NewSplitV" type="dword" data="00000000"/>
-				<value name="Multi.NewSplitH" type="dword" data="00000000"/>
+				<value name="Multi.NewSplitH" type="dword" data="0000a230"/>
 				<value name="Multi.SplitMaximize" type="dword" data="00005d0d"/>
 				<value name="Multi.SplitSizeVU" type="dword" data="00105d26"/>
 				<value name="Multi.SplitSizeVD" type="dword" data="00105d28"/>
@@ -1443,8 +1443,8 @@
 				<value name="Key.TabPane2" type="dword" data="00000000"/>
 				<value name="Multi.SplitFocusU" type="dword" data="00005d26"/>
 				<value name="Multi.SplitFocusD" type="dword" data="00005d28"/>
-				<value name="Multi.SplitFocusL" type="dword" data="00005d25"/>
-				<value name="Multi.SplitFocusR" type="dword" data="00005d27"/>
+				<value name="Multi.SplitFocusL" type="dword" data="00a4a248"/>
+				<value name="Multi.SplitFocusR" type="dword" data="00a4a24c"/>
 				<value name="Multi.Next" type="dword" data="00000000"/>
 				<value name="Multi.NextShift" type="dword" data="00000000"/>
 				<value name="Multi.Recreate" type="dword" data="00000000"/>
@@ -1619,7 +1619,7 @@
 				<line data='set "PATH=C:\Program Files\emacs-27.1-x86_64\bin;C:\Users\Dmitry\.pyenv\pyenv-win\shims;%ConEmuBaseDir%\Scripts;%PATH%"'/>
 				<line data='set "TEMP=%USERPROFILE%\AppData\Local\Temp"'/>
 				<line data='set "TMP=%USERPROFILE%\AppData\Local\Temp"'/>
-				<line data="chcp utf-8"/>
+				<line data="chcp utf8"/>
 			</value>
 			<value name="Update.InetTool" type="hex" data="00"/>
 			<value name="Update.InetToolCmd" type="string" data=""/>
