@@ -55,6 +55,5 @@ Config {
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " <icon=haskell_20.xpm/> %cpu% | %multicoretemp% | %memory% <> %swap% | %enp4s0% }\
-                    \{ <fc=#ee9a00>%date%</fc> | %default:Master% | %UKHH% <fc=#ee9a00>%whoami%</fc>@%uname% "
+       , template = " <icon=haskell_20.xpm/> <fc=#666>|</fc> %UnsafeStdinReader% <fc=#666>|</fc> %cpu% <fc=#666>|</fc> %multicoretemp% <fc=#666>|</fc> %memory% <> %swap% <fc=#666>|</fc> %enp4s0% }{ <fc=#82AAFF>%date%</fc> <fc=#666>|</fc> %default:Master% <fc=#666>|</fc> %UKHH% <fc=#666>|</fc> <fc=#82AAFF>%whoami%</fc>@%uname% "
        }
