@@ -1,76 +1,60 @@
--- XMobar main configuration file
--- Creation date: 2017/03/05
--- Author: wrongway4you
-
 Config {
-  font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*",
-  fgColor = "grey",
-  bgColor = "black",
-  alpha = 255,
-  position = Static {xpos = 0, ypos = 0, width = 1920, height = 24},
+--    font = "xft:Ubuntu Mono-14"
+       font = "xft:Ubuntu Mono:weight=bold:pixelsize=14:antialias=true:hinting=true"
+       , additionalFonts = [ "xft:Mononoki Nerd Font:pixelsize=13:antialias=true:hinting=true" ]
+       , borderColor = "black"
+       , border = NoBorder
+       , bgColor = "#282c34"
+       , fgColor = "#ffffff"
+       , alpha = 255
+       -- TODO: Specify only height
+       , position = Static { xpos = 0, ypos = 0, width = 1920, height = 28 }
+       , textOffset = -1
+       , iconOffset = -1
+       , pickBroadest = False
+       , persistent = True
+       , lowerOnStart = True
+       , hideOnStart = False
+       , allDesktops = True
+       , overrideRedirect = True
+       , iconRoot = "/home/comonadd/.xmonad/xpm/"
+       , commands = [
+                     Run Weather "UKHH"
+                                 ["-t","<station>: <tempC>C",
+                                  "-L","18","-H","25",
+                                  "--normal","green",
+                                  "--high","red",
+                                  "--low","lightblue"] 36000
 
-  lowerOnStart = True,    -- send to bottom of window stack on start
-  hideOnStart = False,   -- start with window unmapped (hidden)
-  allDesktops = True,    -- show on all desktops
-  -- overrideRedirect = True,    -- set the Override Redirect flag (Xlib)
-  -- pickBroadest = False,   -- choose widest display (multi-monitor)
-  -- persistent = True,    -- enable/disable hiding (True = disabled)
+                    , Run Network "enp4s0" ["-t","<dev>: <fn=1>\xf6d9</fn> <rx>KBps <fn=1>\xfa51</fn> <tx>KBps"
+                                            , "-L", "0", "-H", "8388608"
+                                            , "--normal", "darkgreen", "--high", "darkred"] 10
+                    , Run Cpu ["-L","3","-H","50",
+                               "--normal","darkgreen","--high","darkred"] 10
 
-  border = NoBorder,
-  commands = [
-    -- CPU
-    Run Cpu [
-        "-t", "<fc=#ee9a00>Cpu</fc>: <total>%",
-        "-L", "3",
-        "-H", "50"
-    ] 10,
+                    , Run MultiCoreTemp  [ "--template" , "Temp: <core0>°C & <core1>°C"
+                                         , "--Low"      , "70"        -- units: °C
+                                         , "--High"     , "80"        -- units: °C
+                                         , "--low"      , "darkgreen"
+                                         , "--normal"   , "darkorange"
+                                         , "--high"     , "darkred"
+                                         ] 50
 
-    -- Memory
-    Run Memory [
-        "-t", "<fc=#ee9a00>Mem</fc>: <usedratio>%"
-    ] 10,
+                    , Run Memory ["-t","Mem: <usedratio>%"] 10
+                    , Run Swap [] 10
+                    -- Hostname & username
+                    , Run Com "uname" ["-n"] "" 36000
+                    , Run Com "whoami" [] "" 36000
+                    -- Volume
+                    , Run Volume "default" "Master" [ "--template", "<status>Vol: <volume>%"
+                                                    ] 10
+                    -- Time and date
+                    , Run Date "%a %b%_d %Y %H:%M:%S" "date" 10
 
-    -- Swap
-    Run Swap [
-        "-t", "<fc=#ee9a00>Swap</fc>: <usedratio>%"
-    ] 10,
-
-    -- MPD
-    Run MPD [
-      "-t", "<fc=#00ff00><artist></fc> -- <fc=#ee9a00><title></fc> [<lapsed>]",
-      "-x", "Not playing",
-      "--",
-      "-P", ">>",
-      "-Z", "|",
-      "-S", "><"
-    ] 10,
-
-    -- Weather
-    Run Com "/home/wrongway4you/Scripts/weather.sh" [] "weather" 18000,
-
-    -- Date
-    Run Date "<fc=#ee9a00>Date</fc>: %a %b %d %H:%M" "date" 600,
-
-    -- Volume
-    Run Com "/home/wrongway4you/Scripts/volume.sh" [] "vol" 100,
-
-    -- System temperature
-    Run Com "/home/wrongway4you/Scripts/sys_temp.sh" [] "sys_temp" 50,
-
-    -- Stdin
-    Run StdinReader
-  ],
-  sepChar = "%",
-  alignSep = "}{",
-  template = " \
-             \%StdinReader% \
-             \}{\
-             \ <fc=#ee9a00>System Temperature</fc>: %sys_temp% \
-             \| %cpu% \
-             \| %memory% * %swap% \
-             \| %mpd% \
-             \| <fc=#ee9a00>Weather</fc>: %weather% \
-             \| %date% \
-             \| <fc=#ee9a00>Vol</fc>: %vol%\
-             \ "
-}
+                    , Run UnsafeStdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " <icon=haskell_20.xpm/> %cpu% | %multicoretemp% | %memory% <> %swap% | %enp4s0% }\
+                    \{ <fc=#ee9a00>%date%</fc> | %default:Master% | %UKHH% <fc=#ee9a00>%whoami%</fc>@%uname% "
+       }
