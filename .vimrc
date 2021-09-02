@@ -353,3 +353,7 @@ endfunction
 
 " Disable audio bell
 set belloff=all
+" Linux system clipboard sharing
+vnoremap <C-c> "*y :let@+=@*<CR>
+" Save in UNIX format
+set ff=unix
