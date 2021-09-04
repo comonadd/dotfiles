@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import os
+import json
 import re
 import socket
 import subprocess
@@ -49,11 +50,8 @@ keys = [
          Key([], 'XF86AudioMute', lazy.spawn('amixer -D pulse set Master toggle')),
          Key([], 'XF86AudioRaiseVolume', lazy.spawn('amixer -q sset Master 5%+')),
          Key([], 'XF86AudioLowerVolume', lazy.spawn('amixer -q sset Master 5%-')),
-         ### Windows
-         Key([mod], "q",
-             lazy.window.kill(),
-             desc='Kill active window'
-             ),
+
+         ### Window navigation
          Key([mod], "j",
              lazy.layout.down(),
              desc='Move focus down in current stack pane'
@@ -62,6 +60,18 @@ keys = [
              lazy.layout.up(),
              desc='Move focus up in current stack pane'
              ),
+         Key([mod], "h",
+             lazy.layout.left(),
+             lazy.layout.decrease_nmaster(),
+             desc='Move focus left in the current stack pane'
+             ),
+         Key([mod], "l",
+             lazy.layout.right(),
+             lazy.layout.decrease_nmaster(),
+             desc='Move focus left in the current stack pane'
+             ),
+
+         ### Move windows
          Key([mod, "shift"], "j",
              lazy.layout.shuffle_down(),
              lazy.layout.section_down(),
@@ -72,15 +82,17 @@ keys = [
              lazy.layout.section_up(),
              desc='Move windows up in current stack'
              ),
-         Key([mod], "h",
-             lazy.layout.shrink(),
-             lazy.layout.decrease_nmaster(),
-             desc='Shrink window (MonadTall), decrease number in master pane (Tile)'
-             ),
-         Key([mod], "l",
+
+         ### Window resizing
+         Key([mod], "period",
              lazy.layout.grow(),
              lazy.layout.increase_nmaster(),
              desc='Expand window (MonadTall), increase number in master pane (Tile)'
+             ),
+         Key([mod], "comma",
+             lazy.layout.shrink(),
+             lazy.layout.decrease_nmaster(),
+             desc='Shrink window (MonadTall), decrease number in master pane (Tile)'
              ),
          Key([mod], "n",
              lazy.layout.normalize(),
@@ -90,6 +102,12 @@ keys = [
              lazy.layout.maximize(),
              desc='toggle window between minimum and maximum sizes'
              ),
+
+         ### Other window-related stuf
+         Key([mod], "q",
+             lazy.window.kill(),
+             desc='Kill active window'
+             ),
          Key([mod, "shift"], "f",
              lazy.window.toggle_floating(),
              desc='toggle floating'
@@ -98,7 +116,12 @@ keys = [
              lazy.window.toggle_fullscreen(),
              desc='toggle fullscreen'
              ),
+
          ### Apps
+         Key([mod], "y",
+             lazy.spawn(f"{os.environ['HOME']}/Scripts/make-screenshot.sh"),
+             desc='Screenshot'
+             ),
          Key([mod], "Return",
              lazy.spawn(myTerm),
              desc='Launches My Terminal'
@@ -206,8 +229,10 @@ keys = [
 layouts = [
     layout.MonadTall(**layout_theme),
     layout.Max(**layout_theme),
+    layout.Matrix(**layout_theme),
 ]
 
+netInterface = "enp4s0"
 colors = [["#282c34", "#282c34"], # panel background
           ["#3d3f4b", "#434758"], # background for current screen tab
           ["#ffffff", "#ffffff"], # font color for group names
@@ -216,32 +241,49 @@ colors = [["#282c34", "#282c34"], # panel background
           ["#4f76c7", "#4f76c7"], # color for the 'even widgets'
           ["#e1acff", "#e1acff"], # window name
           ["#ecbbfb", "#ecbbfb"]] # backbround for inactive screens
-whiteColor = "#ffffff"
-barBg = ["#282c34", "#282c34"]
-sepColor = "#bebebe"
-activeWsColor = whiteColor
-inactiveWsColor = "#ecbbfb"
+# Fonts to use
 boldFont = "Ubuntu Bold"
 monoFont = "Ubuntu Mono"
+iconFont = "Noto Color Emoji"
+whiteColor = "#ffffff"
+whiteColorA = [whiteColor, whiteColor]
+# Background & foreground for the top bar
+barBg = ["#282c34", "#282c34"]
+barFg = ["#ffffff", "#ffffff"]
+# Color for separators that divide left side widgets
+sepColor = "#bebebe"
+# Workspaces on the left
+activeWsColor = whiteColorA
+inactiveWsColor = "#ecbbfb"
 winTitleColor = ["#eeeeee", "#eeeeee"]
-netInterface = "enp4s0"
-widgetColor = whiteColor
+widgetColor = whiteColorA
+# Widgets
+# Stripe config (1 = odd, 2 = even)
 widgetStripedBg1 = "#4f76c7"
 widgetStripedBg2 = "#74438f"
+activeWsBg = ["#3d3f4b", "#434758"]
+currWindowMaxChars = 77
+thisCurrentScreenBorder = ["#e1acff", "#e1acff"]
+thisScreenBorder = ["#74438f", "#74438f"]
+otherScreenBorder = thisScreenBorder
+otherCurrentScreenBorder = thisCurrentScreenBorder
+# Widget paddings
+wp = 10
+inGroupPadding = wp
 
 prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
 
 widget_defaults = dict(
-    font="Ubuntu Mono",
+    font=monoFont,
     fontsize = barFontSize,
-    padding = 2,
-    background=colors[2]
+    padding = 0,
+    background=barBg,
 )
 extension_defaults = widget_defaults.copy()
 
 emptySep = widget.Sep(
     linewidth = 0,
-    padding = 6,
+    padding = wp,
     foreground = sepColor,
     background = barBg,
 )
@@ -252,73 +294,100 @@ sep = widget.Sep(
     foreground = sepColor,
     background = barBg,
 )
-wp = 10
-inGroupPadding = wp
+
+icons = {
+    "volume": "",
+    "ram": "",
+    "cpu_temp": "",
+    "weather": "",
+}
+
+
+env_config = {}
+with open(f"{os.environ['HOME']}/.config/qtile/env.json", "r") as f:
+    env_config = json.load(f)
+
 
 def init_widgets_list():
     rightSideWidgets = [
-         # Network download/upload
-         [(None, lambda bg: widget.Net(
-             interface = netInterface,
-             format = '{interface}: {down} ↓↑ {up}',
-             foreground = widgetColor,
+         # Weather
+         [{"icon": icons["weather"], "widget": lambda bg: widget.OpenWeather(
+             app_key = env_config["OPEN_WEATHER_API_KEY"],
+             cityid = 706483,
              background = bg,
-             padding = 0,
-         ))],
+             format = "{main_temp} °{units_temperature} {humidity}% {weather_details}",
+         )}],
          # Thermal sensor (CPU)
-         [("CPU: ", lambda bg: widget.ThermalSensor(
+         [{"icon": icons["cpu_temp"], "widget": lambda bg: widget.ThermalSensor(
              foreground = widgetColor,
              background = bg,
              threshold = 90,
              padding = 0,
-         ))],
-        [("Memory: ", lambda bg: widget.Memory(
-            foreground = widgetColor,
-            background = bg,
-            mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e htop')},
-            padding = 0,
-            format = '{MemUsed: .0f}{mm} /{MemTotal: .0f}{mm}',
-        ))],
-        [(None, lambda bg: widget.BitcoinTicker(
-            foreground = widgetColor,
-            background = bg,
-            padding = 0,
-        ))],
-        [("Vol: ", lambda bg: widget.Volume(
-            foreground = widgetColor,
-            background = bg,
-            padding = 0,
-        ))],
-        [
-            (None, lambda bg: widget.CurrentLayoutIcon(
-                custom_icon_paths = [os.path.expanduser("~/.config/qtile/icons")],
+         )}],
+         [{"icon": icons["ram"], "widget": lambda bg: widget.Memory(
+             foreground = widgetColor,
+             background = bg,
+             mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e htop')},
+             padding = 0,
+             format = '{MemUsed: .0f}{mm} /{MemTotal: .0f}{mm}',
+         )}],
+        [{
+            "icon": f"{icons['volume']}",
+            "widget": lambda bg: widget.Volume(
                 foreground = widgetColor,
                 background = bg,
                 padding = 0,
-                scale = 0.7
-            )),
-            (None, lambda bg: widget.CurrentLayout(
+            ),
+        }],
+#        [{
+#            "widget": lambda bg: widget.BitcoinTicker(
+#                foreground = widgetColor,
+#                background = bg,
+#                padding = 0,
+#            ),
+#        }],
+        [{
+            "widget": lambda bg: widget.Pomodoro(
+                color_active = widgetColor,
+                color_break = widgetColor,
+                color_inactive = widgetColor,
                 foreground = widgetColor,
                 background = bg,
                 padding = 0,
-            )),
-        ],
+                )
+            }],
+        # Music
+#        [
+#            {"widget": lambda bg: widget.Cmus(
+#                play_color = widgetColor,
+#                background = bg,
+#                padding = 0,
+#            )},
+#        ],
         [
-            (None, lambda bg: widget.Clock(
+            {"widget": lambda bg: widget.Clock(
                 foreground = widgetColor,
                 background = bg,
                 padding = 0,
                 format = "%A, %B %d - %H:%M ",
-            )),
-        ]
+            )},
+        ],
+        [{"widget": lambda bg: widget.CurrentLayoutIcon(
+            custom_icon_paths = [os.path.expanduser("~/.config/qtile/icons")],
+            foreground = barFg,
+            background = bg,
+            padding = 0,
+            scale = 0.7
+        ),}],
     ]
 
-    # Append rightSideWidgets with separators & alternating background color
-    rightSide = []
-    for i, grp in enumerate(rightSideWidgets):
-        even = i % 2 == 0
+
+    icon_size = 12
+
+    def renderStripedWidgetGroup(grp, even=False):
+        res = []
         bg = widgetStripedBg2 if even else widgetStripedBg1
-        rightSide.append(
+        res.append(
             widget.Sep(
                 linewidth = 0,
                 padding = wp,
@@ -326,29 +395,52 @@ def init_widgets_list():
                 background = bg,
             ),
         )
-        for j, (text, widget_fn) in enumerate(grp):
+        for j, wdesc in enumerate(grp):
+            text = wdesc.get("label", None)
+            widget_fn = wdesc["widget"]
             has_text = text != None
+            label_size = wdesc.get("label_fsize", 14)
+            inner_padding = wdesc.get("inner_padding", 6)
+            icon = wdesc.get("icon", None)
+            has_icon = icon != None
             if has_text:
-                rightSide.append(
+                res.append(
                     widget.TextBox(
                         text = text,
                         foreground = widgetColor,
                         background = bg,
                         padding = 0,
-                        fontsize = 14
+                        fontsize = label_size,
                     ),
                 )
-            rightSide.append(widget_fn(bg))
+            elif has_icon:
+                res.append(
+                    widget.TextBox(
+                        text = icon,
+                        foreground = widgetColor,
+                        background = bg,
+                        padding = 0,
+                        fontsize = icon_size,
+                        font = "Font Awesome 5 Free",
+                    ),
+                )
+                res.append(widget.Sep(
+                        linewidth = 0,
+                        padding = inner_padding,
+                        foreground = sepColor,
+                        background = bg,
+                ))
+            res.append(widget_fn(bg))
             if j != (len(grp) - 1):
-                rightSide.append(
+                res.append(
                     widget.Sep(
                         linewidth = 0,
-                        padding = inGroupPadding,
+                        padding = inner_padding,
                         foreground = sepColor,
                         background = bg,
                     ),
                 )
-        rightSide.append(
+        res.append(
             widget.Sep(
                 linewidth = 0,
                 padding = wp,
@@ -356,58 +448,67 @@ def init_widgets_list():
                 background = bg,
             ),
         )
+        return res
+# Append rightSideWidgets with separators & alternating background color
+    rightSide = []
+    for i, grp in enumerate(rightSideWidgets):
+        even = i % 2 == 0
+        rightSide += renderStripedWidgetGroup(grp, even=even)
 
     widgets_list = [
         emptySep,
         # Python icon
         widget.Image(
             filename = "~/.config/qtile/icons/python-white.png",
-            scale = "False",
+            scale = True,
+            margin_y = 3,
             mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm)},
         ),
         emptySep,
         # Workspaces
         widget.GroupBox(
-            font = boldFont,
-            fontsize = 9,
+            font = "Source Code Pro Bold",
+            fontsize = 8,
             margin_y = 4,
-            margin_x = 0,
+            margin_x = 2,
             padding_y = 5,
-            padding_x = 3,
-            borderwidth = 1,
+            padding_x = 12,
+            borderwidth = 2,
             active = activeWsColor,
             inactive = inactiveWsColor,
+            disable_drag = True,
             rounded = False,
-            highlight_color = colors[1],
+            highlight_color = activeWsBg,
             highlight_method = "line",
-            this_current_screen_border = colors[6],
-            this_screen_border = colors [4],
-            other_current_screen_border = colors[6],
-            other_screen_border = colors[4],
-            foreground = colors[2],
-            background = colors[0]
+            this_current_screen_border = thisCurrentScreenBorder,
+            this_screen_border = thisScreenBorder,
+            other_current_screen_border = otherCurrentScreenBorder,
+            other_screen_border = otherScreenBorder,
+            foreground = barFg,
+            background = barBg,
         ),
-        sep,
-        # Prompt??
-        widget.Prompt(
-            prompt = prompt,
-            font = monoFont,
-            padding = 10,
-            foreground = colors[3],
-            background = colors[1]
+        widget.TextBox(
+            text = "|>",
+            foreground = barFg,
+            background = barBg,
+            padding = 8,
+            fontsize = 14
         ),
         # Current window name
         widget.WindowName(
             foreground = winTitleColor,
             background = barBg,
             padding = 0,
-            max_chars = 77,
+            max_chars = currWindowMaxChars,
         ),
         # System tray
         widget.Systray(
-            background = colors[0],
-            padding = 5
+            background = barBg,
+            padding = 8,
+            icon_size = 14,
         ),
+        emptySep,
+        emptySep,
         *rightSide
     ]
     return widgets_list
@@ -420,7 +521,7 @@ def init_widgets_screen1():
 
 
 def init_screens():
-    return [Screen(top=bar.Bar(widgets=init_widgets_screen1(), opacity=1.0, size=20))]
+    return [Screen(top=bar.Bar(widgets=init_widgets_screen1(), opacity=1.0, size=24))]
 
 
 if __name__ in ["config", "__main__"]:
@@ -486,6 +587,10 @@ floating_layout = layout.Floating(float_rules=[
     Match(title='Qalculate!'),        # qalculate-gtk
     Match(wm_class='kdenlive'),       # kdenlive
     Match(wm_class='pinentry-gtk-2'), # GPG key password entry
+    Match(wm_class='notification'),
+    Match(wm_class='toolbar'),
+    Match(wm_class='splash'),
+    Match(wm_class='dialog'),
 ])
 auto_fullscreen = True
 focus_on_window_activation = "smart"
