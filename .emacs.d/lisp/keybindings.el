@@ -115,7 +115,7 @@
 (define-key c-mode-base-map fmt-kbd 'clang-format-buffer)
 
 ;; Buffers
-(evil-define-key 'normal 'global (kbd "`") 'switch-to-buffer)
+(evil-define-key 'normal 'global (kbd "M-`") 'switch-to-buffer)
 (evil-define-key 'normal 'global (kbd "M-k") 'kill-current-buffer)
 (global-set-key (kbd "M-o") 'my/view-current-file-other-window)
 

@@ -404,9 +404,15 @@
   :ensure t
   :pin melpa)
 
+(use-package haskell-mode
+  :ensure t)
+
+(use-package naysayer-theme
+  :ensure t)
+
 ;; Elisp-format
 ;; (load "third-party/elisp-format.el")
-(load "third-party/emacs-elisp-autofmt/elisp-autofmt.el")
+;;(load "third-party/emacs-elisp-autofmt/elisp-autofmt.el")
 
 ;; clang-format
 (load "third-party/clang-format.el")
