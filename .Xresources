@@ -1,7 +1,2 @@
-!###
-!### The X configuration file
-!### Author: Dmitry Guzeev <dmitry.guzeev@yahoo.com>
-!###
-
 #include ".Xresources.d/fonts"
 #include ".Xresources.d/urxvt"
