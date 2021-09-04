@@ -357,3 +357,5 @@ set belloff=all
 vnoremap <C-c> "*y :let@+=@*<CR>
 " Save in UNIX format
 set ff=unix
+" Trim trailing whitespaces
+autocmd BufWritePre * :%s/\s\+$//e
