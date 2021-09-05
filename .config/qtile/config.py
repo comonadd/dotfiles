@@ -16,23 +16,69 @@ mod = "mod4"
 myTerm = "alacritty"
 myBrowser = "firefox"
 
+# Appearance settings
+primaryColor = "e1acff"
+borderFocusColor = primaryColor
+borderNormalColor = "1D2330"
+netInterface = "enp4s0"
+# Fonts to use
+boldFont = "Ubuntu Bold"
+monoFont = "Ubuntu Mono"
+iconFont = "Noto Color Emoji"
+whiteColor = "#ffffff"
+whiteColorA = [whiteColor, whiteColor]
+# Background & foreground for the top bar
+barBg = ["#282c34", "#282c34"]
+barFg = ["#ffffff", "#ffffff"]
+# Color for separators that divide left side widgets
+sepColor = "#bebebe"
+# Workspaces on the left
+activeWsColor = whiteColorA
+inactiveWsColor = "#ecbbfb"
+winTitleColor = ["#eeeeee", "#eeeeee"]
+widgetColor = whiteColorA
+# Widgets
+# Stripe config (1 = odd, 2 = even)
+widgetStripedBg1 = "#4f76c7"
+widgetStripedBg2 = "#74438f"
+activeWsBg = ["#3d3f4b", "#434758"]
+currWindowMaxChars = 77
+thisCurrentScreenBorder = [primaryColor, primaryColor]
+thisScreenBorder = ["#74438f", "#74438f"]
+otherScreenBorder = thisScreenBorder
+otherCurrentScreenBorder = thisCurrentScreenBorder
+# Widget paddings
+wp = 10
+inGroupPadding = wp
+
+icons = {
+    "volume": "",
+    "ram": "",
+    "cpu_temp": "",
+    "weather": "",
+}
+
 barFontSize = 14
 layout_theme = {"border_width": 1,
                 "margin": 12,
-                "border_focus": "e1acff",
-                "border_normal": "1D2330"
+                "border_focus": borderFocusColor,
+                "border_normal": borderNormalColor,
+                "fullscreen_border_width": 0,
                 }
 
 ##################
 ### Workspaces ###
 ##################
 
-group_names = [("WWW", {'layout': layout.MonadTall}),
-               ("DEV", {'layout': layout.MonadTall}),
-               ("SYS", {'layout': layout.MonadTall}),
-               ("CHAT", {'layout': layout.MonadTall}),
-               ("MUS", {'layout': layout.MonadTall}),
-               ("GFX", {'layout': layout.Floating})]
+group_names = [
+    ("WWW", {'layout': layout.Max, 'matches': [Match(wm_class="firefox")]}),
+    ("DEV", {'layout': layout.MonadTall, 'matches': [Match(wm_class="Emacs")]}),
+    ("IDE", {'layout': layout.Max, 'matches': [Match(wm_class="jetbrains-clion"), Match(wm_class="jetbrains-pycharm")]}),
+    ("SYS", {'layout': layout.MonadTall, 'matches': []}),
+    ("CHAT", {'layout': layout.MonadTall, 'matches': []}),
+    ("MUS", {'layout': layout.MonadTall, 'matches': []}),
+    ("GFX", {'layout': layout.Floating, 'matches': []}),
+]
 groups = [Group(name, **kwargs) for name, kwargs in group_names]
 
 ###################
@@ -122,6 +168,10 @@ keys = [
              lazy.spawn(f"{os.environ['HOME']}/Scripts/make-screenshot.sh"),
              desc='Screenshot'
              ),
+         Key([mod, "shift"], "y",
+             lazy.spawn(f"gnome-screenshot --interactive"),
+             desc='Screenshot'
+             ),
          Key([mod, "shift"], "n",
              lazy.spawn(f"{os.environ['HOME']}/Scripts/logout.sh"),
              desc='Logout'
@@ -130,10 +180,10 @@ keys = [
              lazy.spawn(myTerm),
              desc='Launches My Terminal'
              ),
-         Key([mod, "shift"], "Return",
-             lazy.spawn("dmenu_run -p 'Run: '"),
-             desc='Run Launcher'
-             ),
+#         Key([mod], "space",
+#             lazy.spawn("ulauncher"),
+#             desc='Run Launcher'
+#             ),
          Key([mod], "b",
              lazy.spawn(myBrowser),
              desc='Browser'
@@ -166,7 +216,7 @@ keys = [
              lazy.layout.flip(),
              desc='Switch which side main pane occupies (XmonadTall)'
              ),
-          Key([mod], "space",
+          Key([mod], "Tab",
              lazy.layout.next(),
              desc='Switch window focus to other pane(s) of stack'
              ),
@@ -236,47 +286,6 @@ layouts = [
     layout.Matrix(**layout_theme),
 ]
 
-netInterface = "enp4s0"
-colors = [["#282c34", "#282c34"], # panel background
-          ["#3d3f4b", "#434758"], # background for current screen tab
-          ["#ffffff", "#ffffff"], # font color for group names
-          ["#ff5555", "#ff5555"], # border line color for current tab
-          ["#74438f", "#74438f"], # border line color for 'other tabs' and color for 'odd widgets'
-          ["#4f76c7", "#4f76c7"], # color for the 'even widgets'
-          ["#e1acff", "#e1acff"], # window name
-          ["#ecbbfb", "#ecbbfb"]] # backbround for inactive screens
-# Fonts to use
-boldFont = "Ubuntu Bold"
-monoFont = "Ubuntu Mono"
-iconFont = "Noto Color Emoji"
-whiteColor = "#ffffff"
-whiteColorA = [whiteColor, whiteColor]
-# Background & foreground for the top bar
-barBg = ["#282c34", "#282c34"]
-barFg = ["#ffffff", "#ffffff"]
-# Color for separators that divide left side widgets
-sepColor = "#bebebe"
-# Workspaces on the left
-activeWsColor = whiteColorA
-inactiveWsColor = "#ecbbfb"
-winTitleColor = ["#eeeeee", "#eeeeee"]
-widgetColor = whiteColorA
-# Widgets
-# Stripe config (1 = odd, 2 = even)
-widgetStripedBg1 = "#4f76c7"
-widgetStripedBg2 = "#74438f"
-activeWsBg = ["#3d3f4b", "#434758"]
-currWindowMaxChars = 77
-thisCurrentScreenBorder = ["#e1acff", "#e1acff"]
-thisScreenBorder = ["#74438f", "#74438f"]
-otherScreenBorder = thisScreenBorder
-otherCurrentScreenBorder = thisCurrentScreenBorder
-# Widget paddings
-wp = 10
-inGroupPadding = wp
-
-prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
-
 widget_defaults = dict(
     font=monoFont,
     fontsize = barFontSize,
@@ -298,14 +307,6 @@ sep = widget.Sep(
     foreground = sepColor,
     background = barBg,
 )
-
-icons = {
-    "volume": "",
-    "ram": "",
-    "cpu_temp": "",
-    "weather": "",
-}
-
 
 env_config = {}
 with open(f"{os.environ['HOME']}/.config/qtile/env.json", "r") as f:
@@ -595,7 +596,8 @@ floating_layout = layout.Floating(float_rules=[
     Match(wm_class='toolbar'),
     Match(wm_class='splash'),
     Match(wm_class='dialog'),
-])
+    Match(wm_class='gnome-screenshot'),
+], border_width=0, max_border_width=0, fullscreen_border_width=0, border_normal="#000000", border_focus="#000000")
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 

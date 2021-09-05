@@ -9,3 +9,5 @@ nitrogen --restore &
 conky -c $HOME/.config/conky/doomone-qtile.conkyrc
 volumeicon &
 nm-applet &
+ulauncher &
+
