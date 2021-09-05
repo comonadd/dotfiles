@@ -122,6 +122,10 @@ keys = [
              lazy.spawn(f"{os.environ['HOME']}/Scripts/make-screenshot.sh"),
              desc='Screenshot'
              ),
+         Key([mod, "shift"], "n",
+             lazy.spawn(f"{os.environ['HOME']}/Scripts/logout.sh"),
+             desc='Logout'
+             ),
          Key([mod], "Return",
              lazy.spawn(myTerm),
              desc='Launches My Terminal'
