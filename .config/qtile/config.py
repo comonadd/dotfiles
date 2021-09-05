@@ -5,7 +5,7 @@ import re
 import socket
 import subprocess
 from libqtile import qtile
-from libqtile.config import Click, Drag, Group, KeyChord, Key, Match, Screen
+from libqtile.config import Click, Drag, Group, KeyChord, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.command import lazy
 from libqtile import layout, bar, widget, hook
 from libqtile.lazy import lazy
@@ -71,15 +71,31 @@ layout_theme = {"border_width": 1,
 ##################
 
 group_names = [
-    ("WWW", {'layout': layout.Max, 'matches': [Match(wm_class="firefox")]}),
-    ("DEV", {'layout': layout.MonadTall, 'matches': [Match(wm_class="Emacs")]}),
-    ("IDE", {'layout': layout.Max, 'matches': [Match(wm_class="jetbrains-clion"), Match(wm_class="jetbrains-pycharm")]}),
-    ("SYS", {'layout': layout.MonadTall, 'matches': []}),
-    ("CHAT", {'layout': layout.MonadTall, 'matches': []}),
-    ("MUS", {'layout': layout.MonadTall, 'matches': []}),
-    ("GFX", {'layout': layout.Floating, 'matches': []}),
+    ("WWW", {'layout': "max", 'matches': [Match(wm_class="firefox")]}),
+    ("DEV", {'layout': "monadtall", 'matches': [Match(wm_class="Emacs"), Match(wm_class="code-oss")]}),
+    ("IDE", {'layout': "max", 'matches': [Match(wm_class="jetbrains-clion"), Match(wm_class="jetbrains-pycharm")]}),
+    ("SYS", {'layout': "monadtall", 'matches': [Match(wm_class="lxappearance"), Match(wm_class="pavucontrol")]}),
+    ("CHAT", {'layout': "monadtall", 'matches': [Match(wm_class="TelegramDesktop"), Match(wm_class="slack"), Match(wm_class="discord")]}),
+    ("MUS", {'layout': "monadtall", 'matches': []}),
+    ("GFX", {'layout': "floating", 'matches': []}),
 ]
-groups = [Group(name, **kwargs) for name, kwargs in group_names]
+groups = [
+	ScratchPad(
+		"scratchpad",
+		[
+			# define a drop down terminal.
+			# it is placed in the upper third of screen by default.
+			DropDown(
+				"term",
+				"alacritty --class dropdown",
+				height=0.6,
+				on_focus_lost_hide=False,
+				opacity=0.95,
+				warp_pointer=False,
+			),
+		],
+	),
+    *[Group(name, **kwargs) for name, kwargs in group_names]]
 
 ###################
 ### Keybindings ###
@@ -91,6 +107,7 @@ keys = [
              lazy.next_layout(),
              desc='Toggle through layouts'
              ),
+
          ### Media keys
          Key([], 'XF86Launch1', lazy.spawn('xlock')),
          Key([], 'XF86AudioMute', lazy.spawn('amixer -D pulse set Master toggle')),
@@ -128,6 +145,16 @@ keys = [
              lazy.layout.section_up(),
              desc='Move windows up in current stack'
              ),
+         Key([mod, "shift"], "h",
+             lazy.layout.shuffle_left(),
+             lazy.layout.section_left(),
+             desc='Move windows to the left'
+             ),
+         Key([mod, "shift"], "l",
+             lazy.layout.shuffle_right(),
+             lazy.layout.section_right(),
+             desc='Move windows to the right'
+             ),
 
          ### Window resizing
          Key([mod], "period",
@@ -164,6 +191,10 @@ keys = [
              ),
 
          ### Apps
+         Key([mod], "d",
+             lazy.group["scratchpad"].dropdown_toggle("term"),
+             desc='Toggle dropdown terminal'
+             ),
          Key([mod], "y",
              lazy.spawn(f"{os.environ['HOME']}/Scripts/make-screenshot.sh"),
              desc='Screenshot'
@@ -282,8 +313,20 @@ keys = [
 
 layouts = [
     layout.MonadTall(**layout_theme),
+#    layout.MonadWide(**layout_theme),
+#    layout.Bsp(**layout_theme, fair=False),
+    layout.Columns(
+        **layout_theme,
+        border_on_single=True,
+        num_columns=2,
+        split=False,
+        wrap_focus_columns=True,
+        wrap_focus_rows=True,
+        wrap_focus_stacks=True,
+    ),
     layout.Max(**layout_theme),
-    layout.Matrix(**layout_theme),
+    #layout.Matrix(**layout_theme),
+    layout.Floating(**layout_theme, max_border_width=3),
 ]
 
 widget_defaults = dict(
@@ -426,7 +469,7 @@ def init_widgets_list():
                         background = bg,
                         padding = 0,
                         fontsize = icon_size,
-                        font = "Font Awesome 5 Free",
+                        font = "Font Awesome 5 Free Solid",
                     ),
                 )
                 res.append(widget.Sep(
@@ -526,7 +569,15 @@ def init_widgets_screen1():
 
 
 def init_screens():
-    return [Screen(top=bar.Bar(widgets=init_widgets_screen1(), opacity=1.0, size=24))]
+    return [
+        Screen(
+            top=bar.Bar(widgets=init_widgets_screen1(),
+                opacity=1.0,
+                size=24,
+                margin=[0, 0, 0, 0],
+            ),
+        ),
+    ]
 
 
 if __name__ in ["config", "__main__"]:
@@ -579,7 +630,7 @@ mouse = [
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: List
 main = None
-follow_mouse_focus = True
+follow_mouse_focus = False
 bring_front_click = False
 cursor_warp = False
 
