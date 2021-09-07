@@ -10,61 +10,134 @@ from libqtile.command import lazy
 from libqtile import layout, bar, widget, hook
 from libqtile.lazy import lazy
 from typing import List  # noqa: F401
+from dataclasses import dataclass
+from typing import Dict
 
 # Settings
 mod = "mod4"
 myTerm = "alacritty"
 myBrowser = "firefox"
 
-# Appearance settings
-primaryColor = "e1acff"
-borderFocusColor = primaryColor
-borderNormalColor = "1D2330"
-netInterface = "enp4s0"
-# Fonts to use
-boldFont = "Ubuntu Bold"
-monoFont = "Ubuntu Mono"
-iconFont = "Noto Color Emoji"
-whiteColor = "#ffffff"
-whiteColorA = [whiteColor, whiteColor]
-# Background & foreground for the top bar
-barBg = ["#282c34", "#282c34"]
-barFg = ["#ffffff", "#ffffff"]
-# Color for separators that divide left side widgets
-sepColor = "#bebebe"
-# Workspaces on the left
-activeWsColor = whiteColorA
-inactiveWsColor = "#ecbbfb"
-winTitleColor = ["#eeeeee", "#eeeeee"]
-widgetColor = whiteColorA
-# Widgets
-# Stripe config (1 = odd, 2 = even)
-widgetStripedBg1 = "#4f76c7"
-widgetStripedBg2 = "#74438f"
-activeWsBg = ["#3d3f4b", "#434758"]
-currWindowMaxChars = 77
-thisCurrentScreenBorder = [primaryColor, primaryColor]
-thisScreenBorder = ["#74438f", "#74438f"]
-otherScreenBorder = thisScreenBorder
-otherCurrentScreenBorder = thisCurrentScreenBorder
-# Widget paddings
-wp = 10
-inGroupPadding = wp
+@dataclass
+class Theme:
+    primary: str
+    secondary: str
+    black: str
+    boldFont: str
+    monoFont: str
+    iconFont: str
+    white: str
+    icons: Dict[str, str]
+    grey: str
+    iconSize: int
+    bg: str
+    fg: str
+    fgHighlighted: str
 
-icons = {
+
+defaultIcons = {
     "volume": "",
     "ram": "",
     "cpu_temp": "",
     "weather": "",
 }
 
+themes = {
+    "purple": Theme(
+        primary="#3F334D",
+        secondary="#574B60",
+        black="#1D2330",
+        white="#F2F3D9",
+        bg="#1D2330",
+        fg="#ffffff",
+        fgHighlighted="#ffffff",
+        boldFont="Ubuntu Bold",
+        monoFont="Ubuntu Mono",
+        iconFont="Noto Color Emoji",
+        icons=defaultIcons,
+        grey="#eeeeee",
+        iconSize=12,
+    ),
+    "blue": Theme(
+        primary="#284B69",
+        secondary="#153243",
+        black="#1D2330",
+        white="#EEF0EB",
+        bg="#1D2330",
+        fg="#F4F9E9",
+        fgHighlighted="#306BAC",
+        boldFont="Ubuntu Bold",
+        monoFont="Ubuntu Mono",
+        iconFont="Noto Color Emoji",
+        icons=defaultIcons,
+        grey="#eeeeee",
+        iconSize=12,
+    ),
+    "light": Theme(
+        primary="#EDEADE",
+        secondary="#FFFDD0",
+        black="#000000",
+        white="#ffffff",
+        bg="#F5F5DC",
+        fg="#343434",
+        fgHighlighted="#000000",
+        boldFont="Ubuntu Bold",
+        monoFont="Ubuntu Mono",
+        iconFont="Noto Color Emoji",
+        icons=defaultIcons,
+        grey="#eeeeee",
+        iconSize=12,
+    ),
+}
+
+theme = themes["blue"]
+
+# Appearance settings
+borderFocusColor = theme.primary
+borderNormalColor = theme.black
+# Fonts to use
+boldFont = theme.boldFont
+monoFont = theme.monoFont
+iconFont = theme.iconFont
+whiteColor = theme.white
+whiteColorA = [whiteColor, whiteColor]
+icon_size = theme.iconSize
+# Background & foreground for the top bar
+#barBg = ["#282c34", "#282c34"]
+barBg = [theme.bg, theme.bg]
+barFg = [theme.fg, theme.fg]
+# Color for separators that divide left side widgets
+sepColor = theme.grey
+# Workspaces on the left
+activeWsColor = theme.fgHighlighted
+inactiveWsColor = theme.fg
+winTitleColor = [theme.fg, theme.fg]
+widgetColor = theme.fg
+# Widgets
+# Stripe config (1 = odd, 2 = even)
+widgetStripedBg1 = theme.primary
+widgetStripedBg2 = theme.secondary
+activeWsBg = [theme.primary, theme.primary]
+currWindowMaxChars = 77
+thisCurrentScreenBorder = [theme.primary, theme.primary]
+thisScreenBorder = ["#74438f", "#74438f"]
+otherScreenBorder = thisScreenBorder
+otherCurrentScreenBorder = thisCurrentScreenBorder
+# Widget paddings
+wp = 10
+inGroupPadding = wp
+netInterface = "enp4s0"
+
+icons = theme.icons
+
 barFontSize = 14
-layout_theme = {"border_width": 1,
-                "margin": 12,
-                "border_focus": borderFocusColor,
-                "border_normal": borderNormalColor,
-                "fullscreen_border_width": 0,
-                }
+layout_theme = {
+    "border_width": 1,
+    "margin": 12,
+    "border_focus": borderFocusColor,
+    "border_normal": borderNormalColor,
+    "fullscreen_border_width": 0,
+}
 
 ##################
 ### Workspaces ###
@@ -125,12 +198,10 @@ keys = [
              ),
          Key([mod], "h",
              lazy.layout.left(),
-             lazy.layout.decrease_nmaster(),
              desc='Move focus left in the current stack pane'
              ),
          Key([mod], "l",
              lazy.layout.right(),
-             lazy.layout.decrease_nmaster(),
              desc='Move focus left in the current stack pane'
              ),
 
@@ -334,6 +405,7 @@ widget_defaults = dict(
     fontsize = barFontSize,
     padding = 0,
     background=barBg,
+    foreground=barFg,
 )
 extension_defaults = widget_defaults.copy()
 
@@ -429,9 +501,6 @@ def init_widgets_list():
         ),}],
     ]
 
-
-    icon_size = 12
-
     def renderStripedWidgetGroup(grp, even=False):
         res = []
         bg = widgetStripedBg2 if even else widgetStripedBg1
@@ -497,7 +566,7 @@ def init_widgets_list():
             ),
         )
         return res
-# Append rightSideWidgets with separators & alternating background color
+    # Append rightSideWidgets with separators & alternating background color
     rightSide = []
     for i, grp in enumerate(rightSideWidgets):
         even = i % 2 == 0
@@ -505,9 +574,9 @@ def init_widgets_list():
 
     widgets_list = [
         emptySep,
-        # Python icon
+        # Icon
         widget.Image(
-            filename = "~/.config/qtile/icons/python-white.png",
+            filename = "~/.config/qtile/icons/yin-yang.png",
             scale = True,
             margin_y = 3,
             mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm)},
@@ -523,6 +592,7 @@ def init_widgets_list():
             padding_x = 12,
             borderwidth = 2,
             active = activeWsColor,
+            block_highlight_text_color = theme.fg,
             inactive = inactiveWsColor,
             disable_drag = True,
             rounded = False,
@@ -564,7 +634,6 @@ def init_widgets_list():
 
 def init_widgets_screen1():
     widgets_screen1 = init_widgets_list()
-    del widgets_screen1[7:8]               # Slicing removes unwanted widgets (systray) on Monitors 1,3
     return widgets_screen1
 
 
