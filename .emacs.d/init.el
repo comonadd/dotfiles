@@ -155,7 +155,7 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
    '("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3"))
  '(objed-cursor-color "#955f5f")
  '(package-selected-packages
-   '(naysayer haskell-mode esup solarized-theme waher-theme dockerfile-mode gruvbox-theme spacemacs-theme undo-tree sublime-themes ample-theme zenburn-theme lua-mode espresso-theme clues-theme tango-plus-theme apropospriate-theme leuven-theme yaml-mode counsel all-the-icons-ivy-rich ivy-rich flycheck hl-todo string-inflection cmake-mode ag emmet-mode prettier-js php-mode glsl-mode naysayer-theme spaceline spaceline-config eltbus rust-mode treemacs-all-the-icons treemacs-projectile treemacs-evil lsp-treemacs all-the-icons zzz-to-char elisp-format lsp-ivy projectile evil-nerd-commenter bm evil-mc evil-magit magit evil-collection use-package))
+   '(auto-complete naysayer haskell-mode esup solarized-theme waher-theme dockerfile-mode gruvbox-theme spacemacs-theme undo-tree sublime-themes ample-theme zenburn-theme lua-mode espresso-theme clues-theme tango-plus-theme apropospriate-theme leuven-theme yaml-mode counsel all-the-icons-ivy-rich ivy-rich flycheck hl-todo string-inflection cmake-mode ag emmet-mode prettier-js php-mode glsl-mode naysayer-theme spaceline spaceline-config eltbus rust-mode treemacs-all-the-icons treemacs-projectile treemacs-evil lsp-treemacs all-the-icons zzz-to-char elisp-format lsp-ivy projectile evil-nerd-commenter bm evil-mc evil-magit magit evil-collection use-package))
  '(pdf-view-midnight-colors (cons "#605a52" "#f7f3ee"))
  '(pos-tip-background-color "#01323d")
  '(pos-tip-foreground-color "#9eacac")

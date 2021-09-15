@@ -141,7 +141,9 @@
         "*CMakeFiles"
         "*.log"
         "*fontawesome"
-        "*dist")))
+        "*dist"
+        "Debug"
+        "Release")))
   (setq projectile-globally-ignored-files
     (append
       projectile-globally-ignored-files
@@ -173,7 +175,8 @@
         "png"
         "jpeg"
         "jpg"
-        "gif")))
+        "gif"
+        "o")))
   (setq compilation-read-command nil) ;; Do not prompt for a compilation command
   (evil-define-key
     'normal
@@ -409,6 +412,11 @@
 
 (use-package naysayer-theme
   :ensure t)
+
+(use-package auto-complete
+  :ensure t
+  :config
+  (ac-config-default))
 
 ;; Elisp-format
 ;; (load "third-party/elisp-format.el")
