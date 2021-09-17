@@ -183,3 +183,7 @@ function docker-run-redis-dev-container() {
   echo "Starting Redis development database";
 	cd ~/Docker/local-redis-db && docker-compose up
 }
+
+bindkey  "^[[H"   beginning-of-line
+bindkey  "^[[F"   end-of-line
+bindkey  "^[[3~"  delete-char

@@ -12,6 +12,8 @@ alias find="fd"
 alias ls="ls --color=al"
 alias la="ls -la"
 
+alias vim="nvim"
+
 force_color_prompt=yes
 
 # Docker aliases
@@ -53,8 +55,7 @@ alias killbg="kill $(jobs -p)"
 export PATH=/home/dmitry/.fnm:$PATH
 eval "`fnm env`"
 
-eval "$(starship init bash)"
-
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/go/bin"
