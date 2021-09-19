@@ -1,12 +1,4 @@
-# Git aliases
-alias gita="git add"
-alias gitc="git commit"
-alias gitl="git log"
-alias gitm="git merge"
-alias gitp="git pull"
-alias gitps="git push"
-alias gits="git status"
-alias find="fd"
+#!/bin/bash
 
 # LS
 alias ls="ls --color=al"

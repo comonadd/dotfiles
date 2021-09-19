@@ -108,7 +108,7 @@
   :ensure t
   :config
   (projectile-mode +1)
-  (setq projectile-project-search-path '("~/Projects" "~/Work"))
+  (setq projectile-project-search-path '("~/Projects"))
   (cond
     ((eq system-type 'windows-nt)
       (progn
@@ -125,7 +125,7 @@
         ;; Fixes the issue with "tr" not being found
         (setq projectile-git-submodule-command nil))
     (t
-      (setq projectile-indexing-method 'native)))
+     (setq projectile-indexing-method 'hybrid)))
   (setq projectile-globally-ignored-directories
     (append
       projectile-globally-ignored-directories
@@ -192,7 +192,12 @@
     'normal
     'global
     (kbd "<leader>pf")
-    'projectile-find-file))
+    'projectile-find-file)
+  (evil-define-key
+    'normal
+    'global
+    (kbd "<leader>pc")
+    'projectile-invalidate-cache))
 
 ;; Company
 ;; (use-package company
@@ -427,3 +432,6 @@
 
 ;; tidy formatter
 (load "third-party/tidy.el")
+
+(use-package gruvbox-theme
+  :ensure t)
