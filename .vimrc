@@ -353,3 +353,10 @@ endfunction
 
 " Disable audio bell
 set belloff=all
+" Linux system clipboard sharing
+"vnoremap <C-c> "*y :let@+=@*<CR>
+set clipboard=unnamed
+" Save in UNIX format
+set ff=unix
+" Trim trailing whitespaces
+autocmd BufWritePre * :%s/\s\+$//e

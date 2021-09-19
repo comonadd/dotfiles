@@ -1,185 +1,54 @@
-###################################################
-### Setup environment variables
-###################################################
+source ~/.config/.bashrc.common
 
-source ~/.profile
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
 
-###################################################
-### Define needed functions
-###################################################
+# Load Git completion
+zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
+fpath=(~/.zsh $fpath)
 
-# Pull all remote Git branches
-pull-all-git-branches() {
-    git branch -r | grep -v "\->" | while read remote; do git branch --track "${remote#origin/}" "$remote"; done
-    git fetch --all
-    git pull --all
-    for remote in `git branch -r`; do git branch --track ${remote#origin/} $remote; done
-}
+autoload -Uz compinit && compinit
 
-###################################################
-### Initialize oh-my-zsh
-###################################################
+eval "$(starship init zsh)"
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# Theme
-ZSH_THEME="bira"
+# create a zkbd compatible hash;
+# to add other keys to this hash, see: man 5 terminfo
+typeset -g -A key
 
-# Other options
-CASE_SENSITIVE="true"
-HYPHEN_INSENSITIVE="false"
-DISABLE_AUTO_UPDATE="true"
-DISABLE_LS_COLORS="false"
-DISABLE_AUTO_TITLE="true"
-ENABLE_CORRECTION="false"
-COMPLETION_WAITING_DOTS="false"
-DISABLE_UNTRACKED_FILES_DIRTY="true"
-HIST_STAMPS="mm/dd/yyyy"
+key[Home]="${terminfo[khome]}"
+key[End]="${terminfo[kend]}"
+key[Insert]="${terminfo[kich1]}"
+key[Backspace]="${terminfo[kbs]}"
+key[Delete]="${terminfo[kdch1]}"
+key[Up]="${terminfo[kcuu1]}"
+key[Down]="${terminfo[kcud1]}"
+key[Left]="${terminfo[kcub1]}"
+key[Right]="${terminfo[kcuf1]}"
+key[PageUp]="${terminfo[kpp]}"
+key[PageDown]="${terminfo[knp]}"
+key[Shift-Tab]="${terminfo[kcbt]}"
 
-# Plugins
-plugins=(osx)
+# setup key accordingly
+[[ -n "${key[Home]}"      ]] && bindkey -- "${key[Home]}"       beginning-of-line
+[[ -n "${key[End]}"       ]] && bindkey -- "${key[End]}"        end-of-line
+[[ -n "${key[Insert]}"    ]] && bindkey -- "${key[Insert]}"     overwrite-mode
+[[ -n "${key[Backspace]}" ]] && bindkey -- "${key[Backspace]}"  backward-delete-char
+[[ -n "${key[Delete]}"    ]] && bindkey -- "${key[Delete]}"     delete-char
+[[ -n "${key[Up]}"        ]] && bindkey -- "${key[Up]}"         up-line-or-history
+[[ -n "${key[Down]}"      ]] && bindkey -- "${key[Down]}"       down-line-or-history
+[[ -n "${key[Left]}"      ]] && bindkey -- "${key[Left]}"       backward-char
+[[ -n "${key[Right]}"     ]] && bindkey -- "${key[Right]}"      forward-char
+[[ -n "${key[PageUp]}"    ]] && bindkey -- "${key[PageUp]}"     beginning-of-buffer-or-history
+[[ -n "${key[PageDown]}"  ]] && bindkey -- "${key[PageDown]}"   end-of-buffer-or-history
+[[ -n "${key[Shift-Tab]}" ]] && bindkey -- "${key[Shift-Tab]}"  reverse-menu-complete
 
-# Execute main oh-my-zsh script
-source $ZSH/oh-my-zsh.sh
-
-# Enable Vim mode
-bindkey -v
-
-# Only check local files in Git plugin
-__git_files () {
-    _wanted files expl "local files" _files
-}
-
-autoload -U add-zsh-hook
-
-update-terminal-pwd-title() {
-  echo -ne "\033]0;$PWD\007"
-}
-
-add-zsh-hook chpwd update-terminal-pwd-title
-update-terminal-pwd-title
-
-###################################################
-### Setup terminal options
-###################################################
-
-unsetopt MULTIOS
-setopt MAGIC_EQUAL_SUBST
-setopt BSD_ECHO
-setopt INTERACTIVE_COMMENTS
-setopt PROMPT_SUBST
-
-###################################################
-### Fix problems with dumb terminals
-###################################################
-
-[[ $TERM == "dumb" ]] && unsetopt zle && PS1="$ " && return
-
-###################################################
-### Initialize NVM
-###################################################
-
-USE_FAST_NVM_LOAD_METHOD="1"
-
-if [ $USE_FAST_NVM_LOAD_METHOD -eq "1" ]; then
-  declare -a NODE_GLOBALS=(`find ~/.nvm/versions/node -maxdepth 3 -type l -wholename '*/bin/*' | xargs -n1 basename | sort | uniq`)
-  NODE_GLOBALS+=("node")
-  NODE_GLOBALS+=("nvm")
-  load_nvm () {
-      [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-  }
-  for cmd in "${NODE_GLOBALS[@]}"; do
-      eval "${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; ${cmd} \$@ }"
-  done
-  check-for-new-nvmrc-configs() {
-    if [[ -a .nvmrc ]]; then
-      nvm use
-    fi
-  }
-  add-zsh-hook chpwd check-for-new-nvmrc-configs
-  check-for-new-nvmrc-configs
-else
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-  # Load local .nvmrc right after cd-ing into the directory
-  load-nvmrc() {
-    local node_version="$(nvm version)"
-    local nvmrc_path="$(nvm_find_nvmrc)"
-    if [ -n "$nvmrc_path" ]; then
-      echo "Loading nvmrc: Found NVM config file at \"$nvmrc_path\""
-      local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-      if [ "$nvmrc_node_version" = "N/A" ]; then
-        nvm install
-      elif [ "$nvmrc_node_version" != "$node_version" ]; then
-        nvm use
-      fi
-    elif [ "$node_version" != "$(nvm version default)" ]; then
-      echo "Loading nvmrc: Reverting to nvm default version"
-      nvm use default
-    else
-      echo "Did not do anything"
-    fi
-  }
-  add-zsh-hook chpwd load-nvmrc
-  load-nvmrc
+# Finally, make sure the terminal is in application mode, when zle is
+# active. Only then are the values from $terminfo valid.
+if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
+	autoload -Uz add-zle-hook-widget
+	function zle_application_mode_start { echoti smkx }
+	function zle_application_mode_stop { echoti rmkx }
+	add-zle-hook-widget -Uz zle-line-init zle_application_mode_start
+	add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
 fi
-
-###################################################
-### Setup autoenv ZSh plugin
-###################################################
-
-export AUTOENV_FILE_ENTER=.autoenv.zsh
-export AUTOENV_FILE_LEAVE=.autoenv.zsh
-export AUTOENV_HANDLE_LEAVE=1
-source ~/.oh-my-zsh/plugins/zsh-autoenv/autoenv.zsh
-
-###################################################
-### Setup command aliases
-###################################################
-
-# EDIT aliases
-alias eZ="$EDITOR ~/.zshrc"
-alias eV="$EDITOR ~/.vimrc"
-
-# Clipboard management aliases
-alias cclip="xclip -selection clipboard"
-alias clipp="xclip -selection clipboard -o"
-
-# Command flag modification aliases
-alias make="make --warn-undefined-variables"
-
-# Git aliases
-alias gits="git status"
-alias gitc="git commit"
-alias gitpab=pull-all-git-branches
-
-# Compilers
-alias clang="clang-7"
-alias clang++="clang-7"
-
-# Other aliases
-alias uX="xrdb ~/.Xresources"
-alias rr="clear && printf \"\e[3J\""
-alias vi="vim"
-alias neovim="nvim"
-alias vim="neovim"
-alias pip="pip3"
-alias python="python3"
-alias gradlew="gradle wrapper"
-alias find="fd"
-alias php="/usr/local/bin/php"
-alias pyenv-activate="source ./venv/bin/activate"
-
-# Docker
-alias docker-ls-all-containers="docker ps -aq"
-alias docker-stop-all-containers="docker stop \$(docker ps -aq)"
-alias docker-rm-all-containers="docker rm \$(docker ps -aq)"
-alias docker-rm-all-images="docker rmi \$(docker images -q)"
-
-function docker-run-mysql-dev-container() {
-  echo "Starting MySQL development database";
-	cd ~/Docker/local-mysql-db && docker-compose up
-}
-
-function docker-run-redis-dev-container() {
-  echo "Starting Redis development database";
-	cd ~/Docker/local-redis-db && docker-compose up
-}

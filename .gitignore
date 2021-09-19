@@ -5,3 +5,4 @@
 .oh-my-zsh
 data/
 logs/
+__pycache__/

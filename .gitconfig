@@ -1,9 +1,6 @@
 [user]
 	email = dmitri.guzeev@gmail.com
 	name = Dmitry Guzeev
-[core]
-    editor = nvim
-	excludesfile = /Users/wrongway4you/.gitignore_global
 [alias]
     co = commit
     ck = checkout
@@ -24,10 +21,10 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/kdiff3.app/Contents/MacOS/kdiff3 \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
 	trustExitCode = true
-[commit]
-	template = /Users/wrongway4you/.stCommitMsg
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
+[core]
+	editor = vim
