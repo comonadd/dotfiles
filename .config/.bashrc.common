@@ -43,7 +43,9 @@ function docker-run-mongo-dev-container () {
 }
 
 # Editor
-export EDITOR="emacs"
+export EDITOR="vim"
+alias evc="$EDITOR ~/.config/nvim/init.vim"
+alias eec="$EDITOR ~/.config/.emacs.d/init.el"
 
 # Internet
 alias yt="youtube-dl --add-metadata -ic"
@@ -59,3 +61,8 @@ eval "`fnm env`"
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/go/bin"
+
+alias tmux="tmux attach || tmux new"
+
+alias pbcopy='xsel --clipboard --input'
+alias pbpaste='xsel --clipboard --output'

@@ -1,2 +1,5 @@
 #include ".Xresources.d/fonts"
 #include ".Xresources.d/urxvt"
+
+XTerm*termName: xterm-256color
+URxvt*termName: rxvt-unicode

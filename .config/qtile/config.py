@@ -145,8 +145,8 @@ layout_theme = {
 
 group_names = [
     ("WWW", {'layout': "max", 'matches': [Match(wm_class="firefox")]}),
-    ("DEV", {'layout': "monadtall", 'matches': [Match(wm_class="Emacs"), Match(wm_class="code-oss")]}),
-    ("IDE", {'layout': "max", 'matches': [Match(wm_class="jetbrains-clion"), Match(wm_class="jetbrains-pycharm")]}),
+    ("DEV", {'layout': "monadtall", 'matches': [Match(wm_class="code-oss")]}),
+    ("IDE", {'layout': "max", 'matches': [Match(wm_class="Emacs"), Match(wm_class="jetbrains-clion"), Match(wm_class="jetbrains-pycharm")]}),
     ("SYS", {'layout': "monadtall", 'matches': [Match(wm_class="lxappearance"), Match(wm_class="pavucontrol")]}),
     ("CHAT", {'layout': "monadtall", 'matches': [Match(wm_class="TelegramDesktop"), Match(wm_class="slack"), Match(wm_class="discord")]}),
     ("MUS", {'layout': "monadtall", 'matches': []}),
