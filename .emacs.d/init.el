@@ -30,17 +30,14 @@
 
 ;; MacOS
 (when (eq system-type 'darwin)
-  (setq exec-path
-    (list
-      (concat (getenv "HOME") "/.asdf/shims")
-      "/usr/local/bin/"
-      "/usr/bin/"
-      "/bin/"
-      "/usr/sbin/"
-      "/sbin/"
-      (concat (getenv "HOME") "/.cargo/bin")
-      (concat (getenv "HOME") "/.local/bin")
-      (concat (getenv "HOME") "/Scripts")))
+  (defun set-exec-path-from-shell-PATH ()
+    "Set up Emacs' `exec-path' and PATH environment variable to match that used by the user's shell.
+  This is particularly useful under Mac OSX, where GUI apps are not started from a shell."
+    (interactive)
+    (let ((path-from-shell (replace-regexp-in-string "[ \t\n]*$" "" (shell-command-to-string "$SHELL --login -i -c 'echo $PATH'"))))
+      (setenv "PATH" path-from-shell)
+      (setq exec-path (split-string path-from-shell path-separator))))
+  (set-exec-path-from-shell-PATH)
   (setq lsp-pyls-plugins-flake8-filename
     (concat (getenv "HOME") "/.asdf.shims"))
   (setq racer-rust-src-path
@@ -50,7 +47,7 @@
   (setq flycheck-python-pylint-executable
     (expand-file-name
       (concat
-        (file-name-as-directory (getenv "HOME"))
+       (file-name-as-directory (getenv "HOME"))
         ".asdf/shims/pylint"))))
 
 ;; Windows

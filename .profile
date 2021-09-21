@@ -42,6 +42,8 @@ export PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
 # Python bins
 export PATH="$PATH:/Users/wrongway4you/.asdf/installs/python/3.6.0/bin"
 
+export PATH="$PATH:/usr/local/opt/llvm/bin"
+
 ###################################################
 ### Other variables
 ###################################################
@@ -66,3 +68,9 @@ export CXX="/usr/local/opt/llvm/bin/clang++"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
+
+# Set CLICOLOR if you want Ansi Colors in iTerm2 
+export CLICOLOR=1
+
+# Set colors to match iTerm2 Terminal Colors
+export TERM=xterm-256color

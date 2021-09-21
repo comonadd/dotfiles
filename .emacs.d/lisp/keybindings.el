@@ -1,6 +1,11 @@
 ;;; Global keybindings not related to any of the packages installed.
 ;;; Package-specific keybindings reside in packages.el.
 
+;; MacOS
+(when (eq system-type 'darwin)
+  (progn
+    (setq mac-command-modifier 'meta)))
+
 ;; Basics
 (evil-set-leader 'normal (kbd "SPC"))
 (global-set-key (kbd "<f1>") 'eval-region)
@@ -128,5 +133,4 @@
 
 ;; Themes
 (evil-define-key 'normal 'global (kbd "<leader>tt") 'load-theme)
-(evil-define-key 'normal 'global (kbd "<leader>tr") 'my/reset-themes)
-(evil-define-key 'normal 'global (kbd "C-<f8>") 'my/next-theme)
+(evil-define-key 'normal 'global (kbd "C-8") 'my/next-theme)
