@@ -53,6 +53,8 @@ Plug 'juanpabloaj/vim-pixelmuerto'
 
 Plug 'vim-scripts/loremipsum'
 
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+
 call plug#end()
 filetype plugin indent on
 
@@ -359,3 +361,11 @@ autocmd FileType c,cpp,java,php,javascript,typescript,javascriptreact,python aut
 set clipboard=unnamed
 
 nmap <leader>p/ :Ack 
+
+" Multi-cursor settings
+let g:VM_mouse_mappings    = 1
+let g:VM_theme             = 'iceblue'
+
+let g:VM_maps = {}
+let g:VM_maps["Undo"]      = 'u'
+let g:VM_maps["Redo"]      = '<C-r>'
