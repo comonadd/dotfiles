@@ -5,6 +5,7 @@ filetype off
 
 call plug#begin(stdpath('data') . '/plugged')
 
+" Linters, fixers, formatters, etc.
 Plug 'w0rp/ale'
 
 " Searcher
@@ -31,6 +32,9 @@ Plug 'rhysd/vim-clang-format'
 " file. Currently bound to LEADER+H
 Plug 'ericcurtin/CurtineIncSw.vim'
 
+" Comments
+Plug 'tomtom/tcomment_vim'
+
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'rust-analyzer/rust-analyzer'
@@ -45,15 +49,22 @@ Plug 'martinda/Jenkinsfile-vim-syntax'
 
 Plug 'modille/groovy.vim'
 
-Plug 'tomtom/tcomment_vim'
-
 Plug 'sk1418/HowMuch'
-
-Plug 'juanpabloaj/vim-pixelmuerto'
 
 Plug 'vim-scripts/loremipsum'
 
+" Multiple cursor
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+
+Plug 'itchyny/lightline.vim'
+
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-colorscheme-switcher'
+
+" Colorschemes
+Plug 'fenetikm/falcon'
+Plug 'nanotech/jellybeans.vim'
+Plug 'tomasr/molokai'
 
 call plug#end()
 filetype plugin indent on
@@ -134,10 +145,17 @@ set statusline+=%=
 set statusline+=[\%03.3b/\%02.2B]\ [POS=%04v]
 
 set laststatus=2
+let g:falcon_lightline = 1
+"let g:lightline.colorscheme = 'falcon'
 
 if &t_Co == 256
-    " If we're on a 256-color terminal, use pixelmuerto color scheme
-    colorscheme pixelmuerto
+    " If we're on a 256-color terminal
+    "colorscheme pixelmuerto
+    set termguicolors
+    "let g:alduin_Shout_Dragon_Aspect = 1
+    set background=dark
+    let base16colorspace=256
+    colorscheme falcon
 else
     " Else fall back to ron
     colorscheme ron
@@ -172,11 +190,17 @@ nnoremap <silent> <C-Space> :ll<CR>
 let g:ale_linters = {
             \ 'cpp': ['clangcheck', 'clangtidy', 'clang-format', 'clazy', 'cquery', 'uncrustify'],
             \ 'go': ['staticcheck'],
+            \ 'typescript': ['tsserver'],
+            \ 'typescriptreact': ['tsserver'],
+            \ 'javascript': ['eslint'],
+            \ 'javascriptreact': ['eslint'],
+            \ 'python': ['flake8', 'mypy'],
             \ }
 let g:ale_cpp_clangtidy_extra_options = '-std=c++20 -lstdc++fs'
 let g:ale_cpp_cc_options = '-std=c++20 -Wall -lstdc++fs'
 let g:ale_cpp_gcc_options = '-std=c++20 -Wall'
 let g:ale_cpp_clang_options = '-std=c++20 -Wall'
+let g:ale_set_quickfix = 0
 
 let g:ale_go_staticcheck_lint_package = 1
 
@@ -208,6 +232,7 @@ au FileType html setlocal ts=2 sw=2 sts=2
 autocmd! BufWritePost *.go :GoImports
 
 let g:ctrlp_working_path_mode = 'rwa'
+let g:ctrlp_show_hidden = 1 " show dot files
 
 nnoremap <silent> <leader>b :CtrlPBuffer<CR>
 nnoremap <silent> <C-K> :CtrlPMixed<CR>
@@ -225,12 +250,12 @@ let g:clang_close_preview=1
 
 let g:ale_fixers = {
             \ 'python': ['black'],
-            \ 'typescript': ['tslint', 'prettier'],
-            \ 'typescriptreact': ['tslint', 'prettier'],
             \ 'css': ['prettier'],
             \ 'scss': ['prettier'],
             \ 'json': ['prettier'],
             \ 'html': [],
+            \ 'typescript': ['eslint', 'prettier'],
+            \ 'typescriptreact': ['eslint', 'prettier'],
             \ 'javascript': ['eslint', 'prettier'],
             \ 'javascriptreact': ['eslint', 'prettier'],
             \ 'rust': ['rustfmt'],
@@ -360,8 +385,6 @@ autocmd FileType c,cpp,java,php,javascript,typescript,javascriptreact,python aut
 " Linux system clipboard sharing
 set clipboard=unnamed
 
-nmap <leader>p/ :Ack 
-
 " Multi-cursor settings
 let g:VM_mouse_mappings    = 1
 let g:VM_theme             = 'iceblue'
@@ -369,3 +392,47 @@ let g:VM_theme             = 'iceblue'
 let g:VM_maps = {}
 let g:VM_maps["Undo"]      = 'u'
 let g:VM_maps["Redo"]      = '<C-r>'
+
+" Alignment
+command! -nargs=? -range Align <line1>,<line2>call AlignSection('<args>')
+vnoremap <silent> <Leader>a :Align<CR>
+function! AlignSection(regex) range
+  let extra = 1
+  let sep = empty(a:regex) ? '=' : a:regex
+  let maxpos = 0
+  let section = getline(a:firstline, a:lastline)
+  for line in section
+    let pos = match(line, ' *'.sep)
+    if maxpos < pos
+      let maxpos = pos
+    endif
+  endfor
+  call map(section, 'AlignLine(v:val, sep, maxpos, extra)')
+  call setline(a:firstline, section)
+endfunction
+function! AlignLine(line, sep, maxpos, extra)
+  let m = matchlist(a:line, '\(.\{-}\) \{-}\('.a:sep.'.*\)')
+  if empty(m)
+    return a:line
+  endif
+  let spaces = repeat(' ', a:maxpos - strlen(m[1]) + a:extra)
+  return m[1] . spaces . m[2]
+endfunction
+
+nmap <leader>p/ :Ack 
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
+" Always use Ack!
+cnoreabbrev Ack Ack!
+
+command! -nargs=0 RemoveUnusedImports call RemoveUnusedImports()
+nmap <silent> <Leader>e :RemoveUnusedImports<CR>
+function! RemoveUnusedImports()
+    let configPath = findfile(".eslintrc-unused-imports.js", ".;")
+    execute "!" . "eslint --fix -c " . configPath " " . bufname("%")
+endfunction
+
+" Reset search
+nnoremap <Leader><Space> :noh<Enter>
