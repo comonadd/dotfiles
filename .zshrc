@@ -9,7 +9,6 @@ fpath=(~/.zsh $fpath)
 
 autoload -Uz compinit && compinit
 
-eval "$(starship init zsh)"
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # create a zkbd compatible hash;
@@ -52,3 +51,6 @@ if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
 	add-zle-hook-widget -Uz zle-line-init zle_application_mode_start
 	add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
 fi
+
+# Prompt
+PROMPT='%B%F{240}%1~%f%b %# '
