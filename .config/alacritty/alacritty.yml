@@ -1,31 +1,33 @@
+window:
+  dynamic_padding: true
+
 shell:
   program: /usr/bin/zsh
   args:
     - --login
 
 key_bindings:
-    - { key: D,     mods: Command,       chars: "\x06\x76" } 
-    - { key: D,     mods: Command|Shift, chars: "\x06\x73" }
-    - { key: W,     mods: Command,       chars: "\x06\x78" }
-    - { key: H,     mods: Command,       chars: "\x06\x68" }
-    - { key: J,     mods: Command,       chars: "\x06\x6a" }
-    - { key: K,     mods: Command,       chars: "\x06\x6b" }
-    - { key: L,     mods: Command,       chars: "\x06\x6c" }
-    - { key: T,     mods: Command,       chars: "\x06\x63" }
-    - { key: Key1,  mods: Command,       chars: "\x06\x31" }
-    - { key: Key2,  mods: Command,       chars: "\x06\x32" }
-    - { key: Key3,  mods: Command,       chars: "\x06\x33" }
-    - { key: Key4,  mods: Command,       chars: "\x06\x34" }
-    - { key: Key5,  mods: Command,       chars: "\x06\x35" }
-    - { key: Key6,  mods: Command,       chars: "\x06\x36" }
-    - { key: Key7,  mods: Command,       chars: "\x06\x37" }
-    - { key: Key8,  mods: Command,       chars: "\x06\x38" }
-    - { key: Key9,  mods: Command,       chars: "\x06\x39" }
-    - { key: Left,  mods: Command,       chars: "\x06\x48" }
-    - { key: Down,  mods: Command,       chars: "\x06\x4a" }
-    - { key: Up,    mods: Command,       chars: "\x06\x4b" }
-    - { key: Right, mods: Command,       chars: "\x06\x4c" }
-
+  - { key: D, mods: Command, chars: "\x06v" }
+  - { key: D, mods: Command|Shift, chars: "\x06s" }
+  - { key: W, mods: Command, chars: "\x06x" }
+  - { key: H, mods: Command, chars: "\x06h" }
+  - { key: J, mods: Command, chars: "\x06j" }
+  - { key: K, mods: Command, chars: "\x06k" }
+  - { key: L, mods: Command, chars: "\x06l" }
+  - { key: T, mods: Command, chars: "\x06c" }
+  - { key: Key1, mods: Command, chars: "\x061" }
+  - { key: Key2, mods: Command, chars: "\x062" }
+  - { key: Key3, mods: Command, chars: "\x063" }
+  - { key: Key4, mods: Command, chars: "\x064" }
+  - { key: Key5, mods: Command, chars: "\x065" }
+  - { key: Key6, mods: Command, chars: "\x066" }
+  - { key: Key7, mods: Command, chars: "\x067" }
+  - { key: Key8, mods: Command, chars: "\x068" }
+  - { key: Key9, mods: Command, chars: "\x069" }
+  - { key: Left, mods: Command, chars: "\x06H" }
+  - { key: Down, mods: Command, chars: "\x06J" }
+  - { key: Up, mods: Command, chars: "\x06K" }
+  - { key: Right, mods: Command, chars: "\x06L" }
 
 font:
   normal:
@@ -71,29 +73,29 @@ items:
         cyan: "#b5e4f4"
         white: "#f7f7f7"
 colors:
-  name: GJM
+  name: astromouse
   author: ""
   primary:
-    background: "#1c1c1c"
-    foreground: "#c5c5c5"
+    background: "#000000"
+    foreground: "#ffffff"
   cursor:
-    text: "#1c1c1c"
-    cursor: "#c5c5c5"
+    text: "#000000"
+    cursor: "#ffffff"
   normal:
     black: "#1c1c1c"
-    red: "#ff005b"
-    green: "#cee318"
-    yellow: "#ffe755"
-    blue: "#048ac7"
-    magenta: "#833c9f"
-    cyan: "#0ac1cd"
-    white: "#e5e5e5"
+    red: "#d770af"
+    green: "#9acc79"
+    yellow: "#d0d26b"
+    blue: "#77b6c5"
+    magenta: "#a488d9"
+    cyan: "#7fcab3"
+    white: "#8d8d8d"
   bright:
-    black: "#666666"
-    red: "#ff00a0"
-    green: "#ccff00"
-    yellow: "#ff9f00"
-    blue: "#48c6ff"
-    magenta: "#be67e1"
-    cyan: "#63e7f0"
-    white: "#f3f3f3"
+    black: "#3d3a3a"
+    red: "#d28abf"
+    green: "#8fb676"
+    yellow: "#c8bc45"
+    blue: "#8fa7b9"
+    magenta: "#bd89de"
+    cyan: "#6ec2a8"
+    white: "#dad3d3"
