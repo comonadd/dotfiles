@@ -161,6 +161,11 @@ set statusline+=[\%03.3b/\%02.2B]\ [POS=%04v]
 set laststatus=2
 let g:falcon_lightline = 1
 "let g:lightline.colorscheme = 'falcon'
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'relativepath', 'modified' ] ],
+      \ }
+      \ }
 
 if &t_Co == 256
     " If we're on a 256-color terminal
@@ -586,3 +591,26 @@ endfunction
 
 " Reset search
 nnoremap <Leader><Space> :noh<Enter>
+
+fun! Confirm(msg)
+    echo a:msg . ' '
+    let l:answer = nr2char(getchar())
+
+    if l:answer ==? 'y'
+        return 1
+    elseif l:answer ==? 'n'
+        return 0
+    else
+        echo 'Please enter "y" or "n"'
+        return Confirm(a:msg)
+    endif
+endfun
+
+fun! ConfirmDeleteCurrentFile()
+    if Confirm("Do you really want to completely delete current file?")
+        call delete(expand("%")) | bdelete!
+    endif
+endfun
+
+" Delete current file completely
+nnoremap <Leader>fd :call ConfirmDeleteCurrentFile()<CR>
