@@ -5,8 +5,11 @@ filetype off
 
 call plug#begin(stdpath('data') . '/plugged')
 
-" Linters, fixers, formatters, etc.
-Plug 'w0rp/ale'
+if !has('mac')
+    " Disable heavy stuff on macos
+    " Linters, fixers, formatters, etc.
+    Plug 'w0rp/ale'
+endif
 
 " Searcher
 Plug 'mileszs/ack.vim'
