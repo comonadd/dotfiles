@@ -5,23 +5,30 @@ filetype off
 
 call plug#begin(stdpath('data') . '/plugged')
 
-if !has('mac')
+" visual
+Plug 'https://github.com/RRethy/vim-illuminate'
+
+" if !has('mac')
     " Disable heavy stuff on macos
     " Linters, fixers, formatters, etc.
-    Plug 'w0rp/ale'
-endif
+"     Plug 'w0rp/ale'
+" endif
 
 " Searcher
-Plug 'mileszs/ack.vim'
+" Plug 'mileszs/ack.vim'
+" Search
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'https://github.com/eugen0329/vim-esearch'
+
+" Replace with proper case handling
+Plug 'tpope/vim-abolish'
 
 " Python import sorter
 Plug 'brentyi/isort.vim'
 
 " Go plugin (does most things Go-related)
 Plug 'fatih/vim-go'
-
-" Fuzzy file finder (like Ctrl+K in other apps)
-Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'editorconfig/editorconfig-vim'
 
@@ -68,6 +75,10 @@ Plug 'xolox/vim-colorscheme-switcher'
 Plug 'fenetikm/falcon'
 Plug 'nanotech/jellybeans.vim'
 Plug 'tomasr/molokai'
+Plug 'ayu-theme/ayu-vim'
+
+" Convert between cases
+Plug 'chiedo/vim-case-convert'
 
 call plug#end()
 filetype plugin indent on
@@ -159,6 +170,13 @@ if &t_Co == 256
     set background=dark
     let base16colorspace=256
     colorscheme falcon
+    "colorscheme molokai
+
+    " let ayucolor="light"  " for light version of theme
+    " let ayucolor="mirage" " for mirage version of theme
+    " let ayucolor="dark"   " for dark version of theme
+    " colorscheme ayu
+
 else
     " Else fall back to ron
     colorscheme ron
@@ -252,7 +270,7 @@ let g:clang_auto_select=1
 let g:clang_close_preview=1
 
 let g:ale_fixers = {
-            \ 'python': ['black'],
+            \ 'python': ['autoimport', 'black'],
             \ 'css': ['prettier'],
             \ 'scss': ['prettier'],
             \ 'json': ['prettier'],
@@ -353,9 +371,6 @@ function! s:show_documentation()
     endif
 endfunction
 
-nmap <silent> <leader>aj :ALENext<cr>
-nmap <silent> <leader>ak :ALEPrevious<cr>
-
 nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
 nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 inoremap <nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
@@ -395,6 +410,138 @@ let g:VM_theme             = 'iceblue'
 let g:VM_maps = {}
 let g:VM_maps["Undo"]      = 'u'
 let g:VM_maps["Redo"]      = '<C-r>'
+
+" Fzf {
+    fu! OpenCWD() abort
+        let $VIM_CWD = expand('%:p:h') 
+        :Files $VIM_CWD
+    endfu
+
+    map <leader>o :call OpenCWD()<CR>
+    map <c-p> :GitFiles<CR>
+    noremap <silent><leader>l :Lines<CR>
+    noremap <silent><leader>g :Ag<CR>
+    nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
+    map <leader>b :Buffers<CR>
+    map <leader>h :History<CR>
+
+    map <leader>e :Files $VIRTUAL_ENV<CR>
+    map <leader>E :Ag $VIRTUAL_ENV<CR>
+
+    map <leader>t :Tags<CR>
+
+    map <leader>: :History:<CR>
+    map <leader>/ :History/<CR>
+
+    let g:fzf_tags_command = 'ctags -R --exclude=.git --exclude=node_modules --exclude="*static/dist*" --exclude="*static/vendor*" --exclude="*.css" --exclude="*cassettes*" --exclude="*package-lock.json*"'
+    autocmd! FileType fzf tnoremap <buffer> <Esc> <c-c>
+    autocmd! FileType fzf tnoremap <buffer> <leader>q <c-c>
+
+"  esearch{
+
+    " autocmd! FileType esearch tnoremap <buffer> <Esc> :q!<cr>
+    " autocmd! FileType esearch tnoremap <buffer> q     :q!<CR>
+
+    " \ 'prefill':        ['visual', 'hlsearch', 'last'],
+    let g:esearch = {
+      \ 'adapter':    'ag',
+      \ 'backend':    'nvim',
+      \ 'out':        'win',
+      \ 'batch_size': 1000,
+      \}
+    let g:esearch.win_map = [
+      \ ['n', 'x',       ':split'],
+      \ ['n', 'v',       ':vsplit'],
+      \ ['n', 'yf',      ':call setreg(esearch#util#clipboard_reg(), b:esearch.filename())<cr>'],
+      \ ['n', 't',       ':call b:esearch.open("NewTabdrop")<cr>'                              ],
+      \ ['n', '+',       ':call esearch#init(extend(b:esearch, AddAfter(+v:count1)))<cr>'      ],
+      \ ['n', '-',       ':call esearch#init(extend(b:esearch, AddAfter(-v:count1)))<cr>'      ],
+      \ ['n', 'gq',      ':call esearch#init(extend(copy(b:esearch), {"out": "qflist"}))<cr>'  ],
+      \ ['n', 'gsp',     ':call esearch#init(extend(b:esearch, sort_by_path))<cr>'             ],
+      \ ['n', 'gsd',     ':call esearch#init(extend(b:esearch, sort_by_date))<cr>'             ],
+      \ ['n', 'q',       ':q!<cr>'],
+      \ ['n', '<Esc>',   ':q!<cr>'],
+    \]
+    " let g:esearch#adapter#ag#options = '--ignore="*dist*" --ignore=".tags*"'
+
+    fu! EsearchInFiles(argv) abort
+      " let original = g:esearch#adapter#ag#options
+      call esearch#init(a:argv)
+      " let g:esearch#adapter#ag#options = original
+    endfu
+
+    noremap  <silent><leader>ff :<C-u>call EsearchInFiles({})<CR>
+    xnoremap <silent><leader>ff :<C-u>call EsearchInFiles({'visualmode': 1})<CR>
+
+" }
+
+nnoremap <C-w> :q!<CR>
+
+" Cocnvim {
+
+    " if hidden is not set, TextEdit might fail.
+    set hidden
+
+    " Some servers have issues with backup files, see #649
+    set nobackup
+    set nowritebackup
+
+    " Better display for messages
+    set cmdheight=2
+
+    " You will have bad experience for diagnostic messages when it's default 4000.
+    set updatetime=300
+
+    " don't give |ins-completion-menu| messages.
+    set shortmess+=c
+
+    " always show signcolumns
+    set signcolumn=yes
+
+    " Use tab for trigger completion with characters ahead and navigate.
+    " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+    inoremap <silent><expr> <TAB>
+          \ pumvisible() ? "\<C-n>" :
+          \ <SID>check_back_space() ? "\<TAB>" :
+          \ coc#refresh()
+    inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+    function! s:check_back_space() abort
+      let col = col('.') - 1
+      return !col || getline('.')[col - 1]  =~# '\s'
+    endfunction
+
+    " Use <c-space> to trigger completion.
+    inoremap <silent><expr> <c-space> coc#refresh()
+
+    " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+    " Coc only does snippet and additional edit on confirm.
+    inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+    " Or use `complete_info` if your vim support it, like:
+    " inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+
+    " Use `[g` and `]g` to navigate diagnostics
+    nmap <silent> [g <Plug>(coc-diagnostic-prev)
+    nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+    " Remap keys for gotos
+    nmap <silent> gd <Plug>(coc-definition)
+    nmap <silent> gy <Plug>(coc-type-definition)
+    nmap <silent> gi <Plug>(coc-implementation)
+    nmap <silent> gr <Plug>(coc-references)
+
+    " Use K to show documentation in preview window
+    nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+    function! s:show_documentation()
+      if (index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+      else
+        call CocAction('doHover')
+      endif
+    endfunction
+
+" }
 
 " Alignment
 command! -nargs=? -range Align <line1>,<line2>call AlignSection('<args>')

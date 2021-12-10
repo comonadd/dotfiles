@@ -54,3 +54,5 @@ fi
 
 # Prompt
 PROMPT='%B%F{240}%1~%f%b %# '
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
