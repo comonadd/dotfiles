@@ -6,5 +6,6 @@
       "trace.server": "verbose",
       "filetypes": ["go"]
     }
-  }
+  },
+  "coc.preferences.formatOnSaveFiletypes": ["css", "javascript", "javascriptreact", "typescript", "typescriptreact", "python", "python3", "cpp", "c"]
 }
