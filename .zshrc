@@ -56,3 +56,5 @@ fi
 PROMPT='%B%F{240}%1~%f%b %# '
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
