@@ -10,4 +10,5 @@ conky -c $HOME/.config/conky/doomone-qtile.conkyrc
 volumeicon &
 nm-applet &
 ulauncher &
+$HOME/Scripts/load_xkb_settings.sh
 

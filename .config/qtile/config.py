@@ -15,6 +15,7 @@ from libqtile.config import (
     Screen,
     ScratchPad,
     DropDown,
+    EzKey,
 )
 from libqtile.command import lazy
 from libqtile import layout, bar, widget, hook
@@ -179,7 +180,7 @@ group_names = [
     (
         "CHAT",
         {
-            "layout": "monadtall",
+            "layout": "max",
             "matches": [
                 Match(wm_class="TelegramDesktop"),
                 Match(wm_class="slack"),
@@ -187,6 +188,7 @@ group_names = [
             ],
         },
     ),
+    ("FILES", {"layout": "monadtall", "matches": []}),
     ("MUS", {"layout": "monadtall", "matches": []}),
     ("GFX", {"layout": "floating", "matches": [Match(wm_class="qBittorrent")]}),
 ]
@@ -212,6 +214,49 @@ groups = [
 ###################
 ### Keybindings ###
 ###################
+
+
+class ExtKeyboardLayout(widget.KeyboardLayout):
+    def __init__(self, permanent_keyboards, temp_keyboards, *args, **kwargs):
+        self.temp_keyboards = temp_keyboards
+        super(ExtKeyboardLayout, self).__init__(
+            *args, **kwargs, configured_keyboards=permanent_keyboards
+        )
+
+    def use_temp_keyboard(self, kb):
+        if kb not in self.temp_keyboards:
+            return None
+        self.backend.set_keyboard(kb, self.option)
+        self.tick()
+
+
+keyboard_widget = ExtKeyboardLayout(
+    permanent_keyboards=["us", "ru"],
+    temp_keyboards=["ua"],
+    background=widgetStripedBg2,
+)
+
+
+@lazy.function
+def use_ukr_layout(qtile):
+    os.system(
+        "setxkbmap -model apple_laptop -layout us,ru,ua -option grp:alt_shift_toggle"
+    )
+    keyboard_widget.tick()
+
+
+@lazy.function
+def reset_layouts(qtile):
+    os.system(
+        "setxkbmap -model apple_laptop -layout us,ru -option grp:alt_shift_toggle"
+    )
+    keyboard_widget.tick()
+
+
+@lazy.function
+def update_layout(qtile):
+    keyboard_widget.tick()
+
 
 keys = [
     ### Layouts
@@ -304,7 +349,7 @@ keys = [
     Key(
         [mod, "shift"],
         "y",
-        lazy.spawn(f"gnome-screenshot --interactive"),
+        lazy.spawn(f"flameshot gui"),
         desc="Screenshot",
     ),
     Key(
@@ -323,6 +368,12 @@ keys = [
     ### Other
     Key([mod, "control"], "r", lazy.restart(), desc="Restart Qtile"),
     Key([mod, "shift"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+    Key(
+        [mod],
+        "u",
+        use_ukr_layout,
+    ),
+    Key([mod, "shift"], "u", reset_layouts),
     ### Treetab controls
     Key(
         [mod, "shift"],
@@ -537,16 +588,21 @@ def init_widgets_list():
         #                padding = 0,
         #            ),
         #        }],
+        # [
+        #     {
+        #         "widget": lambda bg: widget.Pomodoro(
+        #             color_active=widgetColor,
+        #             color_break=widgetColor,
+        #             color_inactive=widgetColor,
+        #             foreground=widgetColor,
+        #             background=bg,
+        #             padding=0,
+        #         )
+        #     }
+        # ],
         [
             {
-                "widget": lambda bg: widget.Pomodoro(
-                    color_active=widgetColor,
-                    color_break=widgetColor,
-                    color_inactive=widgetColor,
-                    foreground=widgetColor,
-                    background=bg,
-                    padding=0,
-                )
+                "widget": lambda bg: keyboard_widget,
             }
         ],
         # Music
