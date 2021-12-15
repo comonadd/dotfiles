@@ -9,8 +9,6 @@ fpath=(~/.zsh $fpath)
 
 autoload -Uz compinit && compinit
 
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 # create a zkbd compatible hash;
 # to add other keys to this hash, see: man 5 terminfo
 typeset -g -A key
@@ -56,3 +54,7 @@ fi
 PROMPT='%B%F{240}%1~%f%b %# '
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# fnm
+export PATH=/home/comonadd/.fnm:$PATH
+eval "`fnm env`"
