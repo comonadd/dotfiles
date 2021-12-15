@@ -45,6 +45,9 @@ Plug 'ericcurtin/CurtineIncSw.vim'
 " Comments
 Plug 'tomtom/tcomment_vim'
 
+" Support for different languages
+Plug 'tikhomirov/vim-glsl'
+
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'rust-analyzer/rust-analyzer'
