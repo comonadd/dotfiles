@@ -58,3 +58,10 @@ PROMPT='%B%F{240}%1~%f%b %# '
 # fnm
 export PATH=/home/comonadd/.fnm:$PATH
 eval "`fnm env`"
+
+# Fix ctrl+left/right not working
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+
+# Direnv
+eval "$(direnv hook zsh)"

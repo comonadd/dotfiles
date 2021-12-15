@@ -17,23 +17,23 @@ alias docker-rm-all-containers="docker rm \$(docker ps -aq)"
 alias docker-rm-all-images="docker rmi \$(docker images -q)"
 function docker-run-mysql-dev-container () {
   echo "Starting MySQL development database Docker container";
-  cd ~/Docker/local-mysql-db && docker-compose up
+  cd ~/Docker/local-mysql-db && sudo docker-compose up
 }
 function docker-run-rabbitmq-dev-container () {
   echo "Starting RabbitMQ development Docker container";
-  cd ~/Docker/local-rabbitmq && docker-compose up
+  cd ~/Docker/local-rabbitmq && sudo docker-compose up
 }
 function docker-run-postgres-dev-container () {
   echo "Starting PostgreSQL development database Docker container";
-  cd ~/Docker/local-postgres-db && docker-compose up
+  cd ~/Docker/local-postgres-db && sudo docker-compose up
 }
 function docker-run-redis-dev-container () {
   echo "Starting Redis development database Docker container";
-  cd ~/Docker/local-redis-db && docker-compose up
+  cd ~/Docker/local-redis-db && sudo docker-compose up
 }
 function docker-run-mongo-dev-container () {
   echo "Starting MongoDB development Docker container";
-  cd ~/Docker/local-mongo-db && docker-compose up
+  cd ~/Docker/local-mongo-db && sudo docker-compose up
 }
 
 # Editor
@@ -56,3 +56,9 @@ alias tmux="tmux attach || tmux new"
 
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
+
+alias gits='git status'
+
+# Load proper LS_COLORS configuration
+[ -e ~/.dircolors ] && eval $(dircolors -b ~/.dircolors) || 
+    eval $(dircolors -b)
