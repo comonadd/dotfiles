@@ -6,6 +6,8 @@ alias la="ls -la"
 
 alias vim="nvim"
 
+alias gits="git status"
+
 force_color_prompt=yes
 
 # Docker aliases
@@ -44,10 +46,6 @@ alias yt="youtube-dl --add-metadata -ic"
 alias yta="youtube-dl --add-metadata -xic --audio-format mp3 --audio-quality 0"
 
 alias killbg="kill $(jobs -p)"
-
-# fnm
-export PATH=/home/dmitry/.fnm:$PATH
-eval "`fnm env`"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
