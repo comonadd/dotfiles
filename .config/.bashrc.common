@@ -7,6 +7,7 @@ alias la="ls -la"
 alias vim="nvim"
 
 alias gits="git status"
+alias gitb="git branch"
 
 force_color_prompt=yes
 
