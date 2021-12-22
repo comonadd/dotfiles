@@ -177,7 +177,8 @@ if &t_Co == 256
     "let g:alduin_Shout_Dragon_Aspect = 1
     set background=dark
     let base16colorspace=256
-    colorscheme falcon
+    "colorscheme falcon
+    colorscheme jellybeans
     "colorscheme molokai
 
     " let ayucolor="light"  " for light version of theme
