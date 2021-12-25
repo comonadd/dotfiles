@@ -426,8 +426,9 @@ let g:VM_maps["Redo"]      = '<C-r>'
         :Files $VIM_CWD
     endfu
 
+    let $FZF_DEFAULT_COMMAND = 'ag -g ""'
     map <leader>o :call OpenCWD()<CR>
-    map <c-p> :GitFiles<CR>
+    map <c-p> :Files<CR>
     noremap <silent><leader>l :Lines<CR>
     noremap <silent><leader>g :Ag<CR>
     nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
