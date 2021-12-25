@@ -63,3 +63,5 @@ alias gits='git status'
 # Load proper LS_COLORS configuration
 [ -e ~/.dircolors ] && eval $(dircolors -b ~/.dircolors) || 
     eval $(dircolors -b)
+
+export PATH="/home/comonadd/.pyenv/shims:${PATH}"
