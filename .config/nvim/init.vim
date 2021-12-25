@@ -178,8 +178,8 @@ if &t_Co == 256
     set background=dark
     let base16colorspace=256
     "colorscheme falcon
-    colorscheme jellybeans
-    "colorscheme molokai
+    " colorscheme jellybeans
+    colorscheme molokai
 
     " let ayucolor="light"  " for light version of theme
     " let ayucolor="mirage" " for mirage version of theme
@@ -460,7 +460,6 @@ let g:VM_maps["Redo"]      = '<C-r>'
       \}
     let g:esearch.win_map = [
       \ ['n', 'x',       ':split'],
-      \ ['n', 'v',       ':vsplit'],
       \ ['n', 'yf',      ':call setreg(esearch#util#clipboard_reg(), b:esearch.filename())<cr>'],
       \ ['n', 't',       ':call b:esearch.open("NewTabdrop")<cr>'                              ],
       \ ['n', '+',       ':call esearch#init(extend(b:esearch, AddAfter(+v:count1)))<cr>'      ],
@@ -469,8 +468,8 @@ let g:VM_maps["Redo"]      = '<C-r>'
       \ ['n', 'gsp',     ':call esearch#init(extend(b:esearch, sort_by_path))<cr>'             ],
       \ ['n', 'gsd',     ':call esearch#init(extend(b:esearch, sort_by_date))<cr>'             ],
       \ ['n', 'q',       ':q!<cr>'],
-      \ ['n', '<Esc>',   ':q!<cr>'],
     \]
+      "\ ['n', '<Esc>',   ':q!<cr>'],
     " let g:esearch#adapter#ag#options = '--ignore="*dist*" --ignore=".tags*"'
 
     fu! EsearchInFiles(argv) abort
