@@ -565,6 +565,9 @@ nnoremap <C-w> :q!<CR>
     nmap <silent> gi <Plug>(coc-implementation)
     nmap <silent> gr <Plug>(coc-references)
 
+    " Search workspace symbols.
+    nnoremap <silent><nowait> <Leader>s  :<C-u>CocList -I symbols<cr>
+
     " Use K to show documentation in preview window
     nnoremap <silent> K :call <SID>show_documentation()<CR>
 
