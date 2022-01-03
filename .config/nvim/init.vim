@@ -24,6 +24,20 @@ Plug 'https://github.com/eugen0329/vim-esearch'
 " Replace with proper case handling
 Plug 'tpope/vim-abolish'
 
+" Syntax highlight
+Plug 'vim-python/python-syntax'
+Plug 'justinmk/vim-syntax-extra' " C, Bison, Flex
+Plug 'elzr/vim-json'
+Plug 'plasticboy/vim-markdown'
+Plug 'pboettch/vim-cmake-syntax'
+
+" Change surrounding symbols easly using cs<FROM><TO> (e.g. cs"')
+Plug 'tpope/vim-surround'
+
+" Git stuff
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+
 " Python import sorter
 Plug 'brentyi/isort.vim'
 
@@ -79,9 +93,17 @@ Plug 'fenetikm/falcon'
 Plug 'nanotech/jellybeans.vim'
 Plug 'tomasr/molokai'
 Plug 'ayu-theme/ayu-vim'
+Plug 'therubymug/vim-pyte'
+Plug 'vim-scripts/eclipse.vim'
+Plug 'vim-scripts/summerfruit256.vim'
+Plug 'vim-scripts/AutumnLeaf'
+Plug 'vim-scripts/ironman.vim'
+Plug 'NLKNguyen/papercolor-theme'
 
 " Convert between cases
 Plug 'chiedo/vim-case-convert'
+
+Plug 'preservim/nerdtree'
 
 call plug#end()
 filetype plugin indent on
@@ -171,15 +193,18 @@ let g:lightline = {
       \ }
 
 if &t_Co == 256
+    let base16colorspace=256
     " If we're on a 256-color terminal
     "colorscheme pixelmuerto
     set termguicolors
     "let g:alduin_Shout_Dragon_Aspect = 1
-    set background=dark
-    let base16colorspace=256
-    "colorscheme falcon
+    " set background=dark
+    " colorscheme falcon
     " colorscheme jellybeans
-    colorscheme molokai
+    " colorscheme molokai
+    set background=light
+    colorscheme PaperColor
+    " colorscheme ironman
 
     " let ayucolor="light"  " for light version of theme
     " let ayucolor="mirage" " for mirage version of theme
@@ -388,6 +413,7 @@ inoremap <nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(
 nmap <silent> <tab> <C-^>
 
 " Use ctrl-[hjkl] to select the active split!
+" Split navigation
 nmap <silent> <c-k> :wincmd k<CR>
 nmap <silent> <c-j> :wincmd j<CR>
 nmap <silent> <c-h> :wincmd h<CR>
@@ -542,6 +568,9 @@ nnoremap <C-w> :q!<CR>
     " Use K to show documentation in preview window
     nnoremap <silent> K :call <SID>show_documentation()<CR>
 
+    " CocFix
+    nmap <silent> gk :CocFix<CR>
+
     function! s:show_documentation()
       if (index(['vim','help'], &filetype) >= 0)
         execute 'h '.expand('<cword>')
@@ -549,6 +578,7 @@ nnoremap <C-w> :q!<CR>
         call CocAction('doHover')
       endif
     endfunction
+
 
 " }
 
@@ -592,6 +622,7 @@ function! RemoveUnusedImports()
     let configPath = findfile(".eslintrc-unused-imports.js", ".;")
     execute "!" . "eslint --fix -c " . configPath " " . bufname("%")
 endfunction
+nnoremap <Leader>uu :RemoveUnusedImports<Enter>
 
 " Reset search
 nnoremap <Leader><Space> :noh<Enter>
@@ -618,3 +649,34 @@ endfun
 
 " Delete current file completely
 nnoremap <Leader>fd :call ConfirmDeleteCurrentFile()<CR>
+
+" GLSL file formats
+autocmd! BufNewFile,BufRead *.vs,*.fs,*.glsl set ft=glsl
+
+fun! OpenInOtherSplit()
+    wincmd W
+    let filename = expand('%F')
+    execute "edit " . filename
+endfun
+
+nnoremap <silent> <c-q> :call OpenInOtherSplit()<CR>
+
+" NERDTree {
+    let NERDTreeIgnore = ['\.pyc$']
+    let NERDTreeShowHidden=1
+    " enable line numbers
+    let NERDTreeShowLineNumbers=1
+    " make sure relative line numbers are used
+    autocmd FileType nerdtree setlocal relativenumber
+    let g:NERDTreeWinSize=35
+    let NERDTreeQuitOnOpen=1
+
+    " mapping
+    map <Leader>m :NERDTreeFind<CR>z.
+    map <Leader>n :NERDTreeToggle<CR>
+    let NERDTreeMapOpenVSplit='v'
+    let NERDTreeMapOpenSplit='x'
+    let NERDTreeMapCloseDir='i'
+    let NERDTreeMapPreview="f"
+    let NERDTreeMapHelp='<f12>'
+" }
