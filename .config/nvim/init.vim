@@ -30,6 +30,7 @@ Plug 'justinmk/vim-syntax-extra' " C, Bison, Flex
 Plug 'elzr/vim-json'
 Plug 'plasticboy/vim-markdown'
 Plug 'pboettch/vim-cmake-syntax'
+Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
 " Change surrounding symbols easly using cs<FROM><TO> (e.g. cs"')
 Plug 'tpope/vim-surround'
@@ -202,7 +203,7 @@ if &t_Co == 256
     " colorscheme falcon
     " colorscheme jellybeans
     " colorscheme molokai
-    set background=light
+    set background=dark
     colorscheme PaperColor
     " colorscheme ironman
 
@@ -683,3 +684,7 @@ nnoremap <silent> <c-q> :call OpenInOtherSplit()<CR>
     let NERDTreeMapPreview="f"
     let NERDTreeMapHelp='<f12>'
 " }
+
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
+set clipboard=unnamedplus

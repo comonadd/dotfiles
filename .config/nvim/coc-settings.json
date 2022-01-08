@@ -30,6 +30,7 @@
     "scss",
     "sass",
     "less",
-    "json"
+    "json",
+    "svelte"
   ]
 }
