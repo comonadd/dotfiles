@@ -436,6 +436,11 @@ augroup END
 " Automatically remove trailing whitespace
 autocmd FileType c,cpp,java,php,javascript,typescript,javascriptreact,python autocmd BufWritePre <buffer> %s/\s\+$//e
 
+" Fugitive {
+    autocmd FileType fugitive nmap <buffer> <tab> =
+    autocmd FileType fugitive nmap <buffer> q gq
+" }
+
 " Linux system clipboard sharing
 set clipboard=unnamed
 
