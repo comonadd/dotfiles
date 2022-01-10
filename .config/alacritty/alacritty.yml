@@ -29,18 +29,31 @@ key_bindings:
 
 font:
   normal:
-    family: Ubuntu Mono
+    family: DankMono
     style: Regular
 
   bold:
-    family: Ubuntu Mono
+    family: DankMono
     style: Bold
 
   italic:
-    family: Ubuntu Mono
+    family: DankMono
     style: Italic
 
-  size: 14
+  size: 16
+
+  # Offset is the extra space around each character. `offset.y` can be thought of
+  # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
+  offset:
+    x: -1
+    y: 8
+
+  # Glyph offset determines the locations of the glyphs within their cells with
+  # the default being at the bottom. Increasing `x` moves the glyph to the right,
+  # increasing `y` moves the glyph upwards.
+  glyph_offset:
+    x: 0
+    y: 0
 
 items:
   - colors:
