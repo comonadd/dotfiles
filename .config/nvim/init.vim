@@ -588,6 +588,9 @@ nnoremap <C-w> :q!<CR>
       endif
     endfunction
 
+    " This makes it so that you can click a variable and a float window pops up
+    command! -nargs=0 ShowInfoOnCursor call CocActionAsync('doHover')
+    nmap <silent> gl :ShowInfoOnCursor<CR>
 
 " }
 
