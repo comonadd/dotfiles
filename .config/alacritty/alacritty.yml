@@ -29,18 +29,18 @@ key_bindings:
 
 font:
   normal:
-    family: Ubuntu Mono
+    family: Menlo for Powerline
     style: Regular
 
   bold:
-    family:  Ubuntu Mono
+    family:  Menlo for Powerline
     style: Bold
 
   italic:
-    family:  Ubuntu Mono
+    family:  Menlo for Powerline
     style: Italic
 
-  size: 18
+  size: 16
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
