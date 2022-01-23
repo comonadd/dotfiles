@@ -10,6 +10,7 @@
   ////////////////////////////////////
 
   "workbench.settings.editor": "json",
+  "keyboard.dispatch": "keyCode",
 
   ////////////////////////////////////
   // Editor
@@ -30,9 +31,7 @@
   "editor.quickSuggestions": false,
   "editor.quickSuggestionsDelay": 10,
   "editor.suggest.snippetsPreventQuickSuggestions": false,
-  "editor.suggestOnTriggerCharacters": false,
   "editor.wordBasedSuggestions": false,
-  "editor.tabCompletion": "on",
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.suggestSelection": "first",
   "workbench.editor.showTabs": false,
@@ -193,12 +192,6 @@
   // Update imports automatically on file move
   "typescript.updateImportsOnFileMove.enabled": "always",
   "javascript.updateImportsOnFileMove.enabled": "always",
-
-  ////////////////////////////////////
-  // Other
-  ////////////////////////////////////
-
-  "window.zoomLevel": 0,
   "breadcrumbs.enabled": true,
   "vsintellicode.modify.editor.suggestSelection": "choseToUpdateConfiguration",
 
@@ -214,23 +207,6 @@
   },
   "workbench.activityBar.visible": false,
 
-  // Remote FS
-  "remotefs.remote": {
-    "ofgroup.ru": {
-      "scheme": "sftp",
-      "host": "ofgroup.ru",
-      "username": "root",
-      "privateKeyPath": "/Users/wrongway4you/.ssh/id_rsa",
-      "rootPath": "/home/pweb/apps/realty"
-    },
-    "avtovoz247.ru": {
-      "scheme": "sftp",
-      "host": "avtovoz247.ru",
-      "username": "root",
-      "privateKeyPath": "/Users/wrongway4you/.ssh/id_rsa",
-      "rootPath": "/home/pweb/avtovoz"
-    }
-  },
   "extensions.autoUpdate": false,
   "editor.fontSize": 13,
 
