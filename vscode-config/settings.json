@@ -17,8 +17,7 @@
   ////////////////////////////////////
 
   "editor.autoClosingBrackets": "never",
-  "editor.tabSize": 2,
-  "editor.fontFamily": "Hack",
+  "editor.fontFamily": "Monaco",
   "editor.dragAndDrop": false,
   "editor.cursorSmoothCaretAnimation": false,
   "editor.renderIndentGuides": true,
@@ -91,6 +90,7 @@
       "before": ["<space>"],
       "commands": [":w"]
     },
+
     {
       "before": ["<tab>"],
       "commands": ["extension.goto-previous-buffer"]
@@ -123,7 +123,7 @@
     {
       "before": ["t", "u"],
       "commands": ["undo_expand_region"]
-    }
+    },
   ],
   "vim.leader": ",",
 
@@ -208,7 +208,7 @@
   "workbench.activityBar.visible": false,
 
   "extensions.autoUpdate": false,
-  "editor.fontSize": 13,
+  "editor.fontSize": 14,
 
   // Emmet
   "emmet.showExpandedAbbreviation": "inMarkupAndStylesheetFilesOnly",
@@ -216,14 +216,20 @@
     "javascript": "javascriptreact"
   },
   "editor.scrollBeyondLastLine": false,
-  "C_Cpp.default.cppStandard": "c++17",
-  "C_Cpp.default.cStandard": "c11",
   "workbench.iconTheme": "vscode-icons",
-  "workbench.colorTheme": "Night Owl Black",
+  "workbench.colorTheme": "Visual Studio Light",
+  "extensions.ignoreRecommendations": true,
+  "window.zoomLevel": 3,
+  "editor.tabSize": 2,
+  "editor.cursorStyle": "block",
+
   "vsicons.dontShowNewVersionMessage": true,
   "[c]": {
     "editor.defaultFormatter": "ms-vscode.cpptools"
   },
+  "C_Cpp.default.cppStandard": "c++17",
+  "C_Cpp.default.cStandard": "c11",
   "C_Cpp.clang_format_path": "/usr/local/bin/clang-format",
-  "extensions.ignoreRecommendations": true
+
+  "omnisharp.useGlobalMono": "always"
 }
