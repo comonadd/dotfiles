@@ -1,7 +1,15 @@
 #!/bin/bash
 
 # LS
-alias ls="ls --color=al"
+if [[ $OSTYPE == 'darwin'* ]]; then
+    export CLICOLOR=YES
+else
+    alias ls="ls --color=al"
+    # Load proper LS_COLORS configuration
+    [ -e ~/.dircolors ] && eval $(dircolors -b ~/.dircolors) || 
+        eval $(dircolors -b)
+fi
+
 alias la="ls -la"
 
 alias vim="nvim"
@@ -54,14 +62,5 @@ export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/go/bin"
 
 alias tmux="tmux attach || tmux new"
-
-alias pbcopy='xsel --clipboard --input'
-alias pbpaste='xsel --clipboard --output'
-
-alias gits='git status'
-
-# Load proper LS_COLORS configuration
-[ -e ~/.dircolors ] && eval $(dircolors -b ~/.dircolors) || 
-    eval $(dircolors -b)
 
 export PATH="/home/comonadd/.pyenv/shims:${PATH}"

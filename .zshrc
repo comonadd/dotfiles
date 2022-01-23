@@ -4,8 +4,9 @@ source ~/.config/.bashrc.common
 export PATH="$PATH:$HOME/.rvm/bin"
 
 # Load Git completion
-zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
+# zstyle ':completion:*:*:git:*' script ~/.git-prompt.sh
 fpath=(~/.zsh $fpath)
+# fpath=(~/.zsh/functions $fpath)
 
 autoload -Uz compinit && compinit
 
