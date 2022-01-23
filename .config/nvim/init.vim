@@ -32,6 +32,12 @@ Plug 'plasticboy/vim-markdown'
 Plug 'pboettch/vim-cmake-syntax'
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
+let g:vim_markdown_folding_disabled = 1
+
+let g:svelte_indent_script = 0
+let g:svelte_indent_style = 0
+let g:svelte_preprocessors = ['typescript']
+
 " Change surrounding symbols easly using cs<FROM><TO> (e.g. cs"')
 Plug 'tpope/vim-surround'
 
@@ -107,6 +113,7 @@ Plug 'chiedo/vim-case-convert'
 Plug 'preservim/nerdtree'
 
 call plug#end()
+
 filetype plugin indent on
 
 syntax on
@@ -121,6 +128,9 @@ set wildignore+=*/build/*
 set wildignore+=*/build_native/*
 set wildignore+=*/build-*/*
 set wildignore+=*/vendor/*
+
+" Ignore patch files
+set wildignore+=*.patch
 
 " Ignore generated C/C++ Qt files
 set wildignore+=moc_*.cpp,moc_*.h
@@ -383,6 +393,15 @@ let g:ale_list_window_size = 2
 let g:ale_set_quickfix = 1
 
 let g:ale_rust_rustfmt_options = "--edition 2018"
+
+" Coc Plugins
+let g:coc_global_extensions = [
+\ 'coc-css',
+\ 'coc-json',
+\ 'coc-python',
+\ 'coc-tsserver',
+\ 'coc-prettier',
+\ ]
 
 set list
 set listchars=tab:\ \ ,trail:·,extends:>
@@ -685,7 +704,8 @@ nnoremap <silent> <c-q> :call OpenInOtherSplit()<CR>
 
     " mapping
     map <Leader>m :NERDTreeFind<CR>z.
-    map <Leader>n :NERDTreeToggle<CR>
+    map <C-o> :NERDTreeToggle %<CR>
+
     let NERDTreeMapOpenVSplit='v'
     let NERDTreeMapOpenSplit='x'
     let NERDTreeMapCloseDir='i'
