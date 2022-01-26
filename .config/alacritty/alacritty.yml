@@ -1,5 +1,8 @@
 window:
   dynamic_padding: true
+  dimensions:
+    columns: 130
+    lines: 30
 
 shell:
   program: zsh
