@@ -31,6 +31,7 @@ Plug 'elzr/vim-json'
 Plug 'plasticboy/vim-markdown'
 Plug 'pboettch/vim-cmake-syntax'
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
+Plug 'jparise/vim-graphql'
 
 let g:vim_markdown_folding_disabled = 1
 
