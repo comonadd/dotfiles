@@ -32,6 +32,8 @@ Plug 'plasticboy/vim-markdown'
 Plug 'pboettch/vim-cmake-syntax'
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
 Plug 'jparise/vim-graphql'
+Plug 'sheerun/vim-polyglot'
+Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
 
 let g:vim_markdown_folding_disabled = 1
 
@@ -196,27 +198,35 @@ set statusline+=%=
 set statusline+=[\%03.3b/\%02.2B]\ [POS=%04v]
 
 set laststatus=2
-let g:falcon_lightline = 1
-"let g:lightline.colorscheme = 'falcon'
+" let g:falcon_lightline = 1
+" let g:lightline.colorscheme = 'falcon'
 let g:lightline = {
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'relativepath', 'modified' ] ],
-      \ }
+      \ },
+      \ 'colorscheme': 'spaceduck',
       \ }
 
 if &t_Co == 256
+    set termguicolors
     let base16colorspace=256
     " If we're on a 256-color terminal
-    "colorscheme pixelmuerto
-    set termguicolors
-    "let g:alduin_Shout_Dragon_Aspect = 1
+    " colorscheme pixelmuerto
+    " let g:alduin_Shout_Dragon_Aspect = 1
     " set background=dark
-    " colorscheme falcon
+    colorscheme falcon
     " colorscheme jellybeans
     " colorscheme molokai
-    set background=dark
-    colorscheme PaperColor
+    " colorscheme PaperColor
     " colorscheme ironman
+
+    if exists('+termguicolors')
+      let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+      let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+      set termguicolors
+    endif
+
+    " colorscheme spaceduck
 
     " let ayucolor="light"  " for light version of theme
     " let ayucolor="mirage" " for mirage version of theme
@@ -254,22 +264,38 @@ nnoremap <silent> <F5> :lnext<CR>
 nnoremap <silent> <F6> :lprev<CR>
 nnoremap <silent> <C-Space> :ll<CR>
 
-let g:ale_linters = {
-            \ 'cpp': ['clangcheck', 'clangtidy', 'clang-format', 'clazy', 'cquery', 'uncrustify'],
-            \ 'go': ['staticcheck'],
-            \ 'typescript': ['tsserver'],
-            \ 'typescriptreact': ['tsserver'],
-            \ 'javascript': ['eslint'],
-            \ 'javascriptreact': ['eslint'],
-            \ 'python': ['flake8', 'mypy'],
-            \ }
-let g:ale_cpp_clangtidy_extra_options = '-std=c++20 -lstdc++fs'
-let g:ale_cpp_cc_options = '-std=c++20 -Wall -lstdc++fs'
-let g:ale_cpp_gcc_options = '-std=c++20 -Wall'
-let g:ale_cpp_clang_options = '-std=c++20 -Wall'
-let g:ale_set_quickfix = 0
-
-let g:ale_go_staticcheck_lint_package = 1
+" let g:ale_fixers = {
+"             \ 'python': ['autoimport', 'isort', 'flake8', 'black'],
+"             \ 'css': ['prettier'],
+"             \ 'scss': ['prettier'],
+"             \ 'json': ['prettier'],
+"             \ 'html': [],
+"             \ 'typescript': ['eslint', 'prettier'],
+"             \ 'typescriptreact': ['eslint', 'prettier'],
+"             \ 'javascript': ['eslint', 'prettier'],
+"             \ 'javascriptreact': ['eslint', 'prettier'],
+"             \ 'rust': ['rustfmt'],
+"             \ 'markdown': ['prettier'],
+"             \ }
+" let g:ale_linters = {
+"             \ 'cpp': ['clangcheck', 'clangtidy', 'clang-format', 'clazy', 'cquery', 'uncrustify'],
+"             \ 'go': ['staticcheck'],
+"             \ 'typescript': ['tsserver'],
+"             \ 'typescriptreact': ['tsserver'],
+"             \ 'javascript': ['eslint'],
+"             \ 'javascriptreact': ['eslint'],
+"             \ 'python': ['flake8', 'mypy'],
+"             \ }
+" let g:ale_cpp_clangtidy_extra_options = '-std=c++20 -lstdc++fs'
+" let g:ale_cpp_cc_options = '-std=c++20 -Wall -lstdc++fs'
+" let g:ale_cpp_gcc_options = '-std=c++20 -Wall'
+" let g:ale_cpp_clang_options = '-std=c++20 -Wall'
+" let g:ale_set_quickfix = 0
+" let g:ale_go_staticcheck_lint_package = 1
+" let g:ale_fix_on_save = 1
+" let g:ale_list_window_size = 2
+" let g:ale_set_quickfix = 1
+" let g:ale_rust_rustfmt_options = "--edition 2018"
 
 let mapleader = "\<Space>"
 let g:go_fmt_command = "gofmt"
@@ -314,20 +340,6 @@ autocmd FileType javascript ClangFormatAutoDisable
 let g:clang_library_path='/usr/local/lib/libclang.so'
 let g:clang_auto_select=1
 let g:clang_close_preview=1
-
-let g:ale_fixers = {
-            \ 'python': ['autoimport', 'black'],
-            \ 'css': ['prettier'],
-            \ 'scss': ['prettier'],
-            \ 'json': ['prettier'],
-            \ 'html': [],
-            \ 'typescript': ['eslint', 'prettier'],
-            \ 'typescriptreact': ['eslint', 'prettier'],
-            \ 'javascript': ['eslint', 'prettier'],
-            \ 'javascriptreact': ['eslint', 'prettier'],
-            \ 'rust': ['rustfmt'],
-            \ 'markdown': ['prettier'],
-            \ }
 
 " YouCompleteMe
 let g:ycm_python_binary_path = '/usr/bin/python3'
@@ -383,26 +395,7 @@ let @e='POinline std::ostream &operator<<(std::ostream &os, Type v){ýadd}
 
 let g:lsp_preview_keep_focus = 0
 
-let g:ale_fix_on_save = 1
-
 set clipboard=
-
-let g:coc_enable_locationlist = 0
-
-let g:ale_list_window_size = 2
-
-let g:ale_set_quickfix = 1
-
-let g:ale_rust_rustfmt_options = "--edition 2018"
-
-" Coc Plugins
-let g:coc_global_extensions = [
-\ 'coc-css',
-\ 'coc-json',
-\ 'coc-python',
-\ 'coc-tsserver',
-\ 'coc-prettier',
-\ ]
 
 set list
 set listchars=tab:\ \ ,trail:·,extends:>
@@ -537,6 +530,20 @@ let g:VM_maps["Redo"]      = '<C-r>'
 " }
 
 nnoremap <C-w> :q!<CR>
+nnoremap <C-s> :w<CR>
+nnoremap <D-s> :w<CR>
+nnoremap <leader>ww :w<CR>
+
+" Coc Plugins
+" \ 'coc-prettier',
+let g:coc_enable_locationlist = 0
+let g:coc_global_extensions = [
+\ 'coc-css',
+\ 'coc-json',
+\ 'coc-pyright',
+\ 'coc-tsserver',
+\ 'coc-eslint',
+\ ]
 
 " Cocnvim {
 
@@ -717,3 +724,10 @@ nnoremap <silent> <c-q> :call OpenInOtherSplit()<CR>
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 set clipboard=unnamedplus
+
+nnoremap <F5> :source $MYVIMRC<CR>
+
+" Python {
+"autocmd BufWritePre *.py :silent call CocAction('runCommand', 'editor.action.organizeImport')
+nnoremap <F7> :silent call CocAction('runCommand', 'editor.action.organizeImport')<CR>
+" }

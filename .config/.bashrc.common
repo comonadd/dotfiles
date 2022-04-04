@@ -10,6 +10,10 @@ else
         eval $(dircolors -b)
 fi
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+
+alias python="python3"
 alias la="ls -la"
 
 alias vim="nvim"
@@ -56,10 +60,14 @@ alias yta="youtube-dl --add-metadata -xic --audio-format mp3 --audio-quality 0"
 
 alias killbg="kill $(jobs -p)"
 
+alias pip="pip3"
+
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/go/bin"
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/Library/Python/3.8/bin"
 
 alias tmux="tmux attach || tmux new"
 
