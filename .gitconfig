@@ -16,10 +16,10 @@
 [diff]
     tool = meld
 [difftool "sourcetree"]
-	cmd = /Applications/kdiff3.app/Contents/MacOS/kdiff3 \"$LOCAL\" \"$REMOTE\"
-	path =
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/kdiff3.app/Contents/MacOS/kdiff3 \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
@@ -28,3 +28,6 @@
 	clean = git-lfs clean -- %f
 [core]
 	editor = vim
+	excludesFile = ~/.gitignore_global
+[commit]
+	template = /Users/comonadd/.stCommitMsg
