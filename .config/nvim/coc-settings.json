@@ -44,13 +44,17 @@
         "less",
         "svelte",
         "html",
-        "json"
+        "json",
+        "javascript",
+        "typescript"
     ],
     "eslint.autoFixOnSave": true,
     "python.formatting.provider": "black",
     "pyright.organizeimports.provider": "isort",
     "python.linting.flake8Enabled": false,
     "python.linting.mypyEnabled": false,
-    "python.linting.banditEnabled": false
+    "python.linting.banditEnabled": false,
     "snippets.userSnippetsDirectory": "~/.config/nvim/snippets",
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true
 }

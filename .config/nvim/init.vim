@@ -227,10 +227,10 @@ if &t_Co == 256
     " colorscheme pixelmuerto
     " let g:alduin_Shout_Dragon_Aspect = 1
     " set background=dark
-    colorscheme falcon
+    " colorscheme falcon
     " colorscheme jellybeans
     " colorscheme molokai
-    " colorscheme PaperColor
+    colorscheme PaperColor
     " colorscheme ironman
 
     if exists('+termguicolors')
@@ -546,9 +546,9 @@ nnoremap <C-w> :q!<CR>
 nnoremap <C-s> :w<CR>
 nnoremap <D-s> :w<CR>
 nnoremap <leader>ww :w<CR>
+" \ 'coc-prettier',
 
 " Coc Plugins
-" \ 'coc-prettier',
 let g:coc_enable_locationlist = 0
 let g:coc_global_extensions = [
 \ 'coc-css',
