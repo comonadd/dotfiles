@@ -52,4 +52,5 @@
     "python.linting.flake8Enabled": false,
     "python.linting.mypyEnabled": false,
     "python.linting.banditEnabled": false
+    "snippets.userSnippetsDirectory": "~/.config/nvim/snippets",
 }
