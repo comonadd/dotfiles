@@ -745,3 +745,9 @@ nnoremap <F5> :source $MYVIMRC<CR>
 "autocmd BufWritePre *.py :silent call CocAction('runCommand', 'editor.action.organizeImport')
 nnoremap <F7> :silent call CocAction('runCommand', 'editor.action.organizeImport')<CR>
 " }
+
+augroup ReactFiletypes
+  autocmd!
+  autocmd BufRead,BufNewFile *.jsx set filetype=javascriptreact
+  autocmd BufRead,BufNewFile *.tsx set filetype=typescriptreact
+augroup END
