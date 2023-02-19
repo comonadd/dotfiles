@@ -23,16 +23,6 @@
   "editor.minimap.enabled": false,
   "editor.renderWhitespace": "boundary",
 
-  // "editor.acceptSuggestionOnCommitCharacter": false,
-  // "editor.acceptSuggestionOnEnter": "on",
-  // "editor.hover.enabled": true,
-  // "editor.parameterHints.enabled": false,
-  // "editor.quickSuggestions": false,
-  // "editor.quickSuggestionsDelay": 0,
-  // "editor.suggest.snippetsPreventQuickSuggestions": false,
-  // "editor.wordBasedSuggestions": true,
-  // "editor.suggestSelection": "first",
-
   "editor.multiCursorModifier": "ctrlCmd",
   "workbench.editor.showTabs": false,
 
@@ -129,9 +119,6 @@
 
   // Typescript
   "typescript.format.enable": true,
-  // "[typescript]": {
-  //   "editor.defaultFormatter": "esbenp.prettier-vscode"
-  // },
 
   // Typescript-React
   "[typescriptreact]": {
@@ -140,9 +127,6 @@
 
   // Javascript
   "javascript.format.enable": true,
-  // "[javascript]": {
-  //   "editor.defaultFormatter": "esbenp.prettier-vscode"
-  // },
 
   // JSON
   "[json]": {
@@ -152,7 +136,6 @@
   // HTML
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
-    // "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "html.autoClosingTags": false,
 
@@ -160,7 +143,6 @@
   // Python
   ////////////////////////////////////
 
-  "python.jediEnabled": false,
   "python.formatting.provider": "black",
   "python.formatting.yapfPath": "/Users/wrongway4you/.asdf/installs/python/3.6.0/lib/python3.6/site-packages/yapf",
   "python.formatting.blackPath": "/Users/wrongway4you/.asdf/shims/black",

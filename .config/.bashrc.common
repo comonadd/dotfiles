@@ -72,3 +72,7 @@ export PATH="$PATH:$HOME/Library/Python/3.8/bin"
 alias tmux="tmux attach || tmux new"
 
 export PATH="/home/comonadd/.pyenv/shims:${PATH}"
+
+alias poetry-m1="LDFLAGS="-I/opt/homebrew/opt/openssl/include -L/opt/homebrew/opt/openssl/lib" poetry"
+
+alias gitcampf="git cam && git pf"

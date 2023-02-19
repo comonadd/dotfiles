@@ -7,8 +7,11 @@
     a = add
     s = status
     b = branch
+    cam = commit --amend --no-edit
+    camv = commit --amend --no-edit --no-verify
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     mff = merge --no-ff --no-edit
+    pf = push --force
 [color]
     ui = true
 [push]
@@ -27,7 +30,10 @@
 	required = true
 	clean = git-lfs clean -- %f
 [core]
-	editor = vim
-	excludesFile = ~/.gitignore_global
+	editor = nvim
+	excludesfile = /Users/comonadd/.gitignore_global
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [commit]
 	template = /Users/comonadd/.stCommitMsg
+[interactive]
+	diffFilter = diff-so-fancy --patch
