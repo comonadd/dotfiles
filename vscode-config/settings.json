@@ -3,7 +3,7 @@
   // Updates
   ////////////////////////////////////
 
-  "extensions.autoCheckUpdates": false,
+  "extensions.autoCheckUpdates": true,
 
   ////////////////////////////////////
   // Settings
@@ -19,20 +19,21 @@
   "editor.autoClosingBrackets": "never",
   "editor.fontFamily": "Monaco",
   "editor.dragAndDrop": false,
-  "editor.cursorSmoothCaretAnimation": false,
-  "editor.renderIndentGuides": true,
+  "editor.cursorSmoothCaretAnimation": "off",
   "editor.minimap.enabled": false,
   "editor.renderWhitespace": "boundary",
-  "editor.acceptSuggestionOnCommitCharacter": false,
-  "editor.acceptSuggestionOnEnter": "on",
-  "editor.hover.enabled": true,
-  "editor.parameterHints.enabled": false,
-  "editor.quickSuggestions": false,
-  "editor.quickSuggestionsDelay": 10,
-  "editor.suggest.snippetsPreventQuickSuggestions": false,
-  "editor.wordBasedSuggestions": false,
+
+  // "editor.acceptSuggestionOnCommitCharacter": false,
+  // "editor.acceptSuggestionOnEnter": "on",
+  // "editor.hover.enabled": true,
+  // "editor.parameterHints.enabled": false,
+  // "editor.quickSuggestions": false,
+  // "editor.quickSuggestionsDelay": 0,
+  // "editor.suggest.snippetsPreventQuickSuggestions": false,
+  // "editor.wordBasedSuggestions": true,
+  // "editor.suggestSelection": "first",
+
   "editor.multiCursorModifier": "ctrlCmd",
-  "editor.suggestSelection": "first",
   "workbench.editor.showTabs": false,
 
   ////////////////////////////////////
@@ -69,12 +70,6 @@
   },
 
   ////////////////////////////////////
-  // NPM
-  ////////////////////////////////////
-
-  "npm.enableScriptExplorer": true,
-
-  ////////////////////////////////////
   // Vim Plugin
   ////////////////////////////////////
 
@@ -89,6 +84,11 @@
     {
       "before": ["<space>"],
       "commands": [":w"]
+    },
+
+    {
+      "before": [";"],
+      "after": [":"]
     },
 
     {
@@ -129,9 +129,9 @@
 
   // Typescript
   "typescript.format.enable": true,
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+  // "[typescript]": {
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode"
+  // },
 
   // Typescript-React
   "[typescriptreact]": {
@@ -140,23 +140,13 @@
 
   // Javascript
   "javascript.format.enable": true,
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-
-  // Javascript-React
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-
-  // JSONc
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+  // "[javascript]": {
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode"
+  // },
 
   // JSON
   "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.json-language-features"
   },
 
   // HTML
@@ -208,7 +198,7 @@
   "workbench.activityBar.visible": false,
 
   "extensions.autoUpdate": false,
-  "editor.fontSize": 14,
+  "editor.fontSize": 12,
 
   // Emmet
   "emmet.showExpandedAbbreviation": "inMarkupAndStylesheetFilesOnly",
@@ -216,20 +206,46 @@
     "javascript": "javascriptreact"
   },
   "editor.scrollBeyondLastLine": false,
-  "workbench.iconTheme": "vscode-icons",
-  "workbench.colorTheme": "Visual Studio Light",
+  "workbench.colorTheme": "GitHub Light",
   "extensions.ignoreRecommendations": true,
-  "window.zoomLevel": 3,
   "editor.tabSize": 2,
   "editor.cursorStyle": "block",
 
   "vsicons.dontShowNewVersionMessage": true,
-  "[c]": {
-    "editor.defaultFormatter": "ms-vscode.cpptools"
-  },
   "C_Cpp.default.cppStandard": "c++17",
   "C_Cpp.default.cStandard": "c11",
   "C_Cpp.clang_format_path": "/usr/local/bin/clang-format",
 
-  "omnisharp.useGlobalMono": "always"
+  "omnisharp.useGlobalMono": "always",
+  "editor.guides.indentation": true,
+  "eslint.format.enable": true,
+  "eslint.lintTask.enable": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "security.workspace.trust.untrustedFiles": "open",
+  "debug.javascript.autoAttachFilter": "always",
+  "gitlens.currentLine.enabled": false,
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.codeLens.enabled": false,
+  "gitlens.statusBar.enabled": false,
+
+  "git.decorations.enabled": false,
+  "workbench.editor.decorations": false,
+  "gitlens.showWelcomeOnInstall": false,
+  "gitlens.showWhatsNewAfterUpgrades": false,
+  "gitlens.changes.locations": [
+    "overview"
+  ],
+  "gitlens.heatmap.locations": [
+    "gutter"
+  ],
+
+  "git.enabled": false,
+  "gitlens.enabled": false,
+  "gitlens.advanced.messages": {
+    "suppressGitDisabledWarning": true,
+    "suppressGitMissingWarning": true
+  },
+  "window.zoomLevel": 1
 }
