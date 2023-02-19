@@ -398,6 +398,9 @@ nn <f2> :LspRename<cr>
 nn <silent> <C-h> :LspHover<cr>
 nn <silent> <C-g> :LspPeekDefinition<cr>
 
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
 " Macro @e will take your default register (whatever you last yanked) and create an ostream operator for it as if it's an enum.
 " This expected your register to be formatted like this:
 " A,
@@ -546,7 +549,6 @@ nnoremap <C-w> :q!<CR>
 nnoremap <C-s> :w<CR>
 nnoremap <D-s> :w<CR>
 nnoremap <leader>ww :w<CR>
-" \ 'coc-prettier',
 
 " Coc Plugins
 let g:coc_enable_locationlist = 0
@@ -556,7 +558,7 @@ let g:coc_global_extensions = [
 \ 'coc-pyright',
 \ 'coc-tsserver',
 \ 'coc-eslint',
-\ 'coc-snippets',
+\ 'coc-prettier',
 \ ]
 
 " Cocnvim {
