@@ -2,34 +2,25 @@
   ////////////////////////////////////
   // Updates
   ////////////////////////////////////
-
   "extensions.autoCheckUpdates": true,
-
   ////////////////////////////////////
   // Settings
   ////////////////////////////////////
-
   "workbench.settings.editor": "json",
   "keyboard.dispatch": "keyCode",
-
   ////////////////////////////////////
   // Editor
   ////////////////////////////////////
-
   "editor.autoClosingBrackets": "never",
-  "editor.fontFamily": "Monaco",
+  "editor.fontFamily": "Fira Code",
   "editor.dragAndDrop": false,
   "editor.cursorSmoothCaretAnimation": "off",
   "editor.minimap.enabled": false,
   "editor.renderWhitespace": "boundary",
-
-  "editor.multiCursorModifier": "ctrlCmd",
   "workbench.editor.showTabs": false,
-
   ////////////////////////////////////
   // Workbench
   ////////////////////////////////////
-
   "workbench.startupEditor": "none",
   "workbench.editor.closeOnFileDelete": true,
   "workbench.editor.highlightModifiedTabs": true,
@@ -41,7 +32,6 @@
   "workbench.colorCustomizations": {
     "gitDecoration.ignoredResourceForeground": "#706e6e"
   },
-
   "files.simpleDialog.enable": true,
   "files.maxMemoryForLargeFilesMB": 2048,
   "files.trimFinalNewlines": true,
@@ -58,11 +48,9 @@
     "**/node_modules": true,
     "**/manifest.json": true
   },
-
   ////////////////////////////////////
   // Vim Plugin
   ////////////////////////////////////
-
   "vim.easymotion": true,
   "vim.sneak": true,
   "vim.incsearch": true,
@@ -72,101 +60,121 @@
   "vim.insertModeKeyBindings": [],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": ["<space>"],
-      "commands": [":w"]
-    },
-
-    {
-      "before": [";"],
-      "after": [":"]
-    },
-
-    {
-      "before": ["<tab>"],
-      "commands": ["extension.goto-previous-buffer"]
-    },
-
-    {
-      "before": ["∂"],
-      "after": ["d", "d"]
+      "before": [
+        "<space>"
+      ],
+      "commands": [
+        ":w"
+      ]
     },
     {
-      "before": ["¥"],
-      "after": ["y", "y"]
+      "before": [
+        ";"
+      ],
+      "after": [
+        ":"
+      ]
     },
-
+    {
+      "before": [
+        "<tab>"
+      ],
+      "commands": [
+        "extension.goto-previous-buffer"
+      ]
+    },
+    {
+      "before": [
+        "∂"
+      ],
+      "after": [
+        "d",
+        "d"
+      ]
+    },
+    {
+      "before": [
+        "¥"
+      ],
+      "after": [
+        "y",
+        "y"
+      ]
+    },
     // Movement
     {
-      "before": ["∆"],
-      "after": ["j", "z", "z"]
+      "before": [
+        "∆"
+      ],
+      "after": [
+        "j",
+        "z",
+        "z"
+      ]
     },
     {
-      "before": ["˚"],
-      "after": ["k", "z", "z"]
+      "before": [
+        "˚"
+      ],
+      "after": [
+        "k",
+        "z",
+        "z"
+      ]
     },
-
     // Tags
     {
-      "before": ["t", "t"],
-      "commands": ["expand_region"]
+      "before": [
+        "t",
+        "t"
+      ],
+      "commands": [
+        "expand_region"
+      ]
     },
     {
-      "before": ["t", "u"],
-      "commands": ["undo_expand_region"]
+      "before": [
+        "t",
+        "u"
+      ],
+      "commands": [
+        "undo_expand_region"
+      ]
     },
   ],
   "vim.leader": ",",
-
   // Typescript
   "typescript.format.enable": true,
-
   // Typescript-React
   "[typescriptreact]": {
     "editor.defaultFormatter": "vscode.typescript-language-features"
   },
-
   // Javascript
   "javascript.format.enable": true,
-
   // JSON
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
-
   // HTML
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
   },
   "html.autoClosingTags": false,
-
   ////////////////////////////////////
   // Python
   ////////////////////////////////////
-
   "python.formatting.provider": "black",
-  "python.formatting.yapfPath": "/Users/wrongway4you/.asdf/installs/python/3.6.0/lib/python3.6/site-packages/yapf",
-  "python.formatting.blackPath": "/Users/wrongway4you/.asdf/shims/black",
-  "python.formatting.autopep8Args": ["--max-line-length", "120", "--experimental"],
-  "python.formatting.yapfArgs": ["--style", "{based_on_style: chromium, indent_width: 20}"],
-  "python.formatting.blackArgs": ["--line-length", "100"],
-  "[python]": {
-    "editor.insertSpaces": true,
-    "editor.tabSize": 4
-  },
-
+  "editor.formatOnSave": true,
   ////////////////////////////////////
   // Explorer
   ////////////////////////////////////
-
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
-
   // Update imports automatically on file move
   "typescript.updateImportsOnFileMove.enabled": "always",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "breadcrumbs.enabled": true,
   "vsintellicode.modify.editor.suggestSelection": "choseToUpdateConfiguration",
-
   "search.exclude": {
     "**/node_modules": true,
     "**/bower_components": true,
@@ -175,29 +183,27 @@
     "htmlcov": true,
     "package-lock.json": true,
     "yarn.lock": true,
-    "**/migrations": true
+    "**/migrations": true,
+    ".env": false
   },
   "workbench.activityBar.visible": false,
-
   "extensions.autoUpdate": false,
+  "terminal.integrated.fontSize": 12,
   "editor.fontSize": 12,
-
   // Emmet
   "emmet.showExpandedAbbreviation": "inMarkupAndStylesheetFilesOnly",
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
   },
   "editor.scrollBeyondLastLine": false,
-  "workbench.colorTheme": "GitHub Light",
+  "workbench.colorTheme": "Red",
   "extensions.ignoreRecommendations": true,
   "editor.tabSize": 2,
   "editor.cursorStyle": "block",
-
   "vsicons.dontShowNewVersionMessage": true,
   "C_Cpp.default.cppStandard": "c++17",
   "C_Cpp.default.cStandard": "c11",
   "C_Cpp.clang_format_path": "/usr/local/bin/clang-format",
-
   "omnisharp.useGlobalMono": "always",
   "editor.guides.indentation": true,
   "eslint.format.enable": true,
@@ -206,12 +212,11 @@
     "source.fixAll.eslint": true
   },
   "security.workspace.trust.untrustedFiles": "open",
-  "debug.javascript.autoAttachFilter": "always",
+  "debug.javascript.autoAttachFilter": "onlyWithFlag",
   "gitlens.currentLine.enabled": false,
   "gitlens.hovers.currentLine.over": "line",
   "gitlens.codeLens.enabled": false,
   "gitlens.statusBar.enabled": false,
-
   "git.decorations.enabled": false,
   "workbench.editor.decorations": false,
   "gitlens.showWelcomeOnInstall": false,
@@ -222,12 +227,90 @@
   "gitlens.heatmap.locations": [
     "gutter"
   ],
-
   "git.enabled": false,
   "gitlens.enabled": false,
   "gitlens.advanced.messages": {
     "suppressGitDisabledWarning": true,
     "suppressGitMissingWarning": true
   },
+  "editor.inlineSuggest.enabled": true,
+  "window.title": "${rootName}",
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "workbench.iconTheme": "easy-icons",
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "workbench.editorAssociations": {
+    "*.csv": "gc-excelviewer-csv-editor"
+  },
+  "editor.multiCursorModifier": "ctrlCmd",
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python"
+  },
+  "jest.runAllTestsFirst": false,
+  "jest.autoEnable": false,
+  "jest.testExplorer": {},
+  "jest.autoRun": {
+    "jest.runAllTestsFirst": false
+  },
+  "jest.showCoverageOnLoad": false,
+  "randomThemeSwitcher.themeList": [
+    "Ayu Dark",
+    "Ayu Light",
+    "Ayu Mirage",
+    "Community Material Theme",
+    "Community Material Theme Darker",
+    "Community Material Theme Lighter",
+    "Community Material Theme Palenight",
+    "Default Dark Modern",
+    "Default Dark+",
+    "Default Light Modern",
+    "Default Light+",
+    "GitHub Dark",
+    "GitHub Dark Default",
+    "GitHub Dark Dimmed",
+    "GitHub Light",
+    "GitHub Light Colorblind (Beta)",
+    "GitHub Light Default",
+    "GitHub Light High Contrast",
+    "Kimbie Dark",
+    "Monokai",
+    "Monokai Classic",
+    "Monokai Dimmed",
+    "Noctis",
+    "Noctis Azureus",
+    "Noctis Bordo",
+    "Noctis Hibernus",
+    "Noctis Lilac",
+    "Noctis Lux",
+    "Noctis Minimus",
+    "Noctis Obscuro",
+    "Noctis Sereno",
+    "Noctis Uva",
+    "Noctis Viola",
+    "Quiet Light",
+    "Solarized Dark",
+    "Solarized Light",
+    "Tomorrow Night Blue",
+    "Visual Studio 2019 Dark",
+    "Visual Studio 2019 Light",
+    "Visual Studio Dark",
+    "Visual Studio Light"
+  ],
+  "randomThemeSwitcher.switchInterval": 480,
   "window.zoomLevel": 1
+  //
+  // Restart when saving file
+  //
+  // "saveAndRunExt": {
+  //   "commands": [
+  //     {
+  //       "match": "\\.(css$|js$|html$|ts$|tsx$|py$)",
+  //       "isShellCommand": false,
+  //       "cmd": "workbench.action.debug.restart"
+  //     }
+  //   ]
+  // }
 }

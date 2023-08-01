@@ -1,3 +1,5 @@
+[core]
+    hooksPath = /Users/comonadd/gitconfig/hooks
 [user]
 	email = dmitri.guzeev@gmail.com
 	name = Dmitry Guzeev
@@ -12,6 +14,7 @@
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     mff = merge --no-ff --no-edit
     pf = push --force
+    um = fetch origin master:master
 [color]
     ui = true
 [push]

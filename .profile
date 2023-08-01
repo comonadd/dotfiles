@@ -74,3 +74,6 @@ export CLICOLOR=1
 
 # Set colors to match iTerm2 Terminal Colors
 export TERM=xterm-256color
+
+export C_INCLUDE_PATH=$C_INCLUDE_PATH:/opt/homebrew/Cellar/librdkafka/2.0.2/includde
+export LIBRARY_PATH=$LIBRARY_PATH:/opt/homebrew/Cellar/librdkafka/2.0.2/lib
