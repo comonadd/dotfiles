@@ -33,7 +33,6 @@
     "gitDecoration.ignoredResourceForeground": "#706e6e"
   },
   "files.simpleDialog.enable": true,
-  "files.maxMemoryForLargeFilesMB": 2048,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "files.autoSave": "off",
@@ -174,7 +173,6 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "breadcrumbs.enabled": true,
-  "vsintellicode.modify.editor.suggestSelection": "choseToUpdateConfiguration",
   "search.exclude": {
     "**/node_modules": true,
     "**/bower_components": true,
@@ -200,11 +198,6 @@
   "extensions.ignoreRecommendations": true,
   "editor.tabSize": 2,
   "editor.cursorStyle": "block",
-  "vsicons.dontShowNewVersionMessage": true,
-  "C_Cpp.default.cppStandard": "c++17",
-  "C_Cpp.default.cStandard": "c11",
-  "C_Cpp.clang_format_path": "/usr/local/bin/clang-format",
-  "omnisharp.useGlobalMono": "always",
   "editor.guides.indentation": true,
   "eslint.format.enable": true,
   "eslint.lintTask.enable": true,
@@ -218,7 +211,6 @@
   "gitlens.codeLens.enabled": false,
   "gitlens.statusBar.enabled": false,
   "git.decorations.enabled": false,
-  "workbench.editor.decorations": false,
   "gitlens.showWelcomeOnInstall": false,
   "gitlens.showWhatsNewAfterUpgrades": false,
   "gitlens.changes.locations": [
@@ -228,7 +220,6 @@
     "gutter"
   ],
   "git.enabled": false,
-  "gitlens.enabled": false,
   "gitlens.advanced.messages": {
     "suppressGitDisabledWarning": true,
     "suppressGitMissingWarning": true
@@ -249,13 +240,6 @@
   "[python]": {
     "editor.defaultFormatter": "ms-python.python"
   },
-  "jest.runAllTestsFirst": false,
-  "jest.autoEnable": false,
-  "jest.testExplorer": {},
-  "jest.autoRun": {
-    "jest.runAllTestsFirst": false
-  },
-  "jest.showCoverageOnLoad": false,
   "randomThemeSwitcher.themeList": [
     "Ayu Dark",
     "Ayu Light",
@@ -301,16 +285,4 @@
   ],
   "randomThemeSwitcher.switchInterval": 480,
   "window.zoomLevel": 1
-  //
-  // Restart when saving file
-  //
-  // "saveAndRunExt": {
-  //   "commands": [
-  //     {
-  //       "match": "\\.(css$|js$|html$|ts$|tsx$|py$)",
-  //       "isShellCommand": false,
-  //       "cmd": "workbench.action.debug.restart"
-  //     }
-  //   ]
-  // }
 }
