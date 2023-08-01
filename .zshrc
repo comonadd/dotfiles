@@ -1,103 +1,147 @@
-source ~/.config/.bashrc.common
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+ZSH_THEME="fino"
 
-# Load Git completion
-# zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
-# fpath=(~/.zsh $fpath)
-autoload -Uz compinit && compinit
+# Set list of themes to pick from when loading at random
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
-# create a zkbd compatible hash;
-# to add other keys to this hash, see: man 5 terminfo
-typeset -g -A key
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
 
-key[Home]="${terminfo[khome]}"
-key[End]="${terminfo[kend]}"
-key[Insert]="${terminfo[kich1]}"
-key[Backspace]="${terminfo[kbs]}"
-key[Delete]="${terminfo[kdch1]}"
-key[Up]="${terminfo[kcuu1]}"
-key[Down]="${terminfo[kcud1]}"
-key[Left]="${terminfo[kcub1]}"
-key[Right]="${terminfo[kcuf1]}"
-key[PageUp]="${terminfo[kpp]}"
-key[PageDown]="${terminfo[knp]}"
-key[Shift-Tab]="${terminfo[kcbt]}"
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
-# setup key accordingly
-[[ -n "${key[Home]}"      ]] && bindkey -- "${key[Home]}"       beginning-of-line
-[[ -n "${key[End]}"       ]] && bindkey -- "${key[End]}"        end-of-line
-[[ -n "${key[Insert]}"    ]] && bindkey -- "${key[Insert]}"     overwrite-mode
-[[ -n "${key[Backspace]}" ]] && bindkey -- "${key[Backspace]}"  backward-delete-char
-[[ -n "${key[Delete]}"    ]] && bindkey -- "${key[Delete]}"     delete-char
-[[ -n "${key[Up]}"        ]] && bindkey -- "${key[Up]}"         up-line-or-history
-[[ -n "${key[Down]}"      ]] && bindkey -- "${key[Down]}"       down-line-or-history
-[[ -n "${key[Left]}"      ]] && bindkey -- "${key[Left]}"       backward-char
-[[ -n "${key[Right]}"     ]] && bindkey -- "${key[Right]}"      forward-char
-[[ -n "${key[PageUp]}"    ]] && bindkey -- "${key[PageUp]}"     beginning-of-buffer-or-history
-[[ -n "${key[PageDown]}"  ]] && bindkey -- "${key[PageDown]}"   end-of-buffer-or-history
-[[ -n "${key[Shift-Tab]}" ]] && bindkey -- "${key[Shift-Tab]}"  reverse-menu-complete
+# Uncomment one of the following lines to change the auto-update behavior
+# zstyle ':omz:update' mode disabled  # disable automatic updates
+# zstyle ':omz:update' mode auto      # update automatically without asking
+# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
-# Finally, make sure the terminal is in application mode, when zle is
-# active. Only then are the values from $terminfo valid.
-if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
-	autoload -Uz add-zle-hook-widget
-	function zle_application_mode_start { echoti smkx }
-	function zle_application_mode_stop { echoti rmkx }
-	add-zle-hook-widget -Uz zle-line-init zle_application_mode_start
-	add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
-fi
+# Uncomment the following line to change how often to auto-update (in days).
+# zstyle ':omz:update' frequency 13
 
-# Prompt
-PROMPT='%B%F{240}%1~%f%b %# '
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
 
-# fnm
-export PATH=/home/comonadd/.fnm:$PATH
-eval "`fnm env`"
+# Uncomment the following line to disable auto-setting terminal title.
+DISABLE_AUTO_TITLE="true"
 
-# Fix ctrl+left/right not working
-bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word
+# Uncomment the following line to enable command auto-correction.
+ENABLE_CORRECTION="true"
 
-# Direnv
-eval "$(direnv hook zsh)"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+HIST_STAMPS="dd.mm.yyyy"
 
-export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
-alias chrome_insecure='open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir=/tmp/chrome_intento_insecure --disable-web-security'
+plugins=(
+    git
+    gitfast
+    zsh-syntax-highlighting
+    zsh-autosuggestions
+    zsh-history-substring-search
+)
 
-function listening() {
-    if [ $# -eq 0 ]; then
-        sudo lsof -iTCP -sTCP:LISTEN -n -P
-    elif [ $# -eq 1 ]; then
-        sudo lsof -iTCP -sTCP:LISTEN -n -P | grep -i --color $1
-    else
-        echo "Usage: listening [pattern]"
-    fi
-}
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export PYENV_ROOT="$HOME/.pyenv"
+# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
+[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+export PATH="/opt/homebrew/opt/ruby@3.1/bin:$PATH"
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/comonadd/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/comonadd/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/comonadd/opt/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/comonadd/opt/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-# Install brew package from url 
-function install-brew-package-from() {
-    curl $0 > $(find $(brew --repository) -name $1.rb) && brew reinstall $1
+function load_dotenv() {
+  echo "Loading environment from $1";
+  export $(cat $1 | xargs)
 }
+
+export C_INCLUDE_PATH=$C_INCLUDE_PATH:/opt/homebrew/include
+export LIBRARY_PATH=$LIBRARY_PATH:/opt/homebrew/lib
+
+kill_listeners() {
+    if [ $# -ne 1 ]; then
+        echo "Usage: kill_listeners <port>"
+        return 1
+    fi
+
+    kill -9 $(lsof -t -i:$1)
+    echo "Killed any processes listening on port $1"
+}
+
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
+function cd() {
+  builtin cd "$@"
+  VENV_DIR_NAMES=('.venv' 'venv')
+
+  if [[ -z "$VIRTUAL_ENV" ]] ; then
+    # If .venv or venv directory is found then activate the virtualenv
+    for dir_name in "${VENV_DIR_NAMES[@]}"; do
+      if [[ -d ./$dir_name ]] ; then
+        source ./$dir_name/bin/activate
+        break
+      fi
+    done
+  else
+    # check the current folder belong to earlier VIRTUAL_ENV folder
+    # if yes then do nothing
+    # else deactivate
+    parentdir="$(dirname "$VIRTUAL_ENV")"
+    if [[ "$PWD"/ != "$parentdir"/* ]] ; then
+      deactivate
+    fi
+  fi
+}
+
+alias act="act pull_request -P self-hosted=node:16-buster-slim"
+
+get_env_for() {
+  (
+    cd ~/Projects/system-mapper
+    source venv/bin/activate
+    python -m system_mapper --get-env="$1"
+  )
+}
+
+open_kibana_for() {
+  (
+    cd ~/Projects/system-mapper
+    source venv/bin/activate
+    python ./system_mapper/open-service-kibana.py
+  )
+}
+
+
+cd .
