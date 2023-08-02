@@ -1,3 +1,7 @@
+source ~/.config/.bashrc.common
+source ~/.profile
+source ~/.bash_profile
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -145,3 +149,27 @@ open_kibana_for() {
 
 
 cd .
+
+eval "$(direnv hook zsh)"
+
+export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
+alias chrome_insecure='open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir=/tmp/chrome_intento_insecure --disable-web-security'
+
+function listening() {
+    if [ $# -eq 0 ]; then
+        sudo lsof -iTCP -sTCP:LISTEN -n -P
+    elif [ $# -eq 1 ]; then
+        sudo lsof -iTCP -sTCP:LISTEN -n -P | grep -i --color $1
+    else
+        echo "Usage: listening [pattern]"
+    fi
+}
+
+# Prompt
+PROMPT='%B%F{240}%1~%f%b %# '
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# fnm
+export PATH=/home/comonadd/.fnm:$PATH
+eval "`fnm env`"

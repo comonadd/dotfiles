@@ -194,7 +194,7 @@
     "javascript": "javascriptreact"
   },
   "editor.scrollBeyondLastLine": false,
-  "workbench.colorTheme": "Red",
+  "workbench.colorTheme": "Noctis",
   "extensions.ignoreRecommendations": true,
   "editor.tabSize": 2,
   "editor.cursorStyle": "block",
@@ -258,7 +258,6 @@
     "GitHub Light",
     "GitHub Light Colorblind (Beta)",
     "GitHub Light Default",
-    "GitHub Light High Contrast",
     "Kimbie Dark",
     "Monokai",
     "Monokai Classic",
