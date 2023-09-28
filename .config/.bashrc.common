@@ -1,78 +1,137 @@
 #!/bin/bash
 
-# LS
-if [[ $OSTYPE == 'darwin'* ]]; then
+IS_MACOS=$(uname -a | grep Darwin)
+
+
+if [[ $IS_MACOS ]]; then
+    # MACOS
     export CLICOLOR=YES
 else
+    # LINUX
     alias ls="ls --color=al"
     # Load proper LS_COLORS configuration
-    [ -e ~/.dircolors ] && eval $(dircolors -b ~/.dircolors) || 
+    [ -e ~/.dircolors ] && eval $(dircolors -b ~/.dircolors) ||
         eval $(dircolors -b)
 fi
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+if [[ $IS_MACOS ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 
-
-alias python="python3"
-alias la="ls -la"
-
-alias vim="nvim"
-
-alias gits="git status"
-alias gitb="git branch"
-
-force_color_prompt=yes
-
-# Docker aliases
-alias docker-ls-all-containers="docker ps -aq"
-alias docker-stop-all-containers="docker stop (docker ps -aq)"
-alias docker-rm-all-containers="docker rm \$(docker ps -aq)"
-alias docker-rm-all-images="docker rmi \$(docker images -q)"
-function docker-run-mysql-dev-container () {
-  echo "Starting MySQL development database Docker container";
-  cd ~/Docker/local-mysql-db && sudo docker-compose up
-}
-function docker-run-rabbitmq-dev-container () {
-  echo "Starting RabbitMQ development Docker container";
-  cd ~/Docker/local-rabbitmq && sudo docker-compose up
-}
-function docker-run-postgres-dev-container () {
-  echo "Starting PostgreSQL development database Docker container";
-  cd ~/Docker/local-postgres-db && sudo docker-compose up
-}
-function docker-run-redis-dev-container () {
-  echo "Starting Redis development database Docker container";
-  cd ~/Docker/local-redis-db && sudo docker-compose up
-}
-function docker-run-mongo-dev-container () {
-  echo "Starting MongoDB development Docker container";
-  cd ~/Docker/local-mongo-db && sudo docker-compose up
+function setup_docker_commands() {
+    alias docker-ls-all-containers="docker ps -aq"
+    alias docker-stop-all-containers="docker stop (docker ps -aq)"
+    alias docker-rm-all-containers="docker rm \$(docker ps -aq)"
+    alias docker-rm-all-images="docker rmi \$(docker images -q)"
+    function docker-run-mysql-dev-container () {
+    echo "Starting MySQL development database Docker container";
+    cd ~/Docker/local-mysql-db && sudo docker-compose up
+    }
+    function docker-run-rabbitmq-dev-container () {
+    echo "Starting RabbitMQ development Docker container";
+    cd ~/Docker/local-rabbitmq && sudo docker-compose up
+    }
+    function docker-run-postgres-dev-container () {
+    echo "Starting PostgreSQL development database Docker container";
+    cd ~/Docker/local-postgres-db && sudo docker-compose up
+    }
+    function docker-run-redis-dev-container () {
+    echo "Starting Redis development database Docker container";
+    cd ~/Docker/local-redis-db && sudo docker-compose up
+    }
+    function docker-run-mongo-dev-container () {
+    echo "Starting MongoDB development Docker container";
+    cd ~/Docker/local-mongo-db && sudo docker-compose up
+    }
 }
 
-# Editor
-export EDITOR="vim"
-alias evc="$EDITOR ~/.config/nvim/init.vim"
-alias eec="$EDITOR ~/.config/.emacs.d/init.el"
+function setup_aliases() {
+    alias python="python3"
+    alias la="ls -la"
+    alias vim="nvim"
+    alias gits="git status"
+    alias gitb="git branch"
+    alias yt="youtube-dl --add-metadata -ic"
+    alias yta="youtube-dl --add-metadata -xic --audio-format mp3 --audio-quality 0"
+    alias killbg="kill $(jobs -p)"
+    alias pip="pip3"
+    alias evc="$EDITOR ~/.config/nvim/init.vim"
+    alias tmux="tmux attach || tmux new"
+    alias poetry-m1="LDFLAGS="-I/opt/homebrew/opt/openssl/include -L/opt/homebrew/opt/openssl/lib" poetry"
+    alias gitcampf="git cam && git pf"
+    alias act="act pull_request -P self-hosted=node:16-buster-slim"
+    alias chrome_insecure='open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir=/tmp/chrome_insecure --disable-web-security'
+}
 
-# Internet
-alias yt="youtube-dl --add-metadata -ic"
-alias yta="youtube-dl --add-metadata -xic --audio-format mp3 --audio-quality 0"
+function load_dotenv() {
+  echo "Loading environment from $1";
+  export $(cat $1 | xargs)
+}
 
-alias killbg="kill $(jobs -p)"
+kill_listeners() {
+    if [ $# -ne 1 ]; then
+        echo "Usage: kill_listeners <port>"
+        return 1
+    fi
 
-alias pip="pip3"
+    kill -9 $(lsof -t -i:$1)
+    echo "Killed any processes listening on port $1"
+}
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/go/bin"
-export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/Library/Python/3.8/bin"
+function cd() {
+  builtin cd "$@"
+  VENV_DIR_NAMES=('.venv' 'venv')
 
-alias tmux="tmux attach || tmux new"
+  if [[ -z "$VIRTUAL_ENV" ]] ; then
+    # If .venv or venv directory is found then activate the virtualenv
+    for dir_name in "${VENV_DIR_NAMES[@]}"; do
+      if [[ -d ./$dir_name ]] ; then
+        source ./$dir_name/bin/activate
+        break
+      fi
+    done
+  else
+    # check the current folder belong to earlier VIRTUAL_ENV folder
+    # if yes then do nothing
+    # else deactivate
+    parentdir="$(dirname "$VIRTUAL_ENV")"
+    if [[ "$PWD"/ != "$parentdir"/* ]] ; then
+      deactivate
+    fi
+  fi
+}
 
-export PATH="/home/comonadd/.pyenv/shims:${PATH}"
+get_env_for() {
+  (
+    cd ~/PersonalProjects/system-mapper
+    source venv/bin/activate
+    python3 -m system_mapper --get-env="$1"
+  )
+}
 
-alias poetry-m1="LDFLAGS="-I/opt/homebrew/opt/openssl/include -L/opt/homebrew/opt/openssl/lib" poetry"
+open_kibana_for() {
+  (
+    cd ~/PersonalProjects/system-mapper
+    source venv/bin/activate
+    python3 ./system_mapper/open-service-kibana.py "$@"
+  )
+}
 
-alias gitcampf="git cam && git pf"
+function listening() {
+    echo "Checking if any process is listening on port $1"
+    if [ $# -eq 0 ]; then
+        sudo lsof -iTCP -sTCP:LISTEN -n -P
+    elif [ $# -eq 1 ]; then
+        sudo lsof -iTCP -sTCP:LISTEN -n -P | grep -i --color $1
+    else
+        echo "Usage: listening [pattern]"
+    fi
+}
+
+setup_aliases
+setup_docker_commands
+
+eval "$(direnv hook zsh)"
+cd .
+
+eval "`fnm env`"

@@ -1,26 +1,8 @@
 {
-  ////////////////////////////////////
-  // Updates
-  ////////////////////////////////////
   "extensions.autoCheckUpdates": true,
-  ////////////////////////////////////
-  // Settings
-  ////////////////////////////////////
   "workbench.settings.editor": "json",
   "keyboard.dispatch": "keyCode",
-  ////////////////////////////////////
-  // Editor
-  ////////////////////////////////////
-  "editor.autoClosingBrackets": "never",
-  "editor.fontFamily": "Fira Code",
-  "editor.dragAndDrop": false,
-  "editor.cursorSmoothCaretAnimation": "off",
-  "editor.minimap.enabled": false,
-  "editor.renderWhitespace": "boundary",
   "workbench.editor.showTabs": false,
-  ////////////////////////////////////
-  // Workbench
-  ////////////////////////////////////
   "workbench.startupEditor": "none",
   "workbench.editor.closeOnFileDelete": true,
   "workbench.editor.highlightModifiedTabs": true,
@@ -44,12 +26,10 @@
     "*.tsx": "typescriptreact"
   },
   "files.exclude": {
+    "**/manifest.json": true,
     "**/node_modules": true,
-    "**/manifest.json": true
+    "**/build": true
   },
-  ////////////////////////////////////
-  // Vim Plugin
-  ////////////////////////////////////
   "vim.easymotion": true,
   "vim.sneak": true,
   "vim.incsearch": true,
@@ -142,34 +122,21 @@
     },
   ],
   "vim.leader": ",",
-  // Typescript
   "typescript.format.enable": true,
-  // Typescript-React
   "[typescriptreact]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
-  // Javascript
   "javascript.format.enable": true,
-  // JSON
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
-  // HTML
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
   },
   "html.autoClosingTags": false,
-  ////////////////////////////////////
-  // Python
-  ////////////////////////////////////
   "python.formatting.provider": "black",
-  "editor.formatOnSave": true,
-  ////////////////////////////////////
-  // Explorer
-  ////////////////////////////////////
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
-  // Update imports automatically on file move
   "typescript.updateImportsOnFileMove.enabled": "always",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "breadcrumbs.enabled": true,
@@ -187,23 +154,41 @@
   "workbench.activityBar.visible": false,
   "extensions.autoUpdate": false,
   "terminal.integrated.fontSize": 12,
-  "editor.fontSize": 12,
   // Emmet
   "emmet.showExpandedAbbreviation": "inMarkupAndStylesheetFilesOnly",
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
   },
-  "editor.scrollBeyondLastLine": false,
   "workbench.colorTheme": "Noctis",
   "extensions.ignoreRecommendations": true,
-  "editor.tabSize": 2,
+  /////////////////////////////////
+  // EDITOR
+  /////////////////////////////////
+  "editor.scrollBeyondLastLine": false,
+  "editor.tabSize": 4,
+  "editor.fontSize": 12,
   "editor.cursorStyle": "block",
   "editor.guides.indentation": true,
-  "eslint.format.enable": true,
-  "eslint.lintTask.enable": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
+  "editor.inlineSuggest.enabled": true,
+  "editor.formatOnSave": true,
+  "editor.autoClosingBrackets": "never",
+  "editor.fontFamily": "Hack",
+  "editor.dragAndDrop": false,
+  "editor.cursorSmoothCaretAnimation": "off",
+  "editor.minimap.enabled": false,
+  "editor.renderWhitespace": "boundary",
+  /////////////////////////////////
+  // FORMATTER
+  /////////////////////////////////
+  "eslint.format.enable": true,
+  "eslint.lintTask.enable": true,
+  "eslint.workingDirectories": [
+    "./",
+    "./frontend"
+  ],
   "security.workspace.trust.untrustedFiles": "open",
   "debug.javascript.autoAttachFilter": "onlyWithFlag",
   "gitlens.currentLine.enabled": false,
@@ -224,7 +209,6 @@
     "suppressGitDisabledWarning": true,
     "suppressGitMissingWarning": true
   },
-  "editor.inlineSuggest.enabled": true,
   "window.title": "${rootName}",
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
@@ -283,5 +267,17 @@
     "Visual Studio Light"
   ],
   "randomThemeSwitcher.switchInterval": 480,
+  "python.linting.mypyEnabled": true,
+  "python.linting.pylintEnabled": true,
+  "python.linting.pylintArgs": [
+    "--enable=W0614"
+  ],
+  "autoflake-extension.imports": [
+    "pandas",
+    "numpy"
+  ],
+  "autoflake-extension.remove-unused-variables": true,
+  "mypy.runUsingActiveInterpreter": true,
+  "python.languageServer": "Pylance",
   "window.zoomLevel": 1
 }

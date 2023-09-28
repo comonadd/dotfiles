@@ -8,3 +8,4 @@ logs/
 __pycache__/
 
 .emacs.d/session*
+.env.*
