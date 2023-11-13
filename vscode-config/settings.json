@@ -2,7 +2,7 @@
   "extensions.autoCheckUpdates": true,
   "workbench.settings.editor": "json",
   "keyboard.dispatch": "keyCode",
-  "workbench.editor.showTabs": false,
+  "workbench.editor.showTabs": "single",
   "workbench.startupEditor": "none",
   "workbench.editor.closeOnFileDelete": true,
   "workbench.editor.highlightModifiedTabs": true,
@@ -28,7 +28,8 @@
   "files.exclude": {
     "**/manifest.json": true,
     "**/node_modules": true,
-    "**/build": true
+    "**/build": true,
+    "dist/": true
   },
   "vim.easymotion": true,
   "vim.sneak": true,
@@ -134,6 +135,7 @@
     "editor.defaultFormatter": "vscode.html-language-features"
   },
   "html.autoClosingTags": false,
+  "search.useGlobalIgnoreFiles": true,
   "python.formatting.provider": "black",
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
@@ -149,9 +151,21 @@
     "package-lock.json": true,
     "yarn.lock": true,
     "**/migrations": true,
-    ".env": false
+    "**/.mypy_cache": true,
+    "**/__pycache__": true,
+    "*.log": true,
+    "*.log.*": true,
+    "logs/": true,
+    ".DS_Store": true,
+    "bin": true,
+    "release": true,
+    "dist": true,
+    "dist/": true,
+    ".pytest_cache": true,
+    "poetry.lock": true,
+    "package-json.lock": true,
+    ".idea/dataSources": true
   },
-  "workbench.activityBar.visible": false,
   "extensions.autoUpdate": false,
   "terminal.integrated.fontSize": 12,
   // Emmet
@@ -159,7 +173,7 @@
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
   },
-  "workbench.colorTheme": "Noctis",
+  "workbench.colorTheme": "Default Dark+",
   "extensions.ignoreRecommendations": true,
   /////////////////////////////////
   // EDITOR
@@ -279,5 +293,7 @@
   "autoflake-extension.remove-unused-variables": true,
   "mypy.runUsingActiveInterpreter": true,
   "python.languageServer": "Pylance",
+  "search.useIgnoreFiles": false,
+  "workbench.activityBar.location": "hidden",
   "window.zoomLevel": 1
 }

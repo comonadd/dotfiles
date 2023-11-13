@@ -1,7 +1,7 @@
 source ~/.config/.bashrc.common
 source ~/.profile
 
-ZSH_THEME="agnoster"
+ZSH_THEME="arrow"
 
 force_color_prompt=yes
 
@@ -18,7 +18,7 @@ zstyle ':omz:update' frequency 13
 DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="false"
 
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 HIST_STAMPS="dd.mm.yyyy"
@@ -27,8 +27,6 @@ plugins=(
     git
     gitfast
     zsh-syntax-highlighting
-    zsh-autosuggestions
-    zsh-history-substring-search
 )
 
 source $ZSH/oh-my-zsh.sh

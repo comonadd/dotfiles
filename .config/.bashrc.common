@@ -61,6 +61,7 @@ function setup_aliases() {
     alias gitcampf="git cam && git pf"
     alias act="act pull_request -P self-hosted=node:16-buster-slim"
     alias chrome_insecure='open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir=/tmp/chrome_insecure --disable-web-security'
+    alias kill_workers="ps aux | grep split_translate_router | awk '{print $2}' | xargs kill -9"
 }
 
 function load_dotenv() {
@@ -128,10 +129,12 @@ function listening() {
     fi
 }
 
+function no-quarantine {
+    sudo xattr -d com.apple.quarantine $@
+}
+
 setup_aliases
 setup_docker_commands
 
 eval "$(direnv hook zsh)"
 cd .
-
-eval "`fnm env`"
