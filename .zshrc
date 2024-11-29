@@ -26,8 +26,27 @@ HIST_STAMPS="dd.mm.yyyy"
 plugins=(
     git
     gitfast
-    zsh-syntax-highlighting
 )
+
+# Function to check and load environment when changing directory
+function auto_env {
+  # Check if .env file exists and load it using direnv
+  if [[ -f .env ]]; then
+    eval "$(direnv dotenv)"
+  fi
+  
+  # Check if .venv or venv virtual environment exists and activate it
+  if [[ -f .venv/bin/activate ]]; then
+    source .venv/bin/activate
+  elif [[ -f venv/bin/activate ]]; then
+    source venv/bin/activate
+  fi
+}
+
+# Hook the function to run every time you change directory
+function chpwd {
+  auto_env
+}
 
 source $ZSH/oh-my-zsh.sh
 
@@ -49,3 +68,4 @@ export CC=/usr/bin/clang
 export CXX=/usr/bin/clang++
 
 eval "$(fnm env --use-on-cd)"
+
