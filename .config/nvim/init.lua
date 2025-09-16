@@ -234,25 +234,110 @@ vim.keymap.set('n', '<leader>nh', '<cmd>nohlsearch<CR>', { desc = '[N]o [H]ighli
 
 -- Config shortcuts
 vim.keymap.set('n', '<leader>ce', function()
-  vim.cmd('edit ' .. vim.fn.stdpath('config') .. '/init.lua')
+  vim.cmd('edit ' .. vim.fn.stdpath 'config' .. '/init.lua')
 end, { desc = '[C]onfig [E]dit' })
 
 vim.keymap.set('n', '<leader>cr', function()
-  vim.cmd('source ' .. vim.fn.stdpath('config') .. '/init.lua')
-  vim.notify('Config reloaded!')
+  vim.cmd('source ' .. vim.fn.stdpath 'config' .. '/init.lua')
+  vim.notify 'Config reloaded!'
 end, { desc = '[C]onfig [R]eload' })
 
 -- Quick config reload with F5
 vim.keymap.set('n', '<F5>', function()
-  vim.cmd('source ' .. vim.fn.stdpath('config') .. '/init.lua')
-  vim.notify('Config reloaded!')
+  vim.cmd('source ' .. vim.fn.stdpath 'config' .. '/init.lua')
+  vim.notify 'Config reloaded!'
 end, { desc = 'Reload config' })
 
 -- Open file in other split
 vim.keymap.set('n', '<C-q>', function()
-  vim.cmd('wincmd w')
-  vim.cmd('edit ' .. vim.fn.expand('%:p'))
+  vim.cmd 'wincmd w'
+  vim.cmd('edit ' .. vim.fn.expand '%:p')
 end, { desc = 'Open file in other split' })
+
+-- Mark functionality with backtick
+-- Set marks with m<letter>
+-- Jump to marks with `<letter> (backtick + letter) - goes to exact position
+-- Jump to marks with '<letter> (quote + letter) - goes to beginning of line
+-- This ensures backtick behavior works properly
+for i = string.byte('a'), string.byte('z') do
+  local letter = string.char(i)
+  vim.keymap.set('n', '`' .. letter, '`' .. letter, { desc = 'Jump to mark ' .. letter .. ' (exact position)' })
+  vim.keymap.set('n', "'" .. letter, "'" .. letter, { desc = 'Jump to mark ' .. letter .. ' (line start)' })
+end
+
+-- Jump to last position with `` (exact position) and '' (line start)
+vim.keymap.set('n', '``', '``', { desc = 'Jump to last position (exact)' })
+vim.keymap.set('n', "''", "''", { desc = 'Jump to last position (line start)' })
+
+-- Show all marks
+vim.keymap.set('n', '<leader>m', '<cmd>marks<CR>', { desc = 'Show [M]arks' })
+
+-- LSP debugging keybindings
+vim.keymap.set('n', '<leader>li', '<cmd>LspInfo<CR>', { desc = '[L]SP [I]nfo' })
+vim.keymap.set('n', '<leader>lr', '<cmd>LspRestart<CR>', { desc = '[L]SP [R]estart' })
+vim.keymap.set('n', '<leader>ll', '<cmd>LspLog<CR>', { desc = '[L]SP [L]ogs' })
+
+-- Prevent random output from being inserted into buffers
+vim.o.shellpipe = '2>/dev/null'  -- Suppress shell error output
+vim.o.shellredir = '>%s 2>/dev/null'  -- Redirect shell output safely
+
+-- Fix iTerm2 tab switching issues
+-- Disable focus events that can cause spurious input
+vim.o.ttimeout = true
+vim.o.ttimeoutlen = 50
+vim.o.ttyfast = true
+
+-- Handle terminal focus events properly
+vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CmdlineEnter' }, {
+  group = vim.api.nvim_create_augroup('focus-events', { clear = true }),
+  callback = function()
+    -- Clear any pending input when focus changes
+    vim.fn.getchar(0)  -- Non-blocking getchar to clear input buffer
+  end,
+})
+
+-- Filter out spurious input that matches git-like patterns
+vim.api.nvim_create_autocmd('InsertCharPre', {
+  group = vim.api.nvim_create_augroup('filter-spurious-input', { clear = true }),
+  callback = function()
+    local char = vim.v.char
+    local line = vim.fn.getline('.')
+    local col = vim.fn.col('.')
+
+    -- Get recent text to check for patterns
+    local recent_text = line:sub(math.max(1, col - 20), col - 1) .. char
+
+    -- Block input that looks like git command output
+    if recent_text:match('%d+;%d+;%d+') or  -- Pattern like "123;456;789"
+       recent_text:match('^%.,%.%+%d+;') or  -- Pattern like ".,.+758;"
+       recent_text:match('[%d;]{10,}') then  -- Long sequences of digits and semicolons
+      vim.v.char = ''  -- Block the character
+    end
+  end,
+})
+
+-- Disable problematic terminal sequences
+vim.cmd([[
+  set t_BE=  " Disable bracketed paste mode
+  set t_RV=  " Disable request terminal version
+  set t_u7=  " Disable cursor position request
+  set t_RF=  " Disable request focus events
+  set t_RB=  " Disable request background color
+  set t_SI=  " Disable insert mode cursor change
+  set t_EI=  " Disable normal mode cursor change
+]])
+
+-- iTerm2 specific fixes
+if os.getenv('TERM_PROGRAM') == 'iTerm.app' then
+  -- Disable more iTerm2 specific sequences
+  vim.o.mouse = ''  -- Temporarily disable mouse to prevent mouse sequences
+
+  -- Create a keymap to quickly reload config if issues persist
+  vim.keymap.set('n', '<leader>rt', function()
+    vim.cmd('source ' .. vim.fn.stdpath('config') .. '/init.lua')
+    print('Config reloaded - tab switching issues should be fixed')
+  end, { desc = '[R]eload config for [T]erminal issues' })
+end
 
 -- LSP Hover Configuration
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
@@ -345,18 +430,19 @@ require('lazy').setup({
   -- options to `gitsigns.nvim`.
   --
   -- See `:help gitsigns` to understand what the configuration keys do
-  { -- Adds git related signs to the gutter, as well as utilities for managing changes
-    'lewis6991/gitsigns.nvim',
-    opts = {
-      signs = {
-        add = { text = '+' },
-        change = { text = '~' },
-        delete = { text = '_' },
-        topdelete = { text = '‾' },
-        changedelete = { text = '~' },
-      },
-    },
-  },
+  -- TEMPORARILY DISABLED: Git signs plugin causing buffer output issues
+  -- { -- Adds git related signs to the gutter, as well as utilities for managing changes
+  --   'lewis6991/gitsigns.nvim',
+  --   opts = {
+  --     signs = {
+  --       add = { text = '+' },
+  --       change = { text = '~' },
+  --       delete = { text = '_' },
+  --       topdelete = { text = '‾' },
+  --       changedelete = { text = '~' },
+  --     },
+  --   },
+  -- },
 
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
   --
@@ -665,6 +751,28 @@ require('lazy').setup({
           map('K', vim.lsp.buf.hover, 'Hover Documentation')
           map('<leader>rn', vim.lsp.buf.rename, 'Rename Symbol')
 
+          -- Import organization and code actions
+          map('<leader>co', function()
+            vim.lsp.buf.code_action({
+              context = {
+                only = { 'source.organizeImports' }
+              },
+              apply = true
+            })
+          end, '[C]ode [O]rganize imports')
+
+          map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ctions')
+
+          -- Add missing imports
+          map('<leader>ci', function()
+            vim.lsp.buf.code_action({
+              context = {
+                only = { 'source.addMissingImports' }
+              },
+              apply = true
+            })
+          end, '[C]ode Add Missing [I]mports')
+
           -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
           ---@param client vim.lsp.Client
           ---@param method vim.lsp.protocol.Method
@@ -754,6 +862,25 @@ require('lazy').setup({
       --  So, we create new capabilities with blink.cmp, and then broadcast that to the servers.
       local capabilities = require('blink.cmp').get_lsp_capabilities()
 
+      -- Enhance capabilities for better import support
+      capabilities.textDocument.completion.completionItem.snippetSupport = true
+      capabilities.textDocument.completion.completionItem.resolveSupport = {
+        properties = { 'documentation', 'detail', 'additionalTextEdits' }
+      }
+      capabilities.textDocument.codeAction = {
+        dynamicRegistration = false,
+        codeActionLiteralSupport = {
+          codeActionKind = {
+            valueSet = {
+              "source.organizeImports",
+              "source.addMissingImports",
+              "source.removeUnusedImports",
+              "source.fixAll",
+            }
+          }
+        }
+      }
+
       -- Enable the following language servers
       --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
       --
@@ -764,23 +891,160 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        -- clangd = {},
-        -- gopls = {},
-        -- pyright = {},
-        -- rust_analyzer = {},
-        -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
-        --
-        -- Some languages (like typescript) have entire language plugins that can be useful:
-        --    https://github.com/pmizio/typescript-tools.nvim
-        --
-        -- But for many setups, the LSP (`ts_ls`) will work just fine
-        -- ts_ls = {},
-        --
+        -- Python
+        pyright = {
+          settings = {
+            python = {
+              analysis = {
+                autoSearchPaths = true,
+                useLibraryCodeForTypes = true,
+                diagnosticMode = "workspace",
+                -- Enable auto-import
+                autoImportCompletions = true,
+                completeFunctionParens = true,
+              },
+            },
+          },
+        },
+
+        -- TypeScript/JavaScript
+        ts_ls = {
+          settings = {
+            typescript = {
+              inlayHints = {
+                includeInlayParameterNameHints = 'all',
+                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                includeInlayFunctionParameterTypeHints = true,
+                includeInlayVariableTypeHints = true,
+                includeInlayPropertyDeclarationTypeHints = true,
+                includeInlayFunctionLikeReturnTypeHints = true,
+                includeInlayEnumMemberValueHints = true,
+              },
+              preferences = {
+                importModuleSpecifier = "relative",
+                includePackageJsonAutoImports = "auto",
+              },
+            },
+            javascript = {
+              inlayHints = {
+                includeInlayParameterNameHints = 'all',
+                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                includeInlayFunctionParameterTypeHints = true,
+                includeInlayVariableTypeHints = true,
+                includeInlayPropertyDeclarationTypeHints = true,
+                includeInlayFunctionLikeReturnTypeHints = true,
+                includeInlayEnumMemberValueHints = true,
+              },
+              preferences = {
+                importModuleSpecifier = "relative",
+                includePackageJsonAutoImports = "auto",
+              },
+            },
+          },
+          init_options = {
+            preferences = {
+              disableSuggestions = false,
+            },
+          },
+        },
+
+        -- Go
+        gopls = {
+          settings = {
+            gopls = {
+              analyses = {
+                unusedparams = true,
+              },
+              staticcheck = true,
+              gofumpt = true,
+              codelenses = {
+                gc_details = false,
+                generate = true,
+                regenerate_cgo = true,
+                run_govulncheck = true,
+                test = true,
+                tidy = true,
+                upgrade_dependency = true,
+                vendor = true,
+              },
+              hints = {
+                assignVariableTypes = true,
+                compositeLiteralFields = true,
+                compositeLiteralTypes = true,
+                constantValues = true,
+                functionTypeParameters = true,
+                parameterNames = true,
+                rangeVariableTypes = true,
+              },
+            },
+          },
+        },
+
+        -- Rust
+        rust_analyzer = {
+          settings = {
+            ["rust-analyzer"] = {
+              imports = {
+                granularity = {
+                  group = "module",
+                },
+                prefix = "self",
+              },
+              cargo = {
+                buildScripts = {
+                  enable = true,
+                },
+              },
+              procMacro = {
+                enable = true
+              },
+            },
+          },
+        },
+
+        -- C/C++
+        clangd = {
+          cmd = {
+            'clangd',
+            '--background-index',
+            '--clang-tidy',
+            '--header-insertion=iwyu',
+            '--completion-style=detailed',
+            '--function-arg-placeholders',
+            '--fallback-style=llvm',
+          },
+        },
+
+        -- JSON
+        jsonls = {
+          settings = {
+            json = {
+              validate = { enable = true },
+            },
+          },
+        },
+
+        -- YAML
+        yamlls = {
+          settings = {
+            yaml = {
+              validate = true,
+              hover = true,
+              completion = true,
+            },
+          },
+        },
+
+        -- HTML
+        html = {},
+
+        -- CSS
+        cssls = {},
+
+        -- Bash
+        bashls = {},
 
         lua_ls = {
-          -- cmd = { ... },
-          -- filetypes = { ... },
-          -- capabilities = {},
           settings = {
             Lua = {
               completion = {
@@ -788,6 +1052,9 @@ require('lazy').setup({
               },
               -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
               -- diagnostics = { disable = { 'missing-fields' } },
+              hint = {
+                enable = true,
+              },
             },
           },
         },
@@ -872,8 +1139,9 @@ require('lazy').setup({
 
   { -- Autocompletion
     'saghen/blink.cmp',
-    event = 'VimEnter',
-    version = '1.*',
+    event = 'InsertEnter',
+    -- Temp fix: use latest instead of version constraint
+    -- version = '1.*',
     dependencies = {
       -- Snippet Engine
       {
@@ -907,28 +1175,20 @@ require('lazy').setup({
     --- @type blink.cmp.Config
     opts = {
       keymap = {
-        -- 'default' (recommended) for mappings similar to built-in completions
-        --   <c-y> to accept ([y]es) the completion.
-        --    This will auto-import if your LSP supports it.
-        --    This will expand snippets if the LSP sent a snippet.
-        -- 'super-tab' for tab to accept
-        -- 'enter' for enter to accept
-        -- 'none' for no mappings
-        --
-        -- For an understanding of why the 'default' preset is recommended,
-        -- you will need to read `:help ins-completion`
-        --
-        -- No, but seriously. Please read `:help ins-completion`, it is really good!
-        --
-        -- All presets have the following mappings:
-        -- <tab>/<s-tab>: move to right/left of your snippet expansion
-        -- <c-space>: Open menu or open docs if already open
-        -- <c-n>/<c-p> or <up>/<down>: Select next/previous item
-        -- <c-e>: Hide menu
-        -- <c-k>: Toggle signature help
-        --
-        -- See :h blink-cmp-config-keymap for defining your own keymap
-        preset = 'default',
+        -- Use 'enter' preset so Enter accepts completions
+        -- This will auto-import if your LSP supports it
+        -- This will expand snippets if the LSP sent a snippet
+        preset = 'enter',
+
+        -- Additional keymaps for reliability
+        ['<Tab>'] = {
+          function(cmp)
+            if cmp.snippet_active() then return cmp.accept()
+            else return cmp.select_and_accept() end
+          end,
+          'snippet_forward',
+          'fallback'
+        },
 
         -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
@@ -941,13 +1201,19 @@ require('lazy').setup({
       },
 
       completion = {
-        -- By default, you may press `<c-space>` to show the documentation.
-        -- Optionally, set `auto_show = true` to show the documentation after a delay.
-        documentation = { auto_show = false, auto_show_delay_ms = 500 },
+        -- Show documentation automatically for better IntelliSense experience
+        documentation = {
+          auto_show = true,
+          auto_show_delay_ms = 200,
+        },
+        -- Improve completion menu
+        menu = {
+          border = 'rounded',
+        },
       },
 
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'lazydev' },
+        default = { 'lsp', 'path', 'snippets', 'buffer', 'lazydev' },
         providers = {
           lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
         },
@@ -988,7 +1254,7 @@ require('lazy').setup({
         },
         -- Make background darker
         on_colors = function(colors)
-          colors.bg = '#1a1b26'  -- Darker background
+          colors.bg = '#1a1b26' -- Darker background
           colors.bg_dark = '#16161e'
         end,
       }
@@ -1116,3 +1382,4 @@ require('lazy').setup({
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+--

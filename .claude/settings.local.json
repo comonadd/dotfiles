@@ -2,7 +2,11 @@
   "permissions": {
     "allow": [
       "Bash(git clone:*)",
-      "Bash(nvim:*)"
+      "Bash(nvim:*)",
+      "Bash(git config:*)",
+      "Bash(echo $SHELL)",
+      "Read(//Users/guzeev/.oh-my-zsh/**)",
+      "Bash(echo $TERM_PROGRAM)"
     ],
     "deny": [],
     "ask": []
