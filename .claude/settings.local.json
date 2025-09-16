@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git clone:*)",
+      "Bash(nvim:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
