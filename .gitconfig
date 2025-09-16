@@ -15,6 +15,14 @@
     mff = merge --no-ff --no-edit
     pf = push --force
     um = fetch origin master:master
+    lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all
+    lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
+    lg = lg1
+    lgonline = log --graph --oneline
+    branches = for-each-ref --format='%(HEAD) %(color:cyan)%(refname:short)%(color:reset) - %(color:yellow)%(contents:subject)%(color:reset) %(color:green)(%(committerdate:relative))%(color:reset) [%(color:blue)%(authorname)%(color:reset)]' --sort=-committerdate refs/heads/
+    brd = branch -d
+    brD = branch -D
+    recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format='%(refname:short)'
 [color]
     ui = true
 [push]

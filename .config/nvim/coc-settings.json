@@ -15,38 +15,22 @@
           "directory": "/tmp/ccls"
         }
       }
+    },
+    "ruff": {
+      "filetypes": ["python", "python3"],
+      "module": "ruff",
+      "enable": false
     }
   },
-  "coc.preferences.formatOnSaveFiletypes": [
-    "css",
-    "python",
-    "python3",
-    "cpp",
-    "c",
-    "scss",
-    "sass",
-    "less",
-    "svelte",
-    "html",
-    "json",
-    "javascript",
-    "typescript"
-  ],
   "eslint.autoFixOnSave": true,
-  "python.formatting.provider": "black",
-  "python.formatting.blackPath": "/opt/homebrew/bin/black",
-  "prettier.disableLanguages": [
-    "javascript",
-    "typescript",
-    "javascriptreact",
-    "typescriptreact"
-  ],
+  "python.formatting.provider": "ruff",
+  "prettier.disableLanguages": ["javascript", "typescript", "javascriptreact", "typescriptreact"],
   "pyright.organizeimports.provider": "isort",
   "python.linting.flake8Enabled": false,
   "python.linting.mypyEnabled": false,
   "python.linting.banditEnabled": false,
-  "snippets.userSnippetsDirectory": "~/.config/nvim/snippets",
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
-  "python.linting.pylintEnabled": false
+  "python.linting.pylintEnabled": false,
+  "coc.preferences.formatOnSave": false
 }

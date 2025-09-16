@@ -11,11 +11,14 @@ Plug 'https://github.com/RRethy/vim-illuminate'
 " if !has('mac')
     " Disable heavy stuff on macos
     " Linters, fixers, formatters, etc.
-"     Plug 'w0rp/ale'
 " endif
 
+
+Plug 'w0rp/ale'
+
 " Searcher
-" Plug 'mileszs/ack.vim'
+Plug 'mileszs/ack.vim'
+
 " Search
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -23,6 +26,8 @@ Plug 'https://github.com/eugen0329/vim-esearch'
 
 " Replace with proper case handling
 Plug 'tpope/vim-abolish'
+
+Plug 'tpope/vim-eunuch'
 
 " Syntax highlight
 Plug 'vim-python/python-syntax'
@@ -34,6 +39,11 @@ Plug 'evanleck/vim-svelte', {'branch': 'main'}
 Plug 'jparise/vim-graphql'
 Plug 'sheerun/vim-polyglot'
 Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
+
+
+Plug 'yegappan/mru'
+
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release' }
 
 let g:vim_markdown_folding_disabled = 1
 
@@ -277,6 +287,18 @@ nnoremap <silent> <F5> :lnext<CR>
 nnoremap <silent> <F6> :lprev<CR>
 nnoremap <silent> <C-Space> :ll<CR>
 
+let g:ale_fixers = {
+            \ 'python': ['ruff', 'ruff_format'],
+            \ }
+
+let g:ale_linters = {
+\   'python': ['ruff'],
+\}
+
+let g:ale_python_ruff_options = '--config=/Users/guzeev/Work/visible-web/backend/ruff.toml'
+let g:ale_python_autoflake_options = '--remove-all-unused-imports --remove-unused-variables --in-place'
+let g:ale_fix_on_save = 1
+
 " let g:ale_fixers = {
 "             \ 'python': ['autoimport', 'isort', 'flake8', 'black'],
 "             \ 'css': ['prettier'],
@@ -290,6 +312,7 @@ nnoremap <silent> <C-Space> :ll<CR>
 "             \ 'rust': ['rustfmt'],
 "             \ 'markdown': ['prettier'],
 "             \ }
+"
 " let g:ale_linters = {
 "             \ 'cpp': ['clangcheck', 'clangtidy', 'clang-format', 'clazy', 'cquery', 'uncrustify'],
 "             \ 'go': ['staticcheck'],
@@ -299,15 +322,16 @@ nnoremap <silent> <C-Space> :ll<CR>
 "             \ 'javascriptreact': ['eslint'],
 "             \ 'python': ['flake8', 'mypy'],
 "             \ }
-" let g:ale_cpp_clangtidy_extra_options = '-std=c++20 -lstdc++fs'
-" let g:ale_cpp_cc_options = '-std=c++20 -Wall -lstdc++fs'
-" let g:ale_cpp_gcc_options = '-std=c++20 -Wall'
-" let g:ale_cpp_clang_options = '-std=c++20 -Wall'
+
 " let g:ale_set_quickfix = 0
 " let g:ale_go_staticcheck_lint_package = 1
 " let g:ale_fix_on_save = 1
 " let g:ale_list_window_size = 2
 " let g:ale_set_quickfix = 1
+" let g:ale_cpp_clangtidy_extra_options = '-std=c++20 -lstdc++fs'
+" let g:ale_cpp_cc_options = '-std=c++20 -Wall -lstdc++fs'
+" let g:ale_cpp_gcc_options = '-std=c++20 -Wall'
+" let g:ale_cpp_clang_options = '-std=c++20 -Wall'
 " let g:ale_rust_rustfmt_options = "--edition 2018"
 
 let mapleader = "\<Space>"
@@ -334,6 +358,13 @@ au FileType python nmap <leader>f <Plug>(ale_fix)
 
 au FileType javascript setlocal ts=2 sw=2 sts=2
 au FileType html setlocal ts=2 sw=2 sts=2
+
+nnoremap <leader>cr :source ~/.config/nvim/init.vim<CR>
+nnoremap <leader>ce :e ~/.config/nvim/init.vim<CR>
+
+nnoremap <leader>rr :MRU<CR>
+
+nmap <leader>im :CocCommand editor.action.addMissingImports<CR>
 
 autocmd! BufWritePost *.go :GoImports
 
@@ -696,14 +727,14 @@ fun! Confirm(msg)
     endif
 endfun
 
-fun! ConfirmDeleteCurrentFile()
-    if Confirm("Do you really want to completely delete current file?")
-        call delete(expand("%")) | bdelete!
-    endif
-endfun
-
-" Delete current file completely
-nnoremap <Leader>fd :call ConfirmDeleteCurrentFile()<CR>
+" fun! ConfirmDeleteCurrentFile()
+"     if Confirm("Do you really want to completely delete current file?")
+"         call delete(expand("%")) | bdelete!
+"     endif
+" endfun
+"
+" " Delete current file completely
+" nnoremap <Leader>fd :call ConfirmDeleteCurrentFile()<CR>
 
 " GLSL file formats
 autocmd! BufNewFile,BufRead *.vs,*.fs,*.glsl set ft=glsl
@@ -753,3 +784,51 @@ augroup ReactFiletypes
   autocmd BufRead,BufNewFile *.jsx set filetype=javascriptreact
   autocmd BufRead,BufNewFile *.tsx set filetype=typescriptreact
 augroup END
+
+
+" Clear any existing mappings
+iunmap <Tab>
+iunmap <S-Tab>
+iunmap <CR>
+
+" Simple tab completion
+inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
+inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
+inoremap <expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+
+nnoremap <leader>ff :Files<CR>
+
+" Search in current directory
+nnoremap <leader>f. :Files .<CR>
+
+" Search with preview
+nnoremap <leader>fp :Files!<CR>
+
+" Search text in files
+nnoremap <leader>fg :Rg<CR>
+nnoremap <leader>fs :Rg<CR>
+
+
+" Search word under cursor
+nnoremap <leader>fw :Rg <C-R><C-W><CR>
+
+" Search with preview
+nnoremap <leader>fG :Rg!<CR>
+
+command! FilesHere Files %:h
+nnoremap <leader>fh :FilesHere<CR>
+
+command! RemoveUnusedImports %!autoflake --remove-all-unused-imports --stdin-display-name %
+
+
+command! -bang -nargs=* RgExact call fzf#vim#grep('rg --column --line-number --no-heading --color=always --smart-case --fixed-strings -- '.shellescape(<q-args>), 1, fzf#vim#with_preview(), <bang>0)
+
+nnoremap <leader>fi :RgExact<CR>
+
+nnoremap gr :ALEFindReferences<CR>
+
+command! -nargs=1 CreateHere e %:h/<args>
+
+" Prevent creating files with backslashes in the name
+autocmd BufNewFile *\\* echo "Error: Cannot create files with backslashes" | bquit!
+autocmd BufNewFile *\\\\* echo "Error: Cannot create files with double backslashes" | bquit!
