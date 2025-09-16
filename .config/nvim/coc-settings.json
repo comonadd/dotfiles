@@ -15,22 +15,26 @@
           "directory": "/tmp/ccls"
         }
       }
-    },
-    "ruff": {
-      "filetypes": ["python", "python3"],
-      "module": "ruff",
-      "enable": false
     }
   },
   "eslint.autoFixOnSave": true,
   "python.formatting.provider": "ruff",
   "prettier.disableLanguages": ["javascript", "typescript", "javascriptreact", "typescriptreact"],
-  "pyright.organizeimports.provider": "isort",
   "python.linting.flake8Enabled": false,
-  "python.linting.mypyEnabled": false,
+  "python.linting.mypyEnabled": true,
+  "python.linting.mypyPath": "mypy",
+  "python.linting.mypyArgs": ["--show-error-codes", "--no-error-summary"],
+  "pyright.organizeimports.provider": "isort",
+  "python.pythonPath": "python",
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.autoSearchPaths": true,
+  "python.analysis.logLevel": "Information",
   "python.linting.banditEnabled": false,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "python.linting.pylintEnabled": false,
-  "coc.preferences.formatOnSave": false
+  "coc.preferences.formatOnSave": false,
+  "inlayHint.enable": true,
+  "codeLens.enable": false
 }

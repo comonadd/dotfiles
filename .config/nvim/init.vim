@@ -292,11 +292,12 @@ let g:ale_fixers = {
             \ }
 
 let g:ale_linters = {
-\   'python': ['ruff'],
+\   'python': ['ruff', 'mypy'],
 \}
 
 let g:ale_python_ruff_options = '--config=/Users/guzeev/Work/visible-web/backend/ruff.toml'
 let g:ale_python_autoflake_options = '--remove-all-unused-imports --remove-unused-variables --in-place'
+let g:ale_python_mypy_options = '--show-error-codes --no-error-summary --verbose'
 let g:ale_fix_on_save = 1
 
 " let g:ale_fixers = {
