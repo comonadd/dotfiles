@@ -8,12 +8,6 @@ call plug#begin(stdpath('data') . '/plugged')
 " visual
 Plug 'https://github.com/RRethy/vim-illuminate'
 
-" if !has('mac')
-    " Disable heavy stuff on macos
-    " Linters, fixers, formatters, etc.
-" endif
-
-
 Plug 'w0rp/ale'
 
 " Searcher
@@ -45,6 +39,10 @@ Plug 'yegappan/mru'
 
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release' }
 
+Plug 'jose-elias-alvarez/typescript.nvim'
+
+Plug 'neovim/nvim-lspconfig'
+
 let g:vim_markdown_folding_disabled = 1
 
 let g:svelte_indent_script = 0
@@ -60,16 +58,6 @@ Plug 'tpope/vim-fugitive'
 
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
-
-" Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
-" - https://github.com/Valloric/YouCompleteMe
-" - https://github.com/nvim-lua/completion-nvim
-" let g:UltiSnipsExpandTrigger="<tab>"
-" let g:UltiSnipsJumpForwardTrigger="<c-b>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" If you want :UltiSnipsEdit to split your window.
-" let g:UltiSnipsEditSplit="vertical"
 
 " Python import sorter
 Plug 'brentyi/isort.vim'
@@ -289,6 +277,8 @@ nnoremap <silent> <C-Space> :ll<CR>
 
 let g:ale_fixers = {
             \ 'python': ['ruff', 'ruff_format'],
+            \ 'typescript': ['prettier', 'eslint'],
+            \ 'typescriptreact': ['prettier', 'eslint'],
             \ }
 
 let g:ale_linters = {
@@ -777,7 +767,6 @@ nnoremap <F5> :source $MYVIMRC<CR>
 
 " Python {
 "autocmd BufWritePre *.py :silent call CocAction('runCommand', 'editor.action.organizeImport')
-nnoremap <F7> :silent call CocAction('runCommand', 'editor.action.organizeImport')<CR>
 " }
 
 augroup ReactFiletypes
@@ -833,3 +822,28 @@ command! -nargs=1 CreateHere e %:h/<args>
 " Prevent creating files with backslashes in the name
 autocmd BufNewFile *\\* echo "Error: Cannot create files with backslashes" | bquit!
 autocmd BufNewFile *\\\\* echo "Error: Cannot create files with double backslashes" | bquit!
+
+
+" Keep NERDTree open when opening files
+let g:NERDTreeQuitOnOpen = 0
+
+" Keep NERDTree open when creating new files/directories
+let g:NERDTreeAutoDeleteBuffer = 1
+
+" Show hidden files
+let g:NERDTreeShowHidden = 1
+
+" Automatically refresh NERDTree when files change
+let g:NERDTreeAutoRefreshOnWrite = 1
+
+" Close vim if NERDTree is the only window left
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+" Auto-open NERDTree when starting vim with a directory
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+
+nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <C-h> :NERDTreeFind<CR>
+
+nnoremap <F7> :silent call CocAction('runCommand', 'editor.action.organizeImport')<CR>

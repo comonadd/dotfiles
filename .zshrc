@@ -220,3 +220,7 @@ source $HOME/.oh-my-zsh/custom/plugins/zsh-histdb/sqlite-history.zsh
 autoload -Uz add-zsh-hook
 
 . "$HOME/.local/bin/env"
+
+alias cdw="cd ~/Work/visible-web"
+alias cdb="cd ~/Work/visible-web && pipenv shell && cd backend"
+alias cda="cd ~/Work/visible-web/frontend/admin"
