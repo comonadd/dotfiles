@@ -70,7 +70,6 @@ function setup_aliases() {
     alias tmux="tmux attach || tmux new"
     alias poetry-m1="LDFLAGS="-I/opt/homebrew/opt/openssl/include -L/opt/homebrew/opt/openssl/lib" poetry"
     alias gitcampf="git cam && git pf"
-    alias act="act pull_request -P self-hosted=node:16-buster-slim"
     alias chrome_insecure='open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir=/tmp/chrome_insecure --disable-web-security'
     alias kill_workers="ps aux | grep split_translate_router | awk '{print $2}' | xargs kill -9"
 }
@@ -157,9 +156,9 @@ function auto_env {
 }
 
 # Hook the function to run every time you change directory
-function chpwd {
-  auto_env
-}
+# function chpwd {
+#   auto_env
+# }
 
 source $ZSH/oh-my-zsh.sh
 
@@ -224,3 +223,13 @@ autoload -Uz add-zsh-hook
 alias cdw="cd ~/Work/visible-web"
 alias cdb="cd ~/Work/visible-web && pipenv shell && cd backend"
 alias cda="cd ~/Work/visible-web/frontend/admin"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+alias claude='unset -f _direnv_hook 2>/dev/null; command claude'
+
+alias ag='ag --hidden --ignore .git'
+
+export PATH="$PATH:$HOME/.cargo/bin"
