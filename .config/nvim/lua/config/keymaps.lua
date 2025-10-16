@@ -59,15 +59,9 @@ keymap('n', '<F4>', '<cmd>NERDTreeFind<CR>z.', {desc = 'Find in NERDTree'})
 keymap('n', '<C-o>', '<cmd>NERDTreeToggle %<CR>', {desc = 'Toggle NERDTree'})
 keymap('n', '<C-n>', '<cmd>NERDTreeToggle<CR>', {desc = 'Toggle NERDTree'})
 
--- COC mappings
-keymap('n', '[g', '<Plug>(coc-diagnostic-prev)', {desc = 'Previous diagnostic'})
-keymap('n', ']g', '<Plug>(coc-diagnostic-next)', {desc = 'Next diagnostic'})
-keymap('n', 'gd', '<Plug>(coc-definition)', {desc = 'Go to definition'})
-keymap('n', 'gy', '<Plug>(coc-type-definition)', {desc = 'Go to type definition'})
-keymap('n', 'gi', '<Plug>(coc-implementation)', {desc = 'Go to implementation'})
-keymap('n', '<leader>rn', '<Plug>(coc-rename)', {desc = 'Rename symbol'})
-keymap('n', 'gk', '<cmd>CocFix<CR>', {desc = 'Code fix'})
-keymap('n', '<leader>im', '<cmd>CocCommand editor.action.addMissingImports<CR>', {desc = 'Add missing imports'})
+-- LSP diagnostic mappings
+keymap('n', '[g', vim.diagnostic.goto_prev, {desc = 'Previous diagnostic'})
+keymap('n', ']g', vim.diagnostic.goto_next, {desc = 'Next diagnostic'})
 
 -- Clear search
 keymap('n', '<Leader><Space>', '<cmd>noh<CR>', {desc = 'Clear search highlight'})
@@ -79,33 +73,8 @@ keymap('v', '<Leader>a', '<cmd>Align<CR>', {desc = 'Align selection'})
 keymap('n', '<leader>p/', '<cmd>Ack ', {desc = 'Ack search'})
 keymap('n', '<leader>e', '<cmd>RemoveUnusedImports<CR>', {desc = 'Remove unused imports'})
 keymap('n', '<Leader>uu', '<cmd>RemoveUnusedImports<CR>', {desc = 'Remove unused imports'})
-keymap('n', '<F7>', '<cmd>silent call CocAction("runCommand", "editor.action.organizeImport")<CR>', {desc = 'Organize imports'})
-
-
-F = require('config.functions')
-
--- Plugin specific
-
--- COC completion
-keymap('i', '<TAB>', function()
-  if vim.fn['coc#pum#visible']() == 1 then
-    return vim.fn['coc#pum#next'](1)
-  elseif F.check_back_space() then
-    return '<TAB>'
-  else
-    return vim.fn['coc#refresh']()
-  end
-end, {expr = true, desc = 'Tab completion'})
-
-keymap('i', '<S-TAB>', function()
-  return vim.fn['coc#pum#visible']() == 1 and vim.fn['coc#pum#prev'](1) or '<S-TAB>'
-end, {expr = true, desc = 'Shift tab completion'})
-
-keymap('i', '<CR>', function()
-  return vim.fn['coc#pum#visible']() == 1 and vim.fn['coc#pum#confirm']() or '<CR>'
-end, {expr = true, desc = 'Confirm completion'})
-
-keymap('i', '<c-space>', 'coc#refresh()', {expr = true, desc = 'Trigger completion'})
+-- Note: Tab/Shift-Tab/CR completion mappings are handled by nvim-cmp in lazy.lua
+-- Note: gd, gr, K, <leader>rn are handled by LSP on_attach in lsp.lua
 
 local functions = require('config.functions')
 vim.keymap.set('n', '<leader>ai', functions.add_missing_imports, { noremap = true, silent = true })

@@ -4,10 +4,8 @@ function F.show_documentation()
   local filetype = vim.bo.filetype
   if vim.tbl_contains({'vim', 'help'}, filetype) then
     vim.cmd('h ' .. vim.fn.expand('<cword>'))
-  elseif vim.fn['coc#rpc#ready']() then
-    vim.fn.CocActionAsync('doHover')
   else
-    vim.cmd('!' .. vim.o.keywordprg .. ' ' .. vim.fn.expand('<cword>'))
+    vim.lsp.buf.hover()
   end
 end
 

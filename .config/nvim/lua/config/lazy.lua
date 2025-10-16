@@ -156,34 +156,68 @@ local plugins = {
 	-- completion
 	{
 		"hrsh7th/nvim-cmp",
-		setup = function()
-			cmp = require("cmp")
+		event = "InsertEnter",
+		config = function()
+			local cmp = require("cmp")
+			local luasnip = require("luasnip")
 
 			cmp.setup({
 				snippet = {
 					expand = function(args)
-						vim.fn["vsnip#anonymous"](args.body)
+						luasnip.lsp_expand(args.body)
 					end,
 				},
 				window = {
-					-- completion = cmp.config.window.bordered(),
-					-- documentation = cmp.config.window.bordered(),
+					completion = cmp.config.window.bordered(),
+					documentation = cmp.config.window.bordered(),
+				},
+				completion = {
+					autocomplete = {
+						cmp.TriggerEvent.TextChanged,
+						cmp.TriggerEvent.InsertEnter,
+					},
+					completeopt = "menu,menuone,noinsert",
 				},
 				mapping = cmp.mapping.preset.insert({
 					["<C-b>"] = cmp.mapping.scroll_docs(-4),
 					["<C-f>"] = cmp.mapping.scroll_docs(4),
 					["<C-Space>"] = cmp.mapping.complete(),
 					["<C-e>"] = cmp.mapping.abort(),
-					["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+					["<CR>"] = cmp.mapping.confirm({ select = true }),
+					["<Tab>"] = cmp.mapping(function(fallback)
+						if cmp.visible() then
+							cmp.select_next_item()
+						elseif luasnip.expand_or_jumpable() then
+							luasnip.expand_or_jump()
+						else
+							fallback()
+						end
+					end, { "i", "s" }),
+					["<S-Tab>"] = cmp.mapping(function(fallback)
+						if cmp.visible() then
+							cmp.select_prev_item()
+						elseif luasnip.jumpable(-1) then
+							luasnip.jump(-1)
+						else
+							fallback()
+						end
+					end, { "i", "s" }),
 				}),
 				sources = cmp.config.sources({
-					{ name = "nvim_lsp" },
-					{ name = "vsnip" }, -- For vsnip users.
-					-- { name = 'luasnip' }, -- For luasnip users.
-					-- { name = 'ultisnips' }, -- For ultisnips users.
-					-- { name = 'snippy' }, -- For snippy users.
-				}, {
-					{ name = "buffer" },
+					{ name = "nvim_lsp", priority = 1000 },
+					{ name = "luasnip", priority = 750 },
+					{ name = "path", priority = 500 },
+					{ name = "buffer", priority = 250, keyword_length = 3 },
+				}),
+			})
+
+			-- Filetype-specific settings for Python
+			cmp.setup.filetype("python", {
+				sources = cmp.config.sources({
+					{ name = "nvim_lsp", priority = 1000 },
+					{ name = "luasnip", priority = 750 },
+					{ name = "path", priority = 500 },
+					{ name = "buffer", priority = 250, keyword_length = 2 },
 				}),
 			})
 		end,
@@ -191,7 +225,6 @@ local plugins = {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
-			-- Add a snippet engine like:
 			"L3MON4D3/LuaSnip",
 			"saadparwaiz1/cmp_luasnip",
 		},
@@ -238,21 +271,21 @@ local plugins = {
 	},
 
 	-- COC
-	{
-		"neoclide/coc.nvim",
-		branch = "release",
-		config = function()
-			vim.g.coc_enable_locationlist = 0
-			vim.g.coc_global_extensions = {
-				"coc-css",
-				"coc-json",
-				"coc-pyright",
-				"coc-tsserver",
-				"coc-eslint",
-				"coc-prettier",
-			}
-		end,
-	},
+	-- {
+	-- 	"neoclide/coc.nvim",
+	-- 	branch = "release",
+	-- 	config = function()
+	-- 		vim.g.coc_enable_locationlist = 0
+	-- 		vim.g.coc_global_extensions = {
+	-- 			"coc-css",
+	-- 			"coc-json",
+	-- 			"coc-pyright",
+	-- 			"coc-tsserver",
+	-- 			"coc-eslint",
+	-- 			"coc-prettier",
+	-- 		}
+	-- 	end,
+	-- },
 }
 
 require("lazy").setup(plugins)

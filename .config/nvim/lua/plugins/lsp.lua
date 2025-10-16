@@ -1,5 +1,8 @@
 local lspconfig = require('lspconfig')
 
+-- Setup nvim-cmp capabilities
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
 vim.api.nvim_create_user_command('CheckLSPHealth', function()
   vim.cmd('checkhealth vim.lsp')
 end, {})
@@ -50,29 +53,54 @@ vim.api.nvim_create_user_command('DebugLSP', function()
   end
 end, {})
 
+-- Common on_attach function for all LSP servers
+local on_attach = function(client, bufnr)
+  local opts = { noremap=true, silent=true, buffer=bufnr }
+
+  -- Basic LSP mappings
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+  vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+  vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+  vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
+
+  -- Signature help (show function parameters)
+  vim.keymap.set('i', '<C-h>', vim.lsp.buf.signature_help, opts)
+
+  -- Code actions (includes add missing imports)
+  vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
+
+  -- Specific add missing imports
+  vim.keymap.set('n', '<leader>ai', function()
+    vim.lsp.buf.code_action({
+      filter = function(action)
+        return action.kind and string.match(action.kind, "source.addMissingImports")
+      end,
+      apply = true,
+    })
+  end, opts)
+end
+
+-- TypeScript/JavaScript LSP
 lspconfig.ts_ls.setup({
-  on_attach = function(client, bufnr)
-    local opts = { noremap=true, silent=true, buffer=bufnr }
-
-    -- Basic LSP mappings
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
-
-    -- Code actions (includes add missing imports)
-    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
-
-    -- Specific add missing imports
-    vim.keymap.set('n', '<leader>ai', function()
-      vim.lsp.buf.code_action({
-        filter = function(action)
-          return action.kind and string.match(action.kind, "source.addMissingImports")
-        end,
-        apply = true,
-      })
-    end, opts)
-  end,
+  capabilities = capabilities,
+  on_attach = on_attach,
 })
 
-vim.lsp.enable('basedpyright')
+-- Python LSP
+lspconfig.basedpyright.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  settings = {
+    basedpyright = {
+      analysis = {
+        autoSearchPaths = true,
+        useLibraryCodeForTypes = true,
+        diagnosticMode = "workspace",
+        typeCheckingMode = "basic",
+      },
+    },
+    python = {
+      pythonPath = vim.fn.getcwd() .. "/.venv/bin/python",
+    },
+  },
+})
