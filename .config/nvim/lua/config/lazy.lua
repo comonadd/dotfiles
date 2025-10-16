@@ -85,6 +85,56 @@ local plugins = {
 				defaults = {
 					file_ignore_patterns = {
 						"%.lock",
+						"node_modules/.*",
+						"%.git/.*",
+						"__pycache__/.*",
+						"%.venv/.*",
+						"venv/.*",
+						"%.tox/.*",
+						"%.pytest_cache/.*",
+						"%.mypy_cache/.*",
+						"htmlcov/.*",
+						"%.egg%-info/.*",
+						"dist/.*",
+						"build/.*",
+						"%.so$",
+						"%.pyc$",
+						"migrations/.*",
+					},
+					vimgrep_arguments = {
+						"rg",
+						"--color=never",
+						"--no-heading",
+						"--with-filename",
+						"--line-number",
+						"--column",
+						"--smart-case",
+						"--hidden",
+						"--glob=!.git/",
+						"--glob=!.venv/",
+						"--glob=!node_modules/",
+						"--glob=!__pycache__/",
+					},
+					initial_mode = "insert",
+					sorting_strategy = "ascending",
+					layout_config = {
+						horizontal = {
+							prompt_position = "top",
+							preview_width = 0.55,
+						},
+					},
+					cache_picker = {
+						num_pickers = 10,
+					},
+				},
+				pickers = {
+					lsp_dynamic_workspace_symbols = {
+						sorter = require("telescope").extensions.fzf.native_fzf_sorter(),
+						show_line = false,
+					},
+					lsp_document_symbols = {
+						sorter = require("telescope").extensions.fzf.native_fzf_sorter(),
+						show_line = false,
 					},
 				},
 			})

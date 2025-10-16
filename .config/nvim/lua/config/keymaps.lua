@@ -51,7 +51,8 @@ keymap('n', '<leader>fi', '<cmd>RgExact<CR>', {desc = 'Exact search'})
 -- Telescope
 keymap('n', '<leader>fp', '<cmd>Telescope find_files<CR>', {desc = 'Find files with preview'})
 keymap('n', '<leader>g', '<cmd>Telescope live_grep<CR>', {desc = 'Find text in project'})
-keymap('n', '<leader>s', '<cmd>Telescope lsp_dynamic_workspace_symbols<CR>', {desc = 'Symbols in workspace'})
+keymap('n', '<leader>s', '<cmd>Telescope lsp_document_symbols<CR>', {desc = 'Symbols in current file'})
+keymap('n', '<leader>S', '<cmd>Telescope lsp_dynamic_workspace_symbols<CR>', {desc = 'Symbols in workspace'})
 keymap('n', 'gr', '<cmd>Telescope lsp_references<CR>', {desc = 'References to this symbol'})
 
 -- NERDTree
