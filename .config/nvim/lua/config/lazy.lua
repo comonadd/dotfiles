@@ -32,11 +32,13 @@ local plugins = {
 				make = { "trim_whitespace", "remove_trailing_lines" },
 				html = { "remove_trailing_lines", "html-beautify", "trim_whitespace" },
 				yaml = { "remove_trailing_lines", "trim_whitespace", "prettier" },
+				sh = { "remove_trailing_lines", "trim_whitespace", "shfmt" },
 			}
 
 			vim.g.ale_linters = {
 				python = { "ruff", "mypy" },
 				yaml = { "yamllint", "actionlint" },
+				sh = { "bashate" },
 			}
 
 			vim.g.ale_python_ruff_options = "--config=/Users/guzeev/Work/visible-web/backend/ruff.toml"
@@ -131,6 +133,20 @@ local plugins = {
 					lsp_dynamic_workspace_symbols = {
 						sorter = require("telescope").extensions.fzf.native_fzf_sorter(),
 						show_line = false,
+						entry_maker = function(entry)
+							-- Get the default entry maker
+							local make_entry = require("telescope.make_entry")
+							local default_entry = make_entry.gen_from_lsp_symbols({})(entry)
+
+							-- Filter out admin.py files
+							if default_entry and default_entry.filename then
+								if string.match(default_entry.filename, "admin%.py$") then
+									return nil
+								end
+							end
+
+							return default_entry
+						end,
 					},
 					lsp_document_symbols = {
 						sorter = require("telescope").extensions.fzf.native_fzf_sorter(),
