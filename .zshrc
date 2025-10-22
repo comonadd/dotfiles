@@ -223,6 +223,7 @@ autoload -Uz add-zsh-hook
 alias cdw="cd ~/Work/visible-web"
 alias cdb="cd ~/Work/visible-web && pipenv shell && cd backend"
 alias cda="cd ~/Work/visible-web/frontend/admin"
+alias cdnvim="cd ~/.config/nvim"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
