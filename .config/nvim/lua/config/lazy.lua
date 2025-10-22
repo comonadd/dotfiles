@@ -33,6 +33,7 @@ local plugins = {
 				html = { "remove_trailing_lines", "html-beautify", "trim_whitespace" },
 				yaml = { "remove_trailing_lines", "trim_whitespace", "prettier" },
 				sh = { "remove_trailing_lines", "trim_whitespace", "shfmt" },
+				dosini = { "trim_whitespace", "remove_trailing_lines" },
 			}
 
 			vim.g.ale_linters = {
@@ -279,6 +280,16 @@ local plugins = {
 
 			-- Filetype-specific settings for Python
 			cmp.setup.filetype("python", {
+				sources = cmp.config.sources({
+					{ name = "nvim_lsp", priority = 1000 },
+					{ name = "luasnip", priority = 750 },
+					{ name = "path", priority = 500 },
+					{ name = "buffer", priority = 250, keyword_length = 2 },
+				}),
+			})
+
+			-- Filetype-specific settings for TypeScript/JavaScript/React
+			cmp.setup.filetype({ "typescript", "typescriptreact", "javascript", "javascriptreact" }, {
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp", priority = 1000 },
 					{ name = "luasnip", priority = 750 },

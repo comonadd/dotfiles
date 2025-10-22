@@ -1,2 +1,6 @@
 .netrwhist
 colors/
+
+# Claude Code local settings
+**/.claude/settings.local.json
+**/.claude/**/__pycache__/
