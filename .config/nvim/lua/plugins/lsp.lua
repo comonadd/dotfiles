@@ -80,44 +80,25 @@ local on_attach = function(client, bufnr)
   end, opts)
 end
 
--- TypeScript/JavaScript LSP
-lspconfig.ts_ls.setup({
+-- TypeScript/JavaScript LSP (using typescript-tools instead of ts_ls)
+require("typescript-tools").setup({
   capabilities = capabilities,
   on_attach = on_attach,
-  filetypes = {
-    "javascript",
-    "javascriptreact",
-    "javascript.jsx",
-    "typescript",
-    "typescriptreact",
-    "typescript.tsx",
-  },
   settings = {
-    typescript = {
-      inlayHints = {
-        includeInlayParameterNameHints = "all",
-        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-        includeInlayFunctionParameterTypeHints = true,
-        includeInlayVariableTypeHints = true,
-        includeInlayPropertyDeclarationTypeHints = true,
-        includeInlayFunctionLikeReturnTypeHints = true,
-        includeInlayEnumMemberValueHints = true,
-      },
+    tsserver_file_preferences = {
+      includeInlayParameterNameHints = "all",
+      includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+      includeInlayFunctionParameterTypeHints = true,
+      includeInlayVariableTypeHints = true,
+      includeInlayPropertyDeclarationTypeHints = true,
+      includeInlayFunctionLikeReturnTypeHints = true,
+      includeInlayEnumMemberValueHints = true,
     },
-    javascript = {
-      inlayHints = {
-        includeInlayParameterNameHints = "all",
-        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-        includeInlayFunctionParameterTypeHints = true,
-        includeInlayVariableTypeHints = true,
-        includeInlayPropertyDeclarationTypeHints = true,
-        includeInlayFunctionLikeReturnTypeHints = true,
-        includeInlayEnumMemberValueHints = true,
-      },
+    tsserver_format_options = {
+      allowIncompleteCompletions = false,
+      allowRenameOfImportPath = false,
     },
-    completions = {
-      completeFunctionCalls = true,
-    },
+    complete_function_calls = true,
   },
 })
 
@@ -138,6 +119,38 @@ lspconfig.basedpyright.setup({
       pythonPath = vim.fn.getcwd() .. "/.venv/bin/python",
       venvPath = vim.fn.getcwd(),
       venv = ".venv",
+    },
+  },
+})
+
+-- YAML LSP with SchemaStore support
+lspconfig.yamlls.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  settings = {
+    yaml = {
+      schemaStore = {
+        enable = true,
+        url = "https://www.schemastore.org/api/json/catalog.json",
+      },
+      schemas = require("schemastore").yaml.schemas(),
+      format = {
+        enable = true,
+      },
+      validate = true,
+      completion = true,
+    },
+  },
+})
+
+-- JSON LSP with SchemaStore support
+lspconfig.jsonls.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  settings = {
+    json = {
+      schemas = require("schemastore").json.schemas(),
+      validate = { enable = true },
     },
   },
 })

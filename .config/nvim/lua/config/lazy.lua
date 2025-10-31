@@ -16,6 +16,21 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = {
 	-- Visual
 	"RRethy/vim-illuminate",
+	"nvim-tree/nvim-web-devicons",
+
+	-- Treesitter - modern syntax highlighting
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+		config = function()
+			require("nvim-treesitter.configs").setup({
+				ensure_installed = { "python", "typescript", "tsx", "javascript", "yaml", "json", "lua", "bash", "markdown" },
+				highlight = { enable = true },
+				indent = { enable = true },
+				autotag = { enable = true },
+			})
+		end,
+	},
 
 	-- Linting and formatting
 	{
@@ -168,13 +183,65 @@ local plugins = {
 	},
 
 	-- TypeScript
-	"jose-elias-alvarez/typescript.nvim",
+	{
+		"pmizio/typescript-tools.nvim",
+		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+		ft = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+	},
+
+	-- Package info for package.json
+	{
+		"vuki656/package-info.nvim",
+		dependencies = { "MunifTanjim/nui.nvim" },
+		ft = "json",
+		config = function()
+			require("package-info").setup()
+		end,
+	},
 
 	-- LSP
 	"neovim/nvim-lspconfig",
 
+	-- Schema support for JSON/YAML
+	"b0o/SchemaStore.nvim",
+
+	-- YAML companion for schema switching
+	{
+		"someone-stole-my-name/yaml-companion.nvim",
+		dependencies = {
+			"neovim/nvim-lspconfig",
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope.nvim",
+		},
+		ft = "yaml",
+	},
+
+	-- Diagnostics UI
+	{
+		"folke/trouble.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		cmd = "Trouble",
+		keys = {
+			{ "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", desc = "Toggle Trouble" },
+			{ "<leader>xw", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Buffer diagnostics" },
+		},
+		config = function()
+			require("trouble").setup()
+		end,
+	},
+
 	-- Git
-	"airblade/vim-gitgutter",
+	{
+		"lewis6991/gitsigns.nvim",
+		config = function()
+			require("gitsigns").setup({
+				current_line_blame = true,
+				current_line_blame_opts = {
+					delay = 300,
+				},
+			})
+		end,
+	},
 	"tpope/vim-fugitive",
 
 	-- Snippets
@@ -182,6 +249,18 @@ local plugins = {
 
 	-- Python
 	"brentyi/isort.vim",
+
+	-- Refactoring tools
+	{
+		"ThePrimeagen/refactoring.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+		},
+		config = function()
+			require("refactoring").setup()
+		end,
+	},
 
 	-- Go
 	"fatih/vim-go",
@@ -221,6 +300,54 @@ local plugins = {
 
 	-- Multiple cursors
 	"mg979/vim-visual-multi",
+
+	-- Auto-close brackets and quotes
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = function()
+			require("nvim-autopairs").setup({})
+		end,
+	},
+
+	-- Auto-close HTML/JSX tags
+	{
+		"windwp/nvim-ts-autotag",
+		dependencies = "nvim-treesitter/nvim-treesitter",
+		config = function()
+			require("nvim-ts-autotag").setup()
+		end,
+	},
+
+	-- Keybinding popup
+	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		config = function()
+			require("which-key").setup()
+		end,
+	},
+
+	-- Mini modules collection
+	{
+		"echasnovski/mini.nvim",
+		config = function()
+			require("mini.ai").setup() -- Better text objects
+			require("mini.align").setup() -- Alignment
+		end,
+	},
+
+	-- Better navigation
+	{
+		"folke/flash.nvim",
+		event = "VeryLazy",
+		keys = {
+			{ "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+		},
+		config = function()
+			require("flash").setup()
+		end,
+	},
 
 	-- completion
 	{
@@ -337,15 +464,26 @@ local plugins = {
 
 	-- File explorer
 	{
-		"preservim/nerdtree",
+		"stevearc/oil.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
-			vim.g.NERDTreeIgnore = { "\\.pyc$" }
-			vim.g.NERDTreeShowHidden = 1
-			vim.g.NERDTreeShowLineNumbers = 1
-			vim.g.NERDTreeWinSize = 35
-			vim.g.NERDTreeQuitOnOpen = 0
-			vim.g.NERDTreeAutoDeleteBuffer = 1
-			vim.g.NERDTreeAutoRefreshOnWrite = 1
+			require("oil").setup({
+				default_file_explorer = true,
+				columns = {
+					"icon",
+					"permissions",
+					"size",
+					"mtime",
+				},
+				view_options = {
+					show_hidden = true,
+				},
+				float = {
+					padding = 2,
+					max_width = 90,
+					max_height = 0,
+				},
+			})
 		end,
 	},
 

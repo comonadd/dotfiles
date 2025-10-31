@@ -6,7 +6,6 @@ require("config.functions")
 -- Load core configuration
 require("config.options")
 
-require("plugins.nerd")
 require("plugins.fzf")
 require("plugins.ack")
 require("plugins.lsp")

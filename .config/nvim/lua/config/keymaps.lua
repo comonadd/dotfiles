@@ -55,10 +55,10 @@ keymap('n', '<leader>s', '<cmd>Telescope lsp_document_symbols<CR>', {desc = 'Sym
 keymap('n', '<leader>S', '<cmd>Telescope lsp_dynamic_workspace_symbols<CR>', {desc = 'Symbols in workspace'})
 keymap('n', 'gr', '<cmd>Telescope lsp_references<CR>', {desc = 'References to this symbol'})
 
--- NERDTree
-keymap('n', '<F4>', '<cmd>NERDTreeFind<CR>z.', {desc = 'Find in NERDTree'})
-keymap('n', '<C-o>', '<cmd>NERDTreeToggle %<CR>', {desc = 'Toggle NERDTree'})
-keymap('n', '<C-n>', '<cmd>NERDTreeToggle<CR>', {desc = 'Toggle NERDTree'})
+-- Oil file explorer
+keymap('n', '<F4>', function() require("oil").open(vim.fn.expand("%:p:h")) end, {desc = 'Open oil in current directory'})
+keymap('n', '<C-o>', function() require("oil").open(vim.fn.expand("%:p:h")) end, {desc = 'Open oil in current directory'})
+keymap('n', '<C-n>', function() require("oil").open() end, {desc = 'Open oil'})
 
 -- LSP diagnostic mappings
 keymap('n', '[g', vim.diagnostic.goto_prev, {desc = 'Previous diagnostic'})

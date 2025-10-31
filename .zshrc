@@ -120,13 +120,14 @@ function make() {
 setup_aliases
 setup_docker_commands
 
-export DIRENV_LOG_FORMAT=""
-eval "$(direnv hook zsh)"
-
 
 ####################
 ### ZSH settings ###
 ####################
+
+# Silence direnv output completely (set before loading plugins)
+export DIRENV_LOG_FORMAT=""
+export DIRENV_WARN_TIMEOUT="0"
 
 ZSH_THEME="arrow"
 
