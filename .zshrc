@@ -58,7 +58,9 @@ function setup_docker_commands() {
 
 function setup_aliases() {
     alias python="python3"
-    alias la="ls -la"
+    alias ls="eza --icons"
+    alias la="eza --icons -la"
+    alias cat="bat"
     alias vim="nvim"
     alias gits="git status"
     alias gitb="git branch | sed 's/^..//'"
@@ -148,6 +150,16 @@ plugins=(
     git
     gitfast
     git-extras
+    fzf
+    direnv
+    pyenv
+    docker
+    kubectl
+    colored-man-pages
+    command-not-found
+    macos
+    zsh-autosuggestions
+    zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -171,6 +183,8 @@ eval "$(fnm env --use-on-cd)"
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - zsh)"
+
+eval "$(zoxide init zsh)"
 
 ###################
 ### Completions ###

@@ -6,8 +6,13 @@
 data/
 logs/
 __pycache__/
+output/
 
 .emacs.d/session*
 .env.*
 
 .claude
+.env
+.envrc
+.DS_Store
+TODO.md
