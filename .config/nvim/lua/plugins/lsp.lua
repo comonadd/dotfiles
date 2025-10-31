@@ -136,6 +136,8 @@ lspconfig.basedpyright.setup({
     },
     python = {
       pythonPath = vim.fn.getcwd() .. "/.venv/bin/python",
+      venvPath = vim.fn.getcwd(),
+      venv = ".venv",
     },
   },
 })
