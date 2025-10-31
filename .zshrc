@@ -129,6 +129,11 @@ setup_docker_commands
 export DIRENV_LOG_FORMAT=""
 export DIRENV_WARN_TIMEOUT="0"
 
+# Custom direnv hook to silence all output
+_direnv_hook() {
+  eval "$(direnv export zsh 2>/dev/null)" 2>/dev/null;
+}
+
 ZSH_THEME="arrow"
 
 PROMPT='%B%F{240}%1~%f%b %# '
@@ -159,6 +164,8 @@ plugins=(
     colored-man-pages
     command-not-found
     macos
+    npm
+    yarn
     zsh-autosuggestions
     zsh-syntax-highlighting
 )
@@ -192,6 +199,11 @@ eval "$(zoxide init zsh)"
 ###################
 
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+
+# uv completion
+if command -v uv &> /dev/null; then
+    eval "$(uv generate-shell-completion zsh)"
+fi
 
 zstyle ':completion:*:*:make:*' tag-order 'targets'
 
