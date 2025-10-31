@@ -37,15 +37,17 @@ local plugins = {
 			}
 
 			vim.g.ale_linters = {
-				python = { "ruff", "mypy" },
+				python = { "ruff" },
 				yaml = { "yamllint", "actionlint" },
 				sh = { "bashate" },
 			}
 
 			vim.g.ale_python_ruff_options = "--config=/Users/guzeev/Work/visible-web/backend/ruff.toml"
 			vim.g.ale_python_autoflake_options = "--remove-all-unused-imports --remove-unused-variables --in-place"
-			vim.g.ale_python_mypy_options = "--show-error-codes --no-error-summary --verbose"
+			vim.g.ale_python_mypy_options = "--show-error-codes --no-error-summary"
 			vim.g.ale_fix_on_save = 1
+			vim.g.ale_lint_on_text_changed = 'never'
+			vim.g.ale_lint_on_insert_leave = 0
 		end,
 	},
 

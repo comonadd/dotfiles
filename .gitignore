@@ -9,3 +9,5 @@ __pycache__/
 
 .emacs.d/session*
 .env.*
+
+.claude
