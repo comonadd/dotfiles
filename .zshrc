@@ -104,11 +104,21 @@ function no-quarantine {
     sudo xattr -d com.apple.quarantine $@
 }
 
+function make() {
+    if [[ -f Makefile.new ]]; then
+        echo "Using Makefile.new"
+        command make -f Makefile.new "$@"
+    else
+        command make "$@"
+    fi
+}
+
 # source ~/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 setup_aliases
 setup_docker_commands
 
+export DIRENV_LOG_FORMAT=""
 eval "$(direnv hook zsh)"
 
 
@@ -139,26 +149,6 @@ plugins=(
     gitfast
     git-extras
 )
-
-# Function to check and load environment when changing directory
-function auto_env {
-  # Check if .env file exists and load it using direnv
-  # if [[ -f .env ]]; then
-  #   eval "$(direnv dotenv)"
-  # fi
-  
-  # Check if .venv or venv virtual environment exists and activate it
-  if [[ -f .venv/bin/activate ]]; then
-    source .venv/bin/activate
-  elif [[ -f venv/bin/activate ]]; then
-    source venv/bin/activate
-  fi
-}
-
-# Hook the function to run every time you change directory
-# function chpwd {
-#   auto_env
-# }
 
 source $ZSH/oh-my-zsh.sh
 
@@ -221,13 +211,9 @@ autoload -Uz add-zsh-hook
 . "$HOME/.local/bin/env"
 
 alias cdw="cd ~/Work/visible-web"
-alias cdb="cd ~/Work/visible-web && pipenv shell && cd backend"
+alias cdb="cd ~/Work/visible-web/backend"
 alias cda="cd ~/Work/visible-web/frontend/admin"
 alias cdnvim="cd ~/.config/nvim"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 alias claude='unset -f _direnv_hook 2>/dev/null; command claude'
 
