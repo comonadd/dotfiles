@@ -27,7 +27,6 @@ local plugins = {
 				ensure_installed = { "python", "typescript", "tsx", "javascript", "yaml", "json", "lua", "bash", "markdown" },
 				highlight = { enable = true },
 				indent = { enable = true },
-				autotag = { enable = true },
 			})
 		end,
 	},

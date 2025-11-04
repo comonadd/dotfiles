@@ -81,9 +81,22 @@ local on_attach = function(client, bufnr)
 end
 
 -- TypeScript/JavaScript LSP (using typescript-tools instead of ts_ls)
+-- Get the global node path from vim.g.node_host_prog (set in options.lua)
+local tsserver_path = nil
+if vim.g.node_host_prog then
+  local node_bin_dir = vim.fn.fnamemodify(vim.g.node_host_prog, ':h')
+  tsserver_path = node_bin_dir .. '/tsserver'
+  -- Check if tsserver exists at this location
+  if vim.fn.executable(tsserver_path) == 0 then
+    tsserver_path = nil
+  end
+end
+
 require("typescript-tools").setup({
   capabilities = capabilities,
   on_attach = on_attach,
+  -- Use the global node from fnm if available
+  tsserver_path = tsserver_path,
   settings = {
     tsserver_file_preferences = {
       includeInlayParameterNameHints = "all",

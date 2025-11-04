@@ -1,6 +1,43 @@
 -- Disable compatibility with vi
 vim.opt.compatible = false
 
+-- Configure Node.js from fnm for all language servers and plugins
+-- This ensures we always use the global node from fnm, not local node_modules
+local function setup_fnm_node()
+  -- Get the fnm root directory
+  local fnm_dir = vim.fn.expand('~/.local/share/fnm')
+
+  -- Get the global node path from fnm
+  local handle = io.popen('fnm exec --using default which node 2>/dev/null')
+  if handle then
+    local node_path = handle:read("*a"):gsub("%s+$", "")
+    handle:close()
+
+    if node_path and node_path ~= "" and vim.fn.executable(node_path) == 1 then
+      -- Set the node path for neovim-node-host
+      vim.g.node_host_prog = node_path
+
+      -- Get the bin directory from the node path
+      local node_bin_dir = vim.fn.fnamemodify(node_path, ':h')
+
+      -- Prepend the fnm node bin directory to PATH
+      -- This ensures all language servers and plugins use the global node
+      local current_path = vim.env.PATH or ""
+      vim.env.PATH = node_bin_dir .. ":" .. current_path
+
+      return true
+    end
+  end
+
+  return false
+end
+
+-- Setup fnm node
+if not setup_fnm_node() then
+  -- Fallback: try to find node in PATH
+  vim.notify("Warning: Could not find fnm node installation, using system node", vim.log.levels.WARN)
+end
+
 -- Basic settings
 vim.opt.number = true
 vim.opt.relativenumber = true
