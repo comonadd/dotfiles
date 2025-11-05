@@ -53,3 +53,50 @@ local functions = require('config.functions')
 
 vim.api.nvim_create_user_command('AddMissingImports', functions.add_missing_imports, {})
 vim.api.nvim_create_user_command('AddMissingImportsV2', functions.add_missing_imports_v2, {})
+
+-- Check Python and Node.js versions used by neovim
+vim.api.nvim_create_user_command('CheckVersions', function()
+  print("=== Neovim Runtime Versions ===\n")
+
+  -- Neovim Python (for pynvim)
+  if vim.g.python3_host_prog then
+    local python_version = vim.fn.system(vim.g.python3_host_prog .. ' --version'):gsub("\n", "")
+    print("Neovim Python (pynvim): " .. vim.g.python3_host_prog)
+    print("  Version: " .. python_version)
+  else
+    print("Neovim Python: Not configured")
+  end
+
+  print("")
+
+  -- Project Python (for LSP)
+  local project_python = vim.fn.getcwd() .. "/.venv/bin/python"
+  if vim.fn.executable(project_python) == 1 then
+    local project_version = vim.fn.system(project_python .. ' --version'):gsub("\n", "")
+    print("Project Python (LSP/linters): " .. project_python)
+    print("  Version: " .. project_version)
+  else
+    print("Project Python: .venv/bin/python not found")
+  end
+
+  print("")
+
+  -- Node.js
+  if vim.g.node_host_prog then
+    local node_version = vim.fn.system(vim.g.node_host_prog .. ' --version'):gsub("\n", "")
+    print("Node.js: " .. vim.g.node_host_prog)
+    print("  Version: " .. node_version)
+  else
+    print("Node.js: Not configured")
+  end
+
+  print("\n=== LSP Servers ===")
+  local clients = vim.lsp.get_active_clients({ bufnr = 0 })
+  if #clients == 0 then
+    print("No LSP clients active in current buffer")
+  else
+    for _, client in ipairs(clients) do
+      print("  - " .. client.name)
+    end
+  end
+end, {})

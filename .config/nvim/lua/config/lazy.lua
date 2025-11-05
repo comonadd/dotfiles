@@ -145,11 +145,28 @@ local plugins = {
 					cache_picker = {
 						num_pickers = 10,
 					},
+					-- Performance optimizations
+					path_display = { "smart" },  -- Smart path truncation
+					dynamic_preview_title = true,
+					preview = {
+						timeout = 250,  -- Reduce preview timeout (ms)
+						filesize_limit = 1,  -- Skip preview for files > 1MB
+					},
+					file_sorter = require('telescope.sorters').get_fzy_sorter,
+					generic_sorter = require('telescope.sorters').get_fzy_sorter,
 				},
 				pickers = {
 					lsp_dynamic_workspace_symbols = {
 						sorter = require("telescope").extensions.fzf.native_fzf_sorter(),
 						show_line = false,
+						-- Performance: only search after typing 2+ characters
+						on_input_filter_cb = function(prompt)
+							return #prompt > 1
+						end,
+						-- Performance: truncate long names
+						fname_width = 40,
+						symbol_width = 30,
+						symbol_type_width = 12,
 						entry_maker = function(entry)
 							-- Get the default entry maker
 							local make_entry = require("telescope.make_entry")
@@ -168,6 +185,22 @@ local plugins = {
 					lsp_document_symbols = {
 						sorter = require("telescope").extensions.fzf.native_fzf_sorter(),
 						show_line = false,
+					},
+					-- Enable path-based search for find_files
+					find_files = {
+						path_display = { "truncate" },  -- Show truncated paths from root
+						find_command = {
+							"rg",
+							"--files",
+							"--hidden",
+							"--glob", "!.git/*",
+							"--glob", "!node_modules/*",
+							"--glob", "!.venv/*",
+							"--glob", "!__pycache__/*",
+						},
+					},
+					live_grep = {
+						path_display = { "truncate" },  -- Show paths for grep results
 					},
 				},
 			})

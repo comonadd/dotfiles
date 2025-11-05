@@ -116,6 +116,9 @@ require("typescript-tools").setup({
 })
 
 -- Python LSP
+-- NOTE: This uses project Python (.venv/bin/python) for LSP analysis
+-- Neovim itself uses a different Python (vim.g.python3_host_prog) for pynvim
+-- This separation allows using latest Python for neovim while using project Python for LSP
 lspconfig.basedpyright.setup({
   capabilities = capabilities,
   on_attach = on_attach,

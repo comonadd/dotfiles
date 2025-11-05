@@ -38,6 +38,55 @@ if not setup_fnm_node() then
   vim.notify("Warning: Could not find fnm node installation, using system node", vim.log.levels.WARN)
 end
 
+-- Configure Python for neovim
+-- Use latest Python for neovim (pynvim) for better performance
+-- LSP and linters will use project Python (.venv/bin/python) - configured in lsp.lua
+local function setup_python()
+  -- Try to find latest Python installation
+  -- Priority: pyenv > homebrew > system
+
+  -- Try pyenv first
+  local handle = io.popen('which pyenv 2>/dev/null')
+  if handle then
+    local pyenv_path = handle:read("*a"):gsub("%s+$", "")
+    handle:close()
+
+    if pyenv_path and pyenv_path ~= "" then
+      -- Get latest Python from pyenv
+      local python_handle = io.popen('pyenv which python3 2>/dev/null')
+      if python_handle then
+        local python_path = python_handle:read("*a"):gsub("%s+$", "")
+        python_handle:close()
+
+        if python_path and python_path ~= "" and vim.fn.executable(python_path) == 1 then
+          vim.g.python3_host_prog = python_path
+          return true
+        end
+      end
+    end
+  end
+
+  -- Try homebrew Python (usually latest)
+  local brew_python = '/opt/homebrew/bin/python3'
+  if vim.fn.executable(brew_python) == 1 then
+    vim.g.python3_host_prog = brew_python
+    return true
+  end
+
+  -- Try system python3
+  local system_python = vim.fn.exepath('python3')
+  if system_python and system_python ~= "" then
+    vim.g.python3_host_prog = system_python
+    return true
+  end
+
+  return false
+end
+
+if not setup_python() then
+  vim.notify("Warning: Could not find Python installation for neovim", vim.log.levels.WARN)
+end
+
 -- Basic settings
 vim.opt.number = true
 vim.opt.relativenumber = true
