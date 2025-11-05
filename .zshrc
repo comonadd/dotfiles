@@ -61,7 +61,6 @@ function setup_aliases() {
     alias ls="eza --icons"
     alias la="eza --icons -la"
     alias cat="bat"
-    alias vim="nvim"
     alias gits="git status"
     alias gitb="git branch | sed 's/^..//'"
     alias yt="youtube-dl --add-metadata -ic"
@@ -74,6 +73,21 @@ function setup_aliases() {
     alias gitcampf="git cam && git pf"
     alias chrome_insecure='open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir=/tmp/chrome_insecure --disable-web-security'
     alias kill_workers="ps aux | grep split_translate_router | awk '{print $2}' | xargs kill -9"
+}
+
+# Neovim with tab-specific server (uses iTerm session ID for unique socket)
+# Replace colons in session ID as they're invalid in socket paths
+unalias vim 2>/dev/null || true
+unalias nvim 2>/dev/null || true
+
+nvim() {
+    local socket_name="${ITERM_SESSION_ID:-default}"
+    socket_name="${socket_name//:/—}"
+    command nvim --listen "/tmp/nvimsocket-$socket_name" "$@"
+}
+
+vim() {
+    nvim "$@"
 }
 
 function load_dotenv() {
