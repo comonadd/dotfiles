@@ -405,11 +405,12 @@ local plugins = {
 						cmp.TriggerEvent.InsertEnter,
 					},
 					completeopt = "menu,menuone,noinsert",
+					keyword_length = 1,  -- Trigger after 1 character
 				},
 				mapping = cmp.mapping.preset.insert({
 					["<C-b>"] = cmp.mapping.scroll_docs(-4),
 					["<C-f>"] = cmp.mapping.scroll_docs(4),
-					["<C-Space>"] = cmp.mapping.complete(),
+					["<C-n>"] = cmp.mapping.complete(),  -- Changed from Ctrl+Space to Ctrl+n
 					["<C-e>"] = cmp.mapping.abort(),
 					["<CR>"] = cmp.mapping.confirm({ select = true }),
 					["<Tab>"] = cmp.mapping(function(fallback)
