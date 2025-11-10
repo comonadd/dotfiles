@@ -121,7 +121,10 @@ function no-quarantine {
 }
 
 function make() {
-    if [[ -f Makefile.new ]]; then
+    if [[ -f Makefile.local ]]; then
+        echo "Using Makefile.local"
+        command make -f Makefile.local "$@"
+    elif [[ -f Makefile.new ]]; then
         echo "Using Makefile.new"
         command make -f Makefile.new "$@"
     else

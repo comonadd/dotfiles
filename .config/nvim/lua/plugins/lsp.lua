@@ -78,6 +78,23 @@ local on_attach = function(client, bufnr)
       apply = true,
     })
   end, opts)
+
+  -- Auto-organize imports on save for TypeScript/JavaScript files
+  if client.name == "typescript-tools" then
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      callback = function()
+        -- Organize imports (removes unused imports)
+        vim.lsp.buf.code_action({
+          context = {
+            only = { "source.organizeImports" },
+            diagnostics = {},
+          },
+          apply = true,
+        })
+      end,
+    })
+  end
 end
 
 -- TypeScript/JavaScript LSP (using typescript-tools instead of ts_ls)
