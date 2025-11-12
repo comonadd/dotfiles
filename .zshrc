@@ -264,3 +264,8 @@ alias claude='unset -f _direnv_hook 2>/dev/null; command claude'
 alias ag='ag --hidden --ignore .git'
 
 export PATH="$PATH:$HOME/.cargo/bin"
+
+
+alias list-git-skip-worktree-files="git ls-files -v | grep '^S'"
+
+export HOMEBREW_NO_ENV_HINTS=1
