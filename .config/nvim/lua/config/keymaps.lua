@@ -52,7 +52,13 @@ keymap('n', '<leader>fi', '<cmd>RgExact<CR>', {desc = 'Exact search'})
 keymap('n', '<leader>fp', '<cmd>Telescope find_files<CR>', {desc = 'Find files with preview'})
 keymap('n', '<leader>g', '<cmd>Telescope live_grep<CR>', {desc = 'Find text in project'})
 keymap('n', '<leader>s', '<cmd>Telescope lsp_document_symbols<CR>', {desc = 'Symbols in current file'})
-keymap('n', '<leader>S', '<cmd>Telescope lsp_dynamic_workspace_symbols<CR>', {desc = 'Symbols in workspace'})
+
+-- FZF-Lua for fast workspace symbol search (live/dynamic version)
+keymap('n', '<leader>S', '<cmd>lua require("fzf-lua").lsp_live_workspace_symbols()<CR>', {desc = 'Symbols in workspace (live)'})
+
+-- Aerial for symbol outline navigation
+keymap('n', '<leader>o', '<cmd>AerialToggle<CR>', {desc = 'Toggle symbol outline'})
+
 -- Use native LSP for references (much faster than Telescope)
 keymap('n', 'gr', vim.lsp.buf.references, {desc = 'References to this symbol'})
 

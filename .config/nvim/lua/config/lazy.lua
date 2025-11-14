@@ -31,6 +31,59 @@ local plugins = {
 		end,
 	},
 
+	-- Aerial - symbol outline and navigation
+	{
+		"stevearc/aerial.nvim",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-tree/nvim-web-devicons"
+		},
+		config = function()
+			require("aerial").setup({
+				-- Use both treesitter and LSP for symbol extraction
+				backends = { "treesitter", "lsp", "markdown", "man" },
+				-- Show symbol outline on the right side
+				layout = {
+					max_width = { 40, 0.2 },
+					width = nil,
+					min_width = 10,
+					default_direction = "prefer_right",
+				},
+				-- Disable on startup, toggle manually
+				attach_mode = "global",
+				close_automatic_events = {},
+				-- Filter symbols by kind
+				filter_kind = {
+					"Class",
+					"Constructor",
+					"Enum",
+					"Function",
+					"Interface",
+					"Module",
+					"Method",
+					"Struct",
+				},
+				-- Icons for different symbol types
+				icons = {
+					Class = "󰌗 ",
+					Constructor = " ",
+					Enum = "󰕘 ",
+					Function = "󰊕 ",
+					Interface = "󰕘 ",
+					Method = "󰆧 ",
+					Module = " ",
+					Struct = "󰌗 ",
+				},
+				-- Highlight symbol under cursor
+				highlight_on_hover = true,
+				-- Auto-update symbols while typing
+				autojump = false,
+				-- Performance: update delay
+				update_delay = 100,
+			})
+		end,
+	},
+
 	-- Linting and formatting
 	{
 		"dense-analysis/ale",
@@ -76,6 +129,65 @@ local plugins = {
 	},
 	"junegunn/fzf.vim",
 	"eugen0329/vim-esearch",
+
+	-- FZF-Lua - Fast LSP operations
+	{
+		"ibhagwan/fzf-lua",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			require("fzf-lua").setup({
+				winopts = {
+					height = 0.85,
+					width = 0.80,
+					preview = {
+						default = "bat",
+						layout = "flex",
+						flip_columns = 120,
+					},
+				},
+				files = {
+					git_icons = false,
+					file_icons = true,
+				},
+				grep = {
+					rg_opts = "--hidden --column --line-number --no-heading --color=always --smart-case --glob '!.git/' --glob '!node_modules/' --glob '!.venv/' --glob '!__pycache__/'",
+				},
+				lsp = {
+					-- Disable preview for workspace symbols (huge performance boost)
+					symbols = {
+						symbol_icons = {
+							File = "󰈙",
+							Module = "",
+							Namespace = "󰌗",
+							Package = "",
+							Class = "󰌗",
+							Method = "󰆧",
+							Property = "",
+							Field = "",
+							Constructor = "",
+							Enum = "󰕘",
+							Interface = "󰕘",
+							Function = "󰊕",
+							Variable = "󰆧",
+							Constant = "󰏿",
+							String = "󰀬",
+							Number = "󰎠",
+							Boolean = "◩",
+							Array = "󰅪",
+							Object = "󰅩",
+							Key = "󰌋",
+							Null = "󰟢",
+							EnumMember = "",
+							Struct = "󰌗",
+							Event = "",
+							Operator = "󰆕",
+							TypeParameter = "󰊄",
+						},
+					},
+				},
+			})
+		end,
+	},
 
 	-- Text manipulation
 	"tpope/vim-abolish",
@@ -159,10 +271,12 @@ local plugins = {
 					lsp_dynamic_workspace_symbols = {
 						sorter = require("telescope").extensions.fzf.native_fzf_sorter(),
 						show_line = false,
-						-- Performance: only search after typing 2+ characters
+						-- Performance: only search after typing 3+ characters (increased from 2)
 						on_input_filter_cb = function(prompt)
-							return #prompt > 1
+							return #prompt > 2
 						end,
+						-- Performance: disable preview for workspace symbols (major speed boost)
+						previewer = false,
 						-- Performance: truncate long names
 						fname_width = 40,
 						symbol_width = 30,
