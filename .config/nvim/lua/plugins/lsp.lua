@@ -84,14 +84,26 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_create_autocmd("BufWritePre", {
       buffer = bufnr,
       callback = function()
-        -- Organize imports (removes unused imports)
-        vim.lsp.buf.code_action({
-          context = {
-            only = { "source.organizeImports" },
-            diagnostics = {},
-          },
-          apply = true,
-        })
+        -- Synchronously organize imports (removes unused imports and sorts them)
+        -- Must be synchronous to complete before file save
+        local params = vim.lsp.util.make_range_params()
+        params.context = {
+          only = { "source.organizeImports" },
+          diagnostics = {},
+        }
+
+        local result = vim.lsp.buf_request_sync(0, 'textDocument/codeAction', params, 1000)
+        if result then
+          for _, res in pairs(result) do
+            if res.result then
+              for _, action in pairs(res.result) do
+                if action.edit then
+                  vim.lsp.util.apply_workspace_edit(action.edit, 'utf-8')
+                end
+              end
+            end
+          end
+        end
       end,
     })
   end
@@ -114,7 +126,11 @@ require("typescript-tools").setup({
   on_attach = on_attach,
   -- Use the global node from fnm if available
   tsserver_path = tsserver_path,
+  -- Performance: Separate diagnostic server for better responsiveness
+  separate_diagnostic_server = true,
   settings = {
+    -- Performance: Increase memory limit for large projects
+    tsserver_max_memory = "8192",
     tsserver_file_preferences = {
       includeInlayParameterNameHints = "all",
       includeInlayParameterNameHintsWhenArgumentMatchesName = false,
@@ -144,8 +160,11 @@ lspconfig.basedpyright.setup({
       analysis = {
         autoSearchPaths = true,
         useLibraryCodeForTypes = true,
-        diagnosticMode = "workspace",
+        -- Performance: Only analyze open files for faster symbol search
+        diagnosticMode = "openFilesOnly",
         typeCheckingMode = "basic",
+        -- Performance: Disable pre-emptive indexing
+        indexing = false,
       },
     },
     python = {

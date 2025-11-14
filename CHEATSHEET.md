@@ -1,5 +1,54 @@
 # CLI Tools Cheatsheet
 
+## Oil.nvim (File Browser in Neovim)
+Edit your filesystem like a buffer. Changes are applied when you save with `:w`.
+
+### Opening Oil
+- `<F4>` - Open Oil in current file's directory
+- `<C-o>` - Open Oil in current file's directory
+- `<C-n>` - Open Oil in current working directory
+
+### Navigation
+- `<CR>` (Enter) - Open file or enter directory
+- `-` - Go to parent directory
+- `_` - Open current working directory
+- `/` - Search within the directory listing
+
+### File Operations (Edit like a buffer!)
+- `dd` - Delete file/directory (like deleting a line)
+- `yy` - Yank (copy) file path
+- `p` - Paste (copy file to current directory)
+- `d{motion}` - Delete multiple files (e.g., `d3j` deletes 3 files)
+- `i` or `a` - Insert mode to rename file (edit the filename directly)
+- `cc` - Change entire line to rename file
+- `:w` or `<C-s>` - **Save changes (performs actual file operations!)**
+- `u` - Undo changes before saving
+
+### Creating New Files/Directories
+- `i` or `o` - Enter insert mode and type new filename
+- Add `/` at end of name to create a directory (e.g., `newfolder/`)
+- `:w` - Save to create the file/directory
+
+### View Options
+- `g?` - Show help menu with all keybindings
+- `g.` - Toggle hidden files (dotfiles)
+- `g\\` - Toggle trash (show deleted items)
+- `gs` - Change sort order
+- `gd` - Show detail view
+- `g<C-h>` - Toggle hidden files
+
+### Other Actions
+- `gx` - Open file with system default application
+- `<C-p>` - Open file preview
+- `<C-c>` - Close Oil buffer
+- `q` - Close Oil buffer
+
+### Tips
+- Oil treats directories as editable buffers - use normal Vim motions!
+- You can use visual mode to select multiple files: `V` then `j/k` to select, then `d` to delete
+- Changes are **not applied** until you `:w` (write/save)
+- Press `u` to undo changes before saving
+
 ## lazygit
 Terminal GUI for git workflow management.
 
