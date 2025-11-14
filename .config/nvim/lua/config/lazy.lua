@@ -143,6 +143,8 @@ local plugins = {
 						default = "bat",
 						layout = "flex",
 						flip_columns = 120,
+						-- Performance: delay preview rendering
+						delay = 100,
 					},
 				},
 				files = {
@@ -153,6 +155,8 @@ local plugins = {
 					rg_opts = "--hidden --column --line-number --no-heading --color=always --smart-case --glob '!.git/' --glob '!node_modules/' --glob '!.venv/' --glob '!__pycache__/'",
 				},
 				lsp = {
+					-- Performance: increase timeout for large projects
+					async_or_timeout = 5000,
 					-- Disable preview for workspace symbols (huge performance boost)
 					symbols = {
 						symbol_icons = {
@@ -186,6 +190,41 @@ local plugins = {
 					},
 				},
 			})
+		end,
+	},
+
+	-- Universal ctags auto-generation and management
+	{
+		"ludovicchabant/vim-gutentags",
+		config = function()
+			-- Only generate tags for project roots
+			vim.g.gutentags_project_root = {'.git', 'package.json', 'pyproject.toml', 'Cargo.toml'}
+
+			-- Cache directory for tags (create if doesn't exist)
+			local tags_cache_dir = vim.fn.stdpath('cache') .. '/tags'
+			vim.fn.mkdir(tags_cache_dir, 'p')
+			vim.g.gutentags_cache_dir = tags_cache_dir
+
+			-- Exclude patterns
+			vim.g.gutentags_ctags_exclude = {
+				'.git', 'node_modules', '.venv', '__pycache__',
+				'*.min.js', '*.lock', 'package-lock.json',
+				'*.css', 'dist', 'build', '.tox',
+				'*.egg-info', '.mypy_cache', '.pytest_cache',
+				'htmlcov', 'migrations', '*.pyc'
+			}
+
+			-- Use universal-ctags options
+			vim.g.gutentags_ctags_extra_args = {
+				'--tag-relative=yes',
+				'--fields=+ailmnS',
+				'--extras=+q',
+			}
+
+			-- Add language-specific options
+			vim.g.gutentags_ctags_extra_args_python = {
+				'--python-kinds=-iv'  -- Exclude variables and imports
+			}
 		end,
 	},
 

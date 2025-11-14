@@ -53,8 +53,11 @@ keymap('n', '<leader>fp', '<cmd>Telescope find_files<CR>', {desc = 'Find files w
 keymap('n', '<leader>g', '<cmd>Telescope live_grep<CR>', {desc = 'Find text in project'})
 keymap('n', '<leader>s', '<cmd>Telescope lsp_document_symbols<CR>', {desc = 'Symbols in current file'})
 
--- FZF-Lua for fast workspace symbol search (live/dynamic version)
-keymap('n', '<leader>S', '<cmd>lua require("fzf-lua").lsp_live_workspace_symbols()<CR>', {desc = 'Symbols in workspace (live)'})
+-- Hybrid symbol search workflow
+-- Fast ctags-based search (instant, use 90% of the time)
+keymap('n', '<leader>S', '<cmd>lua require("fzf-lua").tags()<CR>', {desc = 'Symbols in workspace (ctags - FAST)'})
+-- Semantic LSP search (accurate, use when needed)
+keymap('n', '<leader>ss', '<cmd>lua require("fzf-lua").lsp_live_workspace_symbols()<CR>', {desc = 'Symbols in workspace (LSP - semantic)'})
 
 -- Aerial for symbol outline navigation
 keymap('n', '<leader>o', '<cmd>AerialToggle<CR>', {desc = 'Toggle symbol outline'})
