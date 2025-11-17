@@ -8,7 +8,45 @@ end, {bang = true, nargs = '*'})
 
 vim.api.nvim_create_user_command('CreateHere', function(opts)
   vim.cmd('e %:h/' .. opts.args)
-end, {nargs = 1})
+end, {
+  nargs = 1,
+  complete = function(arg_lead, cmd_line, cursor_pos)
+    -- Get the directory of the current file
+    local current_dir = vim.fn.expand('%:h')
+
+    -- If arg_lead contains a path separator, complete relative to that subdirectory
+    local dir_part = ''
+    local file_part = arg_lead
+    local last_slash = arg_lead:match('^.*()/')
+
+    if last_slash then
+      dir_part = arg_lead:sub(1, last_slash)
+      file_part = arg_lead:sub(last_slash + 1)
+    end
+
+    -- Full path to search
+    local search_dir = current_dir .. '/' .. dir_part
+
+    -- Get files and directories in the target directory
+    local items = vim.fn.readdir(search_dir, function(name)
+      -- Filter by what user has typed
+      return vim.startswith(name, file_part)
+    end)
+
+    -- Add trailing slash to directories and prepend dir_part to all items
+    local completions = {}
+    for _, item in ipairs(items) do
+      local full_path = search_dir .. '/' .. item
+      if vim.fn.isdirectory(full_path) == 1 then
+        table.insert(completions, dir_part .. item .. '/')
+      else
+        table.insert(completions, dir_part .. item)
+      end
+    end
+
+    return completions
+  end
+})
 
 vim.api.nvim_create_user_command('Align', function(opts)
   local line1 = opts.line1
