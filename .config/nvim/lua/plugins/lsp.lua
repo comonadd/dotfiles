@@ -84,26 +84,14 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_create_autocmd("BufWritePre", {
       buffer = bufnr,
       callback = function()
-        -- Synchronously organize imports (removes unused imports and sorts them)
-        -- Must be synchronous to complete before file save
-        local params = vim.lsp.util.make_range_params()
-        params.context = {
-          only = { "source.organizeImports" },
-          diagnostics = {},
-        }
-
-        local result = vim.lsp.buf_request_sync(0, 'textDocument/codeAction', params, 1000)
-        if result then
-          for _, res in pairs(result) do
-            if res.result then
-              for _, action in pairs(res.result) do
-                if action.edit then
-                  vim.lsp.util.apply_workspace_edit(action.edit, 'utf-8')
-                end
-              end
-            end
-          end
-        end
+        -- Organize imports (removes unused imports)
+        vim.lsp.buf.code_action({
+          context = {
+            only = { "source.organizeImports" },
+            diagnostics = {},
+          },
+          apply = true,
+        })
       end,
     })
   end
