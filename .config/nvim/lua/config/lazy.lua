@@ -196,6 +196,7 @@ local plugins = {
 	-- Universal ctags auto-generation and management
 	{
 		"ludovicchabant/vim-gutentags",
+		enabled = false,
 		config = function()
 			-- Only generate tags for project roots
 			vim.g.gutentags_project_root = {'.git', 'package.json', 'pyproject.toml', 'Cargo.toml'}
